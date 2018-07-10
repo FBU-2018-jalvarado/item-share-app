@@ -24,7 +24,7 @@ Required
     [ ] user can see when item is available
     [ ] user can book the item
     [ ] and the item's owner will be notified
-[ ] User will be charged and Owner will be paid through Stripe
+    [ ] User will be charged and Owner will be paid through Stripe
 [ ] Posting available items
 
 Optional
