@@ -21,38 +21,38 @@ Required
 [ ] User can use the interactive map to find items being shared nearby\
 [ ] User can click on the items being displayed on the map to see a detailed screen for the item\
     [ ] (similar to zipcar)\
-    [ ] user can see when item is available
-    [ ] user can book the item
-    [ ] and the item's owner will be notified
-    [ ] User will be charged and Owner will be paid through Stripe
-[ ] Posting available items
+    [ ] user can see when item is available\
+    [ ] user can book the item\
+    [ ] and the item's owner will be notified\
+    [ ] User will be charged and Owner will be paid through Stripe\
+[ ] Posting available items\
 
 Optional
 
-[ ] User can search for an item they wish to rent
-    [ ] Create categories that the user can search within
-[ ] User can cancel their booking within the detailed item view
-[ ] The user is not charged until pickup is confirmed by the person who is getting item (back)
+[ ] User can search for an item they wish to rent\
+    [ ] Create categories that the user can search within\
+[ ] User can cancel their booking within the detailed item view\
+[ ] The user is not charged until pickup is confirmed by the person who is getting item (back)\
 
 Stretch
 
-[ ] Login/Signup
-[ ] Profile tab with user's history (checked-out items, sold items, history)
-[ ] Phone numbers exchanged once they have booked the item
-[ ] Specifications about your item
+[ ] Login/Signup\
+[ ] Profile tab with user's history (checked-out items, sold items, history)\
+[ ] Phone numbers exchanged once they have booked the item\
+[ ] Specifications about your item\
 
 
 extra extra extra
 
-[ ] picture attached with the item
-[ ] request an item that isn't currently on the app
-[ ] notifications
-[ ] subscription service
-[ ] messaging
-[ ] history
-[ ] reviews and ratings
-[ ] frequently used
-[ ] radii for the map
+[ ] picture attached with the item\
+[ ] request an item that isn't currently on the app\
+[ ] notifications\
+[ ] subscription service\
+[ ] messaging\
+[ ] history\
+[ ] reviews and ratings\
+[ ] frequently used\
+[ ] radii for the map\
 
 
 ### Characters
