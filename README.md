@@ -24,7 +24,7 @@ Lola has always wanted to use a riding lawn mower, just for kicks. But, her fami
 
 Ever since visiting a bakery in Italy, Sebastian has wanted to try his hand at baking bread. However, he'd first like to try out breakmaking before seeing if he'll keep it up as a regular thing, and thus doesn't want to buy a breadmaker just for this one bake. With [insert name here] he can easily search for and borrow a breadmaker from around his area before making the big decision. 
 
-Millie just moved two states over for her new job. Since she is currently 
+Millie just moved two states over for her new job. She didn't bring much more than the basic essentials, as she was alone on the move. Since she is currently staying in a temporary apartment for a week or two before she can move into her actual apartment, she doesn't want to unpack much, nor go on a huge shopping spree and have to lug everything to her new apartment. 
 
 // rice cooker
 // hangers
