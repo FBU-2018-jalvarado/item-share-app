@@ -18,9 +18,9 @@ With [insert name here], you can easily rent and return items from around your n
 
 Required
 
-[ ] User can use the interactive map to find items being shared nearby
-[ ] User can click on the items being displayed on the map to see a detailed screen for the item
-    [ ] (similar to zipcar)
+[ ] User can use the interactive map to find items being shared nearby\
+[ ] User can click on the items being displayed on the map to see a detailed screen for the item\
+    [ ] (similar to zipcar)\
     [ ] user can see when item is available
     [ ] user can book the item
     [ ] and the item's owner will be notified
