@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		4D4C20F820EFECE8002A9EA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C20F720EFECE8002A9EA2 /* AppDelegate.m */; };
-		4D4C20FB20EFECE8002A9EA2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C20FA20EFECE8002A9EA2 /* ViewController.m */; };
 		4D4C20FE20EFECE8002A9EA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C20FC20EFECE8002A9EA2 /* Main.storyboard */; };
 		4D4C210020EFECE9002A9EA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C20FF20EFECE9002A9EA2 /* Assets.xcassets */; };
 		4D4C210320EFECE9002A9EA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4C210120EFECE9002A9EA2 /* LaunchScreen.storyboard */; };
 		4D4C210620EFECE9002A9EA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C210520EFECE9002A9EA2 /* main.m */; };
 		4D4C211020EFECE9002A9EA2 /* ItemShareAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C210F20EFECE9002A9EA2 /* ItemShareAppTests.m */; };
 		4D4C211B20EFECE9002A9EA2 /* ItemShareAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C211A20EFECE9002A9EA2 /* ItemShareAppUITests.m */; };
+		4DE6805720FD0E0A00A4CC22 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE6805620FD0E0A00A4CC22 /* MapKit.framework */; };
+		4DE6805B20FD0EBF00A4CC22 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6805A20FD0EBF00A4CC22 /* MapViewController.m */; };
+		4DE6805D20FD155E00A4CC22 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE6805C20FD155E00A4CC22 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +40,6 @@
 		4D4C20F320EFECE8002A9EA2 /* ItemShareApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItemShareApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4C20F620EFECE8002A9EA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D4C20F720EFECE8002A9EA2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4D4C20F920EFECE8002A9EA2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4D4C20FA20EFECE8002A9EA2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4D4C20FD20EFECE8002A9EA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D4C20FF20EFECE9002A9EA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D4C210220EFECE9002A9EA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +51,10 @@
 		4D4C211620EFECE9002A9EA2 /* ItemShareAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItemShareAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4C211A20EFECE9002A9EA2 /* ItemShareAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemShareAppUITests.m; sourceTree = "<group>"; };
 		4D4C211C20EFECE9002A9EA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DE6805620FD0E0A00A4CC22 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4DE6805920FD0EBF00A4CC22 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		4DE6805A20FD0EBF00A4CC22 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		4DE6805C20FD155E00A4CC22 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE6805D20FD155E00A4CC22 /* CoreLocation.framework in Frameworks */,
+				4DE6805720FD0E0A00A4CC22 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +91,7 @@
 				4D4C210E20EFECE9002A9EA2 /* ItemShareAppTests */,
 				4D4C211920EFECE9002A9EA2 /* ItemShareAppUITests */,
 				4D4C20F420EFECE8002A9EA2 /* Products */,
+				4DE6805520FD0E0A00A4CC22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +108,9 @@
 		4D4C20F520EFECE8002A9EA2 /* ItemShareApp */ = {
 			isa = PBXGroup;
 			children = (
+				4DE6805820FD0E2C00A4CC22 /* ViewControllers */,
 				4D4C20F620EFECE8002A9EA2 /* AppDelegate.h */,
 				4D4C20F720EFECE8002A9EA2 /* AppDelegate.m */,
-				4D4C20F920EFECE8002A9EA2 /* ViewController.h */,
-				4D4C20FA20EFECE8002A9EA2 /* ViewController.m */,
 				4D4C20FC20EFECE8002A9EA2 /* Main.storyboard */,
 				4D4C20FF20EFECE9002A9EA2 /* Assets.xcassets */,
 				4D4C210120EFECE9002A9EA2 /* LaunchScreen.storyboard */,
@@ -130,6 +136,24 @@
 				4D4C211C20EFECE9002A9EA2 /* Info.plist */,
 			);
 			path = ItemShareAppUITests;
+			sourceTree = "<group>";
+		};
+		4DE6805520FD0E0A00A4CC22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DE6805C20FD155E00A4CC22 /* CoreLocation.framework */,
+				4DE6805620FD0E0A00A4CC22 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DE6805820FD0E2C00A4CC22 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DE6805920FD0EBF00A4CC22 /* MapViewController.h */,
+				4DE6805A20FD0EBF00A4CC22 /* MapViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D4C20FB20EFECE8002A9EA2 /* ViewController.m in Sources */,
+				4DE6805B20FD0EBF00A4CC22 /* MapViewController.m in Sources */,
 				4D4C210620EFECE9002A9EA2 /* main.m in Sources */,
 				4D4C20F820EFECE8002A9EA2 /* AppDelegate.m in Sources */,
 			);

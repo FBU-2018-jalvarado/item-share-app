@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  MapViewController.h
 //  ItemShareApp
 //
-//  Created by Nicolas Machado on 7/6/18.
+//  Created by Nicolas Machado on 7/16/18.
 //  Copyright © 2018 Nicolas Machado. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MapViewController : UIViewController
 
 @end
-
