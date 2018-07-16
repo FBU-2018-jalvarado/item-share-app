@@ -23,12 +23,9 @@ Required
 
 [ ] User can use the interactive map to find items being shared nearby\
 [ ] User can click on the items being displayed on the map to see a detailed screen for the item\
-    [ ] (similar to zipcar)\
-    [ ] user can see when item is available\
-    [ ] user can book the item\
-    [ ] and the item's owner will be notified\
-    [ ] User will be charged and Owner will be paid through Stripe\
-[ ] Posting available items\
+[ ] user can see when item is available\
+[ ] user can book the item\
+[ ] User will be charged throughn Stripe
 
 Optional
 
@@ -36,6 +33,8 @@ Optional
     [ ] Create categories that the user can search within\
 [ ] User can cancel their booking within the detailed item view\
 [ ] The user is not charged until pickup is confirmed by the person who is getting item (back)\
+[ ] Owner will be paid through Stripe\
+[ ] Posting available items\
 
 Stretch
 
@@ -43,6 +42,8 @@ Stretch
 [ ] Profile tab with user's history (checked-out items, sold items, history)\
 [ ] Phone numbers exchanged once they have booked the item\
 [ ] Specifications about your item\
+[ ] Apple maps clustering\
+[ ] and the item's owner will be notified\
 
 
 extra extra extra
@@ -64,3 +65,22 @@ Lola has always wanted to use a riding lawn mower, just for kicks. But, her fami
 Ever since visiting a bakery in Italy, Sebastian has wanted to try his hand at baking bread. However, he'd first like to try out breadmaking before seeing if he'll keep it up as a regular thing, and thus doesn't want to buy a breadmaker just for this one bake. With [insert name here] he can easily search for and borrow a breadmaker from around his area before making the big decision. 
 
 Millie just moved two states over for her new job. She didn't bring much more than the basic essentials, as she was alone on the move. Since she is currently staying in a temporary apartment for a week or two before she can move into her actual apartment, she doesn't want to unpack much, nor go on a huge shopping spree and have to lug everything to her new apartment. But anytime she wants rice, she can pop down the block for a rice cooker for a few hours without having to buy one yet. When her woolen shirt tears a bit in the harsh washing machines, she can easily borrow a sewing machine for an easy and cheap fix. With [insert name here], Millie can get everything she needs without the hassle of shopping and buying. 
+
+### Data Schema
+Database for Item:
+Category
+Owner
+Title
+Description
+Picture
+Address
+Price
+Location
+(something for time booking perhaps booleans in an array)
+objectID
+booked now boolean
+dictionary of arrays of ns dates
+Pickup confirmed?
+
+
+
