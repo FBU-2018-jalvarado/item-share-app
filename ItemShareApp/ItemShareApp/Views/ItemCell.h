@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 @interface ItemCell : UITableViewCell
 
 //@property (strong, nonatomic) Item *item;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) Item *item;
 
 - (void)setItem:(NSString *)name;
 

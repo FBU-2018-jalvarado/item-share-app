@@ -21,9 +21,9 @@
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
         // set config keys etc.
-        configuration.applicationId = @"instagram";
-        configuration.clientKey = @"jdhnaskdjnaskjd";
-        configuration.server = @"https://cryptic-wave-55987.herokuapp.com/parse";
+        configuration.applicationId = @"itemshareId";
+        configuration.clientKey = @"itemshareMaster";
+        configuration.server = @"https://item-share.herokuapp.com/parse";
     }];
     
     [Parse initializeWithConfiguration:config];

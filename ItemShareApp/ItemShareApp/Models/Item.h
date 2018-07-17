@@ -16,9 +16,10 @@
 //@property (strong, nonatomic) NSString _Nullable description;
 
 @property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) User *owner;
+@property (strong, nonatomic) PFUser *owner;
 @property (strong, nonatomic) CLLocation *location;
 @property (strong, nonatomic) NSString *_Nullable address;
 @property (strong, nonatomic) NSString *itemID;
 
++ (void) postItem: ( NSString * )title withOwner:( PFUser * )owner withLocation: ( CLLocation * )location withAddress:( NSString * _Nullable )address withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 @end
