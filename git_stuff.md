@@ -1,4 +1,5 @@
 # Git Tips #
+https://www.atlassian.com/git/tutorials/using-branches/git-merge
 
 ## When done with branch update [updatedbranch] (and possibly merge with other branches [otherbranch]) ##
 1. git checkout **updatedbranch** -> will say "Switched to branch '**updatedbranch**'"
