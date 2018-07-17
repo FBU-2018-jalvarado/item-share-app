@@ -8,7 +8,6 @@
 
 #import "PFObject.h"
 #import <CoreLocation/CoreLocation.h>
-#import "User.h"
 
 @interface Item : PFObject<PFSubclassing>
 
