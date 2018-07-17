@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -17,9 +18,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        
+        // set config keys etc.
+        configuration.applicationId = @"instagram";
+        configuration.clientKey = @"jdhnaskdjnaskjd";
+        configuration.server = @"https://cryptic-wave-55987.herokuapp.com/parse";
+    }];
+    
+    [Parse initializeWithConfiguration:config];
+    
+    // if the user has already logged in then just go straight to feed
+    if (PFUser.currentUser) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    }
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
