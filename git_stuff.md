@@ -1,5 +1,6 @@
 # Git Tips #
-https://www.atlassian.com/git/tutorials/using-branches/git-merge
+Git merge doc: https://www.atlassian.com/git/tutorials/using-branches/git-merge
+pbxproj trash: https://stackoverflow.com/questions/37407969/how-to-solve-conflicts-about-project-pbxproj-in-xcode-use-git
 
 ## When done with branch update [updatedbranch] (and possibly merge with other branches [otherbranch]) ##
 1. git checkout **updatedbranch** -> will say "Switched to branch '**updatedbranch**'"
