@@ -6,10 +6,9 @@
 //  Copyright © 2018 Nicolas Machado. All rights reserved.
 //
 
-//#import "PFUser.h"
-#import <Foundation/Foundation.h>
+#import "PFUser.h"
 
-@interface User : NSObject
+@interface User : PFUser
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray *itemsForSale;
