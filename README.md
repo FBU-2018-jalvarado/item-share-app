@@ -35,6 +35,7 @@ Optional
 [ ] The user is not charged until pickup is confirmed by the person who is getting item (back)\
 [ ] Owner will be paid through Stripe\
 [ ] Posting available items\
+[ ] User can can tap map for a CLLocation or convert address to a CLLocation
 
 Stretch
 
