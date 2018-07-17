@@ -30,9 +30,10 @@
     
     // if the user has already logged in then just go straight to feed
     if (PFUser.currentUser) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        // TODO: Fix this by making it go to main instead of login
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"loginStoryboard" bundle:nil];
         
-        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"login"];
     }
     return YES;
 }
