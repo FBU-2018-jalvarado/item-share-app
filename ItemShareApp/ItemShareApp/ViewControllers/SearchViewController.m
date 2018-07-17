@@ -10,6 +10,7 @@
 #import "ItemCell.h"
 #import "Item.h"
 #import "User.h"
+#import "Parse.h"
 
 @interface SearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
@@ -31,6 +32,7 @@
     self.itemsArray = [NSMutableArray arrayWithObjects:@"item1", @"item2", @"item3", @"item4", @"item5", @"item6", @"item6", @"item7",  @"item8", @"item9", @"item10", nil];
     self.filteredItemsArray = self.itemsArray;
     [self postInfo];
+    [self fetchItems];
     
 }
 
@@ -93,6 +95,40 @@
         else{
             NSLog(@"success");
             
+        }
+    }];
+}
+
+- (void)fetchItems {
+    
+    PFQuery *itemQuery = [Item query];
+    //PFQuery *itemQuery = [PFQuery queryWithClassName:@"Item"];
+    [itemQuery orderByDescending:@"createdAt"];
+    [itemQuery includeKey:@"location"];
+    [itemQuery includeKey:@"title"];
+    [itemQuery includeKey:@"owner"];
+    [itemQuery includeKey:@"address"];
+    //    postQuery.limit = 20;
+    
+    // fetch data asynchronously
+    [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<Item *> * _Nullable items, NSError * _Nullable error) {
+        if(error != nil)
+        {
+            NSLog(@"ERROR GETTING THE ITEMS!");
+        }
+        else {
+            if (items) {
+                self.itemsArray = [[NSMutableArray alloc] init];
+                for(Item *newItem in items)
+                {
+                    [self.itemsArray addObject:newItem];
+                }
+                // self.itemsArray = [self.itemsArray arrayByAddingObjectsFromArray:items];
+                //self.itemsArray = items;
+                NSLog(@"SUCCESSFULLY RETREIVED ITEMS!");
+                [self.tableView reloadData];
+                
+            }
         }
     }];
 }
