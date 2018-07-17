@@ -15,9 +15,9 @@
 @dynamic name;
 @dynamic itemsForSale;
 
-+ (nonnull NSString *)parseClassName {
-    return @"User";
-}
+//+ (nonnull NSString *)parseClassName {
+//    return @"User";
+//}
 
 
 //+ (void) configureUser: ( NSString * )name withUsername:( NSString * )username withLocation: ( CLLocation * )location withAddress:( NSString * _Nullable )address withCompletion: completion {

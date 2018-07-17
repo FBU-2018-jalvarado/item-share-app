@@ -57,6 +57,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D6B6EE420FE783D006CC875 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B9F7E8020FE4F57000E319F /* MapViewController.h */,
+				9B9F7E7E20FE4F57000E319F /* MapViewController.m */,
+				9B9F7E7F20FE4F57000E319F /* SearchViewController.h */,
+				9B9F7E7D20FE4F57000E319F /* SearchViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4D6B6EE520FE7882006CC875 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B9F7E8320FE4F5F000E319F /* ItemCell.h */,
+				9B9F7E8420FE4F5F000E319F /* ItemCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9B9F7E4320FE4E42000E319F = {
 			isa = PBXGroup;
 			children = (
@@ -78,9 +98,9 @@
 		9B9F7E8820FE4F9F000E319F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9B9F7E8B20FE4F9F000E319F /* User.h */,
 				9B9F7E8920FE4F9F000E319F /* User.m */,
 				9B9F7E8A20FE4F9F000E319F /* Item.h */,
-				9B9F7E8B20FE4F9F000E319F /* User.h */,
 				9B9F7E8C20FE4F9F000E319F /* Item.m */,
 			);
 			path = Models;
@@ -89,20 +109,16 @@
 		9B9F7E8F20FE4FC2000E319F /* ItemShareApp */ = {
 			isa = PBXGroup;
 			children = (
-				9B9F7E6720FE4EE6000E319F /* AppDelegate.h */,
-				9B9F7E6820FE4EE6000E319F /* AppDelegate.m */,
-				9B9F7E6B20FE4EEE000E319F /* Info.plist */,
+				9B9F7E8820FE4F9F000E319F /* Models */,
+				4D6B6EE520FE7882006CC875 /* Views */,
+				4D6B6EE420FE783D006CC875 /* ViewControllers */,
 				9B2B49FD20FE553E00A91997 /* LaunchScreen.storyboard */,
 				4D6B6EE220FE57DD006CC875 /* Main.storyboard */,
-				9B9F7E8020FE4F57000E319F /* MapViewController.h */,
-				9B9F7E7E20FE4F57000E319F /* MapViewController.m */,
-				9B9F7E7F20FE4F57000E319F /* SearchViewController.h */,
-				9B9F7E8320FE4F5F000E319F /* ItemCell.h */,
-				9B9F7E8420FE4F5F000E319F /* ItemCell.m */,
-				9B9F7E8820FE4F9F000E319F /* Models */,
-				9B9F7E7D20FE4F57000E319F /* SearchViewController.m */,
-				9B9F7E6E20FE4EF9000E319F /* Assets.xcassets */,
 				9B9F7E6A20FE4EED000E319F /* main.m */,
+				9B9F7E6720FE4EE6000E319F /* AppDelegate.h */,
+				9B9F7E6820FE4EE6000E319F /* AppDelegate.m */,
+				9B9F7E6E20FE4EF9000E319F /* Assets.xcassets */,
+				9B9F7E6B20FE4EEE000E319F /* Info.plist */,
 			);
 			path = ItemShareApp;
 			sourceTree = SOURCE_ROOT;
