@@ -29,6 +29,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.searchBar.delegate = self;
+    self.tableView.alpha = 0;
 //    self.itemsArray = [NSMutableArray arrayWithObjects:@"item1", @"item2", @"item3", @"item4", @"item5", @"item6", @"item6", @"item7",  @"item8", @"item9", @"item10", nil];
 //    self.filteredItemsArray = self.itemsArray;
 //    [self postInfo];
@@ -43,6 +44,14 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view endEditing:YES];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.tableView.alpha = 1;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    self.tableView.alpha = 0;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
