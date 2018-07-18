@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 @interface MapViewController : UIViewController
 @property (strong, nonatomic) NSMutableArray *itemsArray;
+@property (strong, nonatomic) Item *item;
+
 
 @end
