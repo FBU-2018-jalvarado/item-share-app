@@ -36,6 +36,7 @@ Optional
 [ ] Owner will be paid through Stripe\
 [ ] Posting available items\
 [ ] User can can tap map for a CLLocation or convert address to a CLLocation
+[ ] Asking user for permission for location services
 
 Stretch
 
