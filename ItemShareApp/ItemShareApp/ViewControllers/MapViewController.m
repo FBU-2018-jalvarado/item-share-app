@@ -31,10 +31,10 @@
     else{
         [self setRegion]; //sets SF regions
     }
-    [self addAnnotationAtAddress:@"326 Santa Teresa" withTitle:@"Pin!"];
-    [self addAnnotationatCoordinate:CLLocationCoordinate2DMake(37.783333, -122.416667)];
+    [self addAnnotationAtAddress:@"1 Infinite Loop, Cupertino, CA" withTitle:@"Pin!"];
+    [self addAnnotationAtCoordinate:CLLocationCoordinate2DMake(37.783333, -122.416667)];
     
-    //326 Santa Teresa StStanford, CA 94305
+    //1 Infinite Loop, Cupertino, CA
 }
 
 //only for specific region, calls the area of San Francisco when no location services available.
@@ -67,7 +67,7 @@
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     MKCoordinateRegion mapRegion;
     mapRegion.center = self.mapView.userLocation.coordinate;
-    mapRegion.span = MKCoordinateSpanMake(0.2, 0.2);
+    mapRegion.span = MKCoordinateSpanMake(0.3, 0.3);
     [self.mapView setRegion:mapRegion animated: YES];
 }
 
@@ -76,7 +76,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addAnnotationatCoordinate: (CLLocationCoordinate2D)coordinate { //why no stars on this? is this not an object?
+- (void)addAnnotationAtCoordinate: (CLLocationCoordinate2D)coordinate { //why no stars on this? is this not an object?
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = coordinate;
     annotation.title = @"annotation!";
@@ -84,20 +84,22 @@
 }
 
 - (void)addAnnotationAtAddress: (NSString *)address withTitle:(NSString*)title{
-    CLGeocoder *geocoder;
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if(error){
-            NSLog(@"error getting address");
+            NSLog(@"%@", error);
         }
-        if([placemarks count] != 0){
-        CLLocation *location = [placemarks firstObject].location;
-        MKPointAnnotation *annotation;
-        annotation.coordinate = location.coordinate;
-        annotation.title = title;
-        [self.mapView addAnnotation:annotation];
+        else{
+            NSLog(@"success");
+            CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
+            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+            annotation.coordinate = placemark.location.coordinate;
+            annotation.title = title;
+            [self.mapView addAnnotation:annotation];
         }
     }];
 }
+
 
 //commented out. This method begins the implementation to add pins as images, so I commited it for later optional work.
 
