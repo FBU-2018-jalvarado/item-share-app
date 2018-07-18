@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D6B6EE320FE57DD006CC875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6B6EE220FE57DD006CC875 /* Main.storyboard */; };
+		4D2ECC8F20FFB71E006E6757 /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2ECC8E20FFB71E006E6757 /* MapStoryboard.storyboard */; };
+		4D6B6EE320FE57DD006CC875 /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6B6EE220FE57DD006CC875 /* SearchStoryboard.storyboard */; };
 		7D9BDED120FEA6F70085F862 /* loginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9BDED020FEA6F60085F862 /* loginStoryboard.storyboard */; };
 		7D9BDED520FEA7A70085F862 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDED420FEA7A70085F862 /* LoginViewController.m */; };
 		901C5ABC20FEADB300B17D70 /* SellItemStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */; };
@@ -25,7 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D6B6EE220FE57DD006CC875 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4D2ECC8E20FFB71E006E6757 /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
+		4D6B6EE220FE57DD006CC875 /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
 		7D9BDED020FEA6F60085F862 /* loginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = loginStoryboard.storyboard; sourceTree = "<group>"; };
 		7D9BDED320FEA7A70085F862 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ItemShareApp/ViewControllers/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		7D9BDED420FEA7A70085F862 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ItemShareApp/ViewControllers/LoginViewController.m; sourceTree = SOURCE_ROOT; };
@@ -73,6 +75,8 @@
 				9B9F7E7E20FE4F57000E319F /* MapViewController.m */,
 				9B9F7E7F20FE4F57000E319F /* SearchViewController.h */,
 				9B9F7E7D20FE4F57000E319F /* SearchViewController.m */,
+				901C5ABD20FEADCC00B17D70 /* SellItemViewController.h */,
+				901C5ABE20FEADCC00B17D70 /* SellItemViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -90,8 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				9B2B49FD20FE553E00A91997 /* LaunchScreen.storyboard */,
-				4D6B6EE220FE57DD006CC875 /* Main.storyboard */,
+				4D6B6EE220FE57DD006CC875 /* SearchStoryboard.storyboard */,
 				7D9BDED020FEA6F60085F862 /* loginStoryboard.storyboard */,
+				901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */,
+				4D2ECC8E20FFB71E006E6757 /* MapStoryboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -135,9 +141,6 @@
 				9B9F7E6820FE4EE6000E319F /* AppDelegate.m */,
 				9B9F7E6E20FE4EF9000E319F /* Assets.xcassets */,
 				9B9F7E6B20FE4EEE000E319F /* Info.plist */,
-				901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */,
-				901C5ABD20FEADCC00B17D70 /* SellItemViewController.h */,
-				901C5ABE20FEADCC00B17D70 /* SellItemViewController.m */,
 			);
 			path = ItemShareApp;
 			sourceTree = SOURCE_ROOT;
@@ -221,9 +224,10 @@
 				9B2B4A0020FE553F00A91997 /* LaunchScreen.storyboard in Resources */,
 				901C5ABC20FEADB300B17D70 /* SellItemStoryboard.storyboard in Resources */,
 				9B9F7E6F20FE4EF9000E319F /* Assets.xcassets in Resources */,
+				4D2ECC8F20FFB71E006E6757 /* MapStoryboard.storyboard in Resources */,
 				7D9BDED120FEA6F70085F862 /* loginStoryboard.storyboard in Resources */,
 				9B9F7E6D20FE4EEE000E319F /* Info.plist in Resources */,
-				4D6B6EE320FE57DD006CC875 /* Main.storyboard in Resources */,
+				4D6B6EE320FE57DD006CC875 /* SearchStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
