@@ -58,7 +58,7 @@
     if (searchText.length != 0) {
        // commented out because need to pull model class to implement these lines of code. Commmiting to pull.
                 NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-                    return [evaluatedObject.title containsString:searchText];
+                    return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
                 }];
                 NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
                 self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
