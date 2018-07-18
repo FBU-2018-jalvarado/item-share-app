@@ -28,11 +28,20 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="15s-9G-4Ok" id="YML-np-UdJ"/>
+                        <segue destination="fuC-EW-0wL" kind="show" identifier="detailsViewSegue" id="ecO-iD-ogK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alr-U8-nBS" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1353" y="59"/>
+        </scene>
+        <!--DetailsStoryboard-->
+        <scene sceneID="Wiv-4m-R6p">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailsStoryboard" id="fuC-EW-0wL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qAj-3F-RCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-650" y="58"/>
         </scene>
     </scenes>
 </document>

@@ -10,6 +10,7 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "DetailsViewController.h"
 
 
 @interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
@@ -38,8 +39,8 @@
     self.mapView.delegate = self;
     BOOL permission = YES;
     if(permission){
-    [self setUpLocationManager];
-    self.mapView.showsUserLocation = YES; //works without it? but online insists on it
+        [self setUpLocationManager];
+        self.mapView.showsUserLocation = YES; //works without it? but online insists on it
     }
     else{
         [self setRegion]; //sets SF regions
@@ -114,6 +115,34 @@
     }];
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    NSLog(@"tapped");
+    [self performSegueWithIdentifier:@"detailsViewSegue" sender:nil];
+    
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    
+    if (annotation == mapView.userLocation) return nil;
+    
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"current"];
+    pin.pinTintColor = [UIColor blueColor];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [button addTarget:self action:@selector(annotationClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    //need to make the white pop up from pin be clickable without adding button on side.
+    pin.rightCalloutAccessoryView = button; //adds button to the right. This calls both calloutAcessoryControlTapped, AND the action I selected (annotation clicked). Need to figure out how to set it as just a view not a button with a method. Temp solution.
+    pin.draggable = NO;
+    pin.highlighted = YES;
+    pin.animatesDrop = TRUE;
+    pin.canShowCallout = YES;
+    return pin;
+}
+
+- (void)annotationClicked {
+   // NSLog(@"clicked");
+}
+
 
 //commented out. This method begins the implementation to add pins as images, so I commited it for later optional work.
 
@@ -127,15 +156,19 @@
 //    return annotationView;
 //}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     if([segue.identifier isEqualToString:@"detailsViewSegue"]){
+         DetailsViewController *detailsViewController = [segue destinationViewController];
+         detailsViewController.item = self.testItem;
+     }
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+
 
 
 @end
