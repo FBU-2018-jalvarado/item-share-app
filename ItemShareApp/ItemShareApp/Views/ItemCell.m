@@ -14,7 +14,6 @@
     [super awakeFromNib];
     // Initialization code
     self.nameLabel.text = self.name;
-    
 }
 
 - (void)setItem:(NSString *)name{

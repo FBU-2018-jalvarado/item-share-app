@@ -33,6 +33,7 @@
     }
     [self addAnnotationAtAddress:@"326 Santa Teresa" withTitle:@"Pin!"];
     [self addAnnotationatCoordinate:CLLocationCoordinate2DMake(37.783333, -122.416667)];
+    
     //326 Santa Teresa StStanford, CA 94305
 }
 
