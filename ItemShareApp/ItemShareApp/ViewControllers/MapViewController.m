@@ -163,7 +163,7 @@
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if([segue.identifier isEqualToString:@"detailsViewSegue"]){
          DetailsViewController *detailsViewController = [segue destinationViewController];
-         detailsViewController.item = self.testItem;
+         detailsViewController.item = self.item;
      }
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
