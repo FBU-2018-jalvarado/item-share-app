@@ -13,5 +13,7 @@
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) Item *item;
 
+@property (strong, nonatomic) Item *testItem;
+
 
 @end

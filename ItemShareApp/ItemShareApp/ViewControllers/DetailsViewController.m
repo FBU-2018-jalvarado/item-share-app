@@ -21,14 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setUpUI];
 }
 
 - (void)setUpUI {
-    Item *testItem = [[Item alloc] init];
-    testItem.title = @"testTitle";
-    testItem.address = @"testAddress";
-    self.titleLabel.text = testItem.title;
-    self.addressLabel.text = testItem.address;
+    self.titleLabel.text = self.item.title;
+    self.addressLabel.text = self.item.address;
 }
 
 - (void)didReceiveMemoryWarning {
