@@ -158,6 +158,7 @@
 		623AE20F538986CA42B0C4C237A58E9B /* PFMutableQueryState.m in Sources */ = {isa = PBXBuildFile; fileRef = F38D75E78AE63801DF59898304CDEBB2 /* PFMutableQueryState.m */; };
 		62F88D07CD3962AFE9A88079764AE13D /* PFAnonymousUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = EDE86299DDED75E5BF2A98AFD02B245C /* PFAnonymousUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		63E8F7614C3BED0BFB8DE6CD189371FA /* PFQueryPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = E2C343BB7DFB8DBC01465AE46BE40E14 /* PFQueryPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		645C4D4FCDC45173F4DFA8E34812344B /* Pods-item-share-app-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97204B2791B404DFDE432471AFB0CA2B /* Pods-item-share-app-dummy.m */; };
 		64BA455C73E23ABC9482341507C08A38 /* PFObjectLocalIdStore.h in Headers */ = {isa = PBXBuildFile; fileRef = FE9AD70B46AE4AC114570ABB173A8C76 /* PFObjectLocalIdStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		64CA56FE7CA3E267D92512A1F3D42B3D /* PFRESTFileCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 19222F9BB9C7B3CDCB5E4023608924B3 /* PFRESTFileCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		65F1FB8EADD14307CECFF75722CDDC63 /* PFObjectBatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 198F840213B07B977134846FD5FDAAAD /* PFObjectBatchController.m */; };
@@ -176,7 +177,6 @@
 		6EFD136B268D8C9FF89E2EC61D8827C8 /* PFAnonymousAuthenticationProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E51A8F6FC37408CAA9C1838CE1104D5 /* PFAnonymousAuthenticationProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6F2DE45D72942921933B319493654071 /* PFErrorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E12D08C2B53FC2A4D10B03F69B986B /* PFErrorUtilities.m */; };
 		721FB88774C2FD7EE8054E96E98BC0EF /* PFQueryState.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A5E95523A9AA5BDF586F549B565F8BB /* PFQueryState.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		72A51636CF8CC68ADDFB97FFEC848509 /* Pods-ItemShareAppTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3C05D848382BA6C22B488E75A912AA /* Pods-ItemShareAppTests-dummy.m */; };
 		72B04CD4570048D0EED92FB6EF1558DC /* PFACL.m in Sources */ = {isa = PBXBuildFile; fileRef = AA58C43A70B4395CA283682628239507 /* PFACL.m */; };
 		72F1C19B91208819F5C510D4573E4481 /* PFBaseState.m in Sources */ = {isa = PBXBuildFile; fileRef = 985621A88CB7D2A88F05218AF91BDC7D /* PFBaseState.m */; };
 		7303E9096CF2FD58D2DC11FEE805C5CE /* PFMultiProcessFileLock.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBAEBEA2D8A26ABA2B6609099229AA0 /* PFMultiProcessFileLock.m */; };
@@ -184,7 +184,6 @@
 		74E067FB62007273A2EE8A2537E991D2 /* PFWeakValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 733FB4FE3E7F2DE24A5549A5C6431A2F /* PFWeakValue.m */; };
 		74E5860074A50757644F4E3E563C6966 /* PFUser+Deprecated.h in Headers */ = {isa = PBXBuildFile; fileRef = 093B95EDD38B69C6900204B3876CCFB5 /* PFUser+Deprecated.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		753E2E0F7DFB199DF7E4C44918D8C707 /* PFApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 27B26F6856B77B3342DFBE19DAFD8EF0 /* PFApplication.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		753FF6B20D6166DE2F4ABAF00345A815 /* Pods-ItemShareApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 367BC599F24A2B946873A5BCDF1D2E8C /* Pods-ItemShareApp-dummy.m */; };
 		757BDEEF11B94C8CE2CC48A7E8D280E3 /* PFRESTSessionCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 47CCE54070C0675BB5CDB207F7254EEF /* PFRESTSessionCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		75A36D0109FDDC6E3119D739771FB87D /* BFGeneric.h in Headers */ = {isa = PBXBuildFile; fileRef = F17E603C12E8FA3AE04C1214AEFAF933 /* BFGeneric.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		75DB1EFF3169942BCE8AAE7B4748C749 /* PFRESTQueryCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1936E27F76E3B080B801AB2ACDE326FC /* PFRESTQueryCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -195,7 +194,6 @@
 		77B13D101F04B352F08DBAFD5CAC4B74 /* PFUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E879D0B8139958B89DEC4F093656524 /* PFUser.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		78F935026BFC0289D7EFC9FF93F2AE7F /* PFPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91E47C291882D43EF7D28BAD68FDD /* PFPushManager.m */; };
 		7903E0DB15301E77BE4C324E53C05C40 /* PFPaymentTransactionObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 322D719A8D984AE693C7228003C9C57E /* PFPaymentTransactionObserver.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		794F99C1AC269ECCC08E7C45635BC195 /* Pods-ItemShareAppUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E0A3BA81D66D0EC19C3D043CAF4886D /* Pods-ItemShareAppUITests-dummy.m */; };
 		798DFC45135C2E7359AB48FC995B451D /* PFSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 3663364C25EB2742E589F78E9789BD38 /* PFSession.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7B07484F626F53046C1A2F64845BD439 /* PFGeoPointPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C04BB1A08F5F8F8139119FEC7C24C549 /* PFGeoPointPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7B7B65C29A08637C720F9E800817C74F /* PFSQLiteDatabaseResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 27C266B80EFEBAE4F68CFD9E4E57993F /* PFSQLiteDatabaseResult.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -415,26 +413,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		93CF5E5F3853F68F32390F59FD735A95 /* PBXContainerItemProxy */ = {
+		3C3A251E5D798A18A43D37A59EA7F303 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26BF235B420589570D8C83E44CF0C52A;
+			remoteInfo = Bolts;
+		};
+		BF6A1679A49DD0BF895765E3A6CEF136 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D6EF2EE752CB215D9DD3C027899301FC;
 			remoteInfo = Parse;
-		};
-		9FECA7CEFD8AD7CF1BF71B7DE6CDF856 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 72D0B96FD8B2A23B2D59F84031E35D17;
-			remoteInfo = "Pods-ItemShareApp";
-		};
-		B863C8E438E91E6BA06FC2483622A7C5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 72D0B96FD8B2A23B2D59F84031E35D17;
-			remoteInfo = "Pods-ItemShareApp";
 		};
 		CD4345D2753851640EB6BC0144824B48 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -449,13 +440,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7280F5058E71F852EC60F38DC3F8F09E;
 			remoteInfo = "Parse-Parse";
-		};
-		DDD327CF1107400144480972E87D2A0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 26BF235B420589570D8C83E44CF0C52A;
-			remoteInfo = Bolts;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -478,11 +462,9 @@
 		09BCAAFA4FAE97FCC48693C88D2EF85F /* PFObjectController_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectController_Private.h; path = Parse/Parse/Internal/Object/Controller/PFObjectController_Private.h; sourceTree = "<group>"; };
 		0A27161A08998D5EB266065DA4A59AE7 /* PFObjectSubclassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectSubclassInfo.h; path = Parse/Parse/Internal/Object/Subclassing/PFObjectSubclassInfo.h; sourceTree = "<group>"; };
 		0A86419F20BD9CE2A83702351530B1C9 /* PFInstallation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFInstallation.m; path = Parse/Parse/PFInstallation.m; sourceTree = "<group>"; };
-		0A985D5B8FE5A5287106F4ED34D39415 /* Pods-ItemShareAppUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemShareAppUITests-frameworks.sh"; sourceTree = "<group>"; };
 		0ADB9CFBBD6D1862B5C1D3D0EFA74837 /* PFDefaultACLController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDefaultACLController.h; path = Parse/Parse/Internal/ACL/DefaultACLController/PFDefaultACLController.h; sourceTree = "<group>"; };
 		0B07CD7D90622322F9534F5FF904BF01 /* PFEventuallyQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFEventuallyQueue.m; path = Parse/Parse/Internal/PFEventuallyQueue.m; sourceTree = "<group>"; };
 		0B229D70746F1A1A4369FB861D8C54C7 /* PFConfig_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig_Private.h; path = Parse/Parse/Internal/Config/PFConfig_Private.h; sourceTree = "<group>"; };
-		0BDFE3851B0AA664631655FA3975A1BC /* libPods-ItemShareApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ItemShareApp.a"; path = "libPods-ItemShareApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C042918956ADADD8873B6EC19E8A2D0 /* PFUserController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFUserController.m; path = Parse/Parse/Internal/User/Controller/PFUserController.m; sourceTree = "<group>"; };
 		0D4096AB87EFCDB228530C68E69ED286 /* PFRelationState_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRelationState_Private.h; path = Parse/Parse/Internal/Relation/State/PFRelationState_Private.h; sourceTree = "<group>"; };
 		0D6171CE8C2E7A4836AFB4B5E05C8EC2 /* PFPin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPin.m; path = Parse/Parse/Internal/LocalDataStore/Pin/PFPin.m; sourceTree = "<group>"; };
@@ -493,9 +475,9 @@
 		13BCE478E6796B2F4D83B83BC13BE0D5 /* PFInstallationIdentifierStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallationIdentifierStore.h; path = Parse/Parse/Internal/Installation/InstallationIdentifierStore/PFInstallationIdentifierStore.h; sourceTree = "<group>"; };
 		13C9705CCD52969C1D2429252390B79A /* PFURLSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSession.h; path = Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession.h; sourceTree = "<group>"; };
 		141B3B800A5EDDF0A973B17A6E235899 /* PFMultiProcessFileLockController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMultiProcessFileLockController.m; path = Parse/Parse/Internal/MultiProcessLock/PFMultiProcessFileLockController.m; sourceTree = "<group>"; };
+		144669D0FAECB649C3060FF389288A56 /* Pods-item-share-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-item-share-app.debug.xcconfig"; sourceTree = "<group>"; };
 		15872F15B0086A1BEFFB497FD92DA75D /* PFRelationPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRelationPrivate.h; path = Parse/Parse/Internal/Relation/PFRelationPrivate.h; sourceTree = "<group>"; };
 		15A2AF586AB4F03EAF6CE89F412ACE63 /* PFURLConstructor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLConstructor.m; path = Parse/Parse/Internal/HTTPRequest/PFURLConstructor.m; sourceTree = "<group>"; };
-		16E197EA558802B858281833A9EB203F /* Pods-ItemShareAppTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ItemShareAppTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		16F56399928CEC58228975139BDA3B7B /* PFLocationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFLocationManager.m; path = Parse/Parse/Internal/PFLocationManager.m; sourceTree = "<group>"; };
 		1842693C6BAD71628AEBAF7077E6BEB0 /* PFFieldOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFieldOperation.m; path = Parse/Parse/Internal/FieldOperation/PFFieldOperation.m; sourceTree = "<group>"; };
 		190B4C6C5E0A84C42C9D72606F97E3D4 /* PFPaymentTransactionObserver_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPaymentTransactionObserver_Private.h; path = Parse/Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver_Private.h; sourceTree = "<group>"; };
@@ -517,8 +499,10 @@
 		215B300E43822E818FCAEAE19A541623 /* PFObjectLocalIdStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectLocalIdStore.m; path = Parse/Parse/Internal/Object/LocalIdStore/PFObjectLocalIdStore.m; sourceTree = "<group>"; };
 		21960FB75EDEDE2D803BA4A1AF0269AE /* PFFileStagingController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileStagingController.h; path = Parse/Parse/Internal/File/Controller/PFFileStagingController.h; sourceTree = "<group>"; };
 		21DA46AF45B2E5CAF45F4EB62346FD54 /* PFPushState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPushState.h; path = Parse/Parse/Internal/Push/State/PFPushState.h; sourceTree = "<group>"; };
+		24CC970294A4032E056D340F838730DE /* Parse.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Parse.bundle; path = "Parse-Parse.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2573BE33C45A30A8CEEBCC8CBC3BEF8B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		25CB6525D183E949B78FA4E838264D63 /* PFFileController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileController.h; path = Parse/Parse/Internal/File/Controller/PFFileController.h; sourceTree = "<group>"; };
+		268990F3C4D2D6BF709E9DD07F663ED0 /* Pods-item-share-app-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-item-share-app-acknowledgements.plist"; sourceTree = "<group>"; };
 		268CA2F80E6E815C23FD0380C19F8EB5 /* PFFileUploadResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileUploadResult.h; path = Parse/Parse/PFFileUploadResult.h; sourceTree = "<group>"; };
 		26A8FE17FA29367AC71474B8E7B4E028 /* PFPolygon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPolygon.m; path = Parse/Parse/PFPolygon.m; sourceTree = "<group>"; };
 		27B26F6856B77B3342DFBE19DAFD8EF0 /* PFApplication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFApplication.h; path = Parse/Parse/Internal/PFApplication.h; sourceTree = "<group>"; };
@@ -528,8 +512,6 @@
 		297590227EC7D0B9A89BB6B704DE3627 /* PFObjectFilePersistenceController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectFilePersistenceController.m; path = Parse/Parse/Internal/Object/FilePersistence/PFObjectFilePersistenceController.m; sourceTree = "<group>"; };
 		2A203B3601CBE3240836BB1FBA1C9497 /* PFMutableUserState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableUserState.m; path = Parse/Parse/Internal/User/State/PFMutableUserState.m; sourceTree = "<group>"; };
 		2A5E95523A9AA5BDF586F549B565F8BB /* PFQueryState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryState.h; path = Parse/Parse/Internal/Query/State/PFQueryState.h; sourceTree = "<group>"; };
-		2AC23BB8CE327CD30F196EBD4857E483 /* libParse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libParse.a; path = libParse.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AE6BB9CB22B4E3379C495364964B988 /* Pods-ItemShareApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemShareApp-frameworks.sh"; sourceTree = "<group>"; };
 		2AECA8B69631A2BEAE9401BF3A6C6FEF /* BFTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFTask.h; path = Bolts/Common/BFTask.h; sourceTree = "<group>"; };
 		2B59B3977557D44B7D4D213FCA8D8C47 /* PFCategoryLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCategoryLoader.m; path = Parse/Parse/Internal/PFCategoryLoader.m; sourceTree = "<group>"; };
 		2C3BF72658832BAAC9EC143123879DDB /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
@@ -540,7 +522,6 @@
 		2F3891BDBEB1CDE21142501CE6F56A72 /* PFConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFConfig.m; path = Parse/Parse/PFConfig.m; sourceTree = "<group>"; };
 		2F8E50164C413229C82F7D6C4DF42C2C /* PFSQLiteStatement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSQLiteStatement.h; path = Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteStatement.h; sourceTree = "<group>"; };
 		2FD264E55F991FED2DCBCC10ADE1EB50 /* PFPush.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPush.m; path = Parse/Parse/PFPush.m; sourceTree = "<group>"; };
-		30C10F7F55856341306618508642EE43 /* Pods-ItemShareApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ItemShareApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		30FAB937BFA97FC4A6231DA6CFFAADDD /* PFUserState_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserState_Private.h; path = Parse/Parse/Internal/User/State/PFUserState_Private.h; sourceTree = "<group>"; };
 		3121D47655ECF81CC9062F1DFD540F13 /* PFNetworkCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFNetworkCommand.h; path = Parse/Parse/Internal/PFNetworkCommand.h; sourceTree = "<group>"; };
 		319B4ABF7210C07DC2187C00741B97BF /* PFObjectController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectController.m; path = Parse/Parse/Internal/Object/Controller/PFObjectController.m; sourceTree = "<group>"; };
@@ -554,7 +535,6 @@
 		354D088CFEEB94FEDFCD6D4A4D63B590 /* PFQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQuery.h; path = Parse/Parse/PFQuery.h; sourceTree = "<group>"; };
 		3663364C25EB2742E589F78E9789BD38 /* PFSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSession.h; path = Parse/Parse/PFSession.h; sourceTree = "<group>"; };
 		366EC015E029EFE4AD23B797EAF3B54A /* PFMutableACLState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableACLState.m; path = Parse/Parse/Internal/ACL/State/PFMutableACLState.m; sourceTree = "<group>"; };
-		367BC599F24A2B946873A5BCDF1D2E8C /* Pods-ItemShareApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ItemShareApp-dummy.m"; sourceTree = "<group>"; };
 		36C74364D7710289041D40C1519DC6BB /* PFFileState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileState.h; path = Parse/Parse/Internal/File/State/PFFileState.h; sourceTree = "<group>"; };
 		378720A2A506CD79E5FF7C2EDF17D6A6 /* BFTask+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "BFTask+Private.m"; path = "Parse/Parse/Internal/BFTask+Private.m"; sourceTree = "<group>"; };
 		37B304FFF1D89CBB97E2F42F1B5792BC /* PFDateFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFDateFormatter.m; path = Parse/Parse/Internal/PFDateFormatter.m; sourceTree = "<group>"; };
@@ -564,7 +544,6 @@
 		3C59576DA40B4BA1C33D7EBE966C3904 /* PFObjectEstimatedData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectEstimatedData.m; path = Parse/Parse/Internal/Object/EstimatedData/PFObjectEstimatedData.m; sourceTree = "<group>"; };
 		3C86FCA625AD27D7B4C6171D96D5EA00 /* PFRESTSessionCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTSessionCommand.m; path = Parse/Parse/Internal/Commands/PFRESTSessionCommand.m; sourceTree = "<group>"; };
 		3D335FFC503761C8483C7A5DF01B363E /* PFKeychainStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFKeychainStore.h; path = Parse/Parse/Internal/PFKeychainStore.h; sourceTree = "<group>"; };
-		3E3C05D848382BA6C22B488E75A912AA /* Pods-ItemShareAppTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ItemShareAppTests-dummy.m"; sourceTree = "<group>"; };
 		3E548DE7E47DC652EF619E2D0BDCEE53 /* PFURLConstructor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLConstructor.h; path = Parse/Parse/Internal/HTTPRequest/PFURLConstructor.h; sourceTree = "<group>"; };
 		3EF142D26511246B0568AC00E29151C8 /* PFUserPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserPrivate.h; path = Parse/Parse/Internal/User/PFUserPrivate.h; sourceTree = "<group>"; };
 		3F0C39BDA7C77ACB96B975C555F699A8 /* PFRESTQueryCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTQueryCommand.m; path = Parse/Parse/Internal/Commands/PFRESTQueryCommand.m; sourceTree = "<group>"; };
@@ -594,7 +573,6 @@
 		4823D1B1B5122CD6E10F23102D0DC6D7 /* PFObjectEstimatedData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectEstimatedData.h; path = Parse/Parse/Internal/Object/EstimatedData/PFObjectEstimatedData.h; sourceTree = "<group>"; };
 		4AC13198A36E6BC60F55793BBF8E0D8C /* PFErrorUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFErrorUtilities.h; path = Parse/Parse/Internal/PFErrorUtilities.h; sourceTree = "<group>"; };
 		4C04834D55FD2F560E311B9F5DB26BC0 /* PFRESTFileCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTFileCommand.m; path = Parse/Parse/Internal/Commands/PFRESTFileCommand.m; sourceTree = "<group>"; };
-		4C69E1096DD300FC222C41CCF37A3FAC /* Pods-ItemShareAppUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ItemShareAppUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		4D052B7A9B552E3E169875A7187CBF40 /* PFCurrentUserController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCurrentUserController.m; path = Parse/Parse/Internal/User/CurrentUserController/PFCurrentUserController.m; sourceTree = "<group>"; };
 		4D7E29F01309A9D20C3F67364732EE25 /* PFAnalytics_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnalytics_Private.h; path = Parse/Parse/Internal/Analytics/PFAnalytics_Private.h; sourceTree = "<group>"; };
 		4E879D0B8139958B89DEC4F093656524 /* PFUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUser.h; path = Parse/Parse/PFUser.h; sourceTree = "<group>"; };
@@ -602,12 +580,10 @@
 		5048748665FBA7FB88603E0DBAE597FD /* PFRelationState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRelationState.h; path = Parse/Parse/Internal/Relation/State/PFRelationState.h; sourceTree = "<group>"; };
 		52157F4FFA18931CBC8023AE1FD42894 /* PFSessionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSessionController.h; path = Parse/Parse/Internal/Session/Controller/PFSessionController.h; sourceTree = "<group>"; };
 		5360AD88CC36EC9B26E3672A497DD018 /* PFCommandRunningConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandRunningConstants.h; path = Parse/Parse/Internal/Commands/CommandRunner/PFCommandRunningConstants.h; sourceTree = "<group>"; };
-		53D11A0C84A32B0FA05CEC2B21574B80 /* Parse.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Parse.bundle; path = "Parse-Parse.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5496012931BBE24D729F8E63661CEAEB /* PFMutableObjectState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableObjectState.m; path = Parse/Parse/Internal/Object/State/PFMutableObjectState.m; sourceTree = "<group>"; };
 		54A6748F80811615E791AC6EE5A91D70 /* PFInstallationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallationController.h; path = Parse/Parse/Internal/Installation/Controller/PFInstallationController.h; sourceTree = "<group>"; };
 		54E52D4685CA476A5981023D42C52080 /* ParseClientConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseClientConfiguration.h; path = Parse/Parse/ParseClientConfiguration.h; sourceTree = "<group>"; };
 		5527B2331E01723C25C2DA6236578A82 /* PFURLSessionFileDownloadTaskDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSessionFileDownloadTaskDelegate.m; path = Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionFileDownloadTaskDelegate.m; sourceTree = "<group>"; };
-		553A437A0024B12B6FD2959B3528D4A9 /* libBolts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libBolts.a; path = libBolts.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		55EFB6909D2D5E3F23900E3E4CC595A6 /* PFAnonymousAuthenticationProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAnonymousAuthenticationProvider.m; path = Parse/Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousAuthenticationProvider.m; sourceTree = "<group>"; };
 		564C6EDA4A3113E4A41512FC28221FF4 /* PFBase64Encoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFBase64Encoder.m; path = Parse/Parse/Internal/PFBase64Encoder.m; sourceTree = "<group>"; };
 		565A23023772801E11D4D32B005481CD /* PFPushUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPushUtilities.m; path = Parse/Parse/Internal/Push/Utilites/PFPushUtilities.m; sourceTree = "<group>"; };
@@ -615,13 +591,10 @@
 		56E2F3C868E5527C4C18A7EF03E0D8D6 /* PFFilePersistenceGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFilePersistenceGroup.m; path = Parse/Parse/Internal/Persistence/Group/PFFilePersistenceGroup.m; sourceTree = "<group>"; };
 		57B59390AF8A2DCF7D4F3CAADEF2C502 /* PFUserDefaultsPersistenceGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFUserDefaultsPersistenceGroup.m; path = Parse/Parse/Internal/Persistence/Group/PFUserDefaultsPersistenceGroup.m; sourceTree = "<group>"; };
 		57C439CCB7C95222E2A851E4A6332837 /* PFConfig+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFConfig+Synchronous.h"; path = "Parse/Parse/PFConfig+Synchronous.h"; sourceTree = "<group>"; };
-		592892D671FE724BE699B4C300D57D67 /* Pods-ItemShareAppUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemShareAppUITests-resources.sh"; sourceTree = "<group>"; };
 		5995A294C545A84F8827A9DADC5DD6C4 /* PFTaskQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFTaskQueue.h; path = Parse/Parse/Internal/PFTaskQueue.h; sourceTree = "<group>"; };
 		5AF6D62892AD116E270B737EB16543B2 /* PFPurchaseController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPurchaseController.m; path = Parse/Parse/Internal/Purchase/Controller/PFPurchaseController.m; sourceTree = "<group>"; };
-		5B9183F1B5D811886B0F8A8E21D16513 /* Pods-ItemShareAppUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ItemShareAppUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5BC0EA7313B43A275D6551549DE00BA3 /* PFMutableQueryState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMutableQueryState.h; path = Parse/Parse/Internal/Query/State/PFMutableQueryState.h; sourceTree = "<group>"; };
 		5C4A4E2AF720EA02CA8821AE3EC66A7E /* PFRESTCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTCommand.m; path = Parse/Parse/Internal/Commands/PFRESTCommand.m; sourceTree = "<group>"; };
-		5CABFE2046C9635837CC1D40A57CBF95 /* Pods-ItemShareApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ItemShareApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5E51A8F6FC37408CAA9C1838CE1104D5 /* PFAnonymousAuthenticationProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousAuthenticationProvider.h; path = Parse/Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousAuthenticationProvider.h; sourceTree = "<group>"; };
 		5EE91E47C291882D43EF7D28BAD68FDD /* PFPushManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPushManager.m; path = Parse/Parse/Internal/Push/Manager/PFPushManager.m; sourceTree = "<group>"; };
 		5EEA606F6DBE66D603DFDC6B29D42F58 /* PFURLSessionDataTaskDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFURLSessionDataTaskDelegate.m; path = Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionDataTaskDelegate.m; sourceTree = "<group>"; };
@@ -633,8 +606,8 @@
 		62B31E3FACCEEB7ABCE9EC16AED9A85A /* PFCommandURLRequestConstructor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCommandURLRequestConstructor.m; path = Parse/Parse/Internal/Commands/CommandRunner/URLRequestConstructor/PFCommandURLRequestConstructor.m; sourceTree = "<group>"; };
 		63DCF75A25E0043F47AD95D19D7CAE8A /* PFCloud+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFCloud+Synchronous.h"; path = "Parse/Parse/PFCloud+Synchronous.h"; sourceTree = "<group>"; };
 		6420C5DAC2F2BC16D298DCCF41A04FDE /* PFFieldOperationDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFieldOperationDecoder.h; path = Parse/Parse/Internal/FieldOperation/PFFieldOperationDecoder.h; sourceTree = "<group>"; };
+		646B7A5651E388094FE394A2C2B0794C /* Pods-item-share-app-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-item-share-app-acknowledgements.markdown"; sourceTree = "<group>"; };
 		646FD378E02FB198CDB1CE710399AEE6 /* BFTaskCompletionSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTaskCompletionSource.m; path = Bolts/Common/BFTaskCompletionSource.m; sourceTree = "<group>"; };
-		647991A534BA933775993E47B4A69568 /* Pods-ItemShareAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ItemShareAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		64F17D2B333921E26E6692BFA4A708BD /* PFRESTCommand_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTCommand_Private.h; path = Parse/Parse/Internal/Commands/PFRESTCommand_Private.h; sourceTree = "<group>"; };
 		65B8952F904F04E9E96AADD807C89061 /* PFACL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACL.h; path = Parse/Parse/PFACL.h; sourceTree = "<group>"; };
 		66BA730F50FC30264D07615E37D03F88 /* PFPolygonPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPolygonPrivate.h; path = Parse/Parse/Internal/PFPolygonPrivate.h; sourceTree = "<group>"; };
@@ -646,7 +619,6 @@
 		6A4477DAEBEB09B3DF555BB8D0B5DE51 /* PFObjectSubclassingController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFObjectSubclassingController.m; path = Parse/Parse/Internal/Object/Subclassing/PFObjectSubclassingController.m; sourceTree = "<group>"; };
 		6A77DC12703DCC7FF33EF4E5E468D2C0 /* PFObjectPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectPrivate.h; path = Parse/Parse/Internal/Object/PFObjectPrivate.h; sourceTree = "<group>"; };
 		6AB60F594B103C9B387F49644AD79ABF /* PFUserController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserController.h; path = Parse/Parse/Internal/User/Controller/PFUserController.h; sourceTree = "<group>"; };
-		6ABC2C3CDCA83EC0F6BCF5CB7942F900 /* Pods-ItemShareApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ItemShareApp-acknowledgements.plist"; sourceTree = "<group>"; };
 		6B2DAE3042A61DBBC4DD7C0E504DD6B5 /* PFAssert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAssert.h; path = Parse/Parse/Internal/PFAssert.h; sourceTree = "<group>"; };
 		6B5AD116028A8AE89A0791DFE8CD7B65 /* ParseModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ParseModule.m; path = Parse/Parse/Internal/ParseModule.m; sourceTree = "<group>"; };
 		6BBFB8C0AD86B0958745A06A7B3CCC4C /* PFUserAuthenticationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserAuthenticationDelegate.h; path = Parse/Parse/PFUserAuthenticationDelegate.h; sourceTree = "<group>"; };
@@ -664,7 +636,6 @@
 		71EA1770C16315B5D8D16E6488397FC3 /* PFFileManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileManager.m; path = Parse/Parse/Internal/PFFileManager.m; sourceTree = "<group>"; };
 		726CBC17CBFC3BA7B8EDCB2D22098ECF /* PFRESTConfigCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTConfigCommand.m; path = Parse/Parse/Internal/Commands/PFRESTConfigCommand.m; sourceTree = "<group>"; };
 		72840427D63B689E84229CC2CE54CDDB /* PFAsyncTaskQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFAsyncTaskQueue.m; path = Parse/Parse/Internal/PFAsyncTaskQueue.m; sourceTree = "<group>"; };
-		72DD98CA0F8BEDB5B70E88C6C78A1AE1 /* libPods-ItemShareAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ItemShareAppUITests.a"; path = "libPods-ItemShareAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		733FB4FE3E7F2DE24A5549A5C6431A2F /* PFWeakValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFWeakValue.m; path = Parse/Parse/Internal/PFWeakValue.m; sourceTree = "<group>"; };
 		73AFAA14C0C7EE92F3A6D0ECDBBC114C /* PFAnonymousUtils_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFAnonymousUtils_Private.h; path = Parse/Parse/Internal/User/AuthenticationProviders/Providers/Anonymous/PFAnonymousUtils_Private.h; sourceTree = "<group>"; };
 		752FB733BE515BCA51B66B3074325D2C /* PFPinningObjectStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPinningObjectStore.h; path = Parse/Parse/Internal/Object/PinningStore/PFPinningObjectStore.h; sourceTree = "<group>"; };
@@ -696,13 +667,14 @@
 		8730987A0881376BF9C4A0204F8B562A /* PFHTTPURLRequestConstructor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFHTTPURLRequestConstructor.h; path = Parse/Parse/Internal/HTTPRequest/PFHTTPURLRequestConstructor.h; sourceTree = "<group>"; };
 		8759ABF9E455C643443B95FFC6A2B05F /* PFObjectBatchController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectBatchController.h; path = Parse/Parse/Internal/Object/BatchController/PFObjectBatchController.h; sourceTree = "<group>"; };
 		877DCC54412888D22D0D187CF0A1BDD7 /* PFPushChannelsController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPushChannelsController.m; path = Parse/Parse/Internal/Push/ChannelsController/PFPushChannelsController.m; sourceTree = "<group>"; };
+		88C7D31E9342FC20DCD334EAC637D9FA /* Pods-item-share-app-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-item-share-app-frameworks.sh"; sourceTree = "<group>"; };
 		8A400A20998DC120735D4DABED955777 /* PFCoreManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCoreManager.m; path = Parse/Parse/Internal/PFCoreManager.m; sourceTree = "<group>"; };
 		8B4A817A3A668574AC04D1AE0B9739F4 /* PFACLState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFACLState.m; path = Parse/Parse/Internal/ACL/State/PFACLState.m; sourceTree = "<group>"; };
 		8B6858E2345ED2BCEF687BB63D03E2C1 /* PFThreadsafety.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFThreadsafety.h; path = Parse/Parse/Internal/ThreadSafety/PFThreadsafety.h; sourceTree = "<group>"; };
+		8BEC48017DFD9E2C8675E440387D3E9E /* libPods-item-share-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-item-share-app.a"; path = "libPods-item-share-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9216C9F7EDA020713FD2C37CD299AC /* PFPaymentTransactionObserver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPaymentTransactionObserver.m; path = Parse/Parse/Internal/Purchase/PaymentTransactionObserver/PFPaymentTransactionObserver.m; sourceTree = "<group>"; };
 		8CCBDC22A0078820510504C8E2C23A95 /* PFCommandCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCommandCache.m; path = Parse/Parse/Internal/PFCommandCache.m; sourceTree = "<group>"; };
 		8D536967E873AC5DE9C73153C9ED9603 /* PFReachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFReachability.m; path = Parse/Parse/Internal/PFReachability.m; sourceTree = "<group>"; };
-		8E0A3BA81D66D0EC19C3D043CAF4886D /* Pods-ItemShareAppUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ItemShareAppUITests-dummy.m"; sourceTree = "<group>"; };
 		8E3B463003C92301812944DA5F10337D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		8F6CAE3E829ED98C9717D9416FEEEA51 /* PFPushController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPushController.h; path = Parse/Parse/Internal/Push/Controller/PFPushController.h; sourceTree = "<group>"; };
 		8F8323238793EF49638F8C5045FFAB09 /* PFMulticastDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFMulticastDelegate.h; path = Parse/Parse/Internal/PFMulticastDelegate.h; sourceTree = "<group>"; };
@@ -716,6 +688,8 @@
 		9591E94D33348C0176BFD24C44EF6212 /* PFRESTObjectBatchCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTObjectBatchCommand.m; path = Parse/Parse/Internal/Commands/PFRESTObjectBatchCommand.m; sourceTree = "<group>"; };
 		95B038C91DA1ECC48715D0766FE893C3 /* PFQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQuery.m; path = Parse/Parse/PFQuery.m; sourceTree = "<group>"; };
 		96DA89229749F5BCCFD7DD159C90C5D5 /* PFMutableFileState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableFileState.m; path = Parse/Parse/Internal/File/State/PFMutableFileState.m; sourceTree = "<group>"; };
+		97204B2791B404DFDE432471AFB0CA2B /* Pods-item-share-app-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-item-share-app-dummy.m"; sourceTree = "<group>"; };
+		97706CECE992BAC3AADD4149846C9884 /* Pods-item-share-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-item-share-app.release.xcconfig"; sourceTree = "<group>"; };
 		985621A88CB7D2A88F05218AF91BDC7D /* PFBaseState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFBaseState.m; path = Parse/Parse/Internal/PFBaseState.m; sourceTree = "<group>"; };
 		9871C6096798427683285E0FBDC882E3 /* PFHash.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFHash.m; path = Parse/Parse/Internal/PFHash.m; sourceTree = "<group>"; };
 		9A292E4AE2B7EF7865521D49EE49034C /* PFSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSession.m; path = Parse/Parse/PFSession.m; sourceTree = "<group>"; };
@@ -730,7 +704,6 @@
 		A080B496CB9CBB631FB1C5E325E9B58A /* PFRESTObjectBatchCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTObjectBatchCommand.h; path = Parse/Parse/Internal/Commands/PFRESTObjectBatchCommand.h; sourceTree = "<group>"; };
 		A148C18F1449D46B6D535A6DE48CE6E7 /* PFEventuallyQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFEventuallyQueue.h; path = Parse/Parse/Internal/PFEventuallyQueue.h; sourceTree = "<group>"; };
 		A2D9F8832C7DE6254D263A972BF6B306 /* PFConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConfig.h; path = Parse/Parse/PFConfig.h; sourceTree = "<group>"; };
-		A3324B868499D65561C612C8E0C8E111 /* Pods-ItemShareAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ItemShareAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A43CBA6F1C3335FE95FCA636E3F42032 /* ParseModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseModule.h; path = Parse/Parse/Internal/ParseModule.h; sourceTree = "<group>"; };
 		A52D4EAEE64F26BB1D8423ACB76FD813 /* PFOfflineObjectController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFOfflineObjectController.m; path = Parse/Parse/Internal/Object/Controller/OfflineController/PFOfflineObjectController.m; sourceTree = "<group>"; };
 		A542C15502BE0C68291254D67B7F45D4 /* PFCommandCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCommandCache.h; path = Parse/Parse/Internal/PFCommandCache.h; sourceTree = "<group>"; };
@@ -744,6 +717,7 @@
 		A8627023E312AADBE0DAE6F89D80F47A /* PFCommandResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCommandResult.m; path = Parse/Parse/Internal/PFCommandResult.m; sourceTree = "<group>"; };
 		A9BAC3E998D5052948AAB4A341EC2684 /* PFProduct+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFProduct+Private.h"; path = "Parse/Parse/Internal/Product/PFProduct+Private.h"; sourceTree = "<group>"; };
 		AA58C43A70B4395CA283682628239507 /* PFACL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFACL.m; path = Parse/Parse/PFACL.m; sourceTree = "<group>"; };
+		AC0D1AC9CFABF5CA51DA21A04C2498F2 /* libParse.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libParse.a; path = libParse.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5BF859CD4C885494CE35246ABA092D /* PFPushState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPushState.m; path = Parse/Parse/Internal/Push/State/PFPushState.m; sourceTree = "<group>"; };
 		AC5DDE377EA749B4E4D44F746D13F823 /* PFRESTPushCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTPushCommand.h; path = Parse/Parse/Internal/Commands/PFRESTPushCommand.h; sourceTree = "<group>"; };
 		ACA0EF61C0C100CEE0FE090427F51B92 /* PFRESTObjectCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFRESTObjectCommand.m; path = Parse/Parse/Internal/Commands/PFRESTObjectCommand.m; sourceTree = "<group>"; };
@@ -751,7 +725,6 @@
 		ADCFFE53060C5564E927195E2896946B /* PFCachedQueryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFCachedQueryController.m; path = Parse/Parse/Internal/Query/Controller/PFCachedQueryController.m; sourceTree = "<group>"; };
 		ADED00494F560CB9EC700A84B1F274D9 /* PFInstallationConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFInstallationConstants.h; path = Parse/Parse/Internal/Installation/Constants/PFInstallationConstants.h; sourceTree = "<group>"; };
 		AF02E861DA4106E5E9377AEA72420979 /* PFPropertyInfo_Runtime.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPropertyInfo_Runtime.m; path = Parse/Parse/Internal/PropertyInfo/PFPropertyInfo_Runtime.m; sourceTree = "<group>"; };
-		AF4400113FF43E4047AB3F47BDE2454E /* Pods-ItemShareAppTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ItemShareAppTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AF4CF42E0872D033FF87E935A0F3BFD9 /* PFURLSessionFileDownloadTaskDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSessionFileDownloadTaskDelegate.h; path = Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/TaskDelegate/PFURLSessionFileDownloadTaskDelegate.h; sourceTree = "<group>"; };
 		AF571E6AFD0A53EAF661C87A7BEF8831 /* Parse_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Parse_Private.h; path = Parse/Parse/Internal/Parse_Private.h; sourceTree = "<group>"; };
 		B03CB344A9EFD0B1518D627B69A1FF1A /* PFRESTCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTCommand.h; path = Parse/Parse/Internal/Commands/PFRESTCommand.h; sourceTree = "<group>"; };
@@ -771,7 +744,6 @@
 		BB3D70BC9A9A59536183B5BDF1ECAB54 /* PFSubclassing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFSubclassing.h; path = Parse/Parse/PFSubclassing.h; sourceTree = "<group>"; };
 		BD83849B2AD3FEF73BFFB50E864E45DF /* PFFileManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileManager.h; path = Parse/Parse/Internal/PFFileManager.h; sourceTree = "<group>"; };
 		BD850B99FA88B1E9A26BAC5ECDA02481 /* PFDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFDevice.m; path = Parse/Parse/Internal/PFDevice.m; sourceTree = "<group>"; };
-		BD8CED5EA4E81ED3ED4ACD669ADFCA7B /* Pods-ItemShareApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemShareApp-resources.sh"; sourceTree = "<group>"; };
 		BE1AA5C090953E807675F0C064E8F9F1 /* BFTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFTask.m; path = Bolts/Common/BFTask.m; sourceTree = "<group>"; };
 		BEE7B944CC84B1F3FA49C512E8EA1E2D /* PFRESTUserCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFRESTUserCommand.h; path = Parse/Parse/Internal/Commands/PFRESTUserCommand.h; sourceTree = "<group>"; };
 		BFC80E4F99878C392A0B310CB60CA891 /* PFCoreManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFCoreManager.h; path = Parse/Parse/Internal/PFCoreManager.h; sourceTree = "<group>"; };
@@ -788,13 +760,13 @@
 		C99F8798080BDA5682626CCCC135AFED /* PFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFNetworkActivityIndicatorManager.m; path = Parse/Parse/PFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		CA71E3992C4540347242FB71291DD0E4 /* PFReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFReachability.h; path = Parse/Parse/Internal/PFReachability.h; sourceTree = "<group>"; };
 		CACE09FEC7E350C616A601AE3BAEFBE7 /* PFUserAuthenticationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFUserAuthenticationController.m; path = Parse/Parse/Internal/User/AuthenticationProviders/Controller/PFUserAuthenticationController.m; sourceTree = "<group>"; };
-		CC988BD12A0380E733027009B5BC1ED0 /* Pods-ItemShareAppTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemShareAppTests-frameworks.sh"; sourceTree = "<group>"; };
 		CF9E5915CBB75CCBE14DC6C58DDD6542 /* PFDateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDateFormatter.h; path = Parse/Parse/Internal/PFDateFormatter.h; sourceTree = "<group>"; };
 		D09DA233846F4ED6E913EE1484036CC7 /* PFQuery+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFQuery+Synchronous.h"; path = "Parse/Parse/PFQuery+Synchronous.h"; sourceTree = "<group>"; };
 		D0B36866877CE4E2075C268939A1D31C /* PFPersistenceGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFPersistenceGroup.h; path = Parse/Parse/Internal/Persistence/Group/PFPersistenceGroup.h; sourceTree = "<group>"; };
 		D0BC97BC2A13CD41D8704F3CEB6D61DC /* PFURLSession_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFURLSession_Private.h; path = Parse/Parse/Internal/Commands/CommandRunner/URLSession/Session/PFURLSession_Private.h; sourceTree = "<group>"; };
 		D1507AB39D37E3B6CDDFBD227BA78659 /* PFOfflineStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFOfflineStore.h; path = Parse/Parse/Internal/LocalDataStore/OfflineStore/PFOfflineStore.h; sourceTree = "<group>"; };
 		D150863CC45F88923EEF0E0ABC2E6B72 /* ParseManagerPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ParseManagerPrivate.h; path = Parse/Parse/Internal/ParseManagerPrivate.h; sourceTree = "<group>"; };
+		D1E044F19222EC4F524F888F9D6F1204 /* Pods-item-share-app-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-item-share-app-resources.sh"; sourceTree = "<group>"; };
 		D1ED01FC2603F6F881D3A2DECCB81639 /* BFCancellationTokenRegistration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationTokenRegistration.m; path = Bolts/Common/BFCancellationTokenRegistration.m; sourceTree = "<group>"; };
 		D2832AC1D013BFD1A9B9088668DCD69C /* PFEventuallyPin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFEventuallyPin.m; path = Parse/Parse/Internal/PFEventuallyPin.m; sourceTree = "<group>"; };
 		D2833391D84094BAE3BF799E90A5DD27 /* PFObjectUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectUtilities.h; path = Parse/Parse/Internal/Object/Utilities/PFObjectUtilities.h; sourceTree = "<group>"; };
@@ -827,7 +799,6 @@
 		DFDE4F2CABC1AB5CCDCF1EE2237047E4 /* PFDataProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDataProvider.h; path = Parse/Parse/Internal/PFDataProvider.h; sourceTree = "<group>"; };
 		E03A11673ED41174B72848219E0B6745 /* PFLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLogging.h; path = Parse/Parse/Internal/PFLogging.h; sourceTree = "<group>"; };
 		E0543143930A15C8CE6F3F0F49E270E3 /* PFDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFDevice.h; path = Parse/Parse/Internal/PFDevice.h; sourceTree = "<group>"; };
-		E0767A8F8B1D71921509D0F9AD282B31 /* libPods-ItemShareAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-ItemShareAppTests.a"; path = "libPods-ItemShareAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E18E2EF68E4A4CFD6A6308E00D001781 /* PFQueryState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryState.m; path = Parse/Parse/Internal/Query/State/PFQueryState.m; sourceTree = "<group>"; };
 		E1A79424C8CC323BBA973664F70C72A6 /* PFFileUploadResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileUploadResult.m; path = Parse/Parse/Internal/File/Controller/PFFileUploadResult.m; sourceTree = "<group>"; };
 		E267223BB7CF1AF9088D19AD50FED002 /* BFCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationToken.h; path = Bolts/Common/BFCancellationToken.h; sourceTree = "<group>"; };
@@ -843,10 +814,8 @@
 		E5F55DBDB7E6345656E52564235DE0CF /* PFQueryController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryController.m; path = Parse/Parse/Internal/Query/Controller/PFQueryController.m; sourceTree = "<group>"; };
 		E64D4C5C2F877B2F993AF53036A0373E /* PFPush+Synchronous.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFPush+Synchronous.h"; path = "Parse/Parse/PFPush+Synchronous.h"; sourceTree = "<group>"; };
 		E7E21198CA33EEF4036DC7E2F230044B /* PFProduct.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFProduct.m; path = Parse/Parse/PFProduct.m; sourceTree = "<group>"; };
-		E7F7D69D7888692338281C0E31E78B33 /* Pods-ItemShareAppTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ItemShareAppTests-resources.sh"; sourceTree = "<group>"; };
 		E833B7650D3E1F79DA7DAB2EBFA52846 /* PFObject+Subclass.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PFObject+Subclass.h"; path = "Parse/Parse/PFObject+Subclass.h"; sourceTree = "<group>"; };
 		E83A7980F6F50C21C6B6F3BFEF9F5835 /* PFACLState_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACLState_Private.h; path = Parse/Parse/Internal/ACL/State/PFACLState_Private.h; sourceTree = "<group>"; };
-		E91BE93C8BADEC16EB69170BAC468C2E /* Pods-ItemShareAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ItemShareAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA582E52A23D50BF1B84154543A39A4A /* PFQueryState_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFQueryState_Private.h; path = Parse/Parse/Internal/Query/State/PFQueryState_Private.h; sourceTree = "<group>"; };
 		EAB0667537BAFD2DAC5BEC2038067C3E /* PFFileDataStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFFileDataStream.h; path = Parse/Parse/Internal/File/FileDataStream/PFFileDataStream.h; sourceTree = "<group>"; };
 		EB0506C4C1F6ABAB3519F73DACE1C00F /* PFSQLiteDatabaseController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSQLiteDatabaseController.m; path = Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseController.m; sourceTree = "<group>"; };
@@ -875,9 +844,9 @@
 		F36672C427256D2A86F4DF0EB793EA68 /* PFUserState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserState.h; path = Parse/Parse/Internal/User/State/PFUserState.h; sourceTree = "<group>"; };
 		F379D323341CB319893AD24FCC3E9613 /* PFConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFConstants.h; path = Parse/Parse/PFConstants.h; sourceTree = "<group>"; };
 		F38D75E78AE63801DF59898304CDEBB2 /* PFMutableQueryState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFMutableQueryState.m; path = Parse/Parse/Internal/Query/State/PFMutableQueryState.m; sourceTree = "<group>"; };
+		F3C4BEE6A2FC01B4B8B22ACEB8F7D0A1 /* libBolts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libBolts.a; path = libBolts.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F40B74F00BB580E3366F123689BF7640 /* PFSQLiteDatabaseResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFSQLiteDatabaseResult.m; path = Parse/Parse/Internal/LocalDataStore/SQLite/PFSQLiteDatabaseResult.m; sourceTree = "<group>"; };
 		F4A78D17659F1136E737C9B5A32D458E /* PFLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFLogger.h; path = Parse/Parse/Internal/PFLogger.h; sourceTree = "<group>"; };
-		F4B8BD53FD1D507B6FD79538B941F130 /* Pods-ItemShareAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ItemShareAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F4C07CF391628C415A9A9E49257AA5BB /* PFPersistenceController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFPersistenceController.m; path = Parse/Parse/Internal/Persistence/PFPersistenceController.m; sourceTree = "<group>"; };
 		F6A213DFC16EBBBDDDA825AFA82C3833 /* PFFileController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFFileController.m; path = Parse/Parse/Internal/File/Controller/PFFileController.m; sourceTree = "<group>"; };
 		F8139C993BCF048BC84FDFB2492675F2 /* PFUserDefaultsPersistenceGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFUserDefaultsPersistenceGroup.h; path = Parse/Parse/Internal/Persistence/Group/PFUserDefaultsPersistenceGroup.h; sourceTree = "<group>"; };
@@ -893,18 +862,10 @@
 		FE9AD70B46AE4AC114570ABB173A8C76 /* PFObjectLocalIdStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFObjectLocalIdStore.h; path = Parse/Parse/Internal/Object/LocalIdStore/PFObjectLocalIdStore.h; sourceTree = "<group>"; };
 		FF250C6F10A49A0C0B130F02039DDA28 /* PFKeychainStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFKeychainStore.m; path = Parse/Parse/Internal/PFKeychainStore.m; sourceTree = "<group>"; };
 		FF465DB78C983143EA17C580F88E2519 /* PFACLState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PFACLState.h; path = Parse/Parse/Internal/ACL/State/PFACLState.h; sourceTree = "<group>"; };
-		FF945A804FD8B2551AE66E22967E6FCF /* Pods-ItemShareApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ItemShareApp.release.xcconfig"; sourceTree = "<group>"; };
 		FFFC84665926E11A72451CD88D7620FB /* PFQueryUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PFQueryUtilities.m; path = Parse/Parse/Internal/Query/Utilities/PFQueryUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		26F0F6C2CE4EB1DEFAA2E1E8F1264732 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		285C2E752144E2D1063DB75E2D62FB46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -919,14 +880,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		87FE3C70FBAE329FEC26E3DCA0A4E7A5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BF836AB4EB458C451C437F371DC5917E /* Frameworks */ = {
+		546578E6DD45E6F9523253603B4CE09C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -951,19 +905,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21AC47F58C117AA4251002C97C0F67AA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				553A437A0024B12B6FD2959B3528D4A9 /* libBolts.a */,
-				2AC23BB8CE327CD30F196EBD4857E483 /* libParse.a */,
-				0BDFE3851B0AA664631655FA3975A1BC /* libPods-ItemShareApp.a */,
-				E0767A8F8B1D71921509D0F9AD282B31 /* libPods-ItemShareAppTests.a */,
-				72DD98CA0F8BEDB5B70E88C6C78A1AE1 /* libPods-ItemShareAppUITests.a */,
-				53D11A0C84A32B0FA05CEC2B21574B80 /* Parse.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		26AE00BD73AD2F35F3D83D971B33E5D1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -976,34 +917,19 @@
 			path = "../Target Support Files/Parse";
 			sourceTree = "<group>";
 		};
-		2E68676643069B90579CB240711CDBD2 /* Pods-ItemShareApp */ = {
+		2D5DC41AC6D8CF23BC547E81269178DD /* Pods-item-share-app */ = {
 			isa = PBXGroup;
 			children = (
-				30C10F7F55856341306618508642EE43 /* Pods-ItemShareApp-acknowledgements.markdown */,
-				6ABC2C3CDCA83EC0F6BCF5CB7942F900 /* Pods-ItemShareApp-acknowledgements.plist */,
-				367BC599F24A2B946873A5BCDF1D2E8C /* Pods-ItemShareApp-dummy.m */,
-				2AE6BB9CB22B4E3379C495364964B988 /* Pods-ItemShareApp-frameworks.sh */,
-				BD8CED5EA4E81ED3ED4ACD669ADFCA7B /* Pods-ItemShareApp-resources.sh */,
-				5CABFE2046C9635837CC1D40A57CBF95 /* Pods-ItemShareApp.debug.xcconfig */,
-				FF945A804FD8B2551AE66E22967E6FCF /* Pods-ItemShareApp.release.xcconfig */,
+				646B7A5651E388094FE394A2C2B0794C /* Pods-item-share-app-acknowledgements.markdown */,
+				268990F3C4D2D6BF709E9DD07F663ED0 /* Pods-item-share-app-acknowledgements.plist */,
+				97204B2791B404DFDE432471AFB0CA2B /* Pods-item-share-app-dummy.m */,
+				88C7D31E9342FC20DCD334EAC637D9FA /* Pods-item-share-app-frameworks.sh */,
+				D1E044F19222EC4F524F888F9D6F1204 /* Pods-item-share-app-resources.sh */,
+				144669D0FAECB649C3060FF389288A56 /* Pods-item-share-app.debug.xcconfig */,
+				97706CECE992BAC3AADD4149846C9884 /* Pods-item-share-app.release.xcconfig */,
 			);
-			name = "Pods-ItemShareApp";
-			path = "Target Support Files/Pods-ItemShareApp";
-			sourceTree = "<group>";
-		};
-		55D2441427839A3221E826F60D97D8D8 /* Pods-ItemShareAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5B9183F1B5D811886B0F8A8E21D16513 /* Pods-ItemShareAppUITests-acknowledgements.markdown */,
-				4C69E1096DD300FC222C41CCF37A3FAC /* Pods-ItemShareAppUITests-acknowledgements.plist */,
-				8E0A3BA81D66D0EC19C3D043CAF4886D /* Pods-ItemShareAppUITests-dummy.m */,
-				0A985D5B8FE5A5287106F4ED34D39415 /* Pods-ItemShareAppUITests-frameworks.sh */,
-				592892D671FE724BE699B4C300D57D67 /* Pods-ItemShareAppUITests-resources.sh */,
-				A3324B868499D65561C612C8E0C8E111 /* Pods-ItemShareAppUITests.debug.xcconfig */,
-				647991A534BA933775993E47B4A69568 /* Pods-ItemShareAppUITests.release.xcconfig */,
-			);
-			name = "Pods-ItemShareAppUITests";
-			path = "Target Support Files/Pods-ItemShareAppUITests";
+			name = "Pods-item-share-app";
+			path = "Target Support Files/Pods-item-share-app";
 			sourceTree = "<group>";
 		};
 		58669B488B87F987FE9B36C31B26FBB2 /* Parse */ = {
@@ -1423,9 +1349,17 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				785553737B06AFC3DA711DDEB7D56194 /* Frameworks */,
 				684FB1214C199282C81566D83A5E7EDC /* Pods */,
-				21AC47F58C117AA4251002C97C0F67AA /* Products */,
-				FE84905DB919619EEFAF1D8705D31067 /* Targets Support Files */,
+				F839036AF3E9BA0D61789AB3D09D831E /* Products */,
+				80F5FE87941E072CBC9F20F2B304A455 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		80F5FE87941E072CBC9F20F2B304A455 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2D5DC41AC6D8CF23BC547E81269178DD /* Pods-item-share-app */,
+			);
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		9349A61C3D2D59A84FE6BFDF7491A55C /* Resources */ = {
@@ -1472,21 +1406,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		DA17EA66113220E24D448B2CC105ECFE /* Pods-ItemShareAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				AF4400113FF43E4047AB3F47BDE2454E /* Pods-ItemShareAppTests-acknowledgements.markdown */,
-				16E197EA558802B858281833A9EB203F /* Pods-ItemShareAppTests-acknowledgements.plist */,
-				3E3C05D848382BA6C22B488E75A912AA /* Pods-ItemShareAppTests-dummy.m */,
-				CC988BD12A0380E733027009B5BC1ED0 /* Pods-ItemShareAppTests-frameworks.sh */,
-				E7F7D69D7888692338281C0E31E78B33 /* Pods-ItemShareAppTests-resources.sh */,
-				F4B8BD53FD1D507B6FD79538B941F130 /* Pods-ItemShareAppTests.debug.xcconfig */,
-				E91BE93C8BADEC16EB69170BAC468C2E /* Pods-ItemShareAppTests.release.xcconfig */,
-			);
-			name = "Pods-ItemShareAppTests";
-			path = "Target Support Files/Pods-ItemShareAppTests";
-			sourceTree = "<group>";
-		};
 		F0FF117F677F6F8E3C12E058EC668E51 /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1509,14 +1428,15 @@
 			name = Tasks;
 			sourceTree = "<group>";
 		};
-		FE84905DB919619EEFAF1D8705D31067 /* Targets Support Files */ = {
+		F839036AF3E9BA0D61789AB3D09D831E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E68676643069B90579CB240711CDBD2 /* Pods-ItemShareApp */,
-				DA17EA66113220E24D448B2CC105ECFE /* Pods-ItemShareAppTests */,
-				55D2441427839A3221E826F60D97D8D8 /* Pods-ItemShareAppUITests */,
+				F3C4BEE6A2FC01B4B8B22ACEB8F7D0A1 /* libBolts.a */,
+				AC0D1AC9CFABF5CA51DA21A04C2498F2 /* libParse.a */,
+				8BEC48017DFD9E2C8675E440387D3E9E /* libPods-item-share-app.a */,
+				24CC970294A4032E056D340F838730DE /* Parse.bundle */,
 			);
-			name = "Targets Support Files";
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1768,23 +1688,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		178C77AF3D37C1D41C470BCB9C3F2DF2 /* Pods-ItemShareAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A384981B5B85B5DF61E47B715F6F73AB /* Build configuration list for PBXNativeTarget "Pods-ItemShareAppTests" */;
-			buildPhases = (
-				8D3067E1EF5EF39C853E8CDD91E40320 /* Sources */,
-				87FE3C70FBAE329FEC26E3DCA0A4E7A5 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6416AF262CDBAB04099179CB79A01AE5 /* PBXTargetDependency */,
-			);
-			name = "Pods-ItemShareAppTests";
-			productName = "Pods-ItemShareAppTests";
-			productReference = E0767A8F8B1D71921509D0F9AD282B31 /* libPods-ItemShareAppTests.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		26BF235B420589570D8C83E44CF0C52A /* Bolts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02F092A76E5188AD101DD30E8EEB9E20 /* Build configuration list for PBXNativeTarget "Bolts" */;
@@ -1799,24 +1702,7 @@
 			);
 			name = Bolts;
 			productName = Bolts;
-			productReference = 553A437A0024B12B6FD2959B3528D4A9 /* libBolts.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		34F1FE22E86AA4F360D8A648BDA9758D /* Pods-ItemShareAppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2045BDED366660B92534EB9DF41818A4 /* Build configuration list for PBXNativeTarget "Pods-ItemShareAppUITests" */;
-			buildPhases = (
-				37FD786266B29ED0824BCB7139D926BB /* Sources */,
-				BF836AB4EB458C451C437F371DC5917E /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DB93E7479FFA6C012DE2933B89CB9870 /* PBXTargetDependency */,
-			);
-			name = "Pods-ItemShareAppUITests";
-			productName = "Pods-ItemShareAppUITests";
-			productReference = 72DD98CA0F8BEDB5B70E88C6C78A1AE1 /* libPods-ItemShareAppUITests.a */;
+			productReference = F3C4BEE6A2FC01B4B8B22ACEB8F7D0A1 /* libBolts.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		7280F5058E71F852EC60F38DC3F8F09E /* Parse-Parse */ = {
@@ -1833,25 +1719,25 @@
 			);
 			name = "Parse-Parse";
 			productName = "Parse-Parse";
-			productReference = 53D11A0C84A32B0FA05CEC2B21574B80 /* Parse.bundle */;
+			productReference = 24CC970294A4032E056D340F838730DE /* Parse.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		72D0B96FD8B2A23B2D59F84031E35D17 /* Pods-ItemShareApp */ = {
+		AC9CC5223811CCB1E8CE12B7B75C3AB1 /* Pods-item-share-app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9096CCF136BD079F132215FB6B6C872 /* Build configuration list for PBXNativeTarget "Pods-ItemShareApp" */;
+			buildConfigurationList = 3696AA18E56E89848B46B5DC838FC4FA /* Build configuration list for PBXNativeTarget "Pods-item-share-app" */;
 			buildPhases = (
-				19F9C26F65086EAD936932C7218D1458 /* Sources */,
-				26F0F6C2CE4EB1DEFAA2E1E8F1264732 /* Frameworks */,
+				F59AB9F0337D6871A1D89C3F4326CE7F /* Sources */,
+				546578E6DD45E6F9523253603B4CE09C /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8D1ADAABE23D1EC4B23CC91AB6F51170 /* PBXTargetDependency */,
-				776810652B455A1446A24B36BAAD4F7D /* PBXTargetDependency */,
+				57D5E653790748D123175B8F1AC411AC /* PBXTargetDependency */,
+				9C6A94D829D6A331498A7B2C0D6F151A /* PBXTargetDependency */,
 			);
-			name = "Pods-ItemShareApp";
-			productName = "Pods-ItemShareApp";
-			productReference = 0BDFE3851B0AA664631655FA3975A1BC /* libPods-ItemShareApp.a */;
+			name = "Pods-item-share-app";
+			productName = "Pods-item-share-app";
+			productReference = 8BEC48017DFD9E2C8675E440387D3E9E /* libPods-item-share-app.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		D6EF2EE752CB215D9DD3C027899301FC /* Parse */ = {
@@ -1870,7 +1756,7 @@
 			);
 			name = Parse;
 			productName = Parse;
-			productReference = 2AC23BB8CE327CD30F196EBD4857E483 /* libParse.a */;
+			productReference = AC0D1AC9CFABF5CA51DA21A04C2498F2 /* libParse.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1890,16 +1776,14 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 21AC47F58C117AA4251002C97C0F67AA /* Products */;
+			productRefGroup = F839036AF3E9BA0D61789AB3D09D831E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				26BF235B420589570D8C83E44CF0C52A /* Bolts */,
 				D6EF2EE752CB215D9DD3C027899301FC /* Parse */,
 				7280F5058E71F852EC60F38DC3F8F09E /* Parse-Parse */,
-				72D0B96FD8B2A23B2D59F84031E35D17 /* Pods-ItemShareApp */,
-				178C77AF3D37C1D41C470BCB9C3F2DF2 /* Pods-ItemShareAppTests */,
-				34F1FE22E86AA4F360D8A648BDA9758D /* Pods-ItemShareAppUITests */,
+				AC9CC5223811CCB1E8CE12B7B75C3AB1 /* Pods-item-share-app */,
 			);
 		};
 /* End PBXProject section */
@@ -1916,34 +1800,10 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		19F9C26F65086EAD936932C7218D1458 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				753FF6B20D6166DE2F4ABAF00345A815 /* Pods-ItemShareApp-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		37FD786266B29ED0824BCB7139D926BB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				794F99C1AC269ECCC08E7C45635BC195 /* Pods-ItemShareAppUITests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7B68FBA6DCABDF2F468FE46BCA6B54CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8D3067E1EF5EF39C853E8CDD91E40320 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				72A51636CF8CC68ADDFB97FFEC848509 /* Pods-ItemShareAppTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2125,6 +1985,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F59AB9F0337D6871A1D89C3F4326CE7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				645C4D4FCDC45173F4DFA8E34812344B /* Pods-item-share-app-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2140,29 +2008,17 @@
 			target = 7280F5058E71F852EC60F38DC3F8F09E /* Parse-Parse */;
 			targetProxy = DA24EEB497FB77299D9969EF98546C50 /* PBXContainerItemProxy */;
 		};
-		6416AF262CDBAB04099179CB79A01AE5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-ItemShareApp";
-			target = 72D0B96FD8B2A23B2D59F84031E35D17 /* Pods-ItemShareApp */;
-			targetProxy = 9FECA7CEFD8AD7CF1BF71B7DE6CDF856 /* PBXContainerItemProxy */;
-		};
-		776810652B455A1446A24B36BAAD4F7D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Parse;
-			target = D6EF2EE752CB215D9DD3C027899301FC /* Parse */;
-			targetProxy = 93CF5E5F3853F68F32390F59FD735A95 /* PBXContainerItemProxy */;
-		};
-		8D1ADAABE23D1EC4B23CC91AB6F51170 /* PBXTargetDependency */ = {
+		57D5E653790748D123175B8F1AC411AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Bolts;
 			target = 26BF235B420589570D8C83E44CF0C52A /* Bolts */;
-			targetProxy = DDD327CF1107400144480972E87D2A0A /* PBXContainerItemProxy */;
+			targetProxy = 3C3A251E5D798A18A43D37A59EA7F303 /* PBXContainerItemProxy */;
 		};
-		DB93E7479FFA6C012DE2933B89CB9870 /* PBXTargetDependency */ = {
+		9C6A94D829D6A331498A7B2C0D6F151A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-ItemShareApp";
-			target = 72D0B96FD8B2A23B2D59F84031E35D17 /* Pods-ItemShareApp */;
-			targetProxy = B863C8E438E91E6BA06FC2483622A7C5 /* PBXContainerItemProxy */;
+			name = Parse;
+			target = D6EF2EE752CB215D9DD3C027899301FC /* Parse */;
+			targetProxy = BF6A1679A49DD0BF895765E3A6CEF136 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2223,9 +2079,9 @@
 			};
 			name = Debug;
 		};
-		49549A01C4007F30229C13D311517DE5 /* Debug */ = {
+		4B00A2908CD76F28D8E2E822521767F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3324B868499D65561C612C8E0C8E111 /* Pods-ItemShareAppUITests.debug.xcconfig */;
+			baseConfigurationReference = 144669D0FAECB649C3060FF389288A56 /* Pods-item-share-app.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2307,6 +2163,29 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
+		};
+		6B62EF336CED7EB67DAC29C0715ACCA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97706CECE992BAC3AADD4149846C9884 /* Pods-item-share-app.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
 		};
 		6DD437A6870EC5E0EB35685259A65C1E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -2413,52 +2292,6 @@
 			};
 			name = Release;
 		};
-		B1FB9C5B3D532387DE3198DF3BCB620E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 647991A534BA933775993E47B4A69568 /* Pods-ItemShareAppUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		CAB605B8BD3EEA47DD4A3726E414CA4A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF945A804FD8B2551AE66E22967E6FCF /* Pods-ItemShareApp.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		D257913D112ACE9D82DF814AF8DE8AD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B77DE2CABA0BD5A57846C092ABAE38F8 /* Parse.xcconfig */;
@@ -2482,73 +2315,6 @@
 			};
 			name = Debug;
 		};
-		D43B6A86E11127E7BB9DA70179F09EA2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CABFE2046C9635837CC1D40A57CBF95 /* Pods-ItemShareApp.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		E782A0A36376FE46948B087E635A3D6B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4B8BD53FD1D507B6FD79538B941F130 /* Pods-ItemShareAppTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F9735A7B0410B9A70ACEBBAE3BFA0F90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E91BE93C8BADEC16EB69170BAC468C2E /* Pods-ItemShareAppTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2570,15 +2336,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2045BDED366660B92534EB9DF41818A4 /* Build configuration list for PBXNativeTarget "Pods-ItemShareAppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				49549A01C4007F30229C13D311517DE5 /* Debug */,
-				B1FB9C5B3D532387DE3198DF3BCB620E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2588,11 +2345,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A384981B5B85B5DF61E47B715F6F73AB /* Build configuration list for PBXNativeTarget "Pods-ItemShareAppTests" */ = {
+		3696AA18E56E89848B46B5DC838FC4FA /* Build configuration list for PBXNativeTarget "Pods-item-share-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E782A0A36376FE46948B087E635A3D6B /* Debug */,
-				F9735A7B0410B9A70ACEBBAE3BFA0F90 /* Release */,
+				4B00A2908CD76F28D8E2E822521767F3 /* Debug */,
+				6B62EF336CED7EB67DAC29C0715ACCA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2602,15 +2359,6 @@
 			buildConfigurations = (
 				438F76EF1ADD6FBCDC134601FF2D3CC5 /* Debug */,
 				2BC845E3A774D7BDE8611D4F279C21B0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E9096CCF136BD079F132215FB6B6C872 /* Build configuration list for PBXNativeTarget "Pods-ItemShareApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D43B6A86E11127E7BB9DA70179F09EA2 /* Debug */,
-				CAB605B8BD3EEA47DD4A3726E414CA4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -21,7 +21,7 @@
 }
 
 
-+ (void) postItem: ( NSString * )title withOwner:( User * )owner withLocation: ( CLLocation * )location withAddress:( NSString * _Nullable )address withCompletion: completion {
++ (void) postItem: ( NSString * )title withOwner:( PFUser * )owner withLocation: ( CLLocation * )location withAddress:( NSString * _Nullable )address withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Item *newItem = [Item new];
     newItem.title = title;
