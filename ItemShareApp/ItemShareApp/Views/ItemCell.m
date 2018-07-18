@@ -13,11 +13,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.nameLabel.text = self.name;
 }
 
-- (void)setItem:(NSString *)name{
-    self.nameLabel.text = name;
+- (void)setItem:(Item *) item{
+    _item = item;
+    self.nameLabel.text = item.title;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
