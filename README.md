@@ -22,7 +22,7 @@ With [insert name here], you can easily rent and return items from around your n
 Required
 
 [ ] User can use the interactive map to find items being shared nearby\
-[ ] User can click on the items being displayed on the map to see a detailed screen for the item\
+[x] User can click on the items being displayed on the map to see a detailed screen for the item\
 [ ] user can see when item is available\
 [ ] user can book the item\
 [ ] User will be charged throughn Stripe
