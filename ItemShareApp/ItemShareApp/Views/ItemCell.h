@@ -13,9 +13,8 @@
 
 //@property (strong, nonatomic) Item *item;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) Item *item;
 
-- (void)setItem:(NSString *)name;
+- (void)setItem:(Item *)item;
 
 @end
