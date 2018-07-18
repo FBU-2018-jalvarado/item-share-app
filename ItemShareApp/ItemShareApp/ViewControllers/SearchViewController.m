@@ -29,9 +29,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.searchBar.delegate = self;
-    self.itemsArray = [NSMutableArray arrayWithObjects:@"item1", @"item2", @"item3", @"item4", @"item5", @"item6", @"item6", @"item7",  @"item8", @"item9", @"item10", nil];
-    self.filteredItemsArray = self.itemsArray;
-    [self postInfo];
+    self.tableView.alpha = 0;
+//    self.itemsArray = [NSMutableArray arrayWithObjects:@"item1", @"item2", @"item3", @"item4", @"item5", @"item6", @"item6", @"item7",  @"item8", @"item9", @"item10", nil];
+//    self.filteredItemsArray = self.itemsArray;
+//    [self postInfo];
     [self fetchItems];
     
 }
@@ -45,12 +46,19 @@
     [self.view endEditing:YES];
 }
 
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.tableView.alpha = 1;
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    self.tableView.alpha = 0;
+}
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
        // commented out because need to pull model class to implement these lines of code. Commmiting to pull.
                 NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-                    return [evaluatedObject.title containsString:searchText];
+                    return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
                 }];
                 NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
                 self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
@@ -67,17 +75,19 @@
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     
+     MapViewController *mapViewController = [segue destinationViewController];
+     ItemCell *tappedCell = sender;
+     NSIndexPath *tappedIndexPath = [self.tableView indexPathForCell:tappedCell];
+     Item *itemTapped = self.filteredItemsArray[tappedIndexPath.row];
+     mapViewController.item = itemTapped;
  }
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
     Item *item = self.filteredItemsArray[indexPath.row];
-    
-    
-    [cell setItem:self.filteredItemsArray[indexPath.row]];
-    cell.item = self.filteredItemsArray[indexPath.row];
+    [cell setItem:item];
+//    cell.item = item;
     return cell;
 }
 
@@ -85,18 +95,18 @@
     return self.filteredItemsArray.count;
 }
 
-- (void)postInfo{
-    PFUser *user = [PFUser currentUser];
-    [Item postItem:@"title1" withOwner:user withLocation:nil withAddress:@"address1" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if(error){
-            NSLog(@"error");
-        }
-        else{
-            NSLog(@"success");
-            
-        }
-    }];
-}
+//- (void)postInfo{
+//    PFUser *user = [PFUser currentUser];
+//    [Item postItem:@"title4" withOwner:user withLocation:nil withAddress:@"address4" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+//        if(error){
+//            NSLog(@"error");
+//        }
+//        else{
+//            NSLog(@"success");
+//
+//        }
+//    }];
+//}
 
 - (void)fetchItems {
     
@@ -124,6 +134,7 @@
                 }
                 // self.itemsArray = [self.itemsArray arrayByAddingObjectsFromArray:items];
                 //self.itemsArray = items;
+                self.filteredItemsArray = self.itemsArray;
                 NSLog(@"SUCCESSFULLY RETREIVED ITEMS!");
                 [self.tableView reloadData];
                 

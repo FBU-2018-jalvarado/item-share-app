@@ -20,7 +20,6 @@
     return @"Item";
 }
 
-
 + (void) postItem: ( NSString * )title withOwner:( PFUser * )owner withLocation: ( CLLocation * )location withAddress:( NSString * _Nullable )address withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Item *newItem = [Item new];
