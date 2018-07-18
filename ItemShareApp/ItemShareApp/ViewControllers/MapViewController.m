@@ -22,8 +22,19 @@
 
 @implementation MapViewController
 
+// Set item method for mapView, but unneeded as is taken care of in Item model
+//-(void) setItem:(Item *)item{
+//    _item = item;
+//    self.item.address = item.address;
+//    self.item.title = item.title;
+//}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // calling own setItem method, but unneeded as is taken care of in Item model
+//    [self setItem:self.item];
+    
     self.mapView.delegate = self;
     BOOL permission = YES;
     if(permission){
@@ -33,10 +44,7 @@
     else{
         [self setRegion]; //sets SF regions
     }
-    Item *itemTest = [[Item alloc] init];
-    itemTest.address = @"1 Hacker Way, Menlo Park, CA";
-    itemTest.title = @"2018 Macbook";
-    [self addAnnotationAtAddress:itemTest.address withTitle:itemTest.title];
+    [self addAnnotationAtAddress:self.item.address withTitle:self.item.title];
    // [self addAnnotationAtAddress:@"1 Infinite Loop, Cupertino, CA" withTitle:@"Pin!"];
    // [self addAnnotationAtCoordinate:CLLocationCoordinate2DMake(37.783333, -122.416667)];
     
