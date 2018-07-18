@@ -32,8 +32,12 @@
     else{
         [self setRegion]; //sets SF regions
     }
-    [self addAnnotationAtAddress:@"1 Infinite Loop, Cupertino, CA" withTitle:@"Pin!"];
-    [self addAnnotationAtCoordinate:CLLocationCoordinate2DMake(37.783333, -122.416667)];
+    Item *itemTest = [[Item alloc] init];
+    itemTest.address = @"1 Hacker Way, Menlo Park, CA";
+    itemTest.title = @"2018 Macbook";
+    [self addAnnotationAtAddress:itemTest.address withTitle:itemTest.title];
+   // [self addAnnotationAtAddress:@"1 Infinite Loop, Cupertino, CA" withTitle:@"Pin!"];
+   // [self addAnnotationAtCoordinate:CLLocationCoordinate2DMake(37.783333, -122.416667)];
     
     //1 Infinite Loop, Cupertino, CA
 }
