@@ -9,7 +9,6 @@
 #import "SearchViewController.h"
 #import "ItemCell.h"
 #import "Item.h"
-#import "User.h"
 #import "Parse.h"
 #import "MapViewController.h"
 
