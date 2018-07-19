@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <Stripe/Stripe.h>
 
 @interface AppDelegate ()
 
@@ -15,6 +16,9 @@
 
 @implementation AppDelegate
 
+//secret key: sk_test_MjyFzJARb2W8Hv64H0S6xkDw
+//"/v1/charges/ch_1CpUe7COBvIU783dD9UyWCWB/refunds"
+//https://api.stripe.com
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -34,6 +38,14 @@
         
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     }
+    
+    
+    //STRIPE
+    [Stripe setDefaultPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
+    
+    [[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
+    // do any other necessary launch configuration
+    
     return YES;
 }
 

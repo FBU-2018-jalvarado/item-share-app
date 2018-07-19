@@ -195,6 +195,7 @@
 
 //the view on the annotation pin was tapped, send to details
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+
     [self performSegueWithIdentifier:@"detailsViewSegue" sender:nil];
     
 }
@@ -251,6 +252,9 @@
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if([segue.identifier isEqualToString:@"detailsViewSegue"]){
          DetailsViewController *detailsViewController = [segue destinationViewController];
+         for(Item *item in self.itemsArray){
+             
+         }
          detailsViewController.item = self.item;
      }
  // Get the new view controller using [segue destinationViewController].

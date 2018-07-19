@@ -7,5 +7,7 @@ target 'item-share-app' do
 
   # Pods for ItemShareApp
   pod 'Parse'
+  pod 'Stripe'
+  pod 'AFNetworking'
 
 end
