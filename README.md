@@ -37,6 +37,8 @@ Optional
 [ ] Posting available items\
 [ ] User can can tap map for a CLLocation or convert address to a CLLocation
 [ ] Asking user for permission for location services
+[ ] Map doesn't show all items on map, just items in given radius
+[ ] When searching, results are diacritic and space insensitive
 
 Stretch
 
