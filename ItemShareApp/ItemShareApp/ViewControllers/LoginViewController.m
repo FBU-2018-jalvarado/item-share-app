@@ -58,6 +58,7 @@
 - (void) registerUser {
     // initialize a user object
     PFUser *newUser = [PFUser user];
+    newUser[@"customer_id"] = @"customer_id1";
     
     // set user properties
     newUser.username = self.usernameTextField.text;
