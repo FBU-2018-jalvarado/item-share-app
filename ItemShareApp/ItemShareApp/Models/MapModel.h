@@ -9,15 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Item.h"
 
 @interface MapModel : NSObject
 
-+ (void)addAnnotations: (MKMapView*)mapView withArray: (NSMutableArray *)filteredItemsArray;
-+ (void)setRegion: (MKMapView *)mapView;
-+ (void)addAnnotationAtAddress: (NSString *)address withTitle:(NSString*)title withMapView:(MKMapView *)mapView;
-+ (void)addAnnotationAtCoordinate: (CLLocationCoordinate2D)coordinate withMapView:(MKMapView*)mapView;
-+ (void)removeAllPinsButUserLocation: (MKMapView *)mapView;
-+ (MKAnnotationView *)mapViewHelper:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation;
-+ (void)updateUserLocation: (MKMapView*)mapView;
-        
+- (void)getAddressLocationsWithCompletion:(void(^)(NSArray<Item *> *items, NSError *error))completion;
+
 @end
