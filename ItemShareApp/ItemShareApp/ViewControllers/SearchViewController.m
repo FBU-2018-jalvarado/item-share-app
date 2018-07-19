@@ -79,7 +79,7 @@
      ItemCell *tappedCell = sender;
      NSIndexPath *tappedIndexPath = [self.tableView indexPathForCell:tappedCell];
      Item *itemTapped = self.filteredItemsArray[tappedIndexPath.row];
-     mapViewController.item = itemTapped;
+    // mapViewController.item = itemTapped;
  }
 
 
