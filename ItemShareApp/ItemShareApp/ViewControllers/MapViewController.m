@@ -32,6 +32,7 @@
     [super viewDidLoad];
     self.searchBar.delegate = self;
     self.mapView.delegate = self;
+    [self locationSetup];
     [self fetchItems];
 }
 
