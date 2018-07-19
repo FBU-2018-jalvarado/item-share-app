@@ -19,21 +19,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15s-9G-4Ok">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omP-vV-ahs">
+                                <rect key="frame" x="0.0" y="48" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="N7T-PW-YyS"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="15s-9G-4Ok" id="YML-np-UdJ"/>
+                        <outlet property="searchBar" destination="omP-vV-ahs" id="pBy-b4-Jo5"/>
                         <segue destination="fuC-EW-0wL" kind="show" identifier="detailsViewSegue" id="ecO-iD-ogK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alr-U8-nBS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1353" y="59"/>
+            <point key="canvasLocation" x="-1354.4000000000001" y="58.920539730134934"/>
         </scene>
         <!--DetailsStoryboard-->
         <scene sceneID="Wiv-4m-R6p">

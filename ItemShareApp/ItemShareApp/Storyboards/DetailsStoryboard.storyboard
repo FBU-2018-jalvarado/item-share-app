@@ -137,8 +137,11 @@
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="xEd-rp-ygU" id="vxb-HI-amW"/>
+                        <outlet property="confirmPickupButton" destination="OX1-Vu-qli" id="UTt-Yh-Mbq"/>
                         <outlet property="descriptionLabel" destination="LTy-LP-VLW" id="xPT-gb-m2e"/>
+                        <outlet property="endTimePicker" destination="7xh-L1-GCb" id="Y8S-KR-B8O"/>
                         <outlet property="priceLabel" destination="NBn-2a-tkv" id="eeL-bs-crh"/>
+                        <outlet property="startTimePicker" destination="gwO-jv-Hvf" id="Hfw-qt-92l"/>
                         <outlet property="titleLabel" destination="frx-zw-9co" id="0Vz-P8-70y"/>
                     </connections>
                 </viewController>
