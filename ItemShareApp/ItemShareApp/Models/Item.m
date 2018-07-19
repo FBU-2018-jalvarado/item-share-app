@@ -20,6 +20,10 @@
     return @"Item";
 }
 
+//- (BOOL)isAvailableOnDate:(NSDate *)date {
+//    [FBUDateHelper dateConflicers:date1 yo: date];
+//}
+
 + (void) postItem: ( NSString * )title withOwner:( PFUser * )owner withLocation: ( CLLocation * )location withAddress:( NSString * _Nullable )address withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Item *newItem = [Item new];
