@@ -52,4 +52,5 @@ b o o m
 - git reset -- filename                          -> **after** adding (and **before** committing) all files, will undo the addition of a file
 - git update-index --assume-unchanged "filename" -> git will start ignoring changes to a file
 - git revert -m 1 [commit hash]                  -> to revert a commit
-
+- git reset --hard HEAD                          -> local HEAD will go to remote HEAD
+- git reset --hard [commit hash]                 -> HEAD will go back to commit
