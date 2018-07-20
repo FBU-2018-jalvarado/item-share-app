@@ -12,6 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "DetailsViewController.h"
 #import "Parse.h"
+#import "Pin.h"
 
 
 @interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
@@ -25,10 +26,11 @@
 @property (strong, nonatomic) Item *item;
 @property (strong, nonatomic) MapModel *model;
 
+@property (strong, nonnull) MKUserLocation *previousUserLocation;
+
 @end
 
 @implementation MapViewController
-
 
 - (instancetype)init
 {
@@ -42,13 +44,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self init];
+    self.locationManager.delegate = self;
     self.searchBar.delegate = self;
     self.mapView.delegate = self;
+    self.previousUserLocation = [MKUserLocation new];
+//    self.previousUserLocation =  nil;
     [self locationSetup];
     [self fetchItems];
 }
-
-//sets up location manager and user location. Temporary forced YES to use user location. In setUpLocationManager the method to ask the user is present.
 
 //this method runs once search button is clicked and keyboard goes away. This is an option to reload all the pins, instead of autopopulating the pins (design choice).
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
@@ -58,6 +61,7 @@
 //closes keyboard once search is clicked.
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self.view endEditing:YES];
+    [self.locationManager requestWhenInUseAuthorization];
 }
 
 //text changes, update pins with filtered array of items
@@ -78,7 +82,7 @@
 
 //retrieve items array
 - (void)fetchItems {
-    [self.model getAddressLocationsWithCompletion:^(NSArray<Item *> *items, NSError *error) {
+    [self.model fetchItemsWithCompletion:^(NSArray<Item *> *items, NSError *error) {
         if (error) {
             return;
         }
@@ -93,10 +97,14 @@
     }];
 }
 
-//MAP IMPLEMENTATION
-
-
+//sets up location manager and user location. Temporary forced YES to use user location. In setUpLocationManager the method to ask the user is present.
 - (void)locationSetup{
+    [self setUpLocationManager];
+//    if(self.locationManager.authorizationStatus = kCLAuthorizationStatusNotDetermined){
+//
+//    }
+//    if(self.locationManager.authorizationStatus == kclauthorizationstat)
+    [self.locationManager requestWhenInUseAuthorization];
     BOOL permission = YES;
     if(permission){
         [self setUpLocationManager];
@@ -113,7 +121,7 @@
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     self.locationManager.distanceFilter = 200;
-    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation]; //should be in didChangeAuth method once that works
 }
 
 //user allowed current location to be used
@@ -123,29 +131,52 @@
     }
 }
 
-//not necessary anymore. Replaced this with didUpdateUserLocation
-//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
-//    self.location = [locations firstObject]; //was an "if let" in swift. How do I handle this in objective C? Completion? Block? Sounds like too much
-//}
-
-//zooms in to user location (when user location changes)
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    //[MapModel updateUserLocation:self.mapView];
+//this method is deprecated. What is the new alternative? didUpdateToLocation only is called when user location changes, while didUpdateUserLocation is called various times even when there is no change to user location. I need to use this method to fix the constant zooming to user location in bug.
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    NSLog(@"5");
     MKCoordinateRegion mapRegion;
     mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
     mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
     [self.mapView setRegion:mapRegion animated: YES];
+    
 }
 
-//the view on the annotation pin was tapped, send to details
-- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
-    
-    [self performSegueWithIdentifier:@"detailsViewSegue" sender:view.annotation.title];
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    NSLog(@"1");
+    [self performSegueWithIdentifier:@"detailsViewSegue" sender:view];
 }
 
 //setup the views on each annotation.
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-    return [self mapViewHelper:mapView viewForAnnotation:annotation];
+    NSLog(@"view for annotation method");
+    if (annotation == mapView.userLocation){
+        if(mapView.userLocation == self.previousUserLocation){
+            NSLog(@"in if");
+            return nil;
+        }
+        else{
+            NSLog(@"in else");
+            MKCoordinateRegion mapRegion;
+            mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
+            mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
+            [self.mapView setRegion:mapRegion animated: YES];
+            self.previousUserLocation = mapView.userLocation;
+            return nil;
+        }
+    }
+    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"current"];
+    pin.pinTintColor = [UIColor blueColor];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [button addTarget:self action:@selector(annotationClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    //need to make the white pop up from pin be clickable without adding button on side.
+    pin.rightCalloutAccessoryView = button; //adds button to the right. This calls both calloutAcessoryControlTapped, AND the action I selected (annotation clicked). Need to figure out how to set it as just a view not a button with a method. Temp solution.
+    pin.canShowCallout = NO;
+    pin.draggable = NO;
+    pin.highlighted = YES;
+    pin.canShowCallout = YES;
+    return pin;
+    //return [self mapViewHelper:mapView viewForAnnotation:annotation];
 }
 
 - (void)annotationClicked {
@@ -157,19 +188,19 @@
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if([segue.identifier isEqualToString:@"detailsViewSegue"]){
          DetailsViewController *detailsViewController = [segue destinationViewController];
-        // MKAnnotationView *view = (MKAnnotationView*)sender;
+         MKAnnotationView *view = (MKAnnotationView*)sender;
+         Pin *pin = view.annotation;
          for(Item *item in self.itemsArray){
-//             if([item.title isEqualToString:view.annotation.title]){
-//                 detailsViewController.item = self.item;
-//             }
-             //get the correct item (compare item title to pin title (sender is annotation)
+             if(item == pin.item){
+                 detailsViewController.item = item;
+             }
          }
      }
  }
 
 - (void)addAnnotations: (MKMapView*)mapView withArray: (NSMutableArray *)filteredItemsArray{
     for(Item *item in filteredItemsArray){
-        [self addAnnotationAtAddress:item.address withTitle:item.title];
+        [self addAnnotationAtAddress:item];
         // [self addAnnotationAtAddress:item.address withTitle:item.title];
     }
 }
@@ -181,7 +212,6 @@
 
 - (NSString *)convertCoordinateToAddress: (CLLocation*)location{
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if(error){
             NSLog(@"%@", error);
@@ -200,19 +230,23 @@
     return @"";
 }
 
-- (void)addAnnotationAtAddress: (NSString *)address withTitle:(NSString*)title {
+- (void)addAnnotationAtAddress: (Item *)item {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+    [geocoder geocodeAddressString:item.address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if(error){
             NSLog(@"%@", error);
         }
         else{
             NSLog(@"added annotations");
             CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
-            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-            annotation.coordinate = placemark.location.coordinate;
-            annotation.title = title;
-            [self.mapView addAnnotation:annotation];
+            Pin *pin = [[Pin alloc] init];
+            pin.coordinate = placemark.location.coordinate;
+            pin.title = item.title;
+            pin.item = item;
+//            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+//            annotation.coordinate = placemark.location.coordinate;
+//            annotation.title = item.title;
+            [self.mapView addAnnotation:pin];
         }
     }];
 }
@@ -235,28 +269,14 @@
     pins = nil;
 }
 
-- (MKAnnotationView *)mapViewHelper:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-    
-    if (annotation == mapView.userLocation){
-        MKCoordinateRegion mapRegion;
-        mapRegion.center = mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
-        mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
-        [mapView setRegion:mapRegion animated: YES];
-        return nil;
-    }
-    
-    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"current"];
-    pin.pinTintColor = [UIColor blueColor];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [button addTarget:self action:@selector(annotationClicked) forControlEvents:UIControlEventTouchUpInside];
-    
-    //need to make the white pop up from pin be clickable without adding button on side.
-    pin.rightCalloutAccessoryView = button; //adds button to the right. This calls both calloutAcessoryControlTapped, AND the action I selected (annotation clicked). Need to figure out how to set it as just a view not a button with a method. Temp solution.
-    pin.draggable = NO;
-    pin.highlighted = YES;
-    pin.canShowCallout = YES;
-    return pin;
-}
+//zooms in to user location (when user location changes). //solution to bug in this method is to create an instance location variable with user location. Compare it to user location passed in to this method. If it is the same, return, if not, update the instance and change the center view.
+//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+//    //[MapModel updateUserLocation:self.mapView];
+////    MKCoordinateRegion mapRegion;
+////    mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
+////    mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
+////    [self.mapView setRegion:mapRegion animated: YES];
+//}
 
 
 

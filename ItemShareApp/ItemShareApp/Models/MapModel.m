@@ -12,7 +12,7 @@
 
 @implementation MapModel
 
-- (void)getAddressLocationsWithCompletion:(void(^)(NSArray<Item *> *items, NSError *error))completion
+- (void)fetchItemsWithCompletion:(void(^)(NSArray<Item *> *items, NSError *error))completion
 {
     PFQuery *itemQuery = [Item query];
     //PFQuery *itemQuery = [PFQuery queryWithClassName:@"Item"];
