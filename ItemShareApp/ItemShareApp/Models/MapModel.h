@@ -13,6 +13,6 @@
 
 @interface MapModel : NSObject
 
-- (void)getAddressLocationsWithCompletion:(void(^)(NSArray<Item *> *items, NSError *error))completion;
+- (void)fetchItemsWithCompletion:(void(^)(NSArray<Item *> *items, NSError *error))completion;
 
 @end
