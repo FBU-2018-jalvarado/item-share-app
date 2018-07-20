@@ -23,7 +23,7 @@
 Use Kin (https://github.com/Karumi/Kin) to find trash in the .pbxproj:
 1. /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 2. brew install python@2
-3. Download zip file from the Kin github repo https://github.com/Karumi/Kin
+3. Download zip file from the Kin github repo (https://github.com/Karumi/Kin)
 4. Go into the unzipped zip file (Downloads/Kin-master)
 5. pip2 install kin
 6. python setup.py install -> if this results in an error then run:
