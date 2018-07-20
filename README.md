@@ -1,8 +1,8 @@
 # item-share-app
 
-// description (of app, of problem that app addresses, solution that app provides)
-// stories for app -> nick just moved to LA, needed to borrow a few things real quick, etc
-// user stories/features -> required, optional
+// description (of app, of problem that app addresses, solution that app provides)\
+// stories for app -> nick just moved to LA, needed to borrow a few things real quick, etc\
+// user stories/features -> required, optional\
 // wireframes
 
 ### Potential Titles
@@ -73,19 +73,19 @@ Ever since visiting a bakery in Italy, Sebastian has wanted to try his hand at b
 Millie just moved two states over for her new job. She didn't bring much more than the basic essentials, as she was alone on the move. Since she is currently staying in a temporary apartment for a week or two before she can move into her actual apartment, she doesn't want to unpack much, nor go on a huge shopping spree and have to lug everything to her new apartment. But anytime she wants rice, she can pop down the block for a rice cooker for a few hours without having to buy one yet. When her woolen shirt tears a bit in the harsh washing machines, she can easily borrow a sewing machine for an easy and cheap fix. With [insert name here], Millie can get everything she needs without the hassle of shopping and buying. 
 
 ### Data Schema
-Database for Item:
-Category
-Owner
-Title
-Description
-Picture
-Address
-Price
-Location
-(something for time booking perhaps booleans in an array)
-objectID
-booked now boolean
-dictionary of arrays of ns dates
+Database for Item:\
+Category\
+Owner\
+Title\
+Description\
+Picture\
+Address\
+Price\
+Location\
+(something for time booking perhaps booleans in an array)\
+objectID\
+booked now boolean\
+dictionary of arrays of ns dates\
 Pickup confirmed?
 
 
