@@ -30,6 +30,8 @@
 - (void)setUpUI {
     self.titleLabel.text = self.item.title;
     self.addressLabel.text = self.item.address;
+    self.startTimePicker.datePickerMode = UIDatePickerModeDate;
+    self.endTimePicker.datePickerMode = UIDatePickerModeDate;
 }
 
 - (void)didReceiveMemoryWarning {
