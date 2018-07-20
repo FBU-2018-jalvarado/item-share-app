@@ -39,7 +39,8 @@ Optional
 [ ] Asking user for permission for location services\
 [ ] Map doesn't show all items on map, just items in given radius\
 [ ] When searching, results are diacritic and space insensitive\
-[ ] User can change location from which they are searching from
+[ ] User can change location from which they are searching from\
+[ ] If category has nothing in it, it doesn't appear in categorySearchView at all (but does appear when selling)
 
 Stretch
 
