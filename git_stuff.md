@@ -49,6 +49,6 @@ b o o m
 - git branch -d branchname                       -> deletes it locally (to delete remotely, go onto GitHub)
 - git branch                                     -> lists all branches in repo
 - git checkout -b newbranch existingbranch       -> bases newbranch off of existingbranch
-- git reset -- filename                          -> **after** adding all files, will undo the addition of a file
+- git reset -- filename                          -> **after** adding (and **before** committing) all files, will undo the addition of a file
 - git update-index --assume-unchanged "filename" -> git will start ignoring changes to a file
 
