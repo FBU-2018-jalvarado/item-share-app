@@ -33,9 +33,9 @@
     layout.minimumInteritemSpacing = 3;
     layout.minimumLineSpacing = 3;
     
-    CGFloat postersPerLine = 2;
+    CGFloat postersPerLine = 5;
     CGFloat itemWidth = (self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
-    CGFloat itemHeight = itemWidth * 1.5;
+    CGFloat itemHeight = itemWidth * 1;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     // create testDictionary
@@ -45,6 +45,11 @@
                @"banana": @"banana",
                @"avocado": @"avocado",
                @"pineapple": @"pineapple",
+               @"mango": @"mango",
+               @"kiwi": @"kiwi",
+               @"coconut": @"coconut",
+               @"cherry": @"cherry",
+               @"tamarind": @"tamarind"
                };
     NSDictionary *colors = [[NSDictionary alloc] init];
     colors = @{
