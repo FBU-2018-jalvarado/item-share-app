@@ -48,8 +48,6 @@ b o o m
 - **git checkout -b branchname**                     -> creates new branch and switches into that new branch
 - **git branch -d branchname**                       -> deletes it locally (to delete remotely, go onto GitHub)
 - **git branch**                                     -> lists all branches in repo
-- **git checkout -b newbranch existingbranch**       -> bases newbranch off of existingbranch
-- **git add .**\                                     -> after adding all files, will undo the addition of a file
-  **git reset -- filename**                    
+- **git checkout -b newbranch existingbranch**       -> bases newbranch off of existingbranch                                 - **git reset -- filename**                          -> **after** adding all files, will undo the addition of a file
 - **git update-index --assume-unchanged "filename"** -> git will start ignoring changes to a file
 
