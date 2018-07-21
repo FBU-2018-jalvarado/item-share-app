@@ -37,10 +37,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //    CategoriesViewController *categoriesViewController = [segue destinationViewController];
     //    categoriesViewController.firstPage = YES;
-    UINavigationController *navVC = [segue destinationViewController];
-    CategoriesViewController *categoriesViewController = navVC.viewControllers[0];
-    categoriesViewController.firstPage = YES;
-    categoriesViewController.title = @"Categories";
+//    UINavigationController *navVC = [segue destinationViewController];
+//    CategoriesViewController *categoriesViewController = navVC.viewControllers[0];
+//    categoriesViewController.firstPage = YES;
+//    categoriesViewController.title = @"Categories";
     
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
