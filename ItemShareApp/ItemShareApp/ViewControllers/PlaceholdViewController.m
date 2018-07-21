@@ -25,11 +25,15 @@
 }
 
 - (IBAction)onTapMap:(id)sender {
-    [self performSegueWithIdentifier:@"MapSegue" sender:sender];
+//    [self performSegueWithIdentifier:@"MapSegue" sender:sender];
+    //[self dismissViewControllerAnimated:true completion:nil];
+    [self.delegate dismissToMap];
 }
 
 - (void)goToMap {
-    [self performSegueWithIdentifier:@"MapSegue" sender:nil];
+//    [self performSegueWithIdentifier:@"MapSegue" sender:nil];
+    //[self dismissViewControllerAnimated:true completion:nil];
+    [self.delegate dismissToMap];
 }
 
 - (void)didReceiveMemoryWarning {

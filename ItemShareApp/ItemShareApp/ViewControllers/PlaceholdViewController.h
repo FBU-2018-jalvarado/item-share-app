@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PlaceholderViewControllerDelegate
+
+- (void)dismissToMap;
+
+@end
+
 @interface PlaceholdViewController : UIViewController
+@property (nonatomic, weak) id <PlaceholderViewControllerDelegate> delegate;
+
 
 @end
