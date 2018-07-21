@@ -28,6 +28,10 @@
     [self performSegueWithIdentifier:@"MapSegue" sender:sender];
 }
 
+- (void)goToMap {
+    [self performSegueWithIdentifier:@"MapSegue" sender:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -45,7 +49,7 @@
         CategoriesViewController *categoriesViewController = navVC.viewControllers[0];
         categoriesViewController.firstPage = YES;
         categoriesViewController.title = @"Categories";
-        //categoriesViewController.delegate = self;
+        categoriesViewController.delegate = self;
     }
 }
 

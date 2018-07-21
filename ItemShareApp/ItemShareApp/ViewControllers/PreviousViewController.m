@@ -25,6 +25,10 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)tapToShowSearchView:(id)sender {
+    [self performSegueWithIdentifier:@"showSearchViewSegue" sender:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

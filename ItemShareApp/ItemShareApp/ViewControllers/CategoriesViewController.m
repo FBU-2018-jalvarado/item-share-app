@@ -151,7 +151,7 @@
     NSString *clickedKey = arrayOfKeys[indexPath.item];
     if([self.categories[clickedKey] isKindOfClass:[NSString class]])
     {
-        [self performSegueWithIdentifier:@"MapSegue" sender:self];
+        [self.delegate goToMap];
     }
     else {
         CategoriesViewController *categoriesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
@@ -161,7 +161,7 @@
         NSLog(@"%@", categoriesViewController.categories);
         categoriesViewController.title = clickedKey;
         categoriesViewController.firstPage = NO;
-        //categoriesViewController.delegate = self.delegate;
+        categoriesViewController.delegate = self.delegate;
         [self.navigationController pushViewController:categoriesViewController animated:YES];
     }
 }
