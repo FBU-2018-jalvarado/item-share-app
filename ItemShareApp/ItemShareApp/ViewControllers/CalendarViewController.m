@@ -10,11 +10,13 @@
 #import "CalendarViewController.h"
 #import <JTCalendar/JTCalendar.h>
 #import <JTCalendar/JTCalendar.h>
+#import "DetailsViewController.h"
 
 @interface CalendarViewController () <JTCalendarDelegate>
 
 @property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarContentView;
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (strong, nonatomic) NSDate *selectedDate;
@@ -33,6 +35,12 @@
     [self.calendarManager setContentView:_calendarContentView];
     [self.calendarManager setDate:[NSDate date]];
     
+    //to change to week mode
+    /*
+    self.calendarManager.settings.weekModeEnabled = YES;
+    [self.calendarManager reload];
+     */
+    
     //changing locale and time zone
     /*
      _calendarManager.dateHelper.calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"CDT"];
@@ -41,18 +49,48 @@
      */
 }
 
-//edit calendar
+//edits contentView (month view)
+- (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar{
+    UILabel *label = [UILabel new];
+    
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont fontWithName:@"Avenir-Medium" size:25];
+    
+    return label;
+}
+
+//implementing this with nothing present nothing in contentview of calendar
+//- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
+//    //idk how to implement
+//}
+
+- (UIView<JTCalendarWeekDay> *)calendarBuildWeekDayView:(JTCalendarManager *)calendar{
+    JTCalendarWeekDayView *view = [JTCalendarWeekDayView new];
+    
+    for(UILabel *label in view.dayViews){
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont fontWithName:@"Avenir-Light" size:14];
+    }
+    
+    return view;
+}
+
+//edit calendar within only the day view
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar{
     JTCalendarDayView *view = [JTCalendarDayView new];
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:15];
     view.textLabel.textAlignment = NSTextAlignmentCenter;
     view.textLabel.textColor = [UIColor blackColor];
     view.backgroundColor = [UIColor whiteColor];
+    view.circleRatio = .8;
+    //view.dotRatio = 1. / .9;
     self.calendarContentView.backgroundColor = [UIColor whiteColor];
 //    view.layer.borderColor = [UIColor redColor].CGColor;
 //    view.layer.borderWidth = 1;
     return view;
 }
+
+    
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView{
     self.selectedDate = dayView.date;
@@ -122,14 +160,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+- (IBAction)selectButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"detailsBackSegue" sender:nil];
+}
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"detailsBackSegue"]){
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.selectedStartDate = self.selectedDate;
+        detailsViewController.selectedEndDate = self.selectedDate;
+        //didnt work (want to change UI of picker)
+        detailsViewController.startTimePicker.date = self.selectedDate;
+        detailsViewController.endTimePicker.date = self.selectedDate;
+    }
 }
-*/
+
 
 @end
