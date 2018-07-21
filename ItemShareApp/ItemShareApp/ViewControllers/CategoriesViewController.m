@@ -33,9 +33,9 @@
     layout.minimumInteritemSpacing = 3;
     layout.minimumLineSpacing = 3;
     
-    CGFloat postersPerLine = 2;
+    CGFloat postersPerLine = 5;
     CGFloat itemWidth = (self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
-    CGFloat itemHeight = itemWidth * 1.5;
+    CGFloat itemHeight = itemWidth * 1;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     // create testDictionary
@@ -45,13 +45,23 @@
                @"banana": @"banana",
                @"avocado": @"avocado",
                @"pineapple": @"pineapple",
+               @"mango": @"mango",
+               @"kiwi": @"kiwi",
+               @"coconut": @"coconut",
+               @"cherry": @"cherry",
+               @"tamarind": @"tamarind"
                };
     NSDictionary *colors = [[NSDictionary alloc] init];
     colors = @{
                @"red": @"red",
                @"orange": @"orange",
                @"yellow": @"yellow",
+               @"pink": @"pink",
                @"green": @"green",
+               @"blue": @"blue",
+               @"white": @"white",
+               @"gold": @"gold",
+               @"purple": @"purple",
                };
     NSDictionary *names = [[NSDictionary alloc] init];
     names = @{
@@ -59,7 +69,8 @@
               @"nick": @"nick",
               @"tarini": @"tarini",
               @"gucci": @"gucci",
-              @"gang": @"gang"
+              @"gang": @"gang",
+              @"steve": @"steve"
               };
     NSDictionary *cities = [[NSDictionary alloc] init];
     cities = @{
@@ -68,14 +79,41 @@
                @"Gainesville": @"Gainesville",
                @"Kansas": @"Kansas",
                @"Houston": @"Houston",
+               @"Los Gatos": @"Los Gatos",
                };
+    NSDictionary *sayings = [[NSDictionary alloc] init];
+    sayings = @{
+               @"Bet": @"Bet",
+               @"Too late": @"Too late",
+               @"Thats Facts": @"Thats Facts",
+               @"GG rip": @"GG rip",
+               @"Dope": @"Dope",
+               @"Disgusting": @"Disgusting",
+               @"You're fired": @"You're fired",
+               @"Amazing": @"Amazing",
+               @"GG sip": @"GG sip",
+               @"GG dip": @"GG dip",
+               };
+    NSDictionary *alpha = [[NSDictionary alloc] init];
+    alpha = @{
+                @"a": @"a",
+                @"b": @"b",
+                @"c": @"c",
+                @"d": @"d",
+                @"e": @"e",
+                @"f": @"f",
+                @"g": @"g",
+                @"h": @"h",
+                };
     self.testDictionary = [[NSDictionary alloc] init];
     self.testDictionary =
     @{
+      @"theSayings": sayings,
       @"theFruits": fruits,
       @"theColors": colors,
       @"theNames": names,
-      @"theCities": cities
+      @"theCities": cities,
+      @"theAlpha": alpha
       };
     //only set the testDictionary if it is the first page of categories
     if(self.firstPage)
@@ -96,12 +134,6 @@
 }
 
 - (nonnull __kindof CategoryViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    // joshua code for two different types of tvcells
-    //    if (index < self.items.count) {
-    //
-    //    } else {
-    //        index - self.items.count;
-    //    }
     CategoryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryCell" forIndexPath:indexPath];
     NSArray *arrayOfKeys = [self.categories allKeys];
     [cell setCategory:arrayOfKeys[indexPath.item]];
@@ -112,8 +144,6 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.categories.count;
-    // joshua code for two different types of tvcells
-    //    return self.items.count + self.categories.count;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,6 +161,7 @@
         NSLog(@"%@", categoriesViewController.categories);
         categoriesViewController.title = clickedKey;
         categoriesViewController.firstPage = NO;
+        //categoriesViewController.delegate = self.delegate;
         [self.navigationController pushViewController:categoriesViewController animated:YES];
     }
 }
