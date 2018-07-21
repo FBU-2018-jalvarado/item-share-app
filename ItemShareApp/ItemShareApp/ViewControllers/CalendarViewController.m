@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
+@property (strong, nonatomic) NSDate *selectedDate;
 
 @end
 
@@ -25,12 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _calendarManager = [JTCalendarManager new];
-    _calendarManager.delegate = self;
+    self.calendarManager = [JTCalendarManager new];
+    self.calendarManager.delegate = self;
     
-    [_calendarManager setMenuView:_calendarMenuView];
-    [_calendarManager setContentView:_calendarContentView];
-    [_calendarManager setDate:[NSDate date]];
+    [self.calendarManager setMenuView:_calendarMenuView];
+    [self.calendarManager setContentView:_calendarContentView];
+    [self.calendarManager setDate:[NSDate date]];
 }
 
 //edit calendar
@@ -38,18 +39,26 @@
     JTCalendarDayView *view = [JTCalendarDayView new];
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:13];
     view.textLabel.textColor = [UIColor redColor];
-    view.backgroundColor = [UIColor whiteColor];
-    view.layer.borderColor = [UIColor redColor].CGColor;
-    view.layer.borderWidth = 1;
+  //  view.backgroundColor = [UIColor blackColor];
+//    view.layer.borderColor = [UIColor redColor].CGColor;
+//    view.layer.borderWidth = 1;
     return view;
 }
 
-- (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(UIView<JTCalendarDay> *)dayView{
+- (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView{
     NSLog(@"hi");
+    self.selectedDate = dayView.date;
+    
+    dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+    [UIView transitionWithView:dayView duration:.3 options:0 animations:^{
+        dayView.circleView.transform = CGAffineTransformIdentity;
+        [self.calendarManager reload];
+    } completion:nil];
+    
 }
 
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(UIView<JTCalendarDay> *)dayView{
-    NSLog(@"bye");
+//    NSLog(@"bye");
     
 }
 
