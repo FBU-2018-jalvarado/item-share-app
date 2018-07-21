@@ -37,7 +37,7 @@
 //edit calendar
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar{
     JTCalendarDayView *view = [JTCalendarDayView new];
-    view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:13];
+    view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:11];
     view.textLabel.textColor = [UIColor blackColor];
     view.backgroundColor = [UIColor whiteColor];
 //    view.layer.borderColor = [UIColor redColor].CGColor;
@@ -87,10 +87,16 @@
     }
     
     //method to test if a date has an event (for example)
-    
-    
-    
-    
+    if([self eventHasDayCheck:dayView.date]){
+        dayView.dotView.hidden = NO;
+    }
+    else{
+        dayView.dotView.hidden = YES;
+    }
+}
+
+- (BOOL)eventHasDayCheck:(NSDate *)date {
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
