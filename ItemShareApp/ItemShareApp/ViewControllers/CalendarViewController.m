@@ -38,8 +38,8 @@
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar{
     JTCalendarDayView *view = [JTCalendarDayView new];
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:13];
-    view.textLabel.textColor = [UIColor redColor];
-  //  view.backgroundColor = [UIColor blackColor];
+    view.textLabel.textColor = [UIColor blackColor];
+    view.backgroundColor = [UIColor whiteColor];
 //    view.layer.borderColor = [UIColor redColor].CGColor;
 //    view.layer.borderWidth = 1;
     return view;
@@ -57,8 +57,39 @@
     
 }
 
-- (void)calendar:(JTCalendarManager *)calendar prepareDayView:(UIView<JTCalendarDay> *)dayView{
-//    NSLog(@"bye");
+- (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView{
+    dayView.hidden = NO;
+    
+    // Test if the dayView is from another month than the page
+    // Use only in month mode for indicate the day of the previous or next month
+    if([dayView isFromAnotherMonth]){
+        dayView.hidden = YES;
+    }
+    //today
+    else if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+        dayView.circleView.hidden = NO;
+        dayView.circleView.backgroundColor = [UIColor blueColor];
+        dayView.dotView.backgroundColor = [UIColor whiteColor];
+        dayView.textLabel.textColor = [UIColor whiteColor];
+    }
+    //selected date
+    else if(self.selectedDate && [self.calendarManager.dateHelper date:self.selectedDate isTheSameDayThan:dayView.date]){
+        dayView.circleView.hidden = NO;
+        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.dotView.backgroundColor = [UIColor whiteColor];
+        dayView.textLabel.textColor = [UIColor whiteColor];
+    }
+    //another day of the current month
+    else{
+        dayView.circleView.hidden = YES;
+        dayView.dotView.backgroundColor = [UIColor redColor];
+        dayView.textLabel.textColor = [UIColor blackColor];
+    }
+    
+    //method to test if a date has an event (for example)
+    
+    
+    
     
 }
 
