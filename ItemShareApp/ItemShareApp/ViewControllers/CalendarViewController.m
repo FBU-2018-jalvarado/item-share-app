@@ -8,8 +8,15 @@
 //
 
 #import "CalendarViewController.h"
+#import <JTCalendar/JTCalendar.h>
+#import <JTCalendar/JTCalendar.h>
 
-@interface CalendarViewController ()
+@interface CalendarViewController () <JTCalendarDelegate>
+
+@property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarContentView;
+@property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
+
+@property (strong, nonatomic) JTCalendarManager *calendarManager;
 
 @end
 
@@ -17,13 +24,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.calendarManager = [JTCalendarManager new];
-    self.calendarManager.delegate = self;
     
-    [self.calendarManager setMenuView:self.calendarMenuView];
-    [self.calendarManager setContentView:self.calendarContentView];
-    [self.calendarManager setDate:[NSDate date]];
+    _calendarManager = [JTCalendarManager new];
+    _calendarManager.delegate = self;
     
+    [_calendarManager setMenuView:_calendarMenuView];
+    [_calendarManager setContentView:_calendarContentView];
+    [_calendarManager setDate:[NSDate date]];
 }
 
 - (void)didReceiveMemoryWarning {
