@@ -33,6 +33,26 @@
     [_calendarManager setDate:[NSDate date]];
 }
 
+//edit calendar
+- (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar{
+    JTCalendarDayView *view = [JTCalendarDayView new];
+    view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:13];
+    view.textLabel.textColor = [UIColor redColor];
+    view.backgroundColor = [UIColor whiteColor];
+    view.layer.borderColor = [UIColor redColor].CGColor;
+    view.layer.borderWidth = 1;
+    return view;
+}
+
+- (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(UIView<JTCalendarDay> *)dayView{
+    NSLog(@"hi");
+}
+
+- (void)calendar:(JTCalendarManager *)calendar prepareDayView:(UIView<JTCalendarDay> *)dayView{
+    NSLog(@"bye");
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
