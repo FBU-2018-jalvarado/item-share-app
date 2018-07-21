@@ -32,21 +32,29 @@
     [self.calendarManager setMenuView:_calendarMenuView];
     [self.calendarManager setContentView:_calendarContentView];
     [self.calendarManager setDate:[NSDate date]];
+    
+    //changing locale and time zone
+    /*
+     _calendarManager.dateHelper.calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"CDT"];
+     _calendarManager.dateHelper.calendar.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
+     [_calendarManager reload];
+     */
 }
 
 //edit calendar
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar{
     JTCalendarDayView *view = [JTCalendarDayView new];
-    view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:11];
+    view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:15];
+    view.textLabel.textAlignment = NSTextAlignmentCenter;
     view.textLabel.textColor = [UIColor blackColor];
     view.backgroundColor = [UIColor whiteColor];
+    self.calendarContentView.backgroundColor = [UIColor whiteColor];
 //    view.layer.borderColor = [UIColor redColor].CGColor;
 //    view.layer.borderWidth = 1;
     return view;
 }
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView{
-    NSLog(@"hi");
     self.selectedDate = dayView.date;
     
     dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
@@ -55,18 +63,22 @@
         [self.calendarManager reload];
     } completion:nil];
     
+    //load or prev or next page if touch a day from another month
+    if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
+        if([self.calendarContentView.date compare:dayView.date] == NSOrderedAscending){
+            [self.calendarContentView loadNextPageWithAnimation];
+        }
+        else{
+            [self.calendarContentView loadPreviousPageWithAnimation];
+        }
+    }
 }
 
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView{
     dayView.hidden = NO;
     
-    // Test if the dayView is from another month than the page
-    // Use only in month mode for indicate the day of the previous or next month
-    if([dayView isFromAnotherMonth]){
-        dayView.hidden = YES;
-    }
     //today
-    else if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+    if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
         dayView.circleView.backgroundColor = [UIColor blueColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
@@ -78,6 +90,12 @@
         dayView.circleView.backgroundColor = [UIColor redColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
+    }
+    //other month
+    else if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
+        dayView.circleView.hidden = YES;
+        dayView.dotView.backgroundColor = [UIColor redColor];
+        dayView.textLabel.textColor = [UIColor lightGrayColor];
     }
     //another day of the current month
     else{
