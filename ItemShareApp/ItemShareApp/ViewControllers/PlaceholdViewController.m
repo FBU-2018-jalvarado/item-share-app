@@ -71,7 +71,14 @@
     if (searchText.length != 0) {
         NSLog(@"height of the category collection view");
         NSLog(@"%f", self.categoryCollV.frame.size.height);
-        self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, 0, 0);
+        self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
+        self.categoryCollV.alpha = 0;
+        if(self.catAndItemTableV.frame.origin.y == 200)
+        {
+            self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 146);
+        }
+        NSLog(@"WHAT I NEEED");
+        NSLog(@"%f", self.catAndItemTableV.frame.origin.y);
         // commented out because need to pull model class to implement these lines of code. Commmiting to pull.
         // filter the items array
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
@@ -87,6 +94,8 @@
         self.filteredCategoryArray = [NSMutableArray arrayWithArray:tempCat];
     }
     else {
+        self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 146);
+        self.categoryCollV.alpha = 1;
         self.filteredItemsArray = self.itemsArray;
         self.filteredCategoryArray = self.catAndItemTableViewController.categoryRows;
     }
@@ -121,7 +130,9 @@
     }
     if([segue.identifier isEqualToString:@"CategoryCollectionSegue"])
     {
-        self.categoryCollectionView = [segue destinationViewController];
+        UINavigationController *navVC = [segue destinationViewController];
+        self.categoryCollectionView = [navVC.viewControllers firstObject];
+        // self.categoryCollectionView = [segue destinationViewController];
     }
 }
 
