@@ -19,16 +19,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
     // Do any additional setup after loading the view.
 }
 
-- (IBAction)tapToShowSearchView:(id)sender {
-    self.searchView.alpha = 1;
-//    [self.searchView performSegueWithIdentifier:@"showSearchViewSegue" sender:nil];
+- (IBAction)swipeDown:(id)sender {
+    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
+    }];
+}
+
+- (IBAction)swipeUp:(id)sender {
+    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -450, self.searchView.frame.size.width, self.searchView.frame.size.height);
+    }];
 }
 
 - (void)dismissToMap {
-    self.searchView.alpha = 0;
+    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
+    }];
+    //self.searchView.alpha = 0;
     // Do any additional setup after loading the view.
 }
 - (void)didReceiveMemoryWarning {
