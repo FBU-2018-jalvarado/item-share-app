@@ -54,14 +54,15 @@
     self.tableView.alpha = 0;
 }
 
+// finds categories/items that contain the string of the searchText in them, with case, diacritic and space insensitivity
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
-       // commented out because need to pull model class to implement these lines of code. Commmiting to pull.
-                NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-                    return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
-                }];
-                NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
-                self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
+        // case and diacritic insensitivity
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
+            return [self inSpaceInsensitive:evaluatedObject.title withSearchText:searchText];
+        }];
+        NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
+        self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
     }
     else {
         self.filteredItemsArray = self.itemsArray;
@@ -69,6 +70,16 @@
     [self.tableView reloadData];
 }
 
+// function for determining if searchText is in evaluatedObject.title with all the insensitivities listed above
+- (BOOL)inSpaceInsensitive:(NSString *)itemTitle withSearchText:(NSString *)searchText {
+    NSString *spacelessItemTitle = [itemTitle stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *spacelessSearchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSLog(@"spacelessItemTitle: %@", spacelessItemTitle);
+    NSLog(@"spacelessSearchText: %@", spacelessSearchText);
+    
+    return [spacelessItemTitle rangeOfString:spacelessSearchText options:NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch].location != NSNotFound;
+}
 
 
  #pragma mark - Navigation
