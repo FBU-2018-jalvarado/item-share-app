@@ -16,7 +16,11 @@
 
 @property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarContentView;
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
-@property (weak, nonatomic) IBOutlet UIButton *selectButton;
+@property (weak, nonatomic) IBOutlet UIButton *startTimeButton;
+@property (weak, nonatomic) IBOutlet UIButton *endTimeButton;
+
+@property (strong, nonatomic) NSDate *startDate;
+@property (strong, nonatomic) NSDate *endDate;
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (strong, nonatomic) NSDate *selectedDate;
@@ -160,18 +164,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)selectButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"detailsBackSegue" sender:nil];
+
+- (IBAction)startTimeButtonPressed:(id)sender {
+    self.startDate = self.selectedDate;
+    [self.startTimeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
 }
 
+- (IBAction)endTimeButtonPressed:(id)sender {
+    self.endDate = self.selectedDate;
+    [self.endTimeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+}
+
+- (IBAction)doneButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"detailsBackSegue" sender:nil];
+}
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"detailsBackSegue"]){
         DetailsViewController *detailsViewController = [segue destinationViewController];
-        detailsViewController.selectedStartDate = self.selectedDate;
-        detailsViewController.selectedEndDate = self.selectedDate;
+        detailsViewController.selectedStartDate = self.startDate;
+        detailsViewController.selectedEndDate = self.endDate;
         //didnt work (want to change UI of picker)
         detailsViewController.startTimePicker.date = self.selectedDate;
         detailsViewController.endTimePicker.date = self.selectedDate;
