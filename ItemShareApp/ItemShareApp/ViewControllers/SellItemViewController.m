@@ -9,7 +9,9 @@
 #import "SellItemViewController.h"
 #import "Item.h"
 #import <Parse/Parse.h>
+
 @interface SellItemViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;
 @property (weak, nonatomic) IBOutlet UITextField *itemOwner;
 @property (weak, nonatomic) IBOutlet UITextField *itemAddress;
@@ -28,8 +30,7 @@
     //create and set item and user objects
     Item *toBeSold = [Item new];
     PFUser *owner = [PFUser currentUser];
-    
-    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withBooking:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(error)
         {
             NSLog(@"Unable to post the item for sale");

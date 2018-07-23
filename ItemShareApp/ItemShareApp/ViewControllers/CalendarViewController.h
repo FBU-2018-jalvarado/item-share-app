@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CalendarViewControllerDelegate
+
+- (void)sendDates: (NSDate *)startDate withEndDate:(NSDate *)endDate;
+
+@end
 
 @interface CalendarViewController : UIViewController
+
+@property (nonatomic, weak) id <CalendarViewControllerDelegate> calendarDelegate;
 
 @end

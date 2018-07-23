@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D015A7E210639A00014509E /* timeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D015A7D210639A00014509E /* timeModel.m */; };
+		4D015A81210644BF0014509E /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D015A80210644BF0014509E /* Booking.m */; };
 		4D2ECC8F20FFB71E006E6757 /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2ECC8E20FFB71E006E6757 /* MapStoryboard.storyboard */; };
 		4D2ECC9320FFBFE1006E6757 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2ECC9220FFBFE1006E6757 /* DetailsViewController.m */; };
 		4D2ECC9520FFC005006E6757 /* DetailsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2ECC9420FFC005006E6757 /* DetailsStoryboard.storyboard */; };
@@ -45,6 +47,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D015A7C210639A00014509E /* timeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timeModel.h; sourceTree = "<group>"; };
+		4D015A7D210639A00014509E /* timeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timeModel.m; sourceTree = "<group>"; };
+		4D015A7F210644BF0014509E /* Booking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Booking.h; sourceTree = "<group>"; };
+		4D015A80210644BF0014509E /* Booking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Booking.m; sourceTree = "<group>"; };
 		4D2ECC8E20FFB71E006E6757 /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
 		4D2ECC9120FFBFE1006E6757 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		4D2ECC9220FFBFE1006E6757 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
@@ -156,8 +162,8 @@
 				90091E3521027BD9007AB8A7 /* PreviousViewController.m */,
 				4D2ECCC621029806006E6757 /* CalendarViewController.h */,
 				4D2ECCC721029806006E6757 /* CalendarViewController.m */,
-				908EC1A821028B6D00BAD946 /* CatAndItemTableViewController.h */,
 				908EC1A921028B6D00BAD946 /* CatAndItemTableViewController.m */,
+				908EC1A821028B6D00BAD946 /* CatAndItemTableViewController.h */,
 				908EC1B12102989A00BAD946 /* PlaceholdViewController.h */,
 				908EC1B22102989A00BAD946 /* PlaceholdViewController.m */,
 				908A76D82103D6B000D1E17A /* BackgroundViewController.h */,
@@ -219,6 +225,8 @@
 			children = (
 				9B9F7E8A20FE4F9F000E319F /* Item.h */,
 				9B9F7E8C20FE4F9F000E319F /* Item.m */,
+				4D015A7F210644BF0014509E /* Booking.h */,
+				4D015A80210644BF0014509E /* Booking.m */,
 				4D2ECC9621001F0C006E6757 /* Customer.h */,
 				4D2ECC9721001F0C006E6757 /* Customer.m */,
 				4D2ECCBC210279DE006E6757 /* Pin.h */,
@@ -227,6 +235,8 @@
 				4D2ECCB421011745006E6757 /* SearchModel.m */,
 				4D2ECCB621011750006E6757 /* MapModel.h */,
 				4D2ECCB721011750006E6757 /* MapModel.m */,
+				4D015A7C210639A00014509E /* timeModel.h */,
+				4D015A7D210639A00014509E /* timeModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,6 +408,7 @@
 				9B9F7E6C20FE4EEE000E319F /* main.m in Sources */,
 				908EC1B021028E6100BAD946 /* ItemTableCell.m in Sources */,
 				908EC1AD21028E5000BAD946 /* CategoryTableCell.m in Sources */,
+				4D015A7E210639A00014509E /* timeModel.m in Sources */,
 				4D2ECC9320FFBFE1006E6757 /* DetailsViewController.m in Sources */,
 				4D2ECCC821029806006E6757 /* CalendarViewController.m in Sources */,
 				90091E3621027BD9007AB8A7 /* PreviousViewController.m in Sources */,
@@ -407,6 +418,7 @@
 				90091E3321027B3F007AB8A7 /* CategoriesViewController.m in Sources */,
 				9B9F7E6920FE4EE6000E319F /* AppDelegate.m in Sources */,
 				908EC1AA21028B6D00BAD946 /* CatAndItemTableViewController.m in Sources */,
+				4D015A81210644BF0014509E /* Booking.m in Sources */,
 				4D2ECC9821001F0C006E6757 /* Customer.m in Sources */,
 				4D2ECCB521011745006E6757 /* SearchModel.m in Sources */,
 			);
