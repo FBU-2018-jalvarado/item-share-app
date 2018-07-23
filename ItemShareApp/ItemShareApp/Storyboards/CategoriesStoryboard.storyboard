@@ -25,6 +25,14 @@
             </objects>
             <point key="canvasLocation" x="-1577" y="-128"/>
         </scene>
+        <!--MapStoryboard-->
+        <scene sceneID="9ka-YM-RpP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MapStoryboard" id="0Ou-Bd-hbq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EJ5-fl-Gmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-459" y="-469"/>
+        </scene>
         <!--Previous View Controller-->
         <scene sceneID="8h6-He-cdE">
             <objects>
@@ -33,23 +41,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-c5-ufq">
-                                <rect key="frame" x="54" y="20" width="267" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tap to see categories">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IIi-Rs-AEf" userLabel="Map Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <action selector="tapToShowSearchView:" destination="jgt-OD-TcT" eventType="touchUpInside" id="UMu-Tp-2ZO"/>
+                                    <segue destination="0Ou-Bd-hbq" kind="embed" id="5Oe-In-5aL"/>
                                 </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This blue background is a stand in for the map view that goes behind the search view" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5a-qt-9ZC">
-                                <rect key="frame" x="16" y="149" width="343" height="498"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
                                 <rect key="frame" x="0.0" y="149" width="375" height="518"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -59,13 +57,28 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="HGL-hI-UL5"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Nct-Xt-hDE" appends="YES" id="h9b-JI-dId"/>
+                            <outletCollection property="gestureRecognizers" destination="IRM-KE-R1Z" appends="YES" id="lnl-Al-0Lp"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="searchView" destination="29r-N8-hCX" id="wrO-ep-z0J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q95-96-cej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="Nct-Xt-hDE" userLabel="SwipeDown Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeDown:" destination="jgt-OD-TcT" id="Pt9-fU-IXs"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="IRM-KE-R1Z" userLabel="SwipeUp Gesture Recognizer">
+                    <connections>
+                        <action selector="swipeUp:" destination="jgt-OD-TcT" id="qwl-pP-rhc"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-660" y="126.38680659670166"/>
         </scene>
@@ -283,6 +296,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WOQ-cJ-boP"/>
+        <segue reference="jHC-Jg-ELY"/>
     </inferredMetricsTieBreakers>
 </document>
