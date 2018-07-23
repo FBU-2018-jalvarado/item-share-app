@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CategoriesViewControllerDelegate
+
+- (void)goToMap;
+
+@end
+
 @interface CategoriesViewController : UIViewController
+
 @property (strong, nonatomic) NSDictionary *categories;
 @property BOOL firstPage;
+@property (nonatomic, weak) id <CategoriesViewControllerDelegate> delegate;
+
 
 @end

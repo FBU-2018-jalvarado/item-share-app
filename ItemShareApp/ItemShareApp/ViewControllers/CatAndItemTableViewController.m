@@ -26,7 +26,7 @@
     self.catAndItemTableView.dataSource = self;
 //    self.itemRows = [[NSMutableArray alloc] init];
 //    self.categoryRows = [[NSMutableArray alloc] init];
-    self.itemRows = [NSMutableArray arrayWithObjects:@"ione", @"itwo", @"ithree", @"ifour", @"ifive", nil];
+    self.itemRows = [NSMutableArray arrayWithObjects:@"ione", @"itwo", @"ithree", @"ifour", @"ifive", @"isix", @"iseven", @"ieight", @"inine", @"iten", nil];
     self.categoryRows = [NSMutableArray arrayWithObjects:@"cat1", @"cat2", @"cat3", nil];
     [self.catAndItemTableView reloadData];
     // Do any additional setup after loading the view.
