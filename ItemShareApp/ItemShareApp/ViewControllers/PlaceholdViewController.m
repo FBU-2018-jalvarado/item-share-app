@@ -20,10 +20,12 @@
 @property (weak, nonatomic) IBOutlet UIView *categoryCollV;
 @property (weak, nonatomic) IBOutlet UIView *catAndItemTableV;
 @property CatAndItemTableViewController *catAndItemTableViewController;
+@property CategoriesViewController *categoryCollectionView;
 //from SearchBar
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
 @end
 
 @implementation PlaceholdViewController
@@ -58,6 +60,7 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
+    [self.delegate showSearchView];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
@@ -66,22 +69,31 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
+        NSLog(@"height of the category collection view");
+        NSLog(@"%f", self.categoryCollV.frame.size.height);
+        self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, 0, 0);
         // commented out because need to pull model class to implement these lines of code. Commmiting to pull.
+        // filter the items array
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
             return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
         }];
         NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
+        // filter the categories array
         NSPredicate *predicateCat = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedCategory, NSDictionary *bindings) {
             return [evaluatedCategory rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
         }];
         NSArray *tempCat = [self.catAndItemTableViewController.categoryRows filteredArrayUsingPredicate:predicateCat];
-        self.catAndItemTableViewController.categoryRows = [NSMutableArray arrayWithArray:tempCat];
+        self.filteredCategoryArray = [NSMutableArray arrayWithArray:tempCat];
     }
     else {
         self.filteredItemsArray = self.itemsArray;
+        self.filteredCategoryArray = self.catAndItemTableViewController.categoryRows;
     }
+    
     self.catAndItemTableViewController.itemRows = self.filteredItemsArray;
+    self.catAndItemTableViewController.categoryRows = self.filteredCategoryArray;
+    
     [self.catAndItemTableViewController.catAndItemTableView reloadData];
 }
 - (void)didReceiveMemoryWarning {
@@ -106,6 +118,10 @@
     if([segue.identifier isEqualToString:@"catAndItemTableSegue"])
     {
         self.catAndItemTableViewController = [segue destinationViewController];
+    }
+    if([segue.identifier isEqualToString:@"CategoryCollectionSegue"])
+    {
+        self.categoryCollectionView = [segue destinationViewController];
     }
 }
 

@@ -65,6 +65,7 @@
     }
     else {
         self.filteredItemsArray = self.itemsArray;
+        
     }
     [self.tableView reloadData];
 }
