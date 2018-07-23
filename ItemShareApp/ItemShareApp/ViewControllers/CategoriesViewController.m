@@ -35,7 +35,7 @@
     
     CGFloat postersPerLine = 5;
     CGFloat itemWidth = (self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
-    CGFloat itemHeight = itemWidth * 1;
+    CGFloat itemHeight = itemWidth*3 / 4;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     // create testDictionary
@@ -151,7 +151,9 @@
     NSString *clickedKey = arrayOfKeys[indexPath.item];
     if([self.categories[clickedKey] isKindOfClass:[NSString class]])
     {
-        [self performSegueWithIdentifier:@"MapSegue" sender:self];
+        //[self dismissViewControllerAnimated:true completion:nil];
+        //[self.delegate goToMap];
+        [self.delegate goToMap];
     }
     else {
         CategoriesViewController *categoriesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
@@ -161,7 +163,7 @@
         NSLog(@"%@", categoriesViewController.categories);
         categoriesViewController.title = clickedKey;
         categoriesViewController.firstPage = NO;
-        //categoriesViewController.delegate = self.delegate;
+        categoriesViewController.delegate = self.delegate;
         [self.navigationController pushViewController:categoriesViewController animated:YES];
     }
 }

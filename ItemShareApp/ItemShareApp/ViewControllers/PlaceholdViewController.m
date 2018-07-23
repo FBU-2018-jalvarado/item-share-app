@@ -25,7 +25,15 @@
 }
 
 - (IBAction)onTapMap:(id)sender {
-    [self performSegueWithIdentifier:@"MapSegue" sender:sender];
+//    [self performSegueWithIdentifier:@"MapSegue" sender:sender];
+    //[self dismissViewControllerAnimated:true completion:nil];
+    [self.delegate dismissToMap];
+}
+
+- (void)goToMap {
+//    [self performSegueWithIdentifier:@"MapSegue" sender:nil];
+    //[self dismissViewControllerAnimated:true completion:nil];
+    [self.delegate dismissToMap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +53,7 @@
         CategoriesViewController *categoriesViewController = navVC.viewControllers[0];
         categoriesViewController.firstPage = YES;
         categoriesViewController.title = @"Categories";
-        //categoriesViewController.delegate = self;
+        categoriesViewController.delegate = self;
     }
 }
 

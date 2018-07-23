@@ -8,23 +8,37 @@
 
 #import "PreviousViewController.h"
 #import "CategoriesViewController.h"
+#import "PlaceholdViewController.h"
 
 @interface PreviousViewController ()
+@property (weak, nonatomic) IBOutlet UIView *searchView;
 
 @end
 
 @implementation PreviousViewController
 
-- (IBAction)onTap:(id)sender {
-    //    [self performSegueWithIdentifier:@"hi", sender];
-    [self performSegueWithIdentifier:@"prevSegue" sender:(sender)];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)swipeDown:(id)sender {
+    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
+    }];
+}
+
+- (IBAction)swipeUp:(id)sender {
+    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -450, self.searchView.frame.size.width, self.searchView.frame.size.height);
+    }];
+}
+
+- (void)dismissToMap {
+    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
+    }];
+    //self.searchView.alpha = 0;
+    // Do any additional setup after loading the view.
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -35,12 +49,14 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //    CategoriesViewController *categoriesViewController = [segue destinationViewController];
-    //    categoriesViewController.firstPage = YES;
-//    UINavigationController *navVC = [segue destinationViewController];
-//    CategoriesViewController *categoriesViewController = navVC.viewControllers[0];
-//    categoriesViewController.firstPage = YES;
-//    categoriesViewController.title = @"Categories";
+
+    if([segue.identifier isEqualToString:@"showSearchViewSegue"])
+    {
+        UINavigationController *navVC = [segue destinationViewController];
+        PlaceholdViewController *placeholdViewController = navVC.viewControllers[0];
+        placeholdViewController.delegate = self;
+    }
+    //placeholdViewController.title = @"Categories";
     
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
