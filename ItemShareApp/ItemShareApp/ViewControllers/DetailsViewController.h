@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Item.h"
+#import "CalendarViewController.h"
 
 @interface DetailsViewController : UIViewController
 

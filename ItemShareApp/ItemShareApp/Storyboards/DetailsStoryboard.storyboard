@@ -108,6 +108,9 @@
                                 <state key="normal" title="Confirm Pickup">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmButtonClicked:" destination="LhG-qg-vfd" eventType="touchUpInside" id="W8A-Rm-hHd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSU-6t-6qX">
                                 <rect key="frame" x="131" y="318" width="113" height="30"/>
@@ -115,7 +118,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Select Dates"/>
                                 <connections>
-                                    <segue destination="AUO-YL-HuO" kind="show" id="yXM-Ip-1BI"/>
+                                    <segue destination="AUO-YL-HuO" kind="presentation" id="yXM-Ip-1BI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRw-XS-3Kd">

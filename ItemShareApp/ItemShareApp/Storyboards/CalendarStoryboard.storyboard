@@ -70,7 +70,6 @@
                         <outlet property="calendarMenuView" destination="C0V-11-Ljg" id="lQz-Bs-BDv"/>
                         <outlet property="endTimeButton" destination="zpd-SU-SzM" id="PoO-1W-h5b"/>
                         <outlet property="startTimeButton" destination="vhR-jL-wFB" id="GD3-YX-anP"/>
-                        <segue destination="LAk-Xz-ez0" kind="show" identifier="detailsBackSegue" id="sCD-cb-J7T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMz-Y2-P7p" userLabel="First Responder" sceneMemberID="firstResponder"/>

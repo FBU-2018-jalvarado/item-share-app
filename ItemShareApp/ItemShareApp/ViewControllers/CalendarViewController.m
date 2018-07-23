@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.calendarManager = [JTCalendarManager new];
     self.calendarManager.delegate = self;
     
@@ -176,7 +176,9 @@
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"detailsBackSegue" sender:nil];
+    //[self performSegueWithIdentifier:@"detailsBackSegue" sender:nil];
+    [self.calendarDelegate sendDates:self.startDate withEndDate:self.endDate];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Navigation

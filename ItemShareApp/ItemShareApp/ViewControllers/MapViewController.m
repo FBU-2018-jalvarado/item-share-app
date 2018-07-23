@@ -99,29 +99,32 @@
 
 //sets up location manager and user location. Temporary forced YES to use user location. In setUpLocationManager the method to ask the user is present.
 - (void)locationSetup{
-    [self setUpLocationManager];
-//    if(self.locationManager.authorizationStatus = kCLAuthorizationStatusNotDetermined){
-//
-//    }
-//    if(self.locationManager.authorizationStatus == kclauthorizationstat)
+    //[self setUpLocationManager];
+    
+    self.locationManager = [CLLocationManager new];
+    self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
-    BOOL permission = YES;
-    if(permission){
-        [self setUpLocationManager];
-        self.mapView.showsUserLocation = YES; //works without it? but online insists on it
-    }
-    else{
-        [self setRegion:self.mapView];
-    }
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = 200;
+    [self.locationManager startUpdatingLocation];
+    
+//    BOOL permission = YES;
+//    if(permission){
+//      //  [self setUpLocationManager];
+//        self.mapView.showsUserLocation = YES; //works without it? but online insists on it
+//    }
+//    else{
+//        [self setRegion:self.mapView];
+//    }
 }
 
 //location manager delegate for control
 - (void)setUpLocationManager{
-    [self setLocationManager:self.locationManager];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-    self.locationManager.distanceFilter = 200;
-    [self.locationManager startUpdatingLocation]; //should be in didChangeAuth method once that works
+//    [self setLocationManager:self.locationManager];
+//    self.locationManager.delegate = self;
+//    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+//    self.locationManager.distanceFilter = 200;
+//    [self.locationManager startUpdatingLocation]; //should be in didChangeAuth method once that works
 }
 
 //user allowed current location to be used
