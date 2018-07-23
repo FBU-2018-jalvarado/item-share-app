@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Item.h"
 
 @interface timeModel : NSObject
 
-- (BOOL)isBetweenDates:(NSDate *)startDate withEndDate:(NSDate *)endDate withCurrDate: (NSDate *)currDate;
+- (BOOL)isTimeAvailable:(NSDate *)date withItem:(Item *)item;
     
 @end

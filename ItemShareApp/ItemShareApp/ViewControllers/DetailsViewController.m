@@ -9,8 +9,8 @@
 #import "DetailsViewController.h"
 #import "Booking.h"
 #import <Parse/Parse.h>
-#import "Item.h"
 #import "Parse.h"
+#import "timeModel.h"
 
 @interface DetailsViewController () <CalendarViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -21,13 +21,36 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 
+@property (strong, nonatomic) timeModel *timeModel;
+
 
 @end
 
 @implementation DetailsViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.timeModel = [[timeModel alloc] init];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self init];
+    PFUser *owner = [PFUser currentUser];
+//   [Item postItem:@"TEST" withOwner:owner withLocation:nil withAddress:@"New York, NY" withBooking:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+//        if(error)
+//        {
+//            NSLog(@"Unable to post the item for sale");
+//        }
+//        else {
+//            NSLog(@"Posted the item for sale: ");
+//        }
+//    }];
+    
     // Do any additional setup after loading the view.
     [self setUpUI];
 }
@@ -57,7 +80,14 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)confirmButtonClicked:(id)sender {
-    [self postCurrentBooking];
+    if([self.timeModel isTimeAvailable:self.selectedStartDate withItem:self.item] && [self.timeModel isTimeAvailable:self.selectedEndDate withItem:self.item]){
+        
+        NSLog(@"TIME IS AVAILABLE");
+        [self postCurrentBooking];
+    }
+    else{
+    NSLog(@"TIME IS NOT AVAILABLE");
+    }
 }
 
 //set booking
@@ -72,10 +102,27 @@
     newBooking.startTime = self.selectedStartDate;
     newBooking.endTime = self.selectedEndDate;
     
-    [self.item.bookingsArray addObject:newBooking];
-    [self.item setObject:self.item.bookingsArray forKey:@"bookingsArray"];
-    [self.item saveInBackground];
-    NSLog(@"booking added!");
+    [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"error saving booking");
+        }
+        else{
+            [self.item.bookingsArray addObject:newBooking];
+            [self.item setObject:self.item.bookingsArray forKey:@"bookingsArray"];
+            [self.item saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if(error){
+                    NSLog(@"error saving item");                }
+                else{
+                    NSLog(@"updated item successfully");
+                }
+            }];
+            NSLog(@"booking added!");
+        }
+    }];
+//    [self.item.bookingsArray addObject:newBooking];
+//    [self.item setObject:self.item.bookingsArray forKey:@"bookingsArray"];
+//    [self.item saveInBackground];
+//    NSLog(@"booking added!");
     
 }
 
