@@ -54,3 +54,9 @@ b o o m
 - git revert -m 1 [commit hash]                  -> to revert a commit
 - git reset --hard HEAD                          -> local HEAD will go to remote HEAD
 - git reset --hard [commit hash]                 -> HEAD will go back to commit
+
+
+
+#pods used
+
+- https://github.com/jonathantribouharet/JTCalendar
