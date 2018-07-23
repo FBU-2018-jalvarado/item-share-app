@@ -19,29 +19,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C0V-11-Ljg" customClass="JTCalendarMenuView">
-                                <rect key="frame" x="31" y="167" width="313" height="43"/>
+                                <rect key="frame" x="31" y="130" width="313" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F8G-15-7Ia" customClass="JTHorizontalCalendarView">
-                                <rect key="frame" x="31" y="210" width="313" height="225"/>
+                                <rect key="frame" x="31" y="173" width="313" height="225"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.84225359659999999" green="1" blue="0.65957246790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhR-jL-wFB">
-                                <rect key="frame" x="218" y="480" width="60" height="39"/>
+                                <rect key="frame" x="31" y="468" width="135" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Select"/>
+                                <state key="normal" title="Set Start Time"/>
                                 <connections>
-                                    <action selector="selectButtonPressed:" destination="cp2-pq-nX1" eventType="touchUpInside" id="Epy-nc-q8g"/>
+                                    <action selector="startTimeButtonPressed:" destination="cp2-pq-nX1" eventType="touchUpInside" id="uuv-YE-6Fc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDF-NK-Mqf">
-                                <rect key="frame" x="97" y="480" width="67" height="39"/>
+                                <rect key="frame" x="31" y="32" width="67" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Cancel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpd-SU-SzM">
+                                <rect key="frame" x="209" y="468" width="135" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Set End Time"/>
+                                <connections>
+                                    <action selector="endTimeButtonPressed:" destination="cp2-pq-nX1" eventType="touchUpInside" id="sff-mf-FEg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLh-He-uzh">
+                                <rect key="frame" x="120" y="564" width="135" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="cp2-pq-nX1" eventType="touchUpInside" id="Q6Q-aG-SXW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +68,8 @@
                     <connections>
                         <outlet property="calendarContentView" destination="F8G-15-7Ia" id="OVN-Xh-Cei"/>
                         <outlet property="calendarMenuView" destination="C0V-11-Ljg" id="lQz-Bs-BDv"/>
-                        <outlet property="selectButton" destination="vhR-jL-wFB" id="jGM-cX-C4D"/>
+                        <outlet property="endTimeButton" destination="zpd-SU-SzM" id="PoO-1W-h5b"/>
+                        <outlet property="startTimeButton" destination="vhR-jL-wFB" id="GD3-YX-anP"/>
                         <segue destination="LAk-Xz-ez0" kind="show" identifier="detailsBackSegue" id="sCD-cb-J7T"/>
                     </connections>
                 </viewController>
