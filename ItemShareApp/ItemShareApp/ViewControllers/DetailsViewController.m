@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmPickupButton;
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 
 
 @end
@@ -24,6 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setUpUI];
+    
 }
 
 - (void)setUpUI {
@@ -31,6 +34,15 @@
     self.addressLabel.text = self.item.address;
     self.startTimePicker.datePickerMode = UIDatePickerModeDate;
     self.endTimePicker.datePickerMode = UIDatePickerModeDate;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM-dd-YY"];
+    if(self.selectedStartDate){
+    self.startTimeLabel.text = [formatter stringFromDate:self.selectedStartDate];
+    }
+    if(self.selectedEndDate){
+    self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
