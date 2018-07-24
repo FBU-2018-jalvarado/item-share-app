@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
+@property (strong, nonatomic) NSMutableArray *categoryArray;
 @end
 
 @implementation PlaceholdViewController
@@ -36,7 +37,9 @@
     // from SearchBar
     self.searchBar.delegate = self;
     self.catAndItemTableViewController.catAndItemTableView.alpha = 0;
-    self.catAndItemTableViewController.categoryRows = [NSMutableArray arrayWithObjects:@"cat1", @"cat12", @"cat123", @"cat123", @"cat1234", @"bananacat1234", nil];
+    self.categoryArray = [NSMutableArray arrayWithObjects:@"cat1", @"cat12", @"cat123", @"cat123", @"cat1234", @"bananacat1234", nil];
+    self.catAndItemTableViewController.categoryRows = [[NSMutableArray alloc] init];
+    self.catAndItemTableViewController.categoryRows = self.categoryArray;
     
     [self fetchItems];
     // Do any additional setup after loading the view.
@@ -56,6 +59,7 @@
  // from SearchBar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view endEditing:YES];
+    [self.delegate dismissToMap];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
@@ -90,14 +94,21 @@
         NSPredicate *predicateCat = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedCategory, NSDictionary *bindings) {
             return [evaluatedCategory rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
         }];
-        NSArray *tempCat = [self.catAndItemTableViewController.categoryRows filteredArrayUsingPredicate:predicateCat];
+//        NSArray *tempCat = [self.catAndItemTableViewController.categoryRows filteredArrayUsingPredicate:predicateCat];
+        NSArray *tempCat = [self.categoryArray filteredArrayUsingPredicate:predicateCat];
         self.filteredCategoryArray = [NSMutableArray arrayWithArray:tempCat];
     }
     else {
+        // there is nothing in search bar and category cells reappear
         self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 146);
         self.categoryCollV.alpha = 1;
+        // along w all items and categories in the table view
         self.filteredItemsArray = self.itemsArray;
-        self.filteredCategoryArray = self.catAndItemTableViewController.categoryRows;
+        self.filteredCategoryArray = self.categoryArray;
+        if(self.catAndItemTableV.frame.origin.y == 346)
+        {
+            self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
+        }
     }
     
     self.catAndItemTableViewController.itemRows = self.filteredItemsArray;
