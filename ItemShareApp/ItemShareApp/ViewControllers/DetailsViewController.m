@@ -86,7 +86,8 @@
         [self postCurrentBooking];
     }
     else{
-    NSLog(@"TIME IS NOT AVAILABLE");
+        NSLog(@"TIME IS NOT AVAILABLE");
+        [self presentAlert];
     }
 }
 
@@ -136,6 +137,23 @@
 - (void)sendDates:(NSDate *)startDate withEndDate:(NSDate *)endDate {
     self.selectedStartDate = startDate;
     self.selectedEndDate = endDate;
+}
+
+- (void)presentAlert{
+    //NSString* type can insert login in or sign out in the string if desired
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Chosen booking dates are not available" preferredStyle:(UIAlertControllerStyleAlert)];
+    // create a cancel action
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
+//    }];
+    // add the cancel action to the alertController
+    //[alert addAction:cancelAction];
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { // handle response here.
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:^{
+    }];
 }
 
 
