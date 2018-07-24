@@ -125,6 +125,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D015A82210784AD0014509E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				908A76D82103D6B000D1E17A /* BackgroundViewController.h */,
+				908A76D92103D6B000D1E17A /* BackgroundViewController.m */,
+				908EC1B12102989A00BAD946 /* PlaceholdViewController.h */,
+				908EC1B22102989A00BAD946 /* PlaceholdViewController.m */,
+				90091E3121027B3F007AB8A7 /* CategoriesViewController.h */,
+				90091E3221027B3F007AB8A7 /* CategoriesViewController.m */,
+				90091E3421027BD9007AB8A7 /* PreviousViewController.h */,
+				90091E3521027BD9007AB8A7 /* PreviousViewController.m */,
+				9B9F7E8020FE4F57000E319F /* MapViewController.h */,
+				9B9F7E7E20FE4F57000E319F /* MapViewController.m */,
+				908EC1A921028B6D00BAD946 /* CatAndItemTableViewController.m */,
+				908EC1A821028B6D00BAD946 /* CatAndItemTableViewController.h */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		4D2ECC992100E9CA006E6757 /* StripeAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,27 +166,16 @@
 		4D6B6EE420FE783D006CC875 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4D015A82210784AD0014509E /* Main */,
 				4D2ECCC1210295D3006E6757 /* Login */,
-				9B9F7E8020FE4F57000E319F /* MapViewController.h */,
-				9B9F7E7E20FE4F57000E319F /* MapViewController.m */,
 				9B9F7E7F20FE4F57000E319F /* SearchViewController.h */,
 				9B9F7E7D20FE4F57000E319F /* SearchViewController.m */,
 				901C5ABD20FEADCC00B17D70 /* SellItemViewController.h */,
 				901C5ABE20FEADCC00B17D70 /* SellItemViewController.m */,
 				4D2ECC9120FFBFE1006E6757 /* DetailsViewController.h */,
 				4D2ECC9220FFBFE1006E6757 /* DetailsViewController.m */,
-				90091E3121027B3F007AB8A7 /* CategoriesViewController.h */,
-				90091E3221027B3F007AB8A7 /* CategoriesViewController.m */,
-				90091E3421027BD9007AB8A7 /* PreviousViewController.h */,
-				90091E3521027BD9007AB8A7 /* PreviousViewController.m */,
 				4D2ECCC621029806006E6757 /* CalendarViewController.h */,
 				4D2ECCC721029806006E6757 /* CalendarViewController.m */,
-				908EC1A921028B6D00BAD946 /* CatAndItemTableViewController.m */,
-				908EC1A821028B6D00BAD946 /* CatAndItemTableViewController.h */,
-				908EC1B12102989A00BAD946 /* PlaceholdViewController.h */,
-				908EC1B22102989A00BAD946 /* PlaceholdViewController.m */,
-				908A76D82103D6B000D1E17A /* BackgroundViewController.h */,
-				908A76D92103D6B000D1E17A /* BackgroundViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -554,7 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VXY7J79LR;
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -572,7 +580,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VXY7J79LR;
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

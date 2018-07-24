@@ -36,7 +36,7 @@
 
     // from SearchBar
     self.searchBar.delegate = self;
-    self.catAndItemTableViewController.catAndItemTableView.alpha = 0;
+    //self.catAndItemTableViewController.catAndItemTableView.alpha = 0;
     self.categoryArray = [NSMutableArray arrayWithObjects:@"cat1", @"cat12", @"cat123", @"cat123", @"cat1234", @"bananacat1234", nil];
     self.catAndItemTableViewController.categoryRows = [[NSMutableArray alloc] init];
     self.catAndItemTableViewController.categoryRows = self.categoryArray;
@@ -48,48 +48,62 @@
 - (IBAction)onTapMap:(id)sender {
 //    [self performSegueWithIdentifier:@"MapSegue" sender:sender];
     //[self dismissViewControllerAnimated:true completion:nil];
-    [self.delegate dismissToMap];
+    [self.placeholderDelegate dismissToMap];
 }
 
 - (void)goToMap {
 //    [self performSegueWithIdentifier:@"MapSegue" sender:nil];
     //[self dismissViewControllerAnimated:true completion:nil];
-    [self.delegate dismissToMap];
+    [self.placeholderDelegate dismissToMap];
 }
  // from SearchBar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view endEditing:YES];
-    [self.delegate dismissToMap];
+    [self.placeholderDelegate dismissToMap];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
-    [self.delegate showSearchView];
+    [self.placeholderDelegate showSearchView];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    self.catAndItemTableViewController.catAndItemTableView.alpha = 0;
+    //self.catAndItemTableViewController.catAndItemTableView.alpha = 0;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
-        NSLog(@"height of the category collection view");
-        NSLog(@"%f", self.categoryCollV.frame.size.height);
+        /*
+         if (searchText.length != 0) {
+         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
+         return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
+         }];
+         NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
+         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
+         }
+         else {
+         self.filteredItemsArray = self.itemsArray;
+         }
+         [self addAnnotations:self.mapView withArray:self.filteredItemsArray];
+         [self removeAllPinsButUserLocation];
+         */
+        
+        //UI
         self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
         self.categoryCollV.alpha = 0;
         if(self.catAndItemTableV.frame.origin.y == 200)
         {
             self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 146);
         }
-        NSLog(@"WHAT I NEEED");
-        NSLog(@"%f", self.catAndItemTableV.frame.origin.y);
-        // commented out because need to pull model class to implement these lines of code. Commmiting to pull.
+
+        
         // filter the items array
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
             return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
         }];
         NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
+
         // filter the categories array
         NSPredicate *predicateCat = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedCategory, NSDictionary *bindings) {
             return [evaluatedCategory rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
@@ -98,8 +112,9 @@
         NSArray *tempCat = [self.categoryArray filteredArrayUsingPredicate:predicateCat];
         self.filteredCategoryArray = [NSMutableArray arrayWithArray:tempCat];
     }
+    // there is nothing in search bar and category cells reappear
     else {
-        // there is nothing in search bar and category cells reappear
+        //UI
         self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 146);
         self.categoryCollV.alpha = 1;
         // along w all items and categories in the table view
@@ -110,6 +125,10 @@
             self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
         }
     }
+    
+    //filter pins
+    [self.placeholderDelegateMap addAnnotationsInMap:self.filteredItemsArray];
+    [self.placeholderDelegateMap removeAnnotationsInMap];
     
     self.catAndItemTableViewController.itemRows = self.filteredItemsArray;
     self.catAndItemTableViewController.categoryRows = self.filteredCategoryArray;

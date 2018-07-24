@@ -13,6 +13,10 @@
 
 @interface MapViewController : UIViewController
 //@property (strong, nonatomic) NSMutableArray *itemsArray;
+@property (strong, nonatomic) NSMutableArray *filteredItemsArray;
+
+- (void)removeAllPinsButUserLocation;
+- (void)addAnnotations: (NSMutableArray *)filteredItemsArray;
 
 
 @end

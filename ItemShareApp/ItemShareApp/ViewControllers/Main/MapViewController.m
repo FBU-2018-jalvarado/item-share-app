@@ -13,16 +13,16 @@
 #import "DetailsViewController.h"
 #import "Parse.h"
 #import "Pin.h"
+#import "PlaceholdViewController.h"
 
 
-@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
+@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, PlaceHolderViewControllerDelegateMap>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *itemsArray;
-@property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 @property (strong, nonatomic) Item *item;
 @property (strong, nonatomic) MapModel *model;
 
@@ -76,7 +76,7 @@
     else {
         self.filteredItemsArray = self.itemsArray;
     }
-    [self addAnnotations:self.mapView withArray:self.filteredItemsArray];
+    [self addAnnotations:self.filteredItemsArray];
     [self removeAllPinsButUserLocation];
 }
 
@@ -89,7 +89,7 @@
         if (items) {
             self.itemsArray = [items mutableCopy];
             self.filteredItemsArray = [items mutableCopy];
-            [self addAnnotations:self.mapView withArray:self.filteredItemsArray];
+            [self addAnnotations:self.filteredItemsArray];
             [self removeAllPinsButUserLocation];
         } else {
             // HANDLE NO ITEMS
@@ -201,7 +201,7 @@
      }
  }
 
-- (void)addAnnotations: (MKMapView*)mapView withArray: (NSMutableArray *)filteredItemsArray{
+- (void)addAnnotations: (NSMutableArray *)filteredItemsArray{ //(MKMapView*)mapView
     for(Item *item in filteredItemsArray){
         [self addAnnotationAtAddress:item];
         // [self addAnnotationAtAddress:item.address withTitle:item.title];
