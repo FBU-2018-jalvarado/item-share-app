@@ -53,32 +53,32 @@
     [self fetchItems];
 }
 
-//this method runs once search button is clicked and keyboard goes away. This is an option to reload all the pins, instead of autopopulating the pins (design choice).
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    [self.view endEditing:YES];
-}
-
-//closes keyboard once search is clicked.
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [self.view endEditing:YES];
-    [self.locationManager requestWhenInUseAuthorization];
-}
-
-//text changes, update pins with filtered array of items
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if (searchText.length != 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-            return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
-        }];
-        NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
-        self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
-    }
-    else {
-        self.filteredItemsArray = self.itemsArray;
-    }
-    [self addAnnotations:self.filteredItemsArray];
-    [self removeAllPinsButUserLocation];
-}
+////this method runs once search button is clicked and keyboard goes away. This is an option to reload all the pins, instead of autopopulating the pins (design choice).
+//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+//    [self.view endEditing:YES];
+//}
+//
+////closes keyboard once search is clicked.
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+//    [self.view endEditing:YES];
+//    [self.locationManager requestWhenInUseAuthorization];
+//}
+//
+////text changes, update pins with filtered array of items
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+//    if (searchText.length != 0) {
+//        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
+//            return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
+//        }];
+//        NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
+//        self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
+//    }
+//    else {
+//        self.filteredItemsArray = self.itemsArray;
+//    }
+//    [self addAnnotations:self.filteredItemsArray];
+//    [self removeAllPinsButUserLocation];
+//}
 
 //retrieve items array
 - (void)fetchItems {
@@ -201,6 +201,8 @@
      }
  }
 
+//Error Domain=kCLErrorDomain Code=2 "(null)"
+//cannot make too many calls to geocoder 
 - (void)addAnnotations: (NSMutableArray *)filteredItemsArray{ //(MKMapView*)mapView
     for(Item *item in filteredItemsArray){
         [self addAnnotationAtAddress:item];
@@ -262,8 +264,7 @@
     [self.mapView addAnnotation:annotation];
 }
 
-- (void)removeAllPinsButUserLocation{
-    MKUserLocation *userlocation = self.mapView.userLocation;
+- (void)removeAllPinsButUserLocation{    MKUserLocation *userlocation = self.mapView.userLocation;
     NSMutableArray *pins = [[NSMutableArray alloc] initWithArray:self.mapView.annotations];
     if(userlocation != nil){
         [pins removeObject:userlocation];
