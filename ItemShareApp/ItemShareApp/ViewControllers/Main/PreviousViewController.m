@@ -15,6 +15,7 @@
 
 @end
 
+//map rename
 @implementation PreviousViewController
 
 - (void)viewDidLoad {
@@ -73,10 +74,8 @@
 
     if([segue.identifier isEqualToString:@"showSearchViewSegue"])
     {
-//        UINavigationController *navVC = [segue destinationViewController];
-//        PlaceholdViewController *placeholdViewController = navVC.viewControllers[0];
-        PlaceholdViewController *placeholdViewController =
-[segue destinationViewController];        placeholdViewController.delegate = self;
+        PlaceholdViewController *placeholdViewController = [segue destinationViewController];
+        placeholdViewController.delegate = self;
     }
     //placeholdViewController.title = @"Categories";
     

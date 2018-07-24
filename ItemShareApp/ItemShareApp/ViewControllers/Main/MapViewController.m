@@ -22,7 +22,6 @@
 @property (strong, nonatomic) CLLocation *location;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *itemsArray;
-@property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 @property (strong, nonatomic) Item *item;
 @property (strong, nonatomic) MapModel *model;
 

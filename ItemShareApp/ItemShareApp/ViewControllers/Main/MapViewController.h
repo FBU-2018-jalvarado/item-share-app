@@ -13,6 +13,7 @@
 
 @interface MapViewController : UIViewController
 //@property (strong, nonatomic) NSMutableArray *itemsArray;
+@property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 
 
 @end
