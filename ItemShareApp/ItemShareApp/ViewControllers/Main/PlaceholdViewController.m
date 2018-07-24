@@ -89,14 +89,8 @@
          */
         
         //UI
-        self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
-        self.categoryCollV.alpha = 0;
-        if(self.catAndItemTableV.frame.origin.y == 200)
-        {
-            self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 146);
-        }
+        [self startTypingFormat];
 
-        
         // filter the items array
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
             return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
@@ -108,22 +102,18 @@
         NSPredicate *predicateCat = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedCategory, NSDictionary *bindings) {
             return [evaluatedCategory rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
         }];
-//        NSArray *tempCat = [self.catAndItemTableViewController.categoryRows filteredArrayUsingPredicate:predicateCat];
         NSArray *tempCat = [self.categoryArray filteredArrayUsingPredicate:predicateCat];
         self.filteredCategoryArray = [NSMutableArray arrayWithArray:tempCat];
     }
     // there is nothing in search bar and category cells reappear
     else {
         //UI
-        self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 146);
-        self.categoryCollV.alpha = 1;
+        [self emptyTextBarFormat];
+        
         // along w all items and categories in the table view
         self.filteredItemsArray = self.itemsArray;
         self.filteredCategoryArray = self.categoryArray;
-        if(self.catAndItemTableV.frame.origin.y == 54)
-        {
-            self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y + 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
-        }
+        
     }
     
     //filter pins
@@ -135,9 +125,28 @@
     
     [self.catAndItemTableViewController.catAndItemTableView reloadData];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)emptyTextBarFormat {
+    self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 146);
+    if(self.catAndItemTableV.frame.origin.y == 54)
+    {
+        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y + 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
+    }
+    self.categoryCollV.alpha = 1;
+}
+
+- (void)startTypingFormat {
+    self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
+    if(self.catAndItemTableV.frame.origin.y == 200)
+    {
+        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 146);
+    }
+    self.categoryCollV.alpha = 0;
 }
 
 #pragma mark - Navigation
@@ -157,6 +166,7 @@
     if([segue.identifier isEqualToString:@"catAndItemTableSegue"])
     {
         self.catAndItemTableViewController = [segue destinationViewController];
+        self.catAndItemTableViewController.delegate = self;
     }
     if([segue.identifier isEqualToString:@"CategoryCollectionSegue"])
     {
@@ -165,6 +175,7 @@
         // self.categoryCollectionView = [segue destinationViewController];
     }
 }
+
 
 - (void)fetchItems {
     
@@ -201,6 +212,11 @@
             }
         }
     }];
+}
+
+// delegate function to dismiss keyboard from previous view controller
+-(void)callPrevVCtoDismissKeyboard {
+    [self.placeholderDelegate dismissKeyboard];
 }
 
 @end
