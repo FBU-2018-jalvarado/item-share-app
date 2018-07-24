@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CatAndItemTableViewControllerDelegate
+
+-(void)callPrevVCtoDismissKeyboard;
+
+@end
+
 @interface CatAndItemTableViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *catAndItemTableView;
 @property (strong, nonatomic) NSMutableArray *itemRows;
 @property (strong, nonatomic) NSMutableArray *categoryRows;
+@property (nonatomic, weak) id <CatAndItemTableViewControllerDelegate> delegate;
 
 @end

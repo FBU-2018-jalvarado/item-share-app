@@ -13,6 +13,7 @@
 
 - (void)dismissToMap;
 - (void)showSearchView;
+-(void)dismissKeyboard;
 
 @end
 
