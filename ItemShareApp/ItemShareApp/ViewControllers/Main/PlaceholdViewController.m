@@ -120,9 +120,9 @@
         // along w all items and categories in the table view
         self.filteredItemsArray = self.itemsArray;
         self.filteredCategoryArray = self.categoryArray;
-        if(self.catAndItemTableV.frame.origin.y == 346)
+        if(self.catAndItemTableV.frame.origin.y == 54)
         {
-            self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
+            self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y + 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
         }
     }
     
