@@ -19,26 +19,47 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
+    self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +464, self.searchView.frame.size.width, self.searchView.frame.size.height);
     // Do any additional setup after loading the view.
 }
 
 - (IBAction)swipeDown:(id)sender {
-    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
-    }];
+    if(self.searchView.frame.origin.y == 149)
+    {
+        [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +464, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        }];
+    }
 }
 
 - (IBAction)swipeUp:(id)sender {
-    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -450, self.searchView.frame.size.width, self.searchView.frame.size.height);
-    }];
+    if(self.searchView.frame.origin.y == 613)
+    {
+        [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -464, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        }];
+    }
 }
 
 - (void)dismissToMap {
-    [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +450, self.searchView.frame.size.width, self.searchView.frame.size.height);
-    }];
+    if(self.searchView.frame.origin.y == 149)
+    {
+        [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +464, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        }];
+        NSLog(@"%f", self.searchView.frame.origin.y);
+    }
     //self.searchView.alpha = 0;
     // Do any additional setup after loading the view.
 }
+
+- (void)showSearchView {
+    if(self.searchView.frame.origin.y == 613)
+    {
+        [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -464, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        }];
+        NSLog(@"origin y coord of the search view after its raised: ");
+        NSLog(@"%f", self.searchView.frame.origin.y);
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -52,9 +73,10 @@
 
     if([segue.identifier isEqualToString:@"showSearchViewSegue"])
     {
-        UINavigationController *navVC = [segue destinationViewController];
-        PlaceholdViewController *placeholdViewController = navVC.viewControllers[0];
-        placeholdViewController.delegate = self;
+//        UINavigationController *navVC = [segue destinationViewController];
+//        PlaceholdViewController *placeholdViewController = navVC.viewControllers[0];
+        PlaceholdViewController *placeholdViewController =
+[segue destinationViewController];        placeholdViewController.delegate = self;
     }
     //placeholdViewController.title = @"Categories";
     

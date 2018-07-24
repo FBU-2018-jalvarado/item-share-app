@@ -11,6 +11,7 @@
 @protocol PlaceholderViewControllerDelegate
 
 - (void)dismissToMap;
+- (void)showSearchView;
 
 @end
 

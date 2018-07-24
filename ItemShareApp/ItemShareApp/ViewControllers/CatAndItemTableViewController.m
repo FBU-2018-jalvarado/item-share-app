@@ -11,10 +11,6 @@
 #import "ItemTableCell.h"
 
 @interface CatAndItemTableViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *catAndItemTableView;
-@property (strong, nonatomic) NSMutableArray *itemRows;
-@property (strong, nonatomic) NSMutableArray *categoryRows;
-
 
 @end
 
@@ -26,8 +22,8 @@
     self.catAndItemTableView.dataSource = self;
 //    self.itemRows = [[NSMutableArray alloc] init];
 //    self.categoryRows = [[NSMutableArray alloc] init];
-    self.itemRows = [NSMutableArray arrayWithObjects:@"ione", @"itwo", @"ithree", @"ifour", @"ifive", @"isix", @"iseven", @"ieight", @"inine", @"iten", nil];
-    self.categoryRows = [NSMutableArray arrayWithObjects:@"cat1", @"cat2", @"cat3", nil];
+//    self.itemRows = [NSMutableArray arrayWithObjects:@"ione", @"itwo", @"ithree", @"ifour", @"ifive", @"isix", @"iseven", @"ieight", @"inine", @"iten", nil];
+//    self.categoryRows = [NSMutableArray arrayWithObjects:@"cat1", @"cat2", @"cat3", nil];
     [self.catAndItemTableView reloadData];
     // Do any additional setup after loading the view.
 }
@@ -55,7 +51,7 @@
         }
         else {
             ItemTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemSearchCell"];
-            [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count]];
+            [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count][@"title"]];
             return cell;
         }
 }

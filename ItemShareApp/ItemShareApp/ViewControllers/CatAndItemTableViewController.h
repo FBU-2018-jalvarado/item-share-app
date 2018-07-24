@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CatAndItemTableViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *catAndItemTableView;
+@property (strong, nonatomic) NSMutableArray *itemRows;
+@property (strong, nonatomic) NSMutableArray *categoryRows;
 
 @end

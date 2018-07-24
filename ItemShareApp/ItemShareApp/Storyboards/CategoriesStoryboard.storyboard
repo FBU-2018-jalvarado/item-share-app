@@ -10,28 +10,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Background View Controller-->
-        <scene sceneID="h8Z-kb-RtB">
-            <objects>
-                <viewController id="t3D-hj-zu4" customClass="BackgroundViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tgr-J3-XOt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.19001626124206661" green="1" blue="0.23385079583552271" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="safeArea" id="USG-8D-bIr"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxx-Zu-B3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1577" y="-128"/>
-        </scene>
         <!--MapStoryboard-->
         <scene sceneID="9ka-YM-RpP">
             <objects>
                 <viewControllerPlaceholder storyboardName="MapStoryboard" id="0Ou-Bd-hbq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJ5-fl-Gmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-459" y="-469"/>
+            <point key="canvasLocation" x="782" y="-323"/>
         </scene>
         <!--Previous View Controller-->
         <scene sceneID="8h6-He-cdE">
@@ -52,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="149" width="375" height="518"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="ZzO-5d-lBv" kind="embed" identifier="showSearchViewSegue" id="lww-zp-deZ"/>
+                                    <segue destination="KQT-bc-Xc1" kind="embed" identifier="showSearchViewSegue" id="6LK-3b-dAG"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -80,7 +65,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-660" y="126.38680659670166"/>
+            <point key="canvasLocation" x="198" y="128"/>
         </scene>
         <!--Placehold View Controller-->
         <scene sceneID="0M0-aP-CxZ">
@@ -94,16 +79,21 @@
                                 <rect key="frame" x="0.0" y="200" width="375" height="318"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="qXB-Tq-fF0" kind="embed" id="2Ss-GZ-Fr3"/>
+                                    <segue destination="qXB-Tq-fF0" kind="embed" identifier="catAndItemTableSegue" id="2Ss-GZ-Fr3"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFp-zd-L34">
-                                <rect key="frame" x="0.0" y="30" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="46" width="375" height="146"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="hIC-St-eLC" kind="embed" identifier="CategoryCollectionSegue" id="V6U-Xe-0LN"/>
                                 </connections>
                             </containerView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cul-Gc-laT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zNR-Mf-TdC"/>
@@ -118,6 +108,7 @@
                     <connections>
                         <outlet property="catAndItemTableV" destination="Ryr-op-2nR" id="qpX-L3-wOC"/>
                         <outlet property="categoryCollV" destination="eFp-zd-L34" id="Q4P-UT-G4Q"/>
+                        <outlet property="searchBar" destination="cul-Gc-laT" id="Ee4-Ek-ZoJ"/>
                         <segue destination="2Bo-m4-LNJ" kind="show" identifier="MapSegue" id="jHC-Jg-ELY"/>
                     </connections>
                 </viewController>
@@ -132,24 +123,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWu-KG-o0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3272" y="160"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="zDh-tN-78N">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZzO-5d-lBv" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u1l-au-JCf">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="KQT-bc-Xc1" kind="relationship" relationship="rootViewController" id="Hhd-BS-ve6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wQ9-qq-KZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="230" y="128"/>
         </scene>
         <!--Cat And Item Table View Controller-->
         <scene sceneID="nY1-EI-yET">
@@ -180,7 +153,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.48424340170000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="1" green="0.41291864876697404" blue="0.4950489283899655" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="AXj-EN-WVz" id="Kgr-gH-saj"/>
                                         </connections>
@@ -225,7 +198,7 @@
             <objects>
                 <viewController storyboardIdentifier="CategoriesViewController" id="I6d-3y-5cK" customClass="CategoriesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ar8-wy-ltY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IxB-s5-xFf">
