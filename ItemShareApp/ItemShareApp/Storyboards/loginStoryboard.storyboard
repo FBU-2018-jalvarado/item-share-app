@@ -55,11 +55,20 @@
                     <connections>
                         <outlet property="passwordTextField" destination="Scz-zC-rTc" id="fzL-9p-WeH"/>
                         <outlet property="usernameTextField" destination="mLT-WC-MWu" id="DqN-rz-xW4"/>
+                        <segue destination="Z6J-9c-Sk6" kind="show" identifier="mapSegue" id="HPJ-ox-w0F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVh-IF-oEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140" y="142.57871064467767"/>
+        </scene>
+        <!--MapStoryboard-->
+        <scene sceneID="0eq-qd-4xm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MapStoryboard" id="Z6J-9c-Sk6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNZ-em-moA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880" y="142"/>
         </scene>
     </scenes>
 </document>
