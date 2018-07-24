@@ -11,11 +11,14 @@
 #import "Item.h"
 #import "Parse.h"
 #import "MapViewController.h"
+#import "Category.h"
 
 @interface SearchViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
+@property (strong, nonatomic) NSArray *categoryArray;
+@property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -34,6 +37,11 @@
 //    self.filteredItemsArray = self.itemsArray;
 //    [self postInfo];
     [self fetchItems];
+    
+    Category *category = [[Category alloc] init];
+    [category setCats];
+    self.categoryArray = category.catArray;
+    self.filteredCategoryArray = [self.categoryArray mutableCopy];
     
 }
 
@@ -58,14 +66,20 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
         // case and diacritic insensitivity
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
+        NSPredicate *itemPredicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
             return [self inInsensitive:evaluatedObject.title withSearchText:searchText];
         }];
-        NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
+        NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:itemPredicate];
         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
+        
+        // future code for filtering through categories
+//        NSPredicate *catPredicate = [NSPredicate predicateWithBlock:^BOOL(ns *evaluatedObject, NSDictionary bindings) {
+//            <#code#>
+//        }]
     }
     else {
         self.filteredItemsArray = self.itemsArray;
+        self.filteredCategoryArray = [self.categoryArray mutableCopy];
     }
     [self.tableView reloadData];
 }
@@ -103,7 +117,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.filteredItemsArray.count;
+    return self.filteredItemsArray.count + self.filteredCategoryArray.count;
 }
 
 //- (void)postInfo{
