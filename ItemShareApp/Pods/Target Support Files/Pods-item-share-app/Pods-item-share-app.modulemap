@@ -1,0 +1,6 @@
+module Pods_item_share_app {
+  umbrella header "Pods-item-share-app-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
+#import "MapModel.h"
+#import "SearchModel.h"
 
 @interface MapViewController : UIViewController
+//@property (strong, nonatomic) NSMutableArray *itemsArray;
+
 
 @end
