@@ -13,9 +13,10 @@
 #import "DetailsViewController.h"
 #import "Parse.h"
 #import "Pin.h"
+#import "PlaceholdViewController.h"
 
 
-@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
+@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, PlaceHolderViewControllerDelegateMap>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -75,7 +76,7 @@
     else {
         self.filteredItemsArray = self.itemsArray;
     }
-    [self addAnnotations:self.mapView withArray:self.filteredItemsArray];
+    [self addAnnotations:self.filteredItemsArray];
     [self removeAllPinsButUserLocation];
 }
 
@@ -88,7 +89,7 @@
         if (items) {
             self.itemsArray = [items mutableCopy];
             self.filteredItemsArray = [items mutableCopy];
-            [self addAnnotations:self.mapView withArray:self.filteredItemsArray];
+            [self addAnnotations:self.filteredItemsArray];
             [self removeAllPinsButUserLocation];
         } else {
             // HANDLE NO ITEMS
@@ -200,7 +201,7 @@
      }
  }
 
-- (void)addAnnotations: (MKMapView*)mapView withArray: (NSMutableArray *)filteredItemsArray{
+- (void)addAnnotations: (NSMutableArray *)filteredItemsArray{ //(MKMapView*)mapView
     for(Item *item in filteredItemsArray){
         [self addAnnotationAtAddress:item];
         // [self addAnnotationAtAddress:item.address withTitle:item.title];

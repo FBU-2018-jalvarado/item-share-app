@@ -48,23 +48,23 @@
 - (IBAction)onTapMap:(id)sender {
 //    [self performSegueWithIdentifier:@"MapSegue" sender:sender];
     //[self dismissViewControllerAnimated:true completion:nil];
-    [self.delegate dismissToMap];
+    [self.placeholderDelegate dismissToMap];
 }
 
 - (void)goToMap {
 //    [self performSegueWithIdentifier:@"MapSegue" sender:nil];
     //[self dismissViewControllerAnimated:true completion:nil];
-    [self.delegate dismissToMap];
+    [self.placeholderDelegate dismissToMap];
 }
  // from SearchBar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view endEditing:YES];
-    [self.delegate dismissToMap];
+    [self.placeholderDelegate dismissToMap];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
-    [self.delegate showSearchView];
+    [self.placeholderDelegate showSearchView];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
@@ -103,6 +103,11 @@
         }];
         NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
+        //filter pins
+//        [self.placeholderDelegateMap addAnnotations:self.filteredItemsArray];
+//        [self.placeholderDelegateMap removeAllPinsButUserLocation];
+        [self.placeholderDelegateMap addAnnotationsInMap:self.filteredItemsArray];
+        [self.placeholderDelegateMap removeAnnotationsInMap];
         // filter the categories array
         NSPredicate *predicateCat = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedCategory, NSDictionary *bindings) {
             return [evaluatedCategory rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;

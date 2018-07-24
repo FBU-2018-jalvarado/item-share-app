@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @protocol PlaceholderViewControllerDelegate
 
@@ -15,8 +16,19 @@
 
 @end
 
+@protocol PlaceHolderViewControllerDelegateMap
+
+//- (void)addAnnotations:(NSMutableArray *)filteredItemsArray;
+//- (void)removeAllPinsButUserLocation;
+- (void)addAnnotationsInMap:(NSMutableArray*)filteredItemArray;
+- (void)removeAnnotationsInMap;
+
+
+@end
+
 @interface PlaceholdViewController : UIViewController
-@property (nonatomic, weak) id <PlaceholderViewControllerDelegate> delegate;
+@property (nonatomic, weak) id <PlaceholderViewControllerDelegate> placeholderDelegate;
+@property (nonatomic, weak) id <PlaceHolderViewControllerDelegateMap> placeholderDelegateMap;
 
 
 @end

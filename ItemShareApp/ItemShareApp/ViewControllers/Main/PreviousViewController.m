@@ -9,9 +9,11 @@
 #import "PreviousViewController.h"
 #import "CategoriesViewController.h"
 #import "PlaceholdViewController.h"
+#import "MapViewController.h"
 
 @interface PreviousViewController ()
 @property (weak, nonatomic) IBOutlet UIView *searchView;
+@property (strong, nonatomic ) MapViewController *mapController;
 
 @end
 
@@ -75,12 +77,24 @@
     if([segue.identifier isEqualToString:@"showSearchViewSegue"])
     {
         PlaceholdViewController *placeholdViewController = [segue destinationViewController];
-        placeholdViewController.delegate = self;
+        placeholdViewController.placeholderDelegate = self;
+        placeholdViewController.placeholderDelegateMap = self;
     }
-    //placeholdViewController.title = @"Categories";
-    
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"mapSegue"]){
+        self.mapController = [segue destinationViewController];
+    }
+}
+
+- (void)test1{
+    NSLog(@"test1");
+}
+
+- (void)addAnnotationsInMap:(NSMutableArray*)filteredItemArray {
+    [self.mapController addAnnotations:filteredItemArray];
+}
+
+- (void)removeAnnotationsInMap{
+    [self.mapController removeAllPinsButUserLocation];
 }
 
 

@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="0Ou-Bd-hbq" kind="embed" id="5Oe-In-5aL"/>
+                                    <segue destination="0Ou-Bd-hbq" kind="embed" identifier="mapSegue" id="5Oe-In-5aL"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
