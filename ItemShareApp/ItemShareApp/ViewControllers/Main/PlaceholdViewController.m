@@ -15,6 +15,7 @@
 #import "Item.h"
 #import "Parse.h"
 #import "MapViewController.h"
+#import "Category.h"
 
 @interface PlaceholdViewController () <UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UIView *categoryCollV;
@@ -36,8 +37,11 @@
 
     // from SearchBar
     self.searchBar.delegate = self;
-    //self.catAndItemTableViewController.catAndItemTableView.alpha = 0;
-    self.categoryArray = [NSMutableArray arrayWithObjects:@"cat1", @"cat12", @"cat123", @"cat123", @"cat1234", @"bananacat1234", nil];
+    self.categoryArray = [[NSMutableArray alloc] init];
+    Category *category = [[Category alloc] init];
+    [category setCats];
+    self.categoryArray = category.catArray;
+//    self.categoryArray = [NSMutableArray arrayWithObjects:@"cat1", @"cat12", @"cat123", @"cat123", @"cat1234", @"bananacat1234", nil];
     self.catAndItemTableViewController.categoryRows = [[NSMutableArray alloc] init];
     self.catAndItemTableViewController.categoryRows = self.categoryArray;
     
