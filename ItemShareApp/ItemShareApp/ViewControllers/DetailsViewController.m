@@ -130,8 +130,10 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"calendarSegue"]){
     CalendarViewController *calendarController = [segue destinationViewController];
     calendarController.calendarDelegate = self;
+    }
 }
 
 - (void)sendDates:(NSDate *)startDate withEndDate:(NSDate *)endDate {

@@ -127,8 +127,8 @@
     }
     
     //filter pins
-    [self.placeholderDelegateMap addAnnotationsInMap:self.filteredItemsArray];
     [self.placeholderDelegateMap removeAnnotationsInMap];
+    [self.placeholderDelegateMap addAnnotationsInMap:self.filteredItemsArray];
     
     self.catAndItemTableViewController.itemRows = self.filteredItemsArray;
     self.catAndItemTableViewController.categoryRows = self.filteredCategoryArray;
