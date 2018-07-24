@@ -103,11 +103,7 @@
         }];
         NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
-        //filter pins
-//        [self.placeholderDelegateMap addAnnotations:self.filteredItemsArray];
-//        [self.placeholderDelegateMap removeAllPinsButUserLocation];
-        [self.placeholderDelegateMap addAnnotationsInMap:self.filteredItemsArray];
-        [self.placeholderDelegateMap removeAnnotationsInMap];
+
         // filter the categories array
         NSPredicate *predicateCat = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedCategory, NSDictionary *bindings) {
             return [evaluatedCategory rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
@@ -129,6 +125,10 @@
             self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
         }
     }
+    
+    //filter pins
+    [self.placeholderDelegateMap addAnnotationsInMap:self.filteredItemsArray];
+    [self.placeholderDelegateMap removeAnnotationsInMap];
     
     self.catAndItemTableViewController.itemRows = self.filteredItemsArray;
     self.catAndItemTableViewController.categoryRows = self.filteredCategoryArray;
