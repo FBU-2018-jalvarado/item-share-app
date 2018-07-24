@@ -59,7 +59,7 @@
     if (searchText.length != 0) {
         // case and diacritic insensitivity
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-            return [self inSpaceInsensitive:evaluatedObject.title withSearchText:searchText];
+            return [self inInsensitive:evaluatedObject.title withSearchText:searchText];
         }];
         NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
@@ -71,7 +71,7 @@
 }
 
 // function for determining if searchText is in evaluatedObject.title with all the insensitivities listed above
-- (BOOL)inSpaceInsensitive:(NSString *)itemTitle withSearchText:(NSString *)searchText {
+- (BOOL)inInsensitive:(NSString *)itemTitle withSearchText:(NSString *)searchText {
     NSString *spacelessItemTitle = [itemTitle stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *spacelessSearchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@""];
     
@@ -114,7 +114,6 @@
 //        }
 //        else{
 //            NSLog(@"success");
-//
 //        }
 //    }];
 //}

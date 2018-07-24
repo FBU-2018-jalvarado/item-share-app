@@ -29,7 +29,7 @@
     Item *toBeSold = [Item new];
     PFUser *owner = [PFUser currentUser];
     
-    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:nil withDescription:nil withImage:nil withBookedNowBool:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(error)
         {
             NSLog(@"Unable to post the item for sale");

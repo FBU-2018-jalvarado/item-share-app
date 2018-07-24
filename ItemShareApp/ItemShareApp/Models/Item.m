@@ -15,6 +15,10 @@
 @dynamic location;
 @dynamic address;
 @dynamic itemID;
+@dynamic categories;
+@dynamic descrip;
+@dynamic image;
+@dynamic bookedNow;
 
 + (nonnull NSString *)parseClassName {
     return @"Item";
@@ -24,15 +28,35 @@
 //    [FBUDateHelper dateConflicers:date1 yo: date];
 //}
 
-+ (void) postItem: ( NSString * )title withOwner:( PFUser * )owner withLocation: ( CLLocation * )location withAddress:( NSString * _Nullable )address withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(BOOL *_Nullable)bookedNow withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Item *newItem = [Item new];
     newItem.title = title;
     newItem.location = location;
     newItem.address = address;
     newItem.owner = owner;
+    newItem.categories = categories;
+    newItem.descrip = descrip;
+    newItem.image = [self getPFFileFromImage:image];
+    newItem.bookedNow = bookedNow;
     
     [newItem saveInBackgroundWithBlock: completion];
+}
+
++ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
+    
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFile fileWithName:@"image.png" data:imageData];
 }
 
 @end
