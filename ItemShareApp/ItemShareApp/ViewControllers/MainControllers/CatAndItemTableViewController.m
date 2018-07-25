@@ -84,17 +84,8 @@
 
 // filter the whole items array for only items within given category
 - (void)filterForCat:(NSString *)categoryName {
-    [self.delegate fetchItems];
-    NSMutableArray *itemsInCategory = [[NSMutableArray alloc] init];
-    for(Item *thisItem in self.itemRows)
-    {
-        if([self hasCat:thisItem catName:categoryName])
-        {
-            [itemsInCategory addObject:thisItem];
-        }
-    }
-    self.itemRows = itemsInCategory;
-    [self.catAndItemTableView reloadData];
+    [self fetchItemsWithCat:categoryName];
+    // now fetchItemsWithCat will filter in the completion block
 }
 
 // determine if item is of type "categoryName"
@@ -109,4 +100,44 @@
     return NO;
 }
 
+- (void)fetchItemsWithCat:(NSString *)categoryName {
+    
+    PFQuery *itemQuery = [Item query];
+    //PFQuery *itemQuery = [PFQuery queryWithClassName:@"Item"];
+    [itemQuery orderByDescending:@"createdAt"];
+    [itemQuery includeKey:@"location"];
+    [itemQuery includeKey:@"title"];
+    [itemQuery includeKey:@"owner"];
+    [itemQuery includeKey:@"address"];
+    //    postQuery.limit = 20;
+    
+    // fetch data asynchronously
+    [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<Item *> * _Nullable items, NSError * _Nullable error) {
+        if(error != nil)
+        {
+            NSLog(@"ERROR GETTING FULL LIST OF ITEMS!");
+        }
+        else {
+            if (items) {
+                self.itemRows = [[NSMutableArray alloc] init];
+                for(Item *newItem in items)
+                {
+                    [self.itemRows addObject:newItem];
+                }
+                NSLog(@"SUCCESSFULLY GRABBED FULL LIST OF ITEMS!");
+                NSMutableArray *itemsInCategory = [[NSMutableArray alloc] init];
+                for(Item *thisItem in self.itemRows)
+                {
+                    if([self hasCat:thisItem catName:categoryName])
+                    {
+                        [itemsInCategory addObject:thisItem];
+                    }
+                }
+                self.itemRows = itemsInCategory;
+                [self.catAndItemTableView reloadData];
+                
+            }
+        }
+    }];
+}
 @end
