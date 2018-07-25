@@ -9,7 +9,6 @@
 #import "PFObject.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-//#import "Booking.h"
 @class Booking;
 
 @interface Item : PFObject<PFSubclassing>
