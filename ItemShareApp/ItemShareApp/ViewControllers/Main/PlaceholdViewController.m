@@ -152,7 +152,6 @@
             self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height - 146);
         }
     }
-    
 }
 
 - (void)startTypingFormat {
