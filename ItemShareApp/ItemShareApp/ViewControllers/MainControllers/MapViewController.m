@@ -53,10 +53,6 @@
     [self fetchItems];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-   // [self fetchItems];
-}
-
 //retrieve items array
 - (void)fetchItems {
     [self.model fetchItemsWithCompletion:^(NSArray<Item *> *items, NSError *error) {

@@ -17,5 +17,6 @@
 @interface CalendarViewController : UIViewController
 
 @property (nonatomic, weak) id <CalendarViewControllerDelegate> calendarDelegate;
+@property (strong, nonatomic) NSMutableArray *bookingsArray;
 
 @end

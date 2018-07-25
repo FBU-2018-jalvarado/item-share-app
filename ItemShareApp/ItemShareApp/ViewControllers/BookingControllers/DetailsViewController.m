@@ -92,7 +92,7 @@
 }
 
 - (void)fetchBookings {
-    [self.timeModel fetchBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
+    [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
         if (error) {
             return;
         }
@@ -142,6 +142,7 @@
     if([segue.identifier isEqualToString:@"calendarSegue"]){
     CalendarViewController *calendarController = [segue destinationViewController];
     calendarController.calendarDelegate = self;
+        calendarController.bookingsArray = self.bookingsArray;
     }
 }
 
@@ -151,7 +152,7 @@
 }
 
 - (void)presentAlert{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Chosen booking dates are not available" preferredStyle:(UIAlertControllerStyleAlert)];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Chosen booking dates are not available. Please choose another booking date." preferredStyle:(UIAlertControllerStyleAlert)];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { // handle response here.
     }];
     // add the OK action to the alert controller

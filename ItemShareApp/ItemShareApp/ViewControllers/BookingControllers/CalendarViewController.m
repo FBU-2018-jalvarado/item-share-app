@@ -11,6 +11,8 @@
 #import <JTCalendar/JTCalendar.h>
 #import <JTCalendar/JTCalendar.h>
 #import "DetailsViewController.h"
+#import "timeModel.h"
+#import "Booking.h"
 
 @interface CalendarViewController () <JTCalendarDelegate>
 
@@ -24,13 +26,30 @@
 
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (strong, nonatomic) NSDate *selectedDate;
+@property (strong, nonatomic) timeModel *timeModel;
 
 @end
 
 @implementation CalendarViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.timeModel = [[timeModel alloc] init];
+    }
+    return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+//    [self fetchBookings];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self init];
+   // [self fetchBookings];
 
     self.calendarManager = [JTCalendarManager new];
     self.calendarManager.delegate = self;
@@ -43,21 +62,17 @@
 //edits contentView (month view)
 - (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar{
     UILabel *label = [UILabel new];
-    
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont fontWithName:@"Avenir-Medium" size:25];
-    
     return label;
 }
 
 - (UIView<JTCalendarWeekDay> *)calendarBuildWeekDayView:(JTCalendarManager *)calendar{
     JTCalendarWeekDayView *view = [JTCalendarWeekDayView new];
-    
     for(UILabel *label in view.dayViews){
         label.textColor = [UIColor blackColor];
         label.font = [UIFont fontWithName:@"Avenir-Light" size:14];
     }
-    
     return view;
 }
 
@@ -115,19 +130,41 @@
     }
     //other month
     else if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
-        dayView.circleView.hidden = YES;
-        dayView.dotView.backgroundColor = [UIColor redColor];
-        dayView.textLabel.textColor = [UIColor lightGrayColor];
+        
+        if([self dayIsBooked:dayView.date]){
+            //make it gray or something
+            dayView.circleView.hidden = NO;
+            dayView.circleView.backgroundColor = [UIColor lightGrayColor];
+           // dayView.dotView.backgroundColor = [UIColor redColor];
+            dayView.textLabel.textColor = [UIColor whiteColor];
+        }
+        else{
+            //make it normal
+            dayView.circleView.hidden = YES;
+            dayView.dotView.backgroundColor = [UIColor redColor];
+            dayView.textLabel.textColor = [UIColor lightGrayColor];
+        }
+
     }
     //another day of the current month
     else{
+        if([self dayIsBooked:dayView.date]){
+        //make it gray or something
+            dayView.circleView.hidden = NO;
+            dayView.circleView.backgroundColor = [UIColor lightGrayColor];
+          //  dayView.dotView.backgroundColor = [UIColor redColor];
+            dayView.textLabel.textColor = [UIColor blackColor];
+        }
+        else{
+        //make it normal
         dayView.circleView.hidden = YES;
         dayView.dotView.backgroundColor = [UIColor redColor];
         dayView.textLabel.textColor = [UIColor blackColor];
+        }
     }
     
     //method to test if a date has an event (for example)
-    if([self eventHasDayCheck:dayView.date]){
+    if([self dayHasEventCheck:dayView.date]){
         dayView.dotView.hidden = NO;
     }
     else{
@@ -135,10 +172,18 @@
     }
 }
 
-- (BOOL)eventHasDayCheck:(NSDate *)date {
+- (BOOL)dayHasEventCheck:(NSDate *)date {
     return YES;
 }
 
+- (BOOL)dayIsBooked: (NSDate *)date {
+    for(Booking *booking in self.bookingsArray){
+        if(![self.timeModel isTimeAvailable:date withBookings:booking]) {
+            return YES;
+        }
+    }
+    return NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -172,6 +217,17 @@
         detailsViewController.startTimePicker.date = self.selectedDate;
         detailsViewController.endTimePicker.date = self.selectedDate;
     }
+}
+
+- (void)fetchBookings {
+    [self.timeModel fetchAllBookingsWithCompletion:^(NSArray<Item *> *bookings, NSError *error) {
+        if(error){
+            NSLog(@"error");
+        }
+        else{
+            self.bookingsArray = [bookings mutableCopy];
+        }
+    }];
 }
 
 //implementing this with nothing present nothing in contentview of calendar
