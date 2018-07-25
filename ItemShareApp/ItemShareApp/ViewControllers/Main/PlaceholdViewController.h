@@ -19,8 +19,6 @@
 
 @protocol PlaceHolderViewControllerDelegateMap
 
-//- (void)addAnnotations:(NSMutableArray *)filteredItemsArray;
-//- (void)removeAllPinsButUserLocation;
 - (void)addAnnotationsInMap:(NSMutableArray*)filteredItemArray;
 - (void)removeAnnotationsInMap;
 

@@ -54,7 +54,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    [self fetchItems];
+   // [self fetchItems];
 }
 
 //retrieve items array

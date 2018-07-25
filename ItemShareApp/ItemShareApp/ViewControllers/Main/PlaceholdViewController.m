@@ -45,7 +45,7 @@
     self.catAndItemTableViewController.categoryRows = [[NSMutableArray alloc] init];
     self.catAndItemTableViewController.categoryRows = self.categoryArray;
     
-    [self fetchItems];
+   // [self fetchItems];
     // Do any additional setup after loading the view.
 }
 
