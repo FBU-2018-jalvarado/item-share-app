@@ -34,7 +34,6 @@
     }
 }
 
-
 - (void)fetchBookingsWithCompletion:(Item *)item withCompletion:(void(^)(NSArray<Item *> *bookings, NSError *error))completion
 {
     if(item){
