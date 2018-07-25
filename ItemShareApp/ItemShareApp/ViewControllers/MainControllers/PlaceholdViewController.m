@@ -41,8 +41,6 @@
     Category *category = [[Category alloc] init];
     [category setCats];
     self.categoryArray = category.catArray;
-    self.catAndItemTableViewController.categoryRows = [[NSMutableArray alloc] init];
-    self.catAndItemTableViewController.categoryRows = self.categoryArray;
     
     [self fetchItems];
     // Do any additional setup after loading the view.
@@ -180,7 +178,7 @@
     if([segue.identifier isEqualToString:@"CategoryCollectionSegue"])
     {
         UINavigationController *navVC = [segue destinationViewController];
-        CategoriesViewController *categoriesViewController = navVC.viewControllers[0];
+        CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
         categoriesViewController.firstPage = YES;
         categoriesViewController.title = @"Categories";
         categoriesViewController.delegate = self;
@@ -190,12 +188,12 @@
         self.catAndItemTableViewController = [segue destinationViewController];
         self.catAndItemTableViewController.delegate = self;
     }
-    if([segue.identifier isEqualToString:@"CategoryCollectionSegue"])
-    {
-        UINavigationController *navVC = [segue destinationViewController];
-        self.categoryCollectionView = [navVC.viewControllers firstObject];
-        // self.categoryCollectionView = [segue destinationViewController];
-    }
+//    if([segue.identifier isEqualToString:@"CategoryCollectionSegue"])
+//    {
+//        UINavigationController *navVC = [segue destinationViewController];
+//        self.categoryCollectionView = [navVC.viewControllers firstObject];
+//        // self.categoryCollectionView = [segue destinationViewController];
+//    }
 }
 
 
@@ -244,6 +242,10 @@
 // delegate function to clear search bar text
 -(void)clearSearchBar {
     self.searchBar.text = @"";
+}
+
+-(void)callChoseCat:(NSString *)categoryName {
+    [self.catAndItemTableViewController choseCat:categoryName];
 }
 
 @end
