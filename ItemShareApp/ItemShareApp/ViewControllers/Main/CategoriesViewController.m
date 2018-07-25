@@ -9,6 +9,7 @@
 #import "CategoriesViewController.h"
 #import "CategoryViewCell.h"
 #import "MapViewController.h"
+#import "Category.h"
 
 @interface CategoriesViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *categoryCollView;
@@ -38,87 +39,12 @@
     CGFloat itemHeight = itemWidth*3 / 4;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
-    // create testDictionary
-    NSDictionary *fruits = [[NSDictionary alloc] init];
-    fruits = @{
-               @"apple": @"apple",
-               @"banana": @"banana",
-               @"avocado": @"avocado",
-               @"pineapple": @"pineapple",
-               @"mango": @"mango",
-               @"kiwi": @"kiwi",
-               @"coconut": @"coconut",
-               @"cherry": @"cherry",
-               @"tamarind": @"tamarind"
-               };
-    NSDictionary *colors = [[NSDictionary alloc] init];
-    colors = @{
-               @"red": @"red",
-               @"orange": @"orange",
-               @"yellow": @"yellow",
-               @"pink": @"pink",
-               @"green": @"green",
-               @"blue": @"blue",
-               @"white": @"white",
-               @"gold": @"gold",
-               @"purple": @"purple",
-               };
-    NSDictionary *names = [[NSDictionary alloc] init];
-    names = @{
-              @"joshua": @"joshua",
-              @"nick": @"nick",
-              @"tarini": @"tarini",
-              @"gucci": @"gucci",
-              @"gang": @"gang",
-              @"steve": @"steve"
-              };
-    NSDictionary *cities = [[NSDictionary alloc] init];
-    cities = @{
-               @"Los Angeles": @"Los Angeles",
-               @"San Francisco": @"San Francisco",
-               @"Gainesville": @"Gainesville",
-               @"Kansas": @"Kansas",
-               @"Houston": @"Houston",
-               @"Los Gatos": @"Los Gatos",
-               };
-    NSDictionary *sayings = [[NSDictionary alloc] init];
-    sayings = @{
-               @"Bet": @"Bet",
-               @"Too late": @"Too late",
-               @"Thats Facts": @"Thats Facts",
-               @"GG rip": @"GG rip",
-               @"Dope": @"Dope",
-               @"Disgusting": @"Disgusting",
-               @"You're fired": @"You're fired",
-               @"Amazing": @"Amazing",
-               @"GG sip": @"GG sip",
-               @"GG dip": @"GG dip",
-               };
-    NSDictionary *alpha = [[NSDictionary alloc] init];
-    alpha = @{
-                @"a": @"a",
-                @"b": @"b",
-                @"c": @"c",
-                @"d": @"d",
-                @"e": @"e",
-                @"f": @"f",
-                @"g": @"g",
-                @"h": @"h",
-                };
-    self.testDictionary = [[NSDictionary alloc] init];
-    self.testDictionary =
-    @{
-      @"theSayings": sayings,
-      @"theFruits": fruits,
-      @"theColors": colors,
-      @"theNames": names,
-      @"theCities": cities,
-      @"theAlpha": alpha
-      };
-    //only set the testDictionary if it is the first page of categories
+    Category *category = [[Category alloc] init];
+    [category setCats];
+    //only set the Dictionary if it is the first page of categories
     if(self.firstPage)
     {
-        self.categories = self.testDictionary;
+        self.categories = category.catDict;
     }
     //    NSLog(@"%@", self.categories);
     [self.categoryCollView reloadData];

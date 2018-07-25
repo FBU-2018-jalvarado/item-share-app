@@ -27,11 +27,11 @@
 }
 
 - (IBAction)swipeDown:(id)sender {
-    if(self.searchView.frame.origin.y == 149)
-    {
-        [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +464, self.searchView.frame.size.width, self.searchView.frame.size.height);
-        }];
-    }
+    [self dismissToMap];
+}
+
+-(void)dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 - (IBAction)swipeUp:(id)sender {
@@ -47,10 +47,8 @@
     {
         [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +464, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
-       // NSLog(@"%f", self.searchView.frame.origin.y);
     }
-    //self.searchView.alpha = 0;
-    // Do any additional setup after loading the view.
+    [self.view endEditing:YES];
 }
 
 - (void)showSearchView {

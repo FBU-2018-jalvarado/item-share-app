@@ -96,6 +96,7 @@
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="zNR-Mf-TdC"/>
                     </view>
                     <navigationItem key="navigationItem" id="Aeg-wS-JZw">
@@ -174,13 +175,28 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="5Nv-JT-cvB"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="BUA-sE-kmq" appends="YES" id="j9y-Lp-ztJ"/>
+                            <outletCollection property="gestureRecognizers" destination="UHK-1Q-eV1" appends="YES" id="Uad-bq-2aw"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="catAndItemTableView" destination="PnK-PS-gtB" id="vPU-uU-vxa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dn6-0N-zTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="BUA-sE-kmq" userLabel="SwipeUp Gesture Recognizer">
+                    <connections>
+                        <action selector="scrollToDismissKeyboard:" destination="qXB-Tq-fF0" id="jmK-nl-Lwu"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="UHK-1Q-eV1" userLabel="SwipeDown Gesture Recognizer">
+                    <connections>
+                        <action selector="scrollDownToDismissKeyboard:" destination="qXB-Tq-fF0" id="GcB-Lm-tyC"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-159" y="1607"/>
         </scene>

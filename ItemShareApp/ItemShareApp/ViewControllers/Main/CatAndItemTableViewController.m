@@ -27,6 +27,16 @@
     [self.catAndItemTableView reloadData];
     // Do any additional setup after loading the view.
 }
+//- (IBAction)scrollToDismissKeyboard:(id)sender {
+//    [self.view endEditing:YES];
+//}
+//- (IBAction)scrollDownToDismissKeyboard:(id)sender {
+//    [self.view endEditing:YES];
+//}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.delegate callPrevVCtoDismissKeyboard];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
