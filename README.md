@@ -41,6 +41,7 @@ Optional
 [ ] Map doesn't show all items on map, just items in given radius\
 [x] When searching, results are diacritic and space insensitive\
 [ ] User can change location from which they are searching from\
+[ ] User gets email when item is booked
 
 
 Stretch
