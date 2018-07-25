@@ -45,7 +45,6 @@
     [self init];
     [self fetchBookings];
     [self setUpUI];
-    [self postPopUp];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
