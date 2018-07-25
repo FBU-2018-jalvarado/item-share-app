@@ -34,9 +34,9 @@
     layout.minimumInteritemSpacing = 3;
     layout.minimumLineSpacing = 3;
     
-    CGFloat postersPerLine = 5;
+    CGFloat postersPerLine = 3;
     CGFloat itemWidth = (self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
-    CGFloat itemHeight = itemWidth*3 / 4;
+    CGFloat itemHeight = itemWidth/3;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     Category *category = [[Category alloc] init];
