@@ -11,6 +11,7 @@
 @protocol CatAndItemTableViewControllerDelegate
 
 -(void)callPrevVCtoDismissKeyboard;
+-(void)fetchItems;
 
 @end
 
