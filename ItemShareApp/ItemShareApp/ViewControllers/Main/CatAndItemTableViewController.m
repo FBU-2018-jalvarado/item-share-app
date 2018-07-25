@@ -9,6 +9,7 @@
 #import "CatAndItemTableViewController.h"
 #import "CategoryTableCell.h"
 #import "ItemTableCell.h"
+#import "Item.h"
 
 @interface CatAndItemTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -20,19 +21,10 @@
     [super viewDidLoad];
     self.catAndItemTableView.delegate = self;
     self.catAndItemTableView.dataSource = self;
-//    self.itemRows = [[NSMutableArray alloc] init];
-//    self.categoryRows = [[NSMutableArray alloc] init];
-//    self.itemRows = [NSMutableArray arrayWithObjects:@"ione", @"itwo", @"ithree", @"ifour", @"ifive", @"isix", @"iseven", @"ieight", @"inine", @"iten", nil];
-//    self.categoryRows = [NSMutableArray arrayWithObjects:@"cat1", @"cat2", @"cat3", nil];
+
     [self.catAndItemTableView reloadData];
     // Do any additional setup after loading the view.
 }
-//- (IBAction)scrollToDismissKeyboard:(id)sender {
-//    [self.view endEditing:YES];
-//}
-//- (IBAction)scrollDownToDismissKeyboard:(id)sender {
-//    [self.view endEditing:YES];
-//}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.delegate callPrevVCtoDismissKeyboard];
@@ -68,6 +60,53 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.itemRows.count + self.categoryRows.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // if its a category cell
+    if(indexPath.row < self.categoryRows.count)
+    {
+        // empty the category array and populate the items with ones w that have  category
+        NSString *categoryName = self.categoryRows[indexPath.row];
+        self.categoryRows = [[NSMutableArray alloc] init];
+        [self filterForCat:categoryName];
+        [self.delegate clearSearchBar];
+    }
+    // if its an item cell
+    else {
+        // grab the item
+        Item *selectedItem = self.itemRows[indexPath.row - self.categoryRows.count];
+        // pass it to the map view
+        // dismiss the search view
+        [self.delegate goToMap];
+    }
+}
+
+// filter the whole items array for only items within given category
+- (void)filterForCat:(NSString *)categoryName {
+    [self.delegate fetchItems];
+    NSMutableArray *itemsInCategory = [[NSMutableArray alloc] init];
+    for(Item *thisItem in self.itemRows)
+    {
+        if([self hasCat:thisItem catName:categoryName])
+        {
+            [itemsInCategory addObject:thisItem];
+        }
+    }
+    self.itemRows = itemsInCategory;
+    [self.catAndItemTableView reloadData];
+}
+
+// determine if item is of type "categoryName"
+- (BOOL)hasCat:(Item *)thisItem catName:(NSString *)categoryName{
+    for(NSString *category in thisItem.categories)
+    {
+        if([category isEqualToString:categoryName])
+        {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

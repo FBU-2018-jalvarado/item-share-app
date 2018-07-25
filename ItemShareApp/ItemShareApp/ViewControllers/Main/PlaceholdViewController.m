@@ -41,7 +41,6 @@
     Category *category = [[Category alloc] init];
     [category setCats];
     self.categoryArray = category.catArray;
-//    self.categoryArray = [NSMutableArray arrayWithObjects:@"cat1", @"cat12", @"cat123", @"cat123", @"cat1234", @"bananacat1234", nil];
     self.catAndItemTableViewController.categoryRows = [[NSMutableArray alloc] init];
     self.catAndItemTableViewController.categoryRows = self.categoryArray;
     
@@ -137,18 +136,24 @@
 
 - (void)emptyTextBarFormat {
     self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 146);
-    if(self.catAndItemTableV.frame.origin.y == 54)
+    if(self.catAndItemTableViewController.catAndItemTableView.frame.origin.y == -146)
     {
-        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y + 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
+        self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y + 146, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height - 292);
     }
     self.categoryCollV.alpha = 1;
 }
 
 - (void)startTypingFormat {
+//    self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
+//    if(self.catAndItemTableV.frame.origin.y == 200)
+//    {
+//        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 292);
+//    }
+//    self.categoryCollV.alpha = 0;
     self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
-    if(self.catAndItemTableV.frame.origin.y == 200)
+    if(self.catAndItemTableViewController.catAndItemTableView.frame.origin.y == 0)
     {
-        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 146);
+        self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y - 146, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height + 292);
     }
     self.categoryCollV.alpha = 0;
 }
@@ -221,6 +226,11 @@
 // delegate function to dismiss keyboard from previous view controller
 -(void)callPrevVCtoDismissKeyboard {
     [self.placeholderDelegate dismissKeyboard];
+}
+
+// delegate function to clear search bar text
+-(void)clearSearchBar {
+    self.searchBar.text = @"";
 }
 
 @end

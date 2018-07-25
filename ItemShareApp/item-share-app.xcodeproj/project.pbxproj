@@ -29,7 +29,6 @@
 		90091E3621027BD9007AB8A7 /* PreviousViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90091E3521027BD9007AB8A7 /* PreviousViewController.m */; };
 		901C5ABC20FEADB300B17D70 /* SellItemStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */; };
 		901C5ABF20FEADCC00B17D70 /* SellItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901C5ABE20FEADCC00B17D70 /* SellItemViewController.m */; };
-		908A76DA2103D6B000D1E17A /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908A76D92103D6B000D1E17A /* BackgroundViewController.m */; };
 		908EC1A7210283A500BAD946 /* CategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908EC1A6210283A500BAD946 /* CategoryViewCell.m */; };
 		908EC1AA21028B6D00BAD946 /* CatAndItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908EC1A921028B6D00BAD946 /* CatAndItemTableViewController.m */; };
 		908EC1AD21028E5000BAD946 /* CategoryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908EC1AC21028E5000BAD946 /* CategoryTableCell.m */; };
@@ -85,8 +84,6 @@
 		901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SellItemStoryboard.storyboard; sourceTree = "<group>"; };
 		901C5ABD20FEADCC00B17D70 /* SellItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SellItemViewController.h; sourceTree = "<group>"; };
 		901C5ABE20FEADCC00B17D70 /* SellItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SellItemViewController.m; sourceTree = "<group>"; };
-		908A76D82103D6B000D1E17A /* BackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
-		908A76D92103D6B000D1E17A /* BackgroundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
 		908EC1A5210283A500BAD946 /* CategoryViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryViewCell.h; sourceTree = "<group>"; };
 		908EC1A6210283A500BAD946 /* CategoryViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryViewCell.m; sourceTree = "<group>"; };
 		908EC1A821028B6D00BAD946 /* CatAndItemTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatAndItemTableViewController.h; sourceTree = "<group>"; };
@@ -131,8 +128,6 @@
 		4D015A82210784AD0014509E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				908A76D82103D6B000D1E17A /* BackgroundViewController.h */,
-				908A76D92103D6B000D1E17A /* BackgroundViewController.m */,
 				908EC1B12102989A00BAD946 /* PlaceholdViewController.h */,
 				908EC1B22102989A00BAD946 /* PlaceholdViewController.m */,
 				90091E3121027B3F007AB8A7 /* CategoriesViewController.h */,
@@ -425,7 +420,6 @@
 				4D2ECC9320FFBFE1006E6757 /* DetailsViewController.m in Sources */,
 				4D2ECCC821029806006E6757 /* CalendarViewController.m in Sources */,
 				90091E3621027BD9007AB8A7 /* PreviousViewController.m in Sources */,
-				908A76DA2103D6B000D1E17A /* BackgroundViewController.m in Sources */,
 				9B9F7E8E20FE4F9F000E319F /* Item.m in Sources */,
 				4D2ECCB821011750006E6757 /* MapModel.m in Sources */,
 				90091E3321027B3F007AB8A7 /* CategoriesViewController.m in Sources */,
