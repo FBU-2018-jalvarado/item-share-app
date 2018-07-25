@@ -96,7 +96,8 @@
         // along w all items and categories in the table view
         
         self.filteredItemsArray = self.itemsArray;
-        self.filteredCategoryArray = self.categoryArray;
+//        self.filteredCategoryArray = self.categoryArray;
+        self.filteredCategoryArray = @[];
     }
     
     //filter pins

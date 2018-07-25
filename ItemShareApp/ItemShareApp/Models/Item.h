@@ -27,8 +27,9 @@
 @property (strong, nonatomic) NSString *_Nullable descrip;
 @property (strong, nonatomic) PFFile *_Nullable image;
 @property (strong, nonatomic) NSString *_Nullable booked;
+@property (strong, nonatomic) NSNumber *_Nullable distanceToUser;
 
-+ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(NSString *_Nullable)booked withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(NSString *_Nullable)booked withDistance: (NSNumber *_Nullable)distanceToUser withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 -(BOOL) isBooked;
 
