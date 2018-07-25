@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "Parse.h"
 #import "timeModel.h"
+#import "PopUpViewController.h"
 
 @interface DetailsViewController () <CalendarViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -20,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *confirmPickupButton;
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
-
+@property (strong, nonatomic) PopUpViewController * popUpVC;
 @property (strong, nonatomic) NSMutableArray *bookingsArray;
 
 @property (strong, nonatomic) timeModel *timeModel;
@@ -44,6 +45,7 @@
     [self init];
     [self fetchBookings];
     [self setUpUI];
+    [self postPopUp];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -127,13 +129,19 @@
                 if(error){
                     NSLog(@"error saving item");                }
                 else{
-                    NSLog(@"updated item successfully");
+                    NSLog(@"updated item successfully/ booking added");
+                    [self postPopUp];
                 }
             }];
-            NSLog(@"booking added!");
         }
     }];
     
+}
+
+- (void)postPopUp {
+    self.popUpVC = [[PopUpViewController alloc] initWithNibName:@"PopUpViewController" bundle:nil];
+    [self.popUpVC setName:self.item.title];
+    [self.popUpVC showInView:self.view animated:YES];
 }
 
 #pragma mark - Navigation
