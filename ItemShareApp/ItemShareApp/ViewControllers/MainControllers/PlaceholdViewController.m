@@ -10,7 +10,6 @@
 #import "CategoriesViewController.h"
 #import "CatAndItemTableViewController.h"
 //from SearchBar
-#import "SearchViewController.h"
 #import "ItemCell.h"
 #import "Item.h"
 #import "Parse.h"
