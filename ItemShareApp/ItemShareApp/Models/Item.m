@@ -21,6 +21,7 @@
 @dynamic descrip;
 @dynamic image;
 @dynamic booked;
+@dynamic distanceToUser;
 
 + (nonnull NSString *)parseClassName {
     return @"Item";
@@ -43,7 +44,7 @@
 //    [FBUDateHelper dateConflicers:date1 yo: date];
 //}
 
-+ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(NSString *_Nullable)booked withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(NSString *_Nullable)booked withDistance: (NSNumber *_Nullable)distanceToUser withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Item *newItem = [Item new];
     newItem.title = title;

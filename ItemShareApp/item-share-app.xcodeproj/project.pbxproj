@@ -42,7 +42,6 @@
 		9B9F7E6C20FE4EEE000E319F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E6A20FE4EED000E319F /* main.m */; };
 		9B9F7E6D20FE4EEE000E319F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F7E6B20FE4EEE000E319F /* Info.plist */; };
 		9B9F7E6F20FE4EF9000E319F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F7E6E20FE4EF9000E319F /* Assets.xcassets */; };
-		9B9F7E8120FE4F58000E319F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E7D20FE4F57000E319F /* SearchViewController.m */; };
 		9B9F7E8220FE4F58000E319F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E7E20FE4F57000E319F /* MapViewController.m */; };
 		9B9F7E8520FE4F5F000E319F /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E8420FE4F5F000E319F /* ItemCell.m */; };
 		9B9F7E8E20FE4F9F000E319F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E8C20FE4F9F000E319F /* Item.m */; };
@@ -109,9 +108,7 @@
 		9B9F7E6A20FE4EED000E319F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B9F7E6B20FE4EEE000E319F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B9F7E6E20FE4EF9000E319F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9B9F7E7D20FE4F57000E319F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		9B9F7E7E20FE4F57000E319F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		9B9F7E7F20FE4F57000E319F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		9B9F7E8020FE4F57000E319F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		9B9F7E8320FE4F5F000E319F /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		9B9F7E8420FE4F5F000E319F /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
@@ -188,8 +185,6 @@
 				4D015A832108D8A40014509E /* BookingControllers */,
 				4D015A82210784AD0014509E /* MainControllers */,
 				4D2ECCC1210295D3006E6757 /* Login */,
-				9B9F7E7F20FE4F57000E319F /* SearchViewController.h */,
-				9B9F7E7D20FE4F57000E319F /* SearchViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -437,7 +432,6 @@
 				7D9BDED520FEA7A70085F862 /* LoginViewController.m in Sources */,
 				4D816FAD2109116A00C24648 /* PopUpViewController.m in Sources */,
 				908EC1B32102989A00BAD946 /* PlaceholdViewController.m in Sources */,
-				9B9F7E8120FE4F58000E319F /* SearchViewController.m in Sources */,
 				901C5ABF20FEADCC00B17D70 /* SellItemViewController.m in Sources */,
 				9B9F7E8520FE4F5F000E319F /* ItemCell.m in Sources */,
 				4D2ECCBE210279DE006E6757 /* Pin.m in Sources */,
