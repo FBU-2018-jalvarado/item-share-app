@@ -44,7 +44,7 @@
     self.catAndItemTableViewController.categoryRows = [[NSMutableArray alloc] init];
     self.catAndItemTableViewController.categoryRows = self.categoryArray;
     
-   // [self fetchItems];
+    [self fetchItems];
     // Do any additional setup after loading the view.
 }
 
@@ -72,6 +72,9 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     //self.catAndItemTableViewController.catAndItemTableView.alpha = 0;
+//    if (self.searchBar.text.length == 0) {
+//        [self emptyTextBarFormat];
+//    }
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -135,27 +138,37 @@
 }
 
 - (void)emptyTextBarFormat {
+    // make the category collection view reappear
     self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 146);
-    if(self.catAndItemTableViewController.catAndItemTableView.frame.origin.y == -146)
-    {
-        self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y + 146, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height - 292);
-    }
     self.categoryCollV.alpha = 1;
+    // make the tableview's view and table shrink
+    NSLog(@"%f", self.catAndItemTableV.frame.origin.y);
+    if(self.catAndItemTableV.frame.origin.y == 54)
+    {
+        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y + 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
+        // tableview
+        if(self.catAndItemTableViewController.catAndItemTableView.frame.origin.y == 0)
+        {
+            self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height - 146);
+        }
+    }
 }
 
 - (void)startTypingFormat {
-//    self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
-//    if(self.catAndItemTableV.frame.origin.y == 200)
-//    {
-//        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 292);
-//    }
-//    self.categoryCollV.alpha = 0;
+    // make the category collection view disappear
     self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
-    if(self.catAndItemTableViewController.catAndItemTableView.frame.origin.y == 0)
-    {
-        self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y - 146, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height + 292);
-    }
     self.categoryCollV.alpha = 0;
+    // make the tableview's view and table shrink
+    if(self.catAndItemTableV.frame.origin.y == 200)
+    {
+        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 146);
+        // tableview
+        if(self.catAndItemTableViewController.catAndItemTableView.frame.origin.y == 0)
+        {
+            self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height + 146);
+        }
+    }
+    
 }
 
 #pragma mark - Navigation
