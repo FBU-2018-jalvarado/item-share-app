@@ -151,7 +151,7 @@
 
 //setup the views on each annotation.
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-    NSLog(@"view for annotation method");
+    //NSLog(@"view for annotation method");
     if (annotation == mapView.userLocation){
         if(mapView.userLocation == self.previousUserLocation){
             NSLog(@"in if");
