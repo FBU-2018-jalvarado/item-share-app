@@ -12,7 +12,8 @@
 @interface timeModel : NSObject
 
 - (BOOL)isTimeAvailable:(NSDate *)date withBookings:(Booking *)booking;
-- (void)fetchBookingsWithCompletion:(Item *)item withCompletion:(void(^)(NSArray<Item *> *bookings, NSError *error))completion;
+- (void)fetchItemBookingsWithCompletion:(Item *)item withCompletion:(void(^)(NSArray<Item *> *bookings, NSError *error))completion;
+- (void)fetchAllBookingsWithCompletion:(void(^)(NSArray<Item *> *bookings, NSError *error))completion;
 
 @property (nonatomic) BOOL availableTime;
 @property (strong, nonatomic) NSMutableArray *bookingsArray;
