@@ -8,15 +8,35 @@
 
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
+#import "ColorScheme.h"
 
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
+@property (strong, nonatomic) ColorScheme *colors;
+
 @end
 
 @implementation LoginViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.colors = [ColorScheme new];
+    }
+    return self;
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self init];
+    [self.colors setColors];
+    [self setUpUI];
+    [self setUpGradient];
+    // Do any additional setup after loading the view.
+}
 
 - (IBAction)didTapLogin:(id)sender {
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
@@ -27,9 +47,23 @@
     [self registerUser];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)setUpUI{
+    self.usernameTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
+    self.passwordTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
+}
+- (void)setUpGradient{
+    // Create the colors
+    UIColor *color1 = self.colors.mainColor;
+    UIColor *color2 = self.colors.secondColor;
+    UIColor *color3 = self.colors.thirdColor;
+    
+    // Create the gradient
+    CAGradientLayer *theViewGradient = [CAGradientLayer layer];
+    theViewGradient.colors = [NSArray arrayWithObjects: (id)color2.CGColor, (id)color1.CGColor, (id)color3.CGColor, nil];
+    theViewGradient.frame = self.view.bounds;
+    
+    //Add gradient to view
+    [self.view.layer insertSublayer:theViewGradient atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
