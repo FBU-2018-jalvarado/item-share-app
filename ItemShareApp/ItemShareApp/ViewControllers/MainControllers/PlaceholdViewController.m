@@ -47,14 +47,10 @@
 }
 
 - (IBAction)onTapMap:(id)sender {
-//    [self performSegueWithIdentifier:@"MapSegue" sender:sender];
-    //[self dismissViewControllerAnimated:true completion:nil];
     [self.placeholderDelegate dismissToMap];
 }
 
 - (void)goToMap {
-//    [self performSegueWithIdentifier:@"MapSegue" sender:nil];
-    //[self dismissViewControllerAnimated:true completion:nil];
     [self.placeholderDelegate dismissToMap];
 }
  // from SearchBar
@@ -66,32 +62,15 @@
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
     [self.placeholderDelegate showSearchView];
+    [self filterInMap:self.catAndItemTableViewController.itemRows];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     //self.catAndItemTableViewController.catAndItemTableView.alpha = 0;
-//    if (self.searchBar.text.length == 0) {
-//        [self emptyTextBarFormat];
-//    }
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
-        /*
-         if (searchText.length != 0) {
-         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-         return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
-         }];
-         NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
-         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
-         }
-         else {
-         self.filteredItemsArray = self.itemsArray;
-         }
-         [self addAnnotations:self.mapView withArray:self.filteredItemsArray];
-         [self removeAllPinsButUserLocation];
-         */
-        
         //UI
         [self startTypingFormat];
 
@@ -117,12 +96,12 @@
         // along w all items and categories in the table view
         self.filteredItemsArray = self.itemsArray;
         self.filteredCategoryArray = self.categoryArray;
-        
     }
     
     //filter pins
     [self.placeholderDelegateMap removeAnnotationsInMap];
     [self.placeholderDelegateMap addAnnotationsInMap:self.filteredItemsArray];
+    
     
     self.catAndItemTableViewController.itemRows = self.filteredItemsArray;
     self.catAndItemTableViewController.categoryRows = self.filteredCategoryArray;
@@ -166,7 +145,6 @@
             self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height + 146);
         }
     }
-    
 }
 
 #pragma mark - Navigation
@@ -188,12 +166,6 @@
         self.catAndItemTableViewController = [segue destinationViewController];
         self.catAndItemTableViewController.delegate = self;
     }
-//    if([segue.identifier isEqualToString:@"CategoryCollectionSegue"])
-//    {
-//        UINavigationController *navVC = [segue destinationViewController];
-//        self.categoryCollectionView = [navVC.viewControllers firstObject];
-//        // self.categoryCollectionView = [segue destinationViewController];
-//    }
 }
 
 
@@ -248,4 +220,8 @@
     [self.catAndItemTableViewController choseCat:categoryName];
 }
 
+- (void)filterInMap:(NSMutableArray *)listOfItems {
+    [self.placeholderDelegateMap removeAnnotationsInMap];
+    [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
+}
 @end

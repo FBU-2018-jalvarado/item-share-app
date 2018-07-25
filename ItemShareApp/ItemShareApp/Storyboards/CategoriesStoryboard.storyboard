@@ -145,7 +145,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.41291864876697404" blue="0.4950489283899655" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="AXj-EN-WVz" id="Kgr-gH-saj"/>
                                         </connections>
@@ -166,7 +165,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.48424340170000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="dMb-CO-4p0" id="hjv-kw-2Jq"/>
                                         </connections>
@@ -235,7 +233,6 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.48424340170000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="categoryLabel" destination="R2a-bz-DnS" id="Whd-Za-1AJ"/>
                                         </connections>

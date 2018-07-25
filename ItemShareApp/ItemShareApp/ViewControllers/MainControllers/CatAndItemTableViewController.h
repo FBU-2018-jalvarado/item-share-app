@@ -14,6 +14,7 @@
 -(void)fetchItems;
 -(void)goToMap;
 -(void)clearSearchBar;
+-(void)filterInMap:(NSMutableArray *)listOfItems;
 
 @end
 
