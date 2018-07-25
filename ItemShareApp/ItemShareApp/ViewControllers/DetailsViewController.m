@@ -43,17 +43,6 @@
     [super viewDidLoad];
     [self init];
     [self fetchBookings];
-//   [Item postItem:@"TEST" withOwner:owner withLocation:nil withAddress:@"New York, NY" withBooking:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-//        if(error)
-//        {
-//            NSLog(@"Unable to post the item for sale");
-//        }
-//        else {
-//            NSLog(@"Posted the item for sale: ");
-//        }
-//    }];
-    
-    // Do any additional setup after loading the view.
     [self setUpUI];
 }
 
@@ -109,7 +98,6 @@
         }
         if (bookings) {
             self.bookingsArray = [bookings mutableCopy];
-            //call any methods
         } else {
             // HANDLE NO ITEMS
         }
@@ -145,10 +133,6 @@
             NSLog(@"booking added!");
         }
     }];
-//    [self.item.bookingsArray addObject:newBooking];
-//    [self.item setObject:self.item.bookingsArray forKey:@"bookingsArray"];
-//    [self.item saveInBackground];
-//    NSLog(@"booking added!");
     
 }
 
@@ -167,14 +151,7 @@
 }
 
 - (void)presentAlert{
-    //NSString* type can insert login in or sign out in the string if desired
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Chosen booking dates are not available" preferredStyle:(UIAlertControllerStyleAlert)];
-    // create a cancel action
-//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
-//    }];
-    // add the cancel action to the alertController
-    //[alert addAction:cancelAction];
-    // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { // handle response here.
     }];
     // add the OK action to the alert controller

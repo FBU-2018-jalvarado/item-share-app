@@ -16,7 +16,7 @@
 #import "PlaceholdViewController.h"
 
 
-@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, PlaceHolderViewControllerDelegateMap>
+@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -76,35 +76,15 @@
 
 //sets up location manager and user location. Temporary forced YES to use user location. In setUpLocationManager the method to ask the user is present.
 - (void)locationSetup{
-    //[self setUpLocationManager];
-    
     self.locationManager = [CLLocationManager new];
     self.locationManager.delegate = self;
     [self.locationManager requestWhenInUseAuthorization];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = 200;
     [self.locationManager startUpdatingLocation];
-    
-//    BOOL permission = YES;
-//    if(permission){
-//      //  [self setUpLocationManager];
-//        self.mapView.showsUserLocation = YES; //works without it? but online insists on it
-//    }
-//    else{
-//        [self setRegion:self.mapView];
-//    }
 }
 
-//location manager delegate for control
-- (void)setUpLocationManager{
-//    [self setLocationManager:self.locationManager];
-//    self.locationManager.delegate = self;
-//    self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
-//    self.locationManager.distanceFilter = 200;
-//    [self.locationManager startUpdatingLocation]; //should be in didChangeAuth method once that works
-}
-
-//user allowed current location to be used
+//user allowed current location to be used. Update this to only call inner methods when if statement is true. I call startUpdatingLocation in other areas to override.
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
     if(status == kCLAuthorizationStatusAuthorizedWhenInUse){
         [self.locationManager startUpdatingLocation];
@@ -128,7 +108,6 @@
 
 //setup the views on each annotation.
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-   // NSLog(@"view for annotation method");
     if (annotation == mapView.userLocation){
         if(mapView.userLocation == self.previousUserLocation){
             NSLog(@"in if");
@@ -154,14 +133,9 @@
     pin.canShowCallout = NO;
     pin.draggable = NO;
     pin.highlighted = YES;
-    pin.canShowCallout = YES;
     return pin;
-    //return [self mapViewHelper:mapView viewForAnnotation:annotation];
 }
 
-- (void)annotationClicked {
-   // NSLog(@"clicked");
-}
 
  #pragma mark - Navigation
 
@@ -192,6 +166,7 @@
     [mapView setRegion:currentRegion animated:false];
 }
 
+//work in progress that could be a great method for scalability
 - (NSString *)convertCoordinateToAddress: (CLLocation*)location{
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
@@ -200,12 +175,9 @@
         }
         else{
            // NSLog(@"added annotations");
-            CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
-            //            // = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-            //                                            placemark.subThoroughfare, placemark.thoroughfare,
-            //                                            placemark.postalCode, placemark.locality,
-            //                                            placemark.administrativeArea,
-            //                                            placemark.country];
+            //always guaranteed to be at least one object
+            CLPlacemark *placemark = [placemarks lastObject];
+            //CLPlacemark *placemark = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@", placemark.subThoroughfare, placemark.thoroughfare, placemark.postalCode, placemark.locality, placemark.administrativeArea, placemark.country];
         }
     }];
     
@@ -219,15 +191,11 @@
             NSLog(@"%@", error);
         }
         else{
-           // NSLog(@"added annotations");
             CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
             Pin *pin = [[Pin alloc] init];
             pin.coordinate = placemark.location.coordinate;
             pin.title = item.title;
             pin.item = item;
-//            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-//            annotation.coordinate = placemark.location.coordinate;
-//            annotation.title = item.title;
             [self.mapView addAnnotation:pin];
         }
     }];
@@ -258,6 +226,8 @@
 ////    mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
 ////    [self.mapView setRegion:mapRegion animated: YES];
 //}
+
+//Commented out by Stephanie. Keeping because she might need it later in her search implementation.
 
 ////this method runs once search button is clicked and keyboard goes away. This is an option to reload all the pins, instead of autopopulating the pins (design choice).
 //- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{

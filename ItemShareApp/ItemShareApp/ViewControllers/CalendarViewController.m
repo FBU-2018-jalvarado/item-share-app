@@ -38,19 +38,6 @@
     [self.calendarManager setMenuView:_calendarMenuView];
     [self.calendarManager setContentView:_calendarContentView];
     [self.calendarManager setDate:[NSDate date]];
-    
-    //to change to week mode
-    /*
-    self.calendarManager.settings.weekModeEnabled = YES;
-    [self.calendarManager reload];
-     */
-    
-    //changing locale and time zone
-    /*
-     _calendarManager.dateHelper.calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"CDT"];
-     _calendarManager.dateHelper.calendar.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
-     [_calendarManager reload];
-     */
 }
 
 //edits contentView (month view)
@@ -62,11 +49,6 @@
     
     return label;
 }
-
-//implementing this with nothing present nothing in contentview of calendar
-//- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
-//    //idk how to implement
-//}
 
 - (UIView<JTCalendarWeekDay> *)calendarBuildWeekDayView:(JTCalendarManager *)calendar{
     JTCalendarWeekDayView *view = [JTCalendarWeekDayView new];
@@ -89,8 +71,6 @@
     view.circleRatio = .8;
     //view.dotRatio = 1. / .9;
     self.calendarContentView.backgroundColor = [UIColor whiteColor];
-//    view.layer.borderColor = [UIColor redColor].CGColor;
-//    view.layer.borderWidth = 1;
     return view;
 }
 
@@ -193,6 +173,26 @@
         detailsViewController.endTimePicker.date = self.selectedDate;
     }
 }
+
+//implementing this with nothing present nothing in contentview of calendar
+//- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
+//    //idk how to implement
+//}
+
+//tips for pod
+
+//to change to week mode
+/*
+ self.calendarManager.settings.weekModeEnabled = YES;
+ [self.calendarManager reload];
+ */
+
+//changing locale and time zone
+/*
+ _calendarManager.dateHelper.calendar.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"CDT"];
+ _calendarManager.dateHelper.calendar.locale = [NSLocale localeWithLocaleIdentifier:@"fr_FR"];
+ [_calendarManager reload];
+ */
 
 
 @end
