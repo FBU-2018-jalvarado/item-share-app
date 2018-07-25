@@ -213,9 +213,6 @@
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.selectedStartDate = self.startDate;
         detailsViewController.selectedEndDate = self.endDate;
-        //didnt work (want to change UI of picker)
-        detailsViewController.startTimePicker.date = self.selectedDate;
-        detailsViewController.endTimePicker.date = self.selectedDate;
     }
 }
 

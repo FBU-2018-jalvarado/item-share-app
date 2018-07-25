@@ -7,14 +7,26 @@
 //
 
 #import "PopUpViewController.h"
+#import "ColorScheme.h"
 
 @interface PopUpViewController ()
 
+@property (strong, nonatomic) ColorScheme *colorModel;
 @end
 
 @implementation PopUpViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.colorModel = [ColorScheme new];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
+    [self init];
     self.view.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:.6];
     self.popUpView.backgroundColor = [UIColor whiteColor];
     self.popUpView.layer.cornerRadius = 5;
@@ -31,7 +43,8 @@
     self.buttonLabel.layer.borderColor = [UIColor blueColor].CGColor;
     self.buttonLabel.layer.borderWidth = 1;
     self.buttonLabel.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];
-    [self.buttonLabel setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+   // [self.buttonLabel setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+     [self.buttonLabel setTitleColor:self.colorModel.mainColor forState:UIControlStateNormal];
     self.nameLabel.text = self.name;
     
 }
