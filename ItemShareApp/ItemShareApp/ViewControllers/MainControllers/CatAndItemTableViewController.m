@@ -74,6 +74,9 @@
         // grab the item
         Item *selectedItem = self.itemRows[indexPath.row - self.categoryRows.count];
         // pass it to the map view
+        self.itemRows = [[NSMutableArray alloc] init];
+        [self.itemRows addObject:selectedItem];
+        [self.delegate filterInMap:self.itemRows];
         // dismiss the search view
         [self.delegate goToMap];
     }
@@ -84,6 +87,7 @@
     self.categoryRows = [[NSMutableArray alloc] init];
     [self filterForCat:categoryName];
     [self.delegate clearSearchBar];
+    
     // now fetchItemsWithCat will filter in the completion block
 }
 
@@ -140,7 +144,7 @@
                 }
                 self.itemRows = itemsInCategory;
                 [self.catAndItemTableView reloadData];
-                
+                [self.delegate filterInMap:self.itemRows];
             }
         }
     }];
