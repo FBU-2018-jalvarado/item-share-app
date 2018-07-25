@@ -10,6 +10,7 @@
 #import "CategoryViewCell.h"
 #import "MapViewController.h"
 #import "Category.h"
+#import "ColorScheme.h"
 
 @interface CategoriesViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *categoryCollView;
@@ -17,16 +18,28 @@
 @property (strong, nonatomic) NSString *storedKey;
 @property BOOL anotherCategory;
 @property (strong, nonatomic) CategoryViewCell *viewCell;
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
 @implementation CategoriesViewController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.colors = [ColorScheme new];
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.categoryCollView.delegate = self;
     self.categoryCollView.dataSource = self;
     // Do any additional setup after loading the view.
+    
+    [self init];
+    [self.colors setColors];
     
     //Cell organization and formatting
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.categoryCollView.collectionViewLayout;

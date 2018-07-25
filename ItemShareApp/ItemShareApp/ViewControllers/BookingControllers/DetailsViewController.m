@@ -12,6 +12,7 @@
 #import "Parse.h"
 #import "timeModel.h"
 #import "PopUpViewController.h"
+#import "ColorScheme.h"
 
 @interface DetailsViewController () <CalendarViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -23,7 +24,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (strong, nonatomic) PopUpViewController * popUpVC;
 @property (strong, nonatomic) NSMutableArray *bookingsArray;
+@property (weak, nonatomic) IBOutlet UIButton *selectDatesButton;
+@property (weak, nonatomic) IBOutlet UILabel *tolabel;
 
+
+//for design
+@property (weak, nonatomic) IBOutlet UIView *priceView;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pricePerHourLabel;
+
+@property (strong, nonatomic) ColorScheme *colors;
 @property (strong, nonatomic) timeModel *timeModel;
 
 
@@ -36,6 +46,7 @@
     self = [super init];
     if (self) {
         self.timeModel = [[timeModel alloc] init];
+        self.colors = [ColorScheme new];
     }
     return self;
 }
@@ -43,8 +54,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self init];
+    [self.colors setColors];
     [self fetchBookings];
     [self setUpUI];
+    //[self postPopUp];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -52,11 +65,11 @@
 }
 
 - (void)setUpUI {
+    //text setup
     self.titleLabel.text = self.item.title;
     self.addressLabel.text = self.item.address;
-    self.startTimePicker.datePickerMode = UIDatePickerModeDate;
-    self.endTimePicker.datePickerMode = UIDatePickerModeDate;
     
+    //date setup
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM-dd-YY"];
     if(self.selectedStartDate){
@@ -65,6 +78,22 @@
     if(self.selectedEndDate){
     self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
     }
+    
+    //color setup
+    self.confirmPickupButton.layer.backgroundColor = self.colors.mainColor.CGColor;
+    self.confirmPickupButton.titleLabel.textColor = self.colors.secondColor;
+    self.confirmPickupButton.layer.borderColor = self.colors.mainColor.CGColor;
+    self.confirmPickupButton.layer.borderWidth = 1;
+    
+    self.startTimeLabel.textColor = self.colors.thirdColor;
+    self.endTimeLabel.textColor = self.colors.thirdColor;
+    self.tolabel.textColor = self.colors.thirdColor;
+    
+    self.priceView.backgroundColor = self.colors.secondColor;
+    self.titleLabel.backgroundColor = self.colors.secondColor;
+    self.addressLabel.backgroundColor = self.colors.secondColor;
+    self.descriptionLabel.backgroundColor = self.colors.secondColor;
+    self.categoryLabel.backgroundColor = self.colors.secondColor;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -134,7 +163,6 @@
             }];
         }
     }];
-    
 }
 
 - (void)postPopUp {

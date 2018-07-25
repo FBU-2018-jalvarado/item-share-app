@@ -41,6 +41,7 @@
     return self;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self init];
@@ -170,6 +171,7 @@
             NSLog(@"%@", error);
         }
         else{
+            //do not delete
            // NSLog(@"added annotations");
             //always guaranteed to be at least one object
             CLPlacemark *placemark = [placemarks lastObject];
