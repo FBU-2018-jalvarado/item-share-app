@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tolabel;
 
 
+@property (weak, nonatomic) IBOutlet UIView *insideView;
 //for design
 @property (weak, nonatomic) IBOutlet UIView *priceView;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
@@ -36,6 +37,7 @@
 @property (strong, nonatomic) ColorScheme *colors;
 @property (strong, nonatomic) timeModel *timeModel;
 
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -79,21 +81,11 @@
     self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
     }
     
-    //color setup
-    self.confirmPickupButton.layer.backgroundColor = self.colors.mainColor.CGColor;
-    self.confirmPickupButton.titleLabel.textColor = self.colors.secondColor;
-    self.confirmPickupButton.layer.borderColor = self.colors.mainColor.CGColor;
-    self.confirmPickupButton.layer.borderWidth = 1;
+    self.insideView.layer.cornerRadius = 10;
+    self.confirmPickupButton.layer.cornerRadius = 10;
+    self.selectDatesButton.layer.cornerRadius = 8;
+    self.backButton.layer.cornerRadius = 5;
     
-    self.startTimeLabel.textColor = self.colors.thirdColor;
-    self.endTimeLabel.textColor = self.colors.thirdColor;
-    self.tolabel.textColor = self.colors.thirdColor;
-    
-    self.priceView.backgroundColor = self.colors.secondColor;
-    self.titleLabel.backgroundColor = self.colors.secondColor;
-    self.addressLabel.backgroundColor = self.colors.secondColor;
-    self.descriptionLabel.backgroundColor = self.colors.secondColor;
-    self.categoryLabel.backgroundColor = self.colors.secondColor;
 }
 
 - (void)didReceiveMemoryWarning {
