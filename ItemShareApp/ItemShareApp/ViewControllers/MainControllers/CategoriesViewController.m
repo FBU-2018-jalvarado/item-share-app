@@ -92,6 +92,7 @@
         categoriesViewController.delegate = self.delegate;
         [self.navigationController pushViewController:categoriesViewController animated:YES];
     }
+    [self.delegate callChoseCat:clickedKey];
 }
 
 

@@ -67,10 +67,7 @@
     if(indexPath.row < self.categoryRows.count)
     {
         // empty the category array and populate the items with ones w that have  category
-        NSString *categoryName = self.categoryRows[indexPath.row];
-        self.categoryRows = [[NSMutableArray alloc] init];
-        [self filterForCat:categoryName];
-        [self.delegate clearSearchBar];
+        [self choseCat:self.categoryRows[indexPath.row]];
     }
     // if its an item cell
     else {
@@ -80,6 +77,14 @@
         // dismiss the search view
         [self.delegate goToMap];
     }
+}
+
+// category table cells disappear and item cells get filtered
+- (void)choseCat:(NSString *)categoryName {
+    self.categoryRows = [[NSMutableArray alloc] init];
+    [self filterForCat:categoryName];
+    [self.delegate clearSearchBar];
+    // now fetchItemsWithCat will filter in the completion block
 }
 
 // filter the whole items array for only items within given category

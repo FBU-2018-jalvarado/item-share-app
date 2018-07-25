@@ -22,5 +22,6 @@
 @property (strong, nonatomic) NSMutableArray *itemRows;
 @property (strong, nonatomic) NSMutableArray *categoryRows;
 @property (nonatomic, weak) id <CatAndItemTableViewControllerDelegate> delegate;
+- (void)choseCat:(NSString *)categoryName;
 
 @end

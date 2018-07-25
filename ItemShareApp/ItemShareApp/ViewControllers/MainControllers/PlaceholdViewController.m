@@ -246,4 +246,8 @@
     self.searchBar.text = @"";
 }
 
+-(void)callChoseCat:(NSString *)categoryName {
+    [self.catAndItemTableViewController choseCat:categoryName];
+}
+
 @end

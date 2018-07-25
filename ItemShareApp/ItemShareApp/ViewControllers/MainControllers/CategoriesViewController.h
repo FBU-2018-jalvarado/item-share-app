@@ -11,6 +11,7 @@
 @protocol CategoriesViewControllerDelegate
 
 - (void)goToMap;
+- (void)callChoseCat(NSString *)categoryName;
 
 @end
 
