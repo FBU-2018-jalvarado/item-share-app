@@ -21,19 +21,10 @@
     [super viewDidLoad];
     self.catAndItemTableView.delegate = self;
     self.catAndItemTableView.dataSource = self;
-//    self.itemRows = [[NSMutableArray alloc] init];
-//    self.categoryRows = [[NSMutableArray alloc] init];
-//    self.itemRows = [NSMutableArray arrayWithObjects:@"ione", @"itwo", @"ithree", @"ifour", @"ifive", @"isix", @"iseven", @"ieight", @"inine", @"iten", nil];
-//    self.categoryRows = [NSMutableArray arrayWithObjects:@"cat1", @"cat2", @"cat3", nil];
+
     [self.catAndItemTableView reloadData];
     // Do any additional setup after loading the view.
 }
-//- (IBAction)scrollToDismissKeyboard:(id)sender {
-//    [self.view endEditing:YES];
-//}
-//- (IBAction)scrollDownToDismissKeyboard:(id)sender {
-//    [self.view endEditing:YES];
-//}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.delegate callPrevVCtoDismissKeyboard];
@@ -79,12 +70,15 @@
         NSString *categoryName = self.categoryRows[indexPath.row];
         self.categoryRows = [[NSMutableArray alloc] init];
         [self filterForCat:categoryName];
+        [self.delegate clearSearchBar];
     }
     // if its an item cell
     else {
         // grab the item
         Item *selectedItem = self.itemRows[indexPath.row - self.categoryRows.count];
-        // pass it to the map view and dismiss the search view
+        // pass it to the map view
+        // dismiss the search view
+        [self.delegate goToMap];
     }
 }
 
