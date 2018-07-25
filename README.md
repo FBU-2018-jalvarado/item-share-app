@@ -21,30 +21,31 @@ With [insert name here], you can easily rent and return items from around your n
 
 Required
 
-[ ] User can use the interactive map to find items being shared nearby\
+[x] User can use the interactive map to find items being shared nearby\
 [x] User can click on the items being displayed on the map to see a detailed screen for the item\
-[ ] user can see when item is available\
+[x] user can see when item is available\
 [ ] user can book the item\
-[ ] User will be charged throughn Stripe
+[ ] User will be charged through Stripe
 
 Optional
 
+[ ] Searching more efficient (only filter for if first letters match)
 [ ] User can search for an item they wish to rent\
-    [ ] Create categories that the user can search within\
+    [x] Create categories that the user can search within\
 [ ] User can cancel their booking within the detailed item view\
 [ ] The user is not charged until pickup is confirmed by the person who is getting item (back)\
 [ ] Owner will be paid through Stripe\
-[ ] Posting available items\
+[x] Posting available items\
 [ ] User can can tap map for a CLLocation or convert address to a CLLocation\
-[ ] Asking user for permission for location services\
+[x] Asking user for permission for location services\
 [ ] Map doesn't show all items on map, just items in given radius\
-[ ] When searching, results are diacritic and space insensitive\
+[x] When searching, results are diacritic and space insensitive\
 [ ] User can change location from which they are searching from\
-[ ] If category has nothing in it, it doesn't appear in categorySearchView at all (but does appear when selling)
+
 
 Stretch
 
-[ ] Login/Signup\
+[x] Login/Signup\
 [ ] Profile tab with user's history (checked-out items, sold items, history)\
 [ ] Phone numbers exchanged once they have booked the item\
 [ ] Specifications about your item\
