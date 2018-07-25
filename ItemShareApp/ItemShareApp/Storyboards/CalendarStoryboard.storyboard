@@ -76,13 +76,5 @@
             </objects>
             <point key="canvasLocation" x="8.8000000000000007" y="170.46476761619192"/>
         </scene>
-        <!--DetailsStoryboard-->
-        <scene sceneID="r7x-u6-g2k">
-            <objects>
-                <viewControllerPlaceholder storyboardName="DetailsStoryboard" id="LAk-Xz-ez0" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zbW-AC-LNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="674" y="170"/>
-        </scene>
     </scenes>
 </document>

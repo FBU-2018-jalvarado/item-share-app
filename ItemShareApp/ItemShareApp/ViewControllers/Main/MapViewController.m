@@ -53,32 +53,9 @@
     [self fetchItems];
 }
 
-////this method runs once search button is clicked and keyboard goes away. This is an option to reload all the pins, instead of autopopulating the pins (design choice).
-//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-//    [self.view endEditing:YES];
-//}
-//
-////closes keyboard once search is clicked.
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-//    [self.view endEditing:YES];
-//    [self.locationManager requestWhenInUseAuthorization];
-//}
-//
-////text changes, update pins with filtered array of items
-//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-//    if (searchText.length != 0) {
-//        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-//            return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
-//        }];
-//        NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
-//        self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
-//    }
-//    else {
-//        self.filteredItemsArray = self.itemsArray;
-//    }
-//    [self addAnnotations:self.filteredItemsArray];
-//    [self removeAllPinsButUserLocation];
-//}
+- (void)viewDidAppear:(BOOL)animated{
+    [self fetchItems];
+}
 
 //retrieve items array
 - (void)fetchItems {
@@ -151,7 +128,7 @@
 
 //setup the views on each annotation.
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-    NSLog(@"view for annotation method");
+   // NSLog(@"view for annotation method");
     if (annotation == mapView.userLocation){
         if(mapView.userLocation == self.previousUserLocation){
             NSLog(@"in if");
@@ -222,7 +199,7 @@
             NSLog(@"%@", error);
         }
         else{
-            NSLog(@"added annotations");
+           // NSLog(@"added annotations");
             CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
             //            // = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
             //                                            placemark.subThoroughfare, placemark.thoroughfare,
@@ -242,7 +219,7 @@
             NSLog(@"%@", error);
         }
         else{
-            NSLog(@"added annotations");
+           // NSLog(@"added annotations");
             CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
             Pin *pin = [[Pin alloc] init];
             pin.coordinate = placemark.location.coordinate;
@@ -280,6 +257,33 @@
 ////    mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
 ////    mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
 ////    [self.mapView setRegion:mapRegion animated: YES];
+//}
+
+////this method runs once search button is clicked and keyboard goes away. This is an option to reload all the pins, instead of autopopulating the pins (design choice).
+//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+//    [self.view endEditing:YES];
+//}
+//
+////closes keyboard once search is clicked.
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+//    [self.view endEditing:YES];
+//    [self.locationManager requestWhenInUseAuthorization];
+//}
+//
+////text changes, update pins with filtered array of items
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+//    if (searchText.length != 0) {
+//        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
+//            return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
+//        }];
+//        NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
+//        self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
+//    }
+//    else {
+//        self.filteredItemsArray = self.itemsArray;
+//    }
+//    [self addAnnotations:self.filteredItemsArray];
+//    [self removeAllPinsButUserLocation];
 //}
 
 

@@ -56,8 +56,8 @@
     {
         [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -464, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
-        NSLog(@"origin y coord of the search view after its raised: ");
-        NSLog(@"%f", self.searchView.frame.origin.y);
+//        NSLog(@"origin y coord of the search view after its raised: ");
+//        NSLog(@"%f", self.searchView.frame.origin.y);
     }
 }
 
@@ -83,9 +83,6 @@
     }
 }
 
-- (void)test1{
-    NSLog(@"test1");
-}
 
 - (void)addAnnotationsInMap:(NSMutableArray*)filteredItemArray {
     [self.mapController addAnnotations:filteredItemArray];

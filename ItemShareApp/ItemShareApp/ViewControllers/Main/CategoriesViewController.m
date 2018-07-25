@@ -84,9 +84,9 @@
     else {
         CategoriesViewController *categoriesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
         categoriesViewController.categories = self.categories[(NSString *)clickedKey];
-        NSLog(@"%@", self.categories);
-        NSLog(@"midpoint");
-        NSLog(@"%@", categoriesViewController.categories);
+//        NSLog(@"%@", self.categories);
+//        NSLog(@"midpoint");
+//        NSLog(@"%@", categoriesViewController.categories);
         categoriesViewController.title = clickedKey;
         categoriesViewController.firstPage = NO;
         categoriesViewController.delegate = self.delegate;
