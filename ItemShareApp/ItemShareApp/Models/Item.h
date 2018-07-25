@@ -21,12 +21,15 @@
 @property (strong, nonatomic) PFUser *_Nonnull owner;
 @property (strong, nonatomic) CLLocation *_Nullable location;
 @property (strong, nonatomic) NSString *_Nullable address;
-@property (nonatomic, strong) NSMutableArray *bookingsArray;
+@property (nonatomic, strong) NSMutableArray * _Nullable bookingsArray;
 @property (strong, nonatomic) NSString  * _Nonnull itemID;
 @property (strong, nonatomic) NSMutableArray *_Nullable categories;
 @property (strong, nonatomic) NSString *_Nullable descrip;
 @property (strong, nonatomic) PFFile *_Nullable image;
-@property (nonatomic) BOOL *_Nullable bookedNow;
+@property (strong, nonatomic) NSString *_Nullable booked;
 
-+ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(BOOL *_Nullable)bookedNow withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(NSString *_Nullable)booked withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
+-(BOOL) isBooked;
+
 @end
