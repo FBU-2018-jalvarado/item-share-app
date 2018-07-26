@@ -13,6 +13,7 @@
 #import "DetailsViewController.h"
 #import "timeModel.h"
 #import "Booking.h"
+#import "ColorScheme.h"
 
 @interface CalendarViewController () <JTCalendarDelegate>
 
@@ -27,6 +28,7 @@
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (strong, nonatomic) NSDate *selectedDate;
 @property (strong, nonatomic) timeModel *timeModel;
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
@@ -37,6 +39,8 @@
     self = [super init];
     if (self) {
         self.timeModel = [[timeModel alloc] init];
+        self.colors = [ColorScheme new];
+        
     }
     return self;
 }
@@ -49,14 +53,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self init];
-   // [self fetchBookings];
-
+    [self.colors setColors];
+    [self setUpUI];
+    
     self.calendarManager = [JTCalendarManager new];
     self.calendarManager.delegate = self;
     
     [self.calendarManager setMenuView:_calendarMenuView];
     [self.calendarManager setContentView:_calendarContentView];
     [self.calendarManager setDate:[NSDate date]];
+}
+
+- (void)setUpUI {
+    self.startTimeButton.backgroundColor = self.colors.thirdColor;
+    self.endTimeButton.backgroundColor = self.colors.thirdColor;
+    [self.startTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
+    [self.endTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
+    self.startTimeButton.layer.cornerRadius = 5;
+    self.endTimeButton.layer.cornerRadius = 5;
 }
 
 //edits contentView (month view)
@@ -76,16 +90,16 @@
     return view;
 }
 
-//edit calendar within only the day view
+//edit calendar view with the day names on top
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar{
     JTCalendarDayView *view = [JTCalendarDayView new];
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:15];
     view.textLabel.textAlignment = NSTextAlignmentCenter;
-    view.textLabel.textColor = [UIColor blackColor];
+    view.textLabel.textColor = self.colors.thirdColor;
     view.backgroundColor = [UIColor whiteColor];
     view.circleRatio = .8;
     //view.dotRatio = 1. / .9;
-    self.calendarContentView.backgroundColor = [UIColor whiteColor];
+    self.calendarContentView.backgroundColor = self.colors.secondColor;
     return view;
 }
 
@@ -117,14 +131,14 @@
     //today
     if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor blueColor];
+        dayView.circleView.backgroundColor = self.colors.mainColor;
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
     //selected date
     else if(self.selectedDate && [self.calendarManager.dateHelper date:self.selectedDate isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.circleView.backgroundColor = [UIColor blueColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
@@ -141,7 +155,7 @@
         else{
             //make it normal
             dayView.circleView.hidden = YES;
-            dayView.dotView.backgroundColor = [UIColor redColor];
+            dayView.dotView.backgroundColor = [UIColor blueColor];
             dayView.textLabel.textColor = [UIColor lightGrayColor];
         }
 
@@ -153,13 +167,13 @@
             dayView.circleView.hidden = NO;
             dayView.circleView.backgroundColor = [UIColor lightGrayColor];
           //  dayView.dotView.backgroundColor = [UIColor redColor];
-            dayView.textLabel.textColor = [UIColor blackColor];
+            dayView.textLabel.textColor = self.colors.thirdColor;
         }
         else{
         //make it normal
-        dayView.circleView.hidden = YES;
-        dayView.dotView.backgroundColor = [UIColor redColor];
-        dayView.textLabel.textColor = [UIColor blackColor];
+            dayView.circleView.hidden = YES;
+            dayView.dotView.backgroundColor = [UIColor blueColor];
+            dayView.textLabel.textColor = self.colors.thirdColor;
         }
     }
     
