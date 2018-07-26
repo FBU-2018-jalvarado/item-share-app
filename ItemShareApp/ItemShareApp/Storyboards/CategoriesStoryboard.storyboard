@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SellItemStoryboard-->
+        <scene sceneID="iKX-DD-Swe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SellItemStoryboard" id="qr4-GI-D5A" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eox-27-HEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2245" y="127"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="rzs-TD-dQQ">
             <objects>
@@ -129,7 +137,7 @@
                 <viewControllerPlaceholder storyboardName="MapStoryboard" id="0Ou-Bd-hbq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJ5-fl-Gmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988.8" y="126.83658170914543"/>
+            <point key="canvasLocation" x="2245" y="314"/>
         </scene>
         <!--Map View-->
         <scene sceneID="8h6-He-cdE">
@@ -163,7 +171,16 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Map View" id="K98-FI-uTJ">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" id="ZiW-zz-cze"/>
+                        <barButtonItem key="leftBarButtonItem" title="Profile" id="ZiW-zz-cze">
+                            <connections>
+                                <segue destination="Oub-5h-q7V" kind="show" id="L6D-ma-any"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sell" id="xvg-dG-SS8">
+                            <connections>
+                                <segue destination="qr4-GI-D5A" kind="show" id="Egk-pu-DxM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchView" destination="29r-N8-hCX" id="wrO-ep-z0J"/>
