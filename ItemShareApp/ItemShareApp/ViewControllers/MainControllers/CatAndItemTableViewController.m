@@ -24,22 +24,11 @@
     self.catAndItemTableView.dataSource = self;
 
     [self.catAndItemTableView reloadData];
-    self.moveOverCat = YES;
     // Do any additional setup after loading the view.
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.delegate callPrevVCtoDismissKeyboard];
-//    if(scrollView.contentOffset.y > 0)
-//    {
-//        if(self.moveOverCat)
-//        {
-//            
-//            [self.delegate makeCatCollScroll:scrollView.contentOffset.y];
-//            CGPoint myCGPoint = scrollView.contentOffset;
-//            myCGPoint.y = myCGPoint.y-myCGPoint.y;
-//        }
-//    }
 }
 
 - (void)didReceiveMemoryWarning {

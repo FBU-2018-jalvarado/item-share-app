@@ -191,15 +191,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="518"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFp-zd-L34">
-                                <rect key="frame" x="0.0" y="46" width="375" height="146"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="hIC-St-eLC" kind="embed" identifier="CategoryCollectionSegue" id="V6U-Xe-0LN"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryr-op-2nR">
-                                <rect key="frame" x="0.0" y="200" width="375" height="318"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="462"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="qXB-Tq-fF0" kind="embed" identifier="catAndItemTableSegue" id="2Ss-GZ-Fr3"/>
@@ -224,26 +217,26 @@
                     </navigationItem>
                     <connections>
                         <outlet property="catAndItemTableV" destination="Ryr-op-2nR" id="qpX-L3-wOC"/>
-                        <outlet property="categoryCollV" destination="eFp-zd-L34" id="Q4P-UT-G4Q"/>
                         <outlet property="searchBar" destination="cul-Gc-laT" id="Ee4-Ek-ZoJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1f-Zs-S5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198" y="946"/>
+            <point key="canvasLocation" x="197.59999999999999" y="945.4272863568217"/>
         </scene>
         <!--Cat And Item Table View Controller-->
         <scene sceneID="nY1-EI-yET">
             <objects>
                 <viewController id="qXB-Tq-fF0" customClass="CatAndItemTableViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wMR-Kk-ZJN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="318"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PnK-PS-gtB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="318"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="462"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="CdN-Tz-6CC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -320,7 +313,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-159.19999999999999" y="1606.5967016491754"/>
+            <point key="canvasLocation" x="-159.19999999999999" y="1605.697151424288"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="XVJ-PW-WLd">
@@ -414,7 +407,4 @@
             <point key="canvasLocation" x="197.59999999999999" y="127.28635682158921"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="HsA-aQ-4Gs"/>
-    </inferredMetricsTieBreakers>
 </document>
