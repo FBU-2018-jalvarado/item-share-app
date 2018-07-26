@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSMutableArray *_Nullable itemsCurrentRent;
 @property (nonatomic, strong) NSMutableArray *_Nullable itemsFutureRent;
 
++ (void) postUser: ( NSString * _Nullable )name withEmail:( NSString * _Nullable )email withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+    
 @end

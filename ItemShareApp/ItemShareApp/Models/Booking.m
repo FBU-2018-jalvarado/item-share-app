@@ -23,7 +23,7 @@
 }
 
 //not used. Written in case of future use
-+ (void) postBooking: ( Item * )item withSeller:( PFUser * )seller withRenter: ( PFUser * )renter withAddress:( NSString * _Nullable )address withStartTime:(NSDate *)startTime withEndTime:(NSDate *)endTime withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postBooking: ( Item * )item withSeller:( User * )seller withRenter: ( User * )renter withAddress:( NSString * _Nullable )address withStartTime:(NSDate *)startTime withEndTime:(NSDate *)endTime withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Booking *newBooking = [Booking new];
     newBooking.item = item;

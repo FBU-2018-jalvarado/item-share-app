@@ -14,7 +14,20 @@
 @dynamic email;
 @dynamic itemsSelling;
 @dynamic itemsPreviousRent;
-@dynamic itemsCurrentRent;
+@dynamic itemsCurrentRent; 
 @dynamic itemsFutureRent;
+
++ (void) postUser: ( NSString * _Nullable )name withEmail:( NSString * _Nullable )email withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+
+    User *newUser = (User*)[PFUser currentUser];
+    newUser.name = name;
+    newUser.email = email;
+    newUser.itemsSelling = [NSMutableArray new];
+    newUser.itemsPreviousRent = [NSMutableArray new];
+    newUser.itemsCurrentRent = [NSMutableArray new];
+    newUser.itemsFutureRent = [NSMutableArray new];
+
+    [newUser saveInBackgroundWithBlock: completion];
+}
 
 @end

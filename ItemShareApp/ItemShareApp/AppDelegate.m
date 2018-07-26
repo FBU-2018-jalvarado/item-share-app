@@ -40,17 +40,17 @@
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     }
     
-    // Set up user ish
-    User *user = (User *)[PFUser currentUser];
-    user.email = @"purpleluvur@gmail.com";
-    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"error saving user");
-        }
-        else {
-            NSLog(@"user successfully saved");
-        }
-    }];
+//    // Set up user ish
+//    User *user = (User *)[PFUser currentUser];
+//    user.email = @"purpleluvur@gmail.com";
+//    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//        if (error) {
+//            NSLog(@"error saving user");
+//        }
+//        else {
+//            NSLog(@"user successfully saved");
+//        }
+//    }];
     
     //STRIPE
 //    [Stripe setDefaultPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
