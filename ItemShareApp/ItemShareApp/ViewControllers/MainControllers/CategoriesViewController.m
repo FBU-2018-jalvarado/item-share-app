@@ -49,7 +49,7 @@
     
     CGFloat postersPerLine = 3;
     CGFloat itemWidth = (self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
-    CGFloat itemHeight = itemWidth/3;
+    CGFloat itemHeight = itemWidth/2.5;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     Category *category = [[Category alloc] init];
