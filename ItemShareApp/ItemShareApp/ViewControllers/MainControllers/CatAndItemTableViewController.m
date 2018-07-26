@@ -74,9 +74,9 @@
         // grab the item
         Item *selectedItem = self.itemRows[indexPath.row - self.categoryRows.count];
         // pass it to the map view
-        self.itemRows = [[NSMutableArray alloc] init];
-        [self.itemRows addObject:selectedItem];
-        [self.delegate filterInMap:self.itemRows];
+        NSMutableArray *theOneItemArray = [[NSMutableArray alloc] init];
+        [theOneItemArray addObject:selectedItem];
+        [self.delegate filterInMap:theOneItemArray];
         // dismiss the search view
         [self.delegate goToMap];
     }
