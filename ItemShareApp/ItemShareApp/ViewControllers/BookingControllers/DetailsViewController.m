@@ -13,6 +13,7 @@
 #import "timeModel.h"
 #import "PopUpViewController.h"
 #import "ColorScheme.h"
+#import "User.h"
 
 @interface DetailsViewController () <CalendarViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -128,7 +129,7 @@
 
 //set booking
 - (void)postCurrentBooking{
-    PFUser *renter = [PFUser currentUser];
+    User *renter = (User*)[PFUser currentUser];
 
     Booking *newBooking = [Booking new];
     newBooking.item = self.item;
@@ -150,11 +151,42 @@
                     NSLog(@"%@", error);                }
                 else{
                     NSLog(@"updated item successfully/ booking added");
+                    [self updateRenterInformation];
+                    [self updateSellerInformation];
                     [self postPopUp];
                 }
             }];
         }
     }];
+}
+
+- (void)updateRenterInformation{
+    User *renter = (User*)[PFUser currentUser];
+    [renter.itemsFutureRent addObject:self.item];
+    [renter setObject:renter.itemsFutureRent forKey:@"itemsFutureRent"];
+    [renter saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"%@", error);
+        }
+        else{
+            NSLog(@"updated renter itemsFutureRent array");
+        }
+    }];
+}
+
+- (void)updateSellerInformation{
+//    User *seller = self.item.owner;
+//    [seller.itemsSelling addObject:self.item];
+//    [seller setObject:seller.itemsSelling forKey:@"itemsSelling"];
+//    [seller saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//        if(error){
+//            NSLog(@"%@", error); //will not work. User cannot be saved unless they have been authenticated via logIn or signUp
+//            // https://stackoverflow.com/questions/31087679/edit-parse-user-information-when-logged-in-as-other-user-in-android
+//        }
+//        else{
+//            NSLog(@"updated seller itemsFutureRent array");
+//        }
+//    }];
 }
 
 - (void)postPopUp {

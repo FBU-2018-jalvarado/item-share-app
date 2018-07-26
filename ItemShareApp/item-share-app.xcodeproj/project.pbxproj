@@ -150,8 +150,8 @@
 				90091E3521027BD9007AB8A7 /* PreviousViewController.m */,
 				9B9F7E8020FE4F57000E319F /* MapViewController.h */,
 				9B9F7E7E20FE4F57000E319F /* MapViewController.m */,
-				908EC1A921028B6D00BAD946 /* CatAndItemTableViewController.m */,
 				908EC1A821028B6D00BAD946 /* CatAndItemTableViewController.h */,
+				908EC1A921028B6D00BAD946 /* CatAndItemTableViewController.m */,
 			);
 			path = MainControllers;
 			sourceTree = "<group>";

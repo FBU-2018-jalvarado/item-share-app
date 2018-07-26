@@ -9,6 +9,7 @@
 #import "SellItemViewController.h"
 #import "Item.h"
 #import <Parse/Parse.h>
+#import "User.h"
 
 @interface SellItemViewController ()
 
@@ -29,9 +30,9 @@
 - (IBAction)sellOnTap:(id)sender {
     //create and set item and user objects
     Item *toBeSold = [Item new];
-    PFUser *owner = [PFUser currentUser];
+    User *owner = (User*)[PFUser currentUser];
 
-    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:nil withDescription:nil withImage:nil withBookedNowBool:@"nnFKDSJA;" withDistance:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:nil withDescription:nil withImage:nil withPickedUpBool:@"NO" withDistance:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if(error)
         {
             NSLog(@"Unable to post the item for sale");
