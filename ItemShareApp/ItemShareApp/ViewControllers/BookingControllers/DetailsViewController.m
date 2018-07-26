@@ -140,14 +140,14 @@
     
     [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(error){
-            NSLog(@"error saving booking");
+            NSLog(@"%@", error);
         }
         else{
             [self.item.bookingsArray addObject:newBooking];
             [self.item setObject:self.item.bookingsArray forKey:@"bookingsArray"];
             [self.item saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if(error){
-                    NSLog(@"error saving item");                }
+                    NSLog(@"%@", error);                }
                 else{
                     NSLog(@"updated item successfully/ booking added");
                     [self postPopUp];
