@@ -20,7 +20,7 @@ PODS:
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
-  - Stripe (13.0.3)
+  - Stripe (13.1.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -41,7 +41,7 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   JTCalendar: f54975f1426facc38d112f372f0d3d955aae8d86
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
-  Stripe: 76c203e21555089b708e6cbe972a3e3baf1ab4d8
+  Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
 
 PODFILE CHECKSUM: 528daf6b0e895e0f802b676dac7c1dfde3a3878a
 

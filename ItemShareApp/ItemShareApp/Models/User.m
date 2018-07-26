@@ -10,7 +10,11 @@
 
 @implementation User
 
-
-
+@dynamic name;
+@dynamic email;
+@dynamic itemsSelling;
+@dynamic itemsPreviousRent;
+@dynamic itemsCurrentRent;
+@dynamic itemsFutureRent;
 
 @end
