@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import <Stripe/Stripe.h>
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -34,11 +35,22 @@
     
     // if the user has already logged in then just go straight to feed
     if (PFUser.currentUser) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SearchStoryboard" bundle:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"CategoriesStoryboard" bundle:nil];
         
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     }
     
+    // Set up user ish
+    User *user = (User *)[PFUser currentUser];
+    user.email = @"purpleluvur@gmail.com";
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"error saving user");
+        }
+        else {
+            NSLog(@"user successfully saved");
+        }
+    }];
     
     //STRIPE
 //    [Stripe setDefaultPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
@@ -46,7 +58,10 @@
     [[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
     // do any other necessary launch configuration
     
+    
     return YES;
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
