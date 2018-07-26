@@ -217,12 +217,15 @@
     self.searchBar.text = @"";
 }
 
+// delegate function to react when a category is chosen
 -(void)callChoseCat:(NSString *)categoryName {
     [self.catAndItemTableViewController choseCat:categoryName];
 }
 
+// delegate function to only display filtered items in map
 - (void)filterInMap:(NSMutableArray *)listOfItems {
     [self.placeholderDelegateMap removeAnnotationsInMap];
     [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
 }
+
 @end
