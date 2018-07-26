@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PFObject.h"
-#import "Item.h"
-//@class Item;
+@class Item;
 
 @interface Booking : PFObject<PFSubclassing>
 

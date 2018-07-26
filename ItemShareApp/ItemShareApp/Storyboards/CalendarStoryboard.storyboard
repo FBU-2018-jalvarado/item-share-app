@@ -31,8 +31,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhR-jL-wFB">
                                 <rect key="frame" x="31" y="468" width="135" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4549019608" green="0.72941176470000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Set Start Time"/>
+                                <state key="normal" title="Set Start Time">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="startTimeButtonPressed:" destination="cp2-pq-nX1" eventType="touchUpInside" id="uuv-YE-6Fc"/>
                                 </connections>
@@ -46,8 +49,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpd-SU-SzM">
                                 <rect key="frame" x="209" y="468" width="135" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4549019608" green="0.72941176470000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Set End Time"/>
+                                <state key="normal" title="Set End Time">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="endTimeButtonPressed:" destination="cp2-pq-nX1" eventType="touchUpInside" id="sff-mf-FEg"/>
                                 </connections>
@@ -75,14 +81,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMz-Y2-P7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8.8000000000000007" y="170.46476761619192"/>
-        </scene>
-        <!--DetailsStoryboard-->
-        <scene sceneID="r7x-u6-g2k">
-            <objects>
-                <viewControllerPlaceholder storyboardName="DetailsStoryboard" id="LAk-Xz-ez0" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zbW-AC-LNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="674" y="170"/>
         </scene>
     </scenes>
 </document>

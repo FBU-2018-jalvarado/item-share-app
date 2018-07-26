@@ -9,20 +9,28 @@
 #import "PFObject.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-//#import "Booking.h"
 @class Booking;
+#import <Parse/Parse.h>
 
 @interface Item : PFObject<PFSubclassing>
 
 //@property (strong, nonatomic) NSString _Nullable category;
 //@property (strong, nonatomic) NSString _Nullable description;
 
-@property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) PFUser *owner;
-@property (strong, nonatomic) CLLocation *location;
+@property (strong, nonatomic) NSString *_Nonnull title;
+@property (strong, nonatomic) PFUser *_Nonnull owner;
+@property (strong, nonatomic) CLLocation *_Nullable location;
 @property (strong, nonatomic) NSString *_Nullable address;
-@property (strong, nonatomic) NSString *itemID;
-@property (nonatomic, strong) NSMutableArray *bookingsArray;
+@property (nonatomic, strong) NSMutableArray * _Nullable bookingsArray;
+@property (strong, nonatomic) NSString  * _Nonnull itemID;
+@property (strong, nonatomic) NSMutableArray *_Nullable categories;
+@property (strong, nonatomic) NSString *_Nullable descrip;
+@property (strong, nonatomic) PFFile *_Nullable image;
+@property (strong, nonatomic) NSString *_Nullable booked;
+@property (strong, nonatomic) NSNumber *_Nullable distanceToUser;
 
-+ (void) postItem: ( NSString * )title withOwner:( PFUser * )owner withLocation: ( CLLocation * )location withAddress:( NSString * _Nullable )address withBooking: (Booking *)booking withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(NSString *_Nullable)booked withDistance: (NSNumber *_Nullable)distanceToUser withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
+-(BOOL) isBooked;
+
 @end
