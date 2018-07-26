@@ -217,12 +217,32 @@
     self.searchBar.text = @"";
 }
 
+// delegate function to react when a category is chosen
 -(void)callChoseCat:(NSString *)categoryName {
     [self.catAndItemTableViewController choseCat:categoryName];
 }
 
+// delegate function to only display filtered items in map
 - (void)filterInMap:(NSMutableArray *)listOfItems {
     [self.placeholderDelegateMap removeAnnotationsInMap];
     [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
+}
+
+// delegate function to allow table view to go over the category collection
+- (void)makeCatCollScroll:(CGFloat)scrollAmt {
+    // move the view
+    self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - scrollAmt, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + scrollAmt);
+    // move the table
+    self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height + scrollAmt);
+    // now make the table not change content offset until scrollAmt > 146
+    // but in other function
+    if(scrollAmt > 146)
+    {
+        self.catAndItemTableViewController.moveOverCat = NO;
+    }
+    else {
+        self.catAndItemTableViewController.moveOverCat = YES;
+    }
+    // do i have to make the categories scroll or can i just cover them
 }
 @end

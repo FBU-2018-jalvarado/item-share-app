@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CategoriesViewController.h"
 
 @protocol CatAndItemTableViewControllerDelegate
 
@@ -15,13 +16,17 @@
 -(void)goToMap;
 -(void)clearSearchBar;
 -(void)filterInMap:(NSMutableArray *)listOfItems;
+-(void)makeCatCollScroll:(CGFloat)scrollAmt;
 
 @end
 
 @interface CatAndItemTableViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIView *categoryCollView;
 @property (weak, nonatomic) IBOutlet UITableView *catAndItemTableView;
 @property (strong, nonatomic) NSMutableArray *itemRows;
 @property (strong, nonatomic) NSMutableArray *categoryRows;
+@property BOOL moveOverCat;
+@property CategoriesViewController *categoriesViewController;
 @property (nonatomic, weak) id <CatAndItemTableViewControllerDelegate> delegate;
 - (void)choseCat:(NSString *)categoryName;
 
