@@ -15,11 +15,17 @@
 
 @end
 
+@protocol CategoriesViewControllerSellDelegate
+
+- (void)addCategory:(NSString *)categoryName;
+
+@end
+
 @interface CategoriesViewController : UIViewController
 
 @property (strong, nonatomic) NSDictionary *categories;
 @property BOOL firstPage;
 @property (nonatomic, weak) id <CategoriesViewControllerDelegate> delegate;
-
+@property (nonatomic, weak) id <CategoriesViewControllerSellDelegate> sellDelegate;
 
 @end
