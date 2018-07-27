@@ -24,13 +24,13 @@ Required
 [x] User can use the interactive map to find items being shared nearby\
 [x] User can click on the items being displayed on the map to see a detailed screen for the item\
 [x] user can see when item is available\
-[ ] user can book the item\
+[x] user can book the item\
 [ ] User will be charged through Stripe
 
 Optional
 
-[ ] Searching more efficient (only filter for if first letters match)
-[ ] User can search for an item they wish to rent\
+[ ] Searching more efficient (only filter for if first letters match)\
+[x] User can search for an item they wish to rent\
     [x] Create categories that the user can search within\
 [ ] User can cancel their booking within the detailed item view\
 [ ] The user is not charged until pickup is confirmed by the person who is getting item (back)\
