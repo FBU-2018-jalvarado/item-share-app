@@ -78,7 +78,7 @@
     
     // Create the gradient
     CAGradientLayer *theViewGradient = [CAGradientLayer layer];
-    theViewGradient.colors = [NSArray arrayWithObjects: (id)color2.CGColor, (id)color1.CGColor, nil];
+    theViewGradient.colors = [NSArray arrayWithObjects: (id)color2.CGColor, (id)color1.CGColor, (id)color3.CGColor,  nil];
     theViewGradient.frame = self.view.bounds;
     
     //Add gradient to view
