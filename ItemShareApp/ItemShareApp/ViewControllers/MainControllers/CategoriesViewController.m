@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *categoryCollView;
 @property (strong, nonatomic) NSDictionary *testDictionary;
 @property (strong, nonatomic) NSString *storedKey;
+@property (strong, nonatomic) NSMutableArray *categoriesArray;
 @property BOOL anotherCategory;
 @property (strong, nonatomic) CategoryViewCell *viewCell;
 @property (strong, nonatomic) ColorScheme *colors;
@@ -90,19 +91,20 @@
     NSString *clickedKey = arrayOfKeys[indexPath.item];
     if([self.categories[clickedKey] isKindOfClass:[NSString class]])
     {
-        //[self dismissViewControllerAnimated:true completion:nil];
-        //[self.delegate goToMap];
+        if(self.sellDelegate)
+        {
+            [self.sellDelegate addCategory:clickedKey];
+        }
         [self.delegate goToMap];
     }
     else {
         CategoriesViewController *categoriesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
         categoriesViewController.categories = self.categories[(NSString *)clickedKey];
-//        NSLog(@"%@", self.categories);
-//        NSLog(@"midpoint");
-//        NSLog(@"%@", categoriesViewController.categories);
+        [self.sellDelegate addCategory:clickedKey];
         categoriesViewController.title = clickedKey;
         categoriesViewController.firstPage = NO;
         categoriesViewController.delegate = self.delegate;
+        categoriesViewController.sellDelegate = self.sellDelegate;
         [self.navigationController pushViewController:categoriesViewController animated:YES];
     }
     [self.delegate callChoseCat:clickedKey];
