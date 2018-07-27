@@ -16,4 +16,6 @@
 @property (strong, nonatomic) UIColor *thirdColor;
 
 - (void)setColors;
++ (ColorScheme *)defaultScheme;
+
 @end
