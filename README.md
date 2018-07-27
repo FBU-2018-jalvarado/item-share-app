@@ -42,7 +42,20 @@ Optional
 [x] When searching, results are diacritic and space insensitive\
 [ ] User can change location from which they are searching from\
 [ ] User gets email when item is booked
-
+[ ] Price of item in the database\
+[ ] Caching an image\
+[ ] Reviews and Ratings\
+[ ] Images for items and user\
+[ ] Profile view waith ALL users info\
+[ ] No items description in table view\
+[ ] Keyboard appears after search view\
+[ ] Pins customized\
+[ ] Re centering map\
+[ ] Auto complete for the location selling\
+[ ] Gravitar\
+[ ] Spacing insensitive searching \
+[ ] QR CODE for the lockers\
+[ ] fake apple pay\
 
 Stretch
 
