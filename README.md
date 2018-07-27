@@ -56,6 +56,7 @@ Optional
 [ ] Spacing insensitive searching \
 [ ] QR CODE for the lockers\
 [ ] fake apple pay\
+[ ] unable to swipe up or down on searchBar if profile view showing
 
 Stretch
 
