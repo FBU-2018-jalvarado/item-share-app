@@ -217,6 +217,9 @@
     pins = nil;
 }
 
+//placeholder code. This should be in profile view controllers to update the history.
+
+
 //zooms in to user location (when user location changes). //solution to bug in this method is to create an instance location variable with user location. Compare it to user location passed in to this method. If it is the same, return, if not, update the instance and change the center view.
 //- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
 //    //[MapModel updateUserLocation:self.mapView];

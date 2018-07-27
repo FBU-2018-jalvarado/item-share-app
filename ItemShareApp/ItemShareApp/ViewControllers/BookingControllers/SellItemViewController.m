@@ -29,7 +29,7 @@
 
 - (IBAction)sellOnTap:(id)sender {
     //create and set item and user objects
-    Item *toBeSold = [Item new];
+    Item *itemToBeSold = [Item new];
     User *owner = (User*)[PFUser currentUser];
 
     [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:nil withDescription:nil withImage:nil withPickedUpBool:@"NO" withDistance:nil withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
@@ -39,7 +39,22 @@
         }
         else {
             NSLog(@"Posted the item for sale: ");
-            NSLog(@"%@", toBeSold);
+            [self updateSellerInformation:itemToBeSold];
+        }
+    }];
+}
+
+- (void)updateSellerInformation: (Item *)item{
+    User *seller = (User*) [PFUser currentUser];
+    [seller.itemsSelling addObject:item];
+    [seller setObject:seller.itemsSelling forKey:@"itemsSelling"];
+    [seller saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"%@", error); //will not work. User cannot be saved unless they have been authenticated via logIn or signUp
+            // https://stackoverflow.com/questions/31087679/edit-parse-user-information-when-logged-in-as-other-user-in-android
+        }
+        else{
+            NSLog(@"updated seller itemsSelling array");
         }
     }];
 }
