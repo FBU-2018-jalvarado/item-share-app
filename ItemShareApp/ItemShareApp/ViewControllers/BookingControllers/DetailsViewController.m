@@ -44,27 +44,22 @@
 
 @implementation DetailsViewController
 
-- (instancetype)init
+- (void)awakeFromNib
 {
-    self = [super init];
-    if (self) {
-        self.timeModel = [[timeModel alloc] init];
-        self.colors = [ColorScheme new];
-        self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
-        self.fetchMerchantID = @"merchant.com.nicolas.Fetch";
-    }
-    return self;
+    [super awakeFromNib];
+    self.timeModel = [timeModel new];
+    self.colors = [ColorScheme defaultScheme];
+    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
+    self.fetchMerchantID = @"merchant.com.nicolas.Fetch";
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self init];
-    [self.colors setColors];
+//    [self.colors setColors];
     [self fetchBookings];
     [self setUpUI];
-
     //check if payments are authorized. If not, the pay button will be hidden
-   // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
+    // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
