@@ -14,6 +14,7 @@
 @interface PreviousViewController ()
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (strong, nonatomic ) MapViewController *mapController;
+@property PlaceholdViewController *placeholdViewController;
 
 @end
 
@@ -22,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +464, self.searchView.frame.size.width, self.searchView.frame.size.height);
+    self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +201, self.searchView.frame.size.width, self.searchView.frame.size.height);
     // Do any additional setup after loading the view.
 }
 
@@ -37,15 +38,25 @@
 - (IBAction)swipeUp:(id)sender {
     if(self.searchView.frame.origin.y == 613)
     {
-        [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -464, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -263, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        }];
+    }
+    if(self.searchView.frame.origin.y == 350)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -201, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
     }
 }
 
 - (void)dismissToMap {
+    if(self.searchView.frame.origin.y == 350)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +263, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        }];
+    }
     if(self.searchView.frame.origin.y == 149)
     {
-        [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +464, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +201, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
     }
     [self.view endEditing:YES];
@@ -54,11 +65,16 @@
 - (void)showSearchView {
     if(self.searchView.frame.origin.y == 613)
     {
-        [UIView animateWithDuration:1.0 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -464, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -464, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
-//        NSLog(@"origin y coord of the search view after its raised: ");
-//        NSLog(@"%f", self.searchView.frame.origin.y);
     }
+    
+    if(self.searchView.frame.origin.y == 350)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -201, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        }];
+    }
+    [self.placeholdViewController.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +93,7 @@
         PlaceholdViewController *placeholdViewController = [segue destinationViewController];
         placeholdViewController.placeholderDelegate = self;
         placeholdViewController.placeholderDelegateMap = self;
+        self.placeholdViewController = placeholdViewController;
     }
     if([segue.identifier isEqualToString:@"mapSegue"]){
         self.mapController = [segue destinationViewController];

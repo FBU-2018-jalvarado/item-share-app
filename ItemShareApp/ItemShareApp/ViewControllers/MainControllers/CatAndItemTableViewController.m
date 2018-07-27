@@ -61,7 +61,7 @@
         }
         else {
             ItemTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemSearchCell"];
-            [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count][@"title"]];
+            [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count][@"title"] withAddress:self.itemRows[indexPath.row-self.categoryRows.count][@"address"]];
             return cell;
         }
 }

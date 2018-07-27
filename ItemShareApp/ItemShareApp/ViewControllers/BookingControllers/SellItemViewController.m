@@ -14,7 +14,6 @@
 @interface SellItemViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;
-@property (weak, nonatomic) IBOutlet UITextField *itemOwner;
 @property (weak, nonatomic) IBOutlet UITextField *itemAddress;
 
 @end
