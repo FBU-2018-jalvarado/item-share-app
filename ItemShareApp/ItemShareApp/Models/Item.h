@@ -29,8 +29,9 @@
 @property (strong, nonatomic) PFFile *_Nullable image;
 @property (strong, nonatomic) NSString *_Nullable pickedUp;
 @property (strong, nonatomic) NSNumber *_Nullable distanceToUser;
+@property (strong, nonatomic) NSString *_Nullable price;
 
-+ (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withPrice:(NSString *)price withCompletion:(void(^)(Item * item, NSError *error))completion;
 
 -(BOOL) isPickedUp: (NSString*)pickedUp;
 

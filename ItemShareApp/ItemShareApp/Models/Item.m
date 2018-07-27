@@ -22,6 +22,7 @@
 @dynamic image;
 @dynamic pickedUp;
 @dynamic distanceToUser;
+@dynamic price;
 
 + (nonnull NSString *)parseClassName {
     return @"Item";
@@ -44,7 +45,7 @@
 //    [FBUDateHelper dateConflicers:date1 yo: date];
 //}
 
-+ (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withPrice:(NSString *)price withCompletion:(void(^)(Item * item, NSError *error))completion {
     
     Item *newItem = [Item new];
     newItem.title = title;
@@ -56,8 +57,21 @@
     newItem.descrip = descrip;
     newItem.image = [self getPFFileFromImage:image];
     newItem.pickedUp = pickedUp;
-    
-    [newItem saveInBackgroundWithBlock: completion];
+    newItem.price = price;
+    [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error != nil)
+        {
+            NSLog(@"ERROR GETTING THE ITEMS!");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil, error);
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(newItem, nil);
+            });
+        }
+    }];
+    //[newItem saveInBackgroundWithBlock: completion];
 }
 
 + (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
