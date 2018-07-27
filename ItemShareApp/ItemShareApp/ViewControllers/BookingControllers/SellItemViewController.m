@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "User.h"
 #import "CategoriesViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SellItemViewController ()
 
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cat1;
 @property (weak, nonatomic) IBOutlet UILabel *cat2;
 @property (weak, nonatomic) IBOutlet UILabel *cat3;
+@property (weak, nonatomic) IBOutlet UIView *categoryView;
 
 
 @end
@@ -28,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.categoryView.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.categoryView.layer.borderWidth = 1;
     // Do any additional setup after loading the view.
     // TODO: make name field optional after login
 }
@@ -45,8 +49,12 @@
         else {
             NSLog(@"Posted the item for sale: ");
             [self updateSellerInformation:itemToBeSold];
+            self.cat1.text  = @"";
+            self.cat2.text  = @"";
+            self.cat3.text  = @"";
         }
         [self.categoryArray removeAllObjects];
+        
     }];
 }
 
@@ -73,17 +81,17 @@
 // delegate function to keep track of categories an item falls under
 - (void)addCategory:(NSString *)categoryName {
     [self.categoryArray addObject:categoryName];
-    if(self.cat1.text == 0)
+    if(self.cat1.text.length == 0)
     {
         self.cat1.text = categoryName;
     }
     else {
-        if(self.cat2.text == 0)
+        if(self.cat2.text.length == 0)
         {
             self.cat2.text = categoryName;
         }
         else {
-            if(self.cat3.text == 0)
+            if(self.cat3.text.length == 0)
             {
                 self.cat3.text = categoryName;
             }

@@ -91,6 +91,10 @@
     NSString *clickedKey = arrayOfKeys[indexPath.item];
     if([self.categories[clickedKey] isKindOfClass:[NSString class]])
     {
+        if(self.sellDelegate)
+        {
+            [self.sellDelegate addCategory:clickedKey];
+        }
         [self.delegate goToMap];
     }
     else {
@@ -100,6 +104,7 @@
         categoriesViewController.title = clickedKey;
         categoriesViewController.firstPage = NO;
         categoriesViewController.delegate = self.delegate;
+        categoriesViewController.sellDelegate = self.sellDelegate;
         [self.navigationController pushViewController:categoriesViewController animated:YES];
     }
     [self.delegate callChoseCat:clickedKey];
