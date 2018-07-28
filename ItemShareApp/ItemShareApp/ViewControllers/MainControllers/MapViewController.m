@@ -161,9 +161,9 @@
      if([segue.identifier isEqualToString:@"detailsViewSegue"]){
          DetailsViewController *detailsViewController = [segue destinationViewController];
          MKAnnotationView *view = (MKAnnotationView*)sender;
-         Pin *pin = view.annotation;
+         myAnnotation *annotation = view.annotation;
          for(Item *item in self.itemsArray){
-             if(item == pin.item){
+             if(item == annotation.item){
                  detailsViewController.item = item;
              }
          }
@@ -213,7 +213,7 @@
             CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
             myAnnotation *annotation = [[myAnnotation alloc]initWithLocation:placemark.location.coordinate];
             annotation.title = item.title;
-            annotation.item = self.item;
+            annotation.item = item;
             [self.mapView addAnnotation:annotation];
 //            Pin *pin = [[Pin alloc] init];
 //            pin.coordinate = placemark.location.coordinate;

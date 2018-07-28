@@ -190,8 +190,6 @@
 				908EC1AC21028E5000BAD946 /* CategoryTableCell.m */,
 				908EC1AE21028E6100BAD946 /* ItemTableCell.h */,
 				908EC1AF21028E6100BAD946 /* ItemTableCell.m */,
-				4D816FB9210BBBA700C24648 /* myAnnotation.h */,
-				4D816FBA210BBBA700C24648 /* myAnnotation.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +241,8 @@
 		9B9F7E8820FE4F9F000E319F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4D816FB9210BBBA700C24648 /* myAnnotation.h */,
+				4D816FBA210BBBA700C24648 /* myAnnotation.m */,
 				9B9F7E8A20FE4F9F000E319F /* Item.h */,
 				9B9F7E8C20FE4F9F000E319F /* Item.m */,
 				7D9BDEDB2107F2B70085F862 /* User.h */,
@@ -588,7 +588,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VXY7J79LR;
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -607,7 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VXY7J79LR;
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
