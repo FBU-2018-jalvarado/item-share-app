@@ -10,6 +10,8 @@
 #import "CategoriesViewController.h"
 #import "PlaceholdViewController.h"
 #import "MapViewController.h"
+#import "ProfileViewController.h"
+
 
 @interface PreviousViewController ()
 @property (weak, nonatomic) IBOutlet UIView *searchView;
@@ -55,6 +57,7 @@
         [UIView animateWithDuration:0.5 animations:^{
             self.blackView.alpha = 0.6;
         }];
+//        [self performSegueWithIdentifier:@"profileSegue" sender:nil];
     }
     else {
         [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
@@ -65,7 +68,6 @@
     }
 }
 - (IBAction)didTapBlack:(id)sender {
-    NSLog(@"you tapped black");
     [self didTapProfile:sender];
 }
 
@@ -105,8 +107,11 @@
         placeholdViewController.placeholderDelegate = self;
         placeholdViewController.placeholderDelegateMap = self;
     }
-    if([segue.identifier isEqualToString:@"mapSegue"]){
+    else if([segue.identifier isEqualToString:@"mapSegue"]){
         self.mapController = [segue destinationViewController];
+    }
+    else if([segue.identifier isEqualToString:@"profileSegue"]){
+        ProfileViewController *next = [segue destinationViewController];
     }
 }
 
