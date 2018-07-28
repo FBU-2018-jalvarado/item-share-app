@@ -8,7 +8,7 @@
 
 #import "PlaceholdViewController.h"
 #import "CategoriesViewController.h"
-#import "CatAndItemTableViewController.h"
+
 //from SearchBar
 #import "ItemCell.h"
 #import "Item.h"
@@ -19,7 +19,6 @@
 @interface PlaceholdViewController () <UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UIView *categoryCollV;
 @property (weak, nonatomic) IBOutlet UIView *catAndItemTableV;
-@property CatAndItemTableViewController *catAndItemTableViewController;
 @property CategoriesViewController *categoryCollectionView;
 //from SearchBar
 @property (strong, nonatomic) NSMutableArray *itemsArray;
