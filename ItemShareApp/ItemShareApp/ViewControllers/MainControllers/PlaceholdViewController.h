@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "CatAndItemTableViewController.h"
 
 @protocol PlaceholderViewControllerDelegate
 
@@ -29,5 +30,6 @@
 @property (nonatomic, weak) id <PlaceholderViewControllerDelegate> placeholderDelegate;
 @property (nonatomic, weak) id <PlaceHolderViewControllerDelegateMap> placeholderDelegateMap;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property CatAndItemTableViewController *catAndItemTableViewController;
 
 @end
