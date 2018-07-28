@@ -13,53 +13,53 @@
 #import "timeModel.h"
 #import "PopUpViewController.h"
 #import "ColorScheme.h"
+#import "User.h"
+#import <Passkit/Passkit.h>
 
-@interface DetailsViewController () <CalendarViewControllerDelegate>
+@interface DetailsViewController () <CalendarViewControllerDelegate, PKPaymentAuthorizationViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UIButton *confirmPickupButton;
+@property (weak, nonatomic) IBOutlet UIButton *applePayButton;
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
-@property (strong, nonatomic) PopUpViewController * popUpVC;
-@property (strong, nonatomic) NSMutableArray *bookingsArray;
 @property (weak, nonatomic) IBOutlet UIButton *selectDatesButton;
-@property (weak, nonatomic) IBOutlet UILabel *tolabel;
-
-
 @property (weak, nonatomic) IBOutlet UIView *insideView;
-//for design
-@property (weak, nonatomic) IBOutlet UIView *priceView;
+
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pricePerHourLabel;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 
 @property (strong, nonatomic) ColorScheme *colors;
 @property (strong, nonatomic) timeModel *timeModel;
+@property (strong, nonatomic) PopUpViewController * popUpVC;
+@property (strong, nonatomic) NSMutableArray *bookingsArray;
 
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
+//apple pay
+@property (strong, nonatomic) NSArray *supportedPaymentNetworks;
+@property (strong, nonatomic) NSString *fetchMerchantID;
 
 @end
 
 @implementation DetailsViewController
 
-- (instancetype)init
+- (void)awakeFromNib
 {
-    self = [super init];
-    if (self) {
-        self.timeModel = [[timeModel alloc] init];
-        self.colors = [ColorScheme new];
-    }
-    return self;
+    [super awakeFromNib];
+    self.timeModel = [timeModel new];
+    self.colors = [ColorScheme defaultScheme];
+    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
+    self.fetchMerchantID = @"merchant.com.nicolas.Fetch";
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self init];
-    [self.colors setColors];
+//    [self.colors setColors];
     [self fetchBookings];
     [self setUpUI];
-    //[self postPopUp];
+    //check if payments are authorized. If not, the pay button will be hidden
+    // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -82,7 +82,7 @@
     }
     
     self.insideView.layer.cornerRadius = 10;
-    self.confirmPickupButton.layer.cornerRadius = 10;
+    self.applePayButton.layer.cornerRadius = 10;
     self.selectDatesButton.layer.cornerRadius = 8;
     self.backButton.layer.cornerRadius = 5;
     
@@ -92,7 +92,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)confirmButtonClicked:(id)sender {
+- (IBAction)payButtonClicked:(id)sender { //apple pay button clicked
     //bookings already fetched, in array
     if([self isAvailable]){
         NSLog(@"TIME IS AVAILABLE");
@@ -128,7 +128,7 @@
 
 //set booking
 - (void)postCurrentBooking{
-    PFUser *renter = [PFUser currentUser];
+    User *renter = (User*)[PFUser currentUser];
 
     Booking *newBooking = [Booking new];
     newBooking.item = self.item;
@@ -140,21 +140,71 @@
     
     [newBooking saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(error){
-            NSLog(@"error saving booking");
+            NSLog(@"%@", error);
         }
         else{
             [self.item.bookingsArray addObject:newBooking];
             [self.item setObject:self.item.bookingsArray forKey:@"bookingsArray"];
             [self.item saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if(error){
-                    NSLog(@"error saving item");                }
+                    NSLog(@"%@", error);                }
                 else{
                     NSLog(@"updated item successfully/ booking added");
-                    [self postPopUp];
+                    [self updateRenterInformation];
+                    [self updateSellerInformation];
+                    [self makePurchase];
                 }
             }];
         }
     }];
+}
+
+- (void)makePurchase{
+    //pressing cancel crashes
+    PKPaymentRequest *request = [PKPaymentRequest new];
+    
+    request.merchantIdentifier = self.fetchMerchantID; //used to decrypt the cryptogram on backend
+    request.supportedNetworks = self.supportedPaymentNetworks; //request which networks you support
+    request.merchantCapabilities = PKMerchantCapability3DS; //security standard you want to use. 3DS most popular in US
+    request.countryCode = @"US"; //add more if want international transactions
+    request.currencyCode = @"USD";
+    
+    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
+    NSDecimalNumber *price = [NSDecimalNumber decimalNumberWithString:self.totalPriceLabel.text];
+    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:self.titleLabel.text amount:price], [PKPaymentSummaryItem summaryItemWithLabel:@"razeware" amount:price]];
+    
+    PKPaymentAuthorizationViewController *appleVC = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
+    appleVC.delegate = self;
+    [self presentViewController:appleVC animated:YES completion:nil];
+}
+
+- (void)updateRenterInformation{
+    User *renter = (User*)[PFUser currentUser];
+    [renter.itemsFutureRent addObject:self.item];
+    [renter setObject:renter.itemsFutureRent forKey:@"itemsFutureRent"];
+    [renter saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"%@", error);
+        }
+        else{
+            NSLog(@"updated renter itemsFutureRent array");
+        }
+    }];
+}
+
+- (void)updateSellerInformation{
+//    User *seller = self.item.owner;
+//    [seller.itemsSelling addObject:self.item];
+//    [seller setObject:seller.itemsSelling forKey:@"itemsSelling"];
+//    [seller saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//        if(error){
+//            NSLog(@"%@", error); //will not work. User cannot be saved unless they have been authenticated via logIn or signUp
+//            // https://stackoverflow.com/questions/31087679/edit-parse-user-information-when-logged-in-as-other-user-in-android
+//        }
+//        else{
+//            NSLog(@"updated seller itemsFutureRent array");
+//        }
+//    }];
 }
 
 - (void)postPopUp {
@@ -192,4 +242,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+//delegate extension
+
+- (void)paymentAuthorizationViewControllerDidFinish:(nonnull PKPaymentAuthorizationViewController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
+
+//how to see entire method in autofill
+- (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion{
+        completion(PKPaymentAuthorizationStatusSuccess);
+}
+
+
 @end
+

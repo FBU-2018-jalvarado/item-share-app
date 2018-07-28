@@ -14,6 +14,7 @@
 #import "Parse.h"
 #import "Pin.h"
 #import "PlaceholdViewController.h"
+#import "myAnnotation.h"
 
 
 @interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
@@ -49,7 +50,11 @@
     self.searchBar.delegate = self;
     self.mapView.delegate = self;
     self.previousUserLocation = [MKUserLocation new];
-//    self.previousUserLocation =  nil;
+    
+    CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake(40.7538, -73.9836);
+    myAnnotation *annotation = [[myAnnotation alloc] initWithLocation:coordinates];
+    [self.mapView addAnnotation:annotation];
+    
     [self locationSetup];
     [self fetchItems];
 }
@@ -121,17 +126,33 @@
             return nil;
         }
     }
-    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"current"];
-    pin.pinTintColor = [UIColor blueColor];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [button addTarget:self action:@selector(annotationClicked) forControlEvents:UIControlEventTouchUpInside];
     
-    //need to make the white pop up from pin be clickable without adding button on side.
-    pin.rightCalloutAccessoryView = button; //adds button to the right. This calls both calloutAcessoryControlTapped, AND the action I selected (annotation clicked). Need to figure out how to set it as just a view not a button with a method. Temp solution.
-    pin.canShowCallout = NO;
-    pin.draggable = NO;
-    pin.highlighted = YES;
-    return pin;
+    if([annotation isKindOfClass:[myAnnotation class]]){
+        myAnnotation *customAnnotation = (myAnnotation*)annotation;
+        MKAnnotationView *annotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"customAnimation"];
+        
+        if(!annotationView){
+            annotationView = customAnnotation.annotationView;
+        }
+        else{
+            annotationView.annotation = annotation;
+        }
+        return annotationView;
+    }
+    return nil;
+    
+//    //old
+//    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"current"];
+//    pin.pinTintColor = [UIColor blueColor];
+//    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//    [button addTarget:self action:@selector(annotationClicked) forControlEvents:UIControlEventTouchUpInside];
+//
+//    //need to make the white pop up from pin be clickable without adding button on side.
+//    pin.rightCalloutAccessoryView = button; //adds button to the right. This calls both calloutAcessoryControlTapped, AND the action I selected (annotation clicked). Need to figure out how to set it as just a view not a button with a method. Temp solution.
+//    pin.canShowCallout = NO;
+//    pin.draggable = NO;
+//    pin.highlighted = YES;
+//    return pin;
 }
 
 
@@ -191,11 +212,15 @@
         }
         else{
             CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
-            Pin *pin = [[Pin alloc] init];
-            pin.coordinate = placemark.location.coordinate;
-            pin.title = item.title;
-            pin.item = item;
-            [self.mapView addAnnotation:pin];
+            myAnnotation *annotation = [[myAnnotation alloc]initWithLocation:placemark.location.coordinate];
+            annotation.title = item.title;
+            annotation.item = self.item;
+            [self.mapView addAnnotation:annotation];
+//            Pin *pin = [[Pin alloc] init];
+//            pin.coordinate = placemark.location.coordinate;
+//            pin.title = item.title;
+//            pin.item = item;
+//            [self.mapView addAnnotation:pin];
         }
     }];
 }
@@ -216,6 +241,9 @@
     [self.mapView removeAnnotations:pins];
     pins = nil;
 }
+
+//placeholder code. This should be in profile view controllers to update the history.
+
 
 //zooms in to user location (when user location changes). //solution to bug in this method is to create an instance location variable with user location. Compare it to user location passed in to this method. If it is the same, return, if not, update the instance and change the center view.
 //- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{

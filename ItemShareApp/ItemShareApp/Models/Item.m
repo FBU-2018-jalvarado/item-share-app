@@ -20,17 +20,18 @@
 @dynamic categories;
 @dynamic descrip;
 @dynamic image;
-@dynamic booked;
+@dynamic pickedUp;
 @dynamic distanceToUser;
+@dynamic price;
 
 + (nonnull NSString *)parseClassName {
     return @"Item";
 }
 
--(BOOL) isBooked
+-(BOOL) isPickedUp: (NSString*)pickedUp
 {
-    if (self.booked != nil){
-        if ([self.booked isEqualToString:@"YES"]){
+    if (pickedUp != nil){
+        if ([pickedUp isEqualToString:@"YES"]){
             return YES;
         }
         else {
@@ -44,20 +45,33 @@
 //    [FBUDateHelper dateConflicers:date1 yo: date];
 //}
 
-+ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(NSString *_Nullable)booked withDistance: (NSNumber *_Nullable)distanceToUser withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withPrice:(NSString *)price withCompletion:(void(^)(Item * item, NSError *error))completion {
     
     Item *newItem = [Item new];
     newItem.title = title;
     newItem.location = location;
-    newItem.address = @"Los Angeles, CA 90007";
+    newItem.address = address;
     newItem.owner = owner;
     newItem.bookingsArray = [[NSMutableArray alloc] init];
     newItem.categories = [NSMutableArray arrayWithObjects:@"Instruments", @"Strings", @"Guitar and Similar", nil];
     newItem.descrip = descrip;
     newItem.image = [self getPFFileFromImage:image];
-    newItem.booked = booked;
-    
-    [newItem saveInBackgroundWithBlock: completion];
+    newItem.pickedUp = pickedUp;
+    newItem.price = price;
+    [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error != nil)
+        {
+            NSLog(@"ERROR GETTING THE ITEMS!");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil, error);
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(newItem, nil);
+            });
+        }
+    }];
+    //[newItem saveInBackgroundWithBlock: completion];
 }
 
 + (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
@@ -75,5 +89,6 @@
     
     return [PFFile fileWithName:@"image.png" data:imageData];
 }
+
 
 @end

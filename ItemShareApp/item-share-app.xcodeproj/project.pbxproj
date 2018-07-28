@@ -9,13 +9,9 @@
 /* Begin PBXBuildFile section */
 		4D015A7E210639A00014509E /* timeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D015A7D210639A00014509E /* timeModel.m */; };
 		4D015A81210644BF0014509E /* Booking.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D015A80210644BF0014509E /* Booking.m */; };
-		4D015A862108E7B50014509E /* PaymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D015A852108E7B50014509E /* PaymentController.m */; };
 		4D2ECC8F20FFB71E006E6757 /* MapStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2ECC8E20FFB71E006E6757 /* MapStoryboard.storyboard */; };
 		4D2ECC9320FFBFE1006E6757 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2ECC9220FFBFE1006E6757 /* DetailsViewController.m */; };
 		4D2ECC9520FFC005006E6757 /* DetailsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2ECC9420FFC005006E6757 /* DetailsStoryboard.storyboard */; };
-		4D2ECC9821001F0C006E6757 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2ECC9721001F0C006E6757 /* Customer.m */; };
-		4D2ECCB22100F449006E6757 /* PaymentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2ECCB12100F449006E6757 /* PaymentStoryboard.storyboard */; };
-		4D2ECCB521011745006E6757 /* SearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2ECCB421011745006E6757 /* SearchModel.m */; };
 		4D2ECCB821011750006E6757 /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2ECCB721011750006E6757 /* MapModel.m */; };
 		4D2ECCBE210279DE006E6757 /* Pin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2ECCBD210279DE006E6757 /* Pin.m */; };
 		4D2ECCC821029806006E6757 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2ECCC721029806006E6757 /* CalendarViewController.m */; };
@@ -28,6 +24,8 @@
 		7D4F5E44210A91B600669616 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E43210A91B600669616 /* ProfileViewController.m */; };
 		7D4F5E4B210BC3DD00669616 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E4A210BC3DD00669616 /* ProfileDetailViewController.m */; };
 		7D4F5E4F210BEE8E00669616 /* ItemHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E4E210BEE8E00669616 /* ItemHistoryViewController.m */; };
+		4D816FB4210A909600C24648 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FB3210A909600C24648 /* RegisterViewController.m */; };
+		4D816FBB210BBBA700C24648 /* myAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FBA210BBBA700C24648 /* myAnnotation.m */; };
 		7D9BDED120FEA6F70085F862 /* loginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9BDED020FEA6F60085F862 /* loginStoryboard.storyboard */; };
 		7D9BDED520FEA7A70085F862 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDED420FEA7A70085F862 /* LoginViewController.m */; };
 		7D9BDED8210788170085F862 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDED7210788170085F862 /* Category.m */; };
@@ -59,17 +57,10 @@
 		4D015A7D210639A00014509E /* timeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = timeModel.m; sourceTree = "<group>"; };
 		4D015A7F210644BF0014509E /* Booking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Booking.h; sourceTree = "<group>"; };
 		4D015A80210644BF0014509E /* Booking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Booking.m; sourceTree = "<group>"; };
-		4D015A842108E7B50014509E /* PaymentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PaymentController.h; path = ItemShareApp/PaymentController.h; sourceTree = SOURCE_ROOT; };
-		4D015A852108E7B50014509E /* PaymentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PaymentController.m; path = ItemShareApp/PaymentController.m; sourceTree = SOURCE_ROOT; };
 		4D2ECC8E20FFB71E006E6757 /* MapStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapStoryboard.storyboard; sourceTree = "<group>"; };
 		4D2ECC9120FFBFE1006E6757 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		4D2ECC9220FFBFE1006E6757 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		4D2ECC9420FFC005006E6757 /* DetailsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsStoryboard.storyboard; sourceTree = "<group>"; };
-		4D2ECC9621001F0C006E6757 /* Customer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
-		4D2ECC9721001F0C006E6757 /* Customer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
-		4D2ECCB12100F449006E6757 /* PaymentStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentStoryboard.storyboard; sourceTree = "<group>"; };
-		4D2ECCB321011745006E6757 /* SearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchModel.h; sourceTree = "<group>"; };
-		4D2ECCB421011745006E6757 /* SearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchModel.m; sourceTree = "<group>"; };
 		4D2ECCB621011750006E6757 /* MapModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapModel.h; sourceTree = "<group>"; };
 		4D2ECCB721011750006E6757 /* MapModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapModel.m; sourceTree = "<group>"; };
 		4D2ECCBC210279DE006E6757 /* Pin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pin.h; sourceTree = "<group>"; };
@@ -91,6 +82,11 @@
 		7D4F5E4A210BC3DD00669616 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		7D4F5E4D210BEE8E00669616 /* ItemHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryViewController.h; sourceTree = "<group>"; };
 		7D4F5E4E210BEE8E00669616 /* ItemHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemHistoryViewController.m; sourceTree = "<group>"; };
+		4D816FB2210A909600C24648 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		4D816FB3210A909600C24648 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		4D816FB8210B8D1A00C24648 /* item-share-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "item-share-app.entitlements"; sourceTree = "<group>"; };
+		4D816FB9210BBBA700C24648 /* myAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myAnnotation.h; sourceTree = "<group>"; };
+		4D816FBA210BBBA700C24648 /* myAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myAnnotation.m; sourceTree = "<group>"; };
 		7D9BDED020FEA6F60085F862 /* loginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = loginStoryboard.storyboard; sourceTree = "<group>"; };
 		7D9BDED320FEA7A70085F862 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ItemShareApp/ViewControllers/Login/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		7D9BDED420FEA7A70085F862 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ItemShareApp/ViewControllers/Login/LoginViewController.m; sourceTree = SOURCE_ROOT; };
@@ -181,13 +177,6 @@
 		4D2ECC992100E9CA006E6757 /* StripeAPI */ = {
 			isa = PBXGroup;
 			children = (
-				4D2ECCB12100F449006E6757 /* PaymentStoryboard.storyboard */,
-				7D9BDEDE2108EA1E0085F862 /* STPAddCardViewController.h */,
-				7D9BDEDF2108EA1E0085F862 /* STPAddCardViewController.m */,
-				7D4F5E36210A2BA100669616 /* StripeViewController.h */,
-				7D4F5E37210A2BA100669616 /* StripeViewController.m */,
-				4D015A842108E7B50014509E /* PaymentController.h */,
-				4D015A852108E7B50014509E /* PaymentController.m */,
 			);
 			path = StripeAPI;
 			sourceTree = "<group>";
@@ -197,6 +186,8 @@
 			children = (
 				7D9BDED320FEA7A70085F862 /* LoginViewController.h */,
 				7D9BDED420FEA7A70085F862 /* LoginViewController.m */,
+				4D816FB2210A909600C24648 /* RegisterViewController.h */,
+				4D816FB3210A909600C24648 /* RegisterViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -223,6 +214,8 @@
 				908EC1AC21028E5000BAD946 /* CategoryTableCell.m */,
 				908EC1AE21028E6100BAD946 /* ItemTableCell.h */,
 				908EC1AF21028E6100BAD946 /* ItemTableCell.m */,
+				4D816FB9210BBBA700C24648 /* myAnnotation.h */,
+				4D816FBA210BBBA700C24648 /* myAnnotation.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +261,7 @@
 		9B9F7E4320FE4E42000E319F = {
 			isa = PBXGroup;
 			children = (
+				4D816FB8210B8D1A00C24648 /* item-share-app.entitlements */,
 				9B9F7E8F20FE4FC2000E319F /* ItemShareApp */,
 				9B9F7E4D20FE4E42000E319F /* Products */,
 				E32840270EBAA817B7C9257E /* Pods */,
@@ -292,14 +286,10 @@
 				7D9BDEDC2107F2B70085F862 /* User.m */,
 				4D015A7F210644BF0014509E /* Booking.h */,
 				4D015A80210644BF0014509E /* Booking.m */,
-				4D2ECC9621001F0C006E6757 /* Customer.h */,
-				4D2ECC9721001F0C006E6757 /* Customer.m */,
 				7D9BDED6210788170085F862 /* Category.h */,
 				7D9BDED7210788170085F862 /* Category.m */,
 				4D2ECCBC210279DE006E6757 /* Pin.h */,
 				4D2ECCBD210279DE006E6757 /* Pin.m */,
-				4D2ECCB321011745006E6757 /* SearchModel.h */,
-				4D2ECCB421011745006E6757 /* SearchModel.m */,
 				4D2ECCB621011750006E6757 /* MapModel.h */,
 				4D2ECCB721011750006E6757 /* MapModel.m */,
 				4D015A7C210639A00014509E /* timeModel.h */,
@@ -319,9 +309,9 @@
 				4D6B6EE520FE7882006CC875 /* Views */,
 				4D6B6EE420FE783D006CC875 /* ViewControllers */,
 				4D2ECC992100E9CA006E6757 /* StripeAPI */,
-				9B9F7E6A20FE4EED000E319F /* main.m */,
 				9B9F7E6720FE4EE6000E319F /* AppDelegate.h */,
 				9B9F7E6820FE4EE6000E319F /* AppDelegate.m */,
+				9B9F7E6A20FE4EED000E319F /* main.m */,
 				9B9F7E6E20FE4EF9000E319F /* Assets.xcassets */,
 				9B9F7E6B20FE4EEE000E319F /* Info.plist */,
 			);
@@ -378,6 +368,11 @@
 				TargetAttributes = {
 					9B9F7E4B20FE4E42000E319F = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -412,7 +407,6 @@
 				7D9BDED120FEA6F70085F862 /* loginStoryboard.storyboard in Resources */,
 				9B9F7E6D20FE4EEE000E319F /* Info.plist in Resources */,
 				4D2ECCCA2102989B006E6757 /* CalendarStoryboard.storyboard in Resources */,
-				4D2ECCB22100F449006E6757 /* PaymentStoryboard.storyboard in Resources */,
 				4D6B6EE320FE57DD006CC875 /* SearchStoryboard.storyboard in Resources */,
 				90091E3021026262007AB8A7 /* CategoriesStoryboard.storyboard in Resources */,
 				4D816FAE2109116A00C24648 /* PopUpViewController.xib in Resources */,
@@ -448,11 +442,17 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-item-share-app/Pods-item-share-app-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Stripe.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +479,7 @@
 				9B9F7E8220FE4F58000E319F /* MapViewController.m in Sources */,
 				908EC1A7210283A500BAD946 /* CategoryViewCell.m in Sources */,
 				9B9F7E6C20FE4EEE000E319F /* main.m in Sources */,
+				4D816FB4210A909600C24648 /* RegisterViewController.m in Sources */,
 				4D816FB12109253400C24648 /* ColorScheme.m in Sources */,
 				908EC1B021028E6100BAD946 /* ItemTableCell.m in Sources */,
 				908EC1AD21028E5000BAD946 /* CategoryTableCell.m in Sources */,
@@ -491,14 +492,11 @@
 				90091E3321027B3F007AB8A7 /* CategoriesViewController.m in Sources */,
 				7D4F5E4F210BEE8E00669616 /* ItemHistoryViewController.m in Sources */,
 				7D9BDED8210788170085F862 /* Category.m in Sources */,
+				4D816FBB210BBBA700C24648 /* myAnnotation.m in Sources */,
 				9B9F7E6920FE4EE6000E319F /* AppDelegate.m in Sources */,
-				7D4F5E38210A2BA100669616 /* StripeViewController.m in Sources */,
 				908EC1AA21028B6D00BAD946 /* CatAndItemTableViewController.m in Sources */,
 				7D4F5E4B210BC3DD00669616 /* ProfileDetailViewController.m in Sources */,
 				4D015A81210644BF0014509E /* Booking.m in Sources */,
-				4D2ECC9821001F0C006E6757 /* Customer.m in Sources */,
-				4D015A862108E7B50014509E /* PaymentController.m in Sources */,
-				4D2ECCB521011745006E6757 /* SearchModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,14 +629,15 @@
 			baseConfigurationReference = 854C16B81717E65328EEF5EE /* Pods-item-share-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GBXPS4YXA8;
+				DEVELOPMENT_TEAM = 6VXY7J79LR;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edu.facebook.fbu.item-share-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nicolas.Fetch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -649,14 +648,15 @@
 			baseConfigurationReference = CDEF3461A6FAE4F1BAA97F0A /* Pods-item-share-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GBXPS4YXA8;
+				DEVELOPMENT_TEAM = 6VXY7J79LR;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.edu.facebook.fbu.item-share-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nicolas.Fetch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

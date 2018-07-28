@@ -28,6 +28,6 @@
 @interface PlaceholdViewController : UIViewController
 @property (nonatomic, weak) id <PlaceholderViewControllerDelegate> placeholderDelegate;
 @property (nonatomic, weak) id <PlaceHolderViewControllerDelegateMap> placeholderDelegateMap;
-
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

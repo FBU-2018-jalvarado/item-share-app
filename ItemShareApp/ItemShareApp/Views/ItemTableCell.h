@@ -11,6 +11,7 @@
 @interface ItemTableCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-- (void) setItem:(NSString *)itemName;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+- (void) setItem:(NSString *)itemName withAddress:(NSString *)address;
 
 @end

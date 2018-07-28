@@ -24,7 +24,6 @@
 //from SearchBar
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
 @property (strong, nonatomic) NSMutableArray *categoryArray;
 @end
@@ -123,35 +122,14 @@
 
 - (void)emptyTextBarFormat {
     // make the category collection view reappear
-    self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 146);
-    self.categoryCollV.alpha = 1;
-    // make the tableview's view and table shrink
-    NSLog(@"%f", self.catAndItemTableV.frame.origin.y);
-    if(self.catAndItemTableV.frame.origin.y == 54)
-    {
-        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y + 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height - 146);
-        // tableview
-        if(self.catAndItemTableViewController.catAndItemTableView.frame.origin.y == 0)
-        {
-            self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height - 146);
-        }
-    }
+    self.catAndItemTableViewController.categoryCollView.frame = CGRectMake(self.catAndItemTableViewController.categoryCollView.frame.origin.x, self.catAndItemTableViewController.categoryCollView.frame.origin.y, self.catAndItemTableViewController.categoryCollView.frame.size.width, 146);
+    self.catAndItemTableViewController.categoryCollView.alpha = 1;
 }
 
 - (void)startTypingFormat {
     // make the category collection view disappear
-    self.categoryCollV.frame = CGRectMake(self.categoryCollV.frame.origin.x, self.categoryCollV.frame.origin.y, self.categoryCollV.frame.size.width, 0);
-    self.categoryCollV.alpha = 0;
-    // make the tableview's view and table shrink
-    if(self.catAndItemTableV.frame.origin.y == 200)
-    {
-        self.catAndItemTableV.frame = CGRectMake(self.catAndItemTableV.frame.origin.x, self.catAndItemTableV.frame.origin.y - 146, self.catAndItemTableV.frame.size.width, self.catAndItemTableV.frame.size.height + 146);
-        // tableview
-        if(self.catAndItemTableViewController.catAndItemTableView.frame.origin.y == 0)
-        {
-            self.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.catAndItemTableViewController.catAndItemTableView.frame.size.height + 146);
-        }
-    }
+    self.catAndItemTableViewController.categoryCollView.frame = CGRectMake(self.catAndItemTableViewController.categoryCollView.frame.origin.x, self.catAndItemTableViewController.categoryCollView.frame.origin.y, self.catAndItemTableViewController.categoryCollView.frame.size.width, 0);
+    self.catAndItemTableViewController.categoryCollView.alpha = 0;
 }
 
 #pragma mark - Navigation
@@ -223,12 +201,15 @@
     self.searchBar.text = @"";
 }
 
+// delegate function to react when a category is chosen
 -(void)callChoseCat:(NSString *)categoryName {
     [self.catAndItemTableViewController choseCat:categoryName];
 }
 
+// delegate function to only display filtered items in map
 - (void)filterInMap:(NSMutableArray *)listOfItems {
     [self.placeholderDelegateMap removeAnnotationsInMap];
     [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
 }
+
 @end

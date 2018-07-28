@@ -9,11 +9,13 @@
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
 #import "ColorScheme.h"
+#import "User.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 
 @property (strong, nonatomic) ColorScheme *colors;
 
@@ -29,27 +31,37 @@
     }
     return self;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self init];
+    self.usernameTextField.delegate = self;
+    self.passwordTextField.delegate = self;
     [self.colors setColors];
     [self setUpUI];
     [self setUpGradient];
     // Do any additional setup after loading the view.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:YES];
+    return YES;
+}
+
+
 - (IBAction)didTapLogin:(id)sender {
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
     [self loginUser];
 }
-- (IBAction)didTapRegister:(id)sender {
-    // TODO OPTIONAL: make clicking the register button take you to a different view controller to properly register with an email and stuff
-    [self registerUser];
-}
+//- (IBAction)didTapRegister:(id)sender {
+//    // TODO OPTIONAL: make clicking the register button take you to a different view controller to properly register with an email and stuff
+//    [self registerUser];
+//}
 
 - (void)setUpUI{
     self.usernameTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
     self.passwordTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
+    self.emailTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
 }
 - (void)setUpGradient{
     // Create the colors
@@ -75,7 +87,7 @@
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text;
     
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+    [User logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil)
         {
             NSLog(@"User log in failed: %@", error.localizedDescription);
@@ -88,26 +100,33 @@
     }];
 }
 
-- (void) registerUser {
-    // initialize a user object
-    PFUser *newUser = [PFUser user];
-    newUser[@"customer_id"] = @"customer_id1";
-    
-    // set user properties
-    newUser.username = self.usernameTextField.text;
-    newUser.password = self.passwordTextField.text;
-    
-    // call sign up function on the object
-    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (error != nil) {
-            NSLog(@"Error: %@", error.localizedDescription);
-        } else {
-            NSLog(@"User registered successfully");
-            
-            [self performSegueWithIdentifier:@"mapSegue" sender:nil];
-        }
-    }];
-}
+//- (void) registerUser {
+//    // initialize a user object
+//    User *newUser = (User*)[PFUser user];
+//    newUser[@"customer_id"] = @"customer_id1";
+//    
+//    // set user properties
+//    newUser.username = self.usernameTextField.text;
+//    newUser.password = self.passwordTextField.text;
+//    newUser.email = self.emailTextField.text;
+//    
+//    // call sign up function on the object
+//    [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+//        if (error != nil) {
+//            NSLog(@"Error: %@", error.localizedDescription);
+//        } else {
+//            NSLog(@"User registered successfully");
+//            [User postUser:@"name" withEmail:newUser.email withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+//                if(error){
+//                    NSLog(@"%@", error);
+//                }
+//                else{
+//                    [self performSegueWithIdentifier:@"mapSegue" sender:nil];
+//                }
+//            }];
+//        }
+//    }];
+//}
 
 
 #pragma mark - Navigation

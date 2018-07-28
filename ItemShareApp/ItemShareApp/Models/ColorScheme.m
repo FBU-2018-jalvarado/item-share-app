@@ -23,4 +23,11 @@
     [self setThirdColor:thirdColor];
 }
 
++ (ColorScheme *)defaultScheme
+{
+    ColorScheme *defaultScheme = [ColorScheme new];
+    [defaultScheme setColors];
+    return defaultScheme;
+}
+
 @end
