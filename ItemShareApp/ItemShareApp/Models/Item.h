@@ -35,4 +35,6 @@
 
 -(BOOL) isPickedUp: (NSString*)pickedUp;
 
++ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
+
 @end

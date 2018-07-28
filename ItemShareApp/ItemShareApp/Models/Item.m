@@ -53,7 +53,7 @@
     newItem.address = address;
     newItem.owner = owner;
     newItem.bookingsArray = [[NSMutableArray alloc] init];
-    newItem.categories = [NSMutableArray arrayWithObjects:@"Instruments", @"Strings", @"Guitar and Similar", nil];
+    newItem.categories = categories;
     newItem.descrip = descrip;
     newItem.image = [self getPFFileFromImage:image];
     newItem.pickedUp = pickedUp;

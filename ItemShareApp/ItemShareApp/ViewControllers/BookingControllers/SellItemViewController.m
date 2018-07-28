@@ -12,7 +12,7 @@
 #import "User.h"
 #import "CategoriesViewController.h"
 #import <QuartzCore/QuartzCore.h>
-//#import <ParseUI/ParseUI.h>
+#import <ParseUI/ParseUI.h>
 
 @interface SellItemViewController ()
 
@@ -28,7 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UILabel *label3;
 @property (weak, nonatomic) IBOutlet UILabel *catLabel;
-//@property (weak, nonatomic) IBOutlet PFImageView *itemImage;
+@property (weak, nonatomic) IBOutlet PFImageView *itemImage;
+@property (strong, nonatomic) Item *thisItem;
 
 
 @end
@@ -96,13 +97,14 @@
     Item *itemToBeSold = [Item new];
     User *owner = (User*)[PFUser currentUser];
 
-    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:nil withImage:nil withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceLabel.text withCompletion:^(Item *item, NSError *error) {
+    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:nil withImage:self.itemImage.image withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceLabel.text withCompletion:^(Item *item, NSError *error) {
         if(error)
         {
             NSLog(@"Unable to post the item for sale");
         }
         else {
             NSLog(@"Posted the item for sale: ");
+            self.thisItem = item;
             [self updateSellerInformation:item];
             self.cat1.text  = @"";
             self.cat2.text  = @"";
@@ -126,6 +128,9 @@
             NSLog(@"updated seller itemsSelling array");
         }
     }];
+}
+- (IBAction)tapPhoto:(id)sender {
+    [self choosePic:NO];
 }
 
 - (void)choosePic:(BOOL) oldPic {
@@ -156,32 +161,22 @@
     
     return newImage;
 }
-//
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-//    
-//    // Get the image captured by the UIImagePickerController
-//    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-//    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-//    //editedImage = [editedImage resizeImage]
-//    self.itemImage.image = editedImage;
-//    
-//    //save the image
-//    PFUser *user = PFUser.currentUser;
-//    user[@"image"] = [Post getPFFileFromImage:editedImage];
-//    [user saveInBackground];
-//    
-//    //now show the image chosen
-//    // load photo for current user
-//    self.ppImage.file = user[@"image"];
-//    // if its for another user then load their photo
-//    if(self.user)
-//    {
-//        self.ppImage.file = self.user[@"image"];
-//    }
-//    [self.ppImage loadInBackground];
-//    // Dismiss UIImagePickerController to go back to your original view controller
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+
+    // Get the image captured by the UIImagePickerController
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    editedImage = [self resizeImage:editedImage withSize:CGSizeMake(250, 250)];
+    self.itemImage.image = editedImage;
+
+    //save the image
+//    self.itemImage.file = [Item getPFFileFromImage:editedImage];
+
+    [self.itemImage loadInBackground];
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
