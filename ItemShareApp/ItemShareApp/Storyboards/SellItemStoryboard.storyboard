@@ -110,6 +110,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Upload Photo"/>
+                                <connections>
+                                    <action selector="tapPhoto:" destination="knq-YP-lhO" eventType="touchUpInside" id="4CE-cm-py3"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
                                 <rect key="frame" x="102" y="204" width="170" height="54"/>
