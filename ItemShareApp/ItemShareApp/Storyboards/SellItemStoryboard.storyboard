@@ -110,6 +110,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Upload Photo"/>
+                                <connections>
+                                    <action selector="tapPhoto:" destination="knq-YP-lhO" eventType="touchUpInside" id="4CE-cm-py3"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
                                 <rect key="frame" x="102" y="204" width="170" height="54"/>
@@ -134,6 +137,7 @@
                         <outlet property="catLabel" destination="OEx-fs-Vju" id="A2z-BV-UPg"/>
                         <outlet property="categoryView" destination="JKb-gs-y7E" id="Wty-x1-Q38"/>
                         <outlet property="itemAddress" destination="bYk-Sg-eW1" id="qEM-bH-7ER"/>
+                        <outlet property="itemImage" destination="rLq-aj-stf" id="WNy-dr-emg"/>
                         <outlet property="itemTitle" destination="Sgg-PR-3dp" id="9ep-8e-UTC"/>
                         <outlet property="label1" destination="oMD-TX-vnk" id="CGa-Ay-1Hu"/>
                         <outlet property="label2" destination="job-kh-6or" id="Dv6-gU-LFT"/>
