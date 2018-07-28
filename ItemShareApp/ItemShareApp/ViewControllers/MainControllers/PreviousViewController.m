@@ -40,6 +40,7 @@
     }
 }
 
+
 -(void)dismissKeyboard {
     [self.view endEditing:YES];
 }
@@ -50,7 +51,7 @@
         [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -263, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
     }
-    if(self.searchView.frame.origin.y == 350)
+    if(self.searchView.frame.origin.y == 350 && self.blackView.alpha == 0)
     {
         [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -201, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
@@ -63,7 +64,6 @@
         [UIView animateWithDuration:0.5 animations:^{
             self.blackView.alpha = 0.6;
         }];
-//        [self performSegueWithIdentifier:@"profileSegue" sender:nil];
     }
     else {
         [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
@@ -126,9 +126,6 @@
     }
     else if([segue.identifier isEqualToString:@"mapSegue"]){
         self.mapController = [segue destinationViewController];
-    }
-    else if([segue.identifier isEqualToString:@"profileSegue"]){
-        ProfileViewController *next = [segue destinationViewController];
     }
 }
 

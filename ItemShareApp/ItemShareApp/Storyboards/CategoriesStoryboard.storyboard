@@ -504,7 +504,6 @@
                                 <state key="normal" title="Profile"/>
                                 <connections>
                                     <action selector="didTapProfileButto:" destination="1PN-sF-iY8" eventType="touchUpInside" id="klQ-sI-yjG"/>
-                                    <segue destination="ioO-xe-hrv" kind="show" identifier="ProfileDetail" id="rr4-Pl-bPm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtR-gU-96l">
@@ -523,6 +522,7 @@
                         <outlet property="nameLabel" destination="9Bg-fq-udd" id="7ZA-ZL-cbS"/>
                         <outlet property="profileImage" destination="P9L-c6-KUG" id="f0f-iV-sZn"/>
                         <segue destination="3YR-XC-pBe" kind="show" identifier="ItemHistory" id="4xk-hq-1Pl"/>
+                        <segue destination="ioO-xe-hrv" kind="show" identifier="ProfileDetail" id="kUE-xp-60f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hI-DL-15t" userLabel="First Responder" sceneMemberID="firstResponder"/>
