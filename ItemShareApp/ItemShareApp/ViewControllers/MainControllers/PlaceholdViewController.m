@@ -74,14 +74,14 @@
 
         // filter the items array
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-            return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
+            return [self inInsensitive:evaluatedObject.title withSearchText:searchText];
         }];
         NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
         self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
 
         // filter the categories array
         NSPredicate *predicateCat = [NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedCategory, NSDictionary *bindings) {
-            return [evaluatedCategory rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
+            return [self inInsensitive:evaluatedCategory withSearchText:searchText];
         }];
         NSArray *tempCat = [self.categoryArray filteredArrayUsingPredicate:predicateCat];
         self.filteredCategoryArray = [NSMutableArray arrayWithArray:tempCat];
@@ -107,6 +107,12 @@
     self.catAndItemTableViewController.categoryRows = self.filteredCategoryArray;
     
     [self.catAndItemTableViewController.catAndItemTableView reloadData];
+}
+
+- (BOOL) inInsensitive: (NSString *)evaluatedObjectTitle withSearchText: (NSString *)searchText {
+    NSString *spacelessObjectTitle = [evaluatedObjectTitle stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *spacelessSearchText = [searchText stringByReplacingOccurrencesOfString:@" " withString:@""];
+    return ([spacelessObjectTitle rangeOfString:spacelessSearchText options: NSDiacriticInsensitiveSearch | NSCaseInsensitiveSearch].location != NSNotFound);
 }
 
 - (void)didReceiveMemoryWarning {
