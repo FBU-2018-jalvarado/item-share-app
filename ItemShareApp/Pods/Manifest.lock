@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.0)
+  - DZNEmptyDataSet (1.8.1)
   - JTCalendar (2.2.3)
   - Parse (1.17.1):
     - Parse/Core (= 1.17.1)
@@ -27,6 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - DZNEmptyDataSet
   - JTCalendar (~> 2.0)
   - Parse
   - ParseUI
@@ -36,6 +38,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Bolts
+    - DZNEmptyDataSet
     - JTCalendar
     - Parse
     - ParseUI
@@ -44,11 +47,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   JTCalendar: f54975f1426facc38d112f372f0d3d955aae8d86
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   ParseUI: 2b37a0bc692a3e7666cf0c37b5521dfddd74a1af
   Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
 
-PODFILE CHECKSUM: ecdf9b9c5f8fde96406e5552c06acc30e4b22b71
+PODFILE CHECKSUM: 5ca76bc1b05b265c35eba44d95428d55af5db18e
 
 COCOAPODS: 1.5.3

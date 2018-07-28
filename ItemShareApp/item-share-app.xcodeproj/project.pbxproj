@@ -39,7 +39,6 @@
 		9B2B4A0020FE553F00A91997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2B49FD20FE553E00A91997 /* LaunchScreen.storyboard */; };
 		9B9F7E6920FE4EE6000E319F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E6820FE4EE6000E319F /* AppDelegate.m */; };
 		9B9F7E6C20FE4EEE000E319F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E6A20FE4EED000E319F /* main.m */; };
-		9B9F7E6D20FE4EEE000E319F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F7E6B20FE4EEE000E319F /* Info.plist */; };
 		9B9F7E6F20FE4EF9000E319F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B9F7E6E20FE4EF9000E319F /* Assets.xcassets */; };
 		9B9F7E8220FE4F58000E319F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E7E20FE4F57000E319F /* MapViewController.m */; };
 		9B9F7E8520FE4F5F000E319F /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E8420FE4F5F000E319F /* ItemCell.m */; };
@@ -159,13 +158,6 @@
 			path = BookingControllers;
 			sourceTree = "<group>";
 		};
-		4D2ECC992100E9CA006E6757 /* StripeAPI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StripeAPI;
-			sourceTree = "<group>";
-		};
 		4D2ECCC1210295D3006E6757 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,8 +190,6 @@
 				908EC1AC21028E5000BAD946 /* CategoryTableCell.m */,
 				908EC1AE21028E6100BAD946 /* ItemTableCell.h */,
 				908EC1AF21028E6100BAD946 /* ItemTableCell.m */,
-				4D816FB9210BBBA700C24648 /* myAnnotation.h */,
-				4D816FBA210BBBA700C24648 /* myAnnotation.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,6 +241,8 @@
 		9B9F7E8820FE4F9F000E319F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4D816FB9210BBBA700C24648 /* myAnnotation.h */,
+				4D816FBA210BBBA700C24648 /* myAnnotation.m */,
 				9B9F7E8A20FE4F9F000E319F /* Item.h */,
 				9B9F7E8C20FE4F9F000E319F /* Item.m */,
 				7D9BDEDB2107F2B70085F862 /* User.h */,
@@ -279,7 +271,6 @@
 				9B9F7E8820FE4F9F000E319F /* Models */,
 				4D6B6EE520FE7882006CC875 /* Views */,
 				4D6B6EE420FE783D006CC875 /* ViewControllers */,
-				4D2ECC992100E9CA006E6757 /* StripeAPI */,
 				9B9F7E6720FE4EE6000E319F /* AppDelegate.h */,
 				9B9F7E6820FE4EE6000E319F /* AppDelegate.m */,
 				9B9F7E6A20FE4EED000E319F /* main.m */,
@@ -376,7 +367,6 @@
 				9B9F7E6F20FE4EF9000E319F /* Assets.xcassets in Resources */,
 				4D2ECC8F20FFB71E006E6757 /* MapStoryboard.storyboard in Resources */,
 				7D9BDED120FEA6F70085F862 /* loginStoryboard.storyboard in Resources */,
-				9B9F7E6D20FE4EEE000E319F /* Info.plist in Resources */,
 				4D2ECCCA2102989B006E6757 /* CalendarStoryboard.storyboard in Resources */,
 				4D6B6EE320FE57DD006CC875 /* SearchStoryboard.storyboard in Resources */,
 				90091E3021026262007AB8A7 /* CategoriesStoryboard.storyboard in Resources */,
@@ -598,7 +588,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VXY7J79LR;
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,7 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VXY7J79LR;
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

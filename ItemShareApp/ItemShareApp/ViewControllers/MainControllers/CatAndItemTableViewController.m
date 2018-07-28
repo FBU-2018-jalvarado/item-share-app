@@ -10,9 +10,13 @@
 #import "CategoryTableCell.h"
 #import "ItemTableCell.h"
 #import "Item.h"
+#import "UIScrollView+EmptyDataSet.h"
+//#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 
-@interface CatAndItemTableViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@interface CatAndItemTableViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+
 
 @end
 
@@ -22,6 +26,12 @@
     [super viewDidLoad];
     self.catAndItemTableView.delegate = self;
     self.catAndItemTableView.dataSource = self;
+    self.catAndItemTableView.emptyDataSetSource = self;
+    self.catAndItemTableView.emptyDataSetDelegate = self;
+    
+    //remove cell separators
+    self.catAndItemTableView.tableFooterView = [UIView new];
+    
 
     [self.catAndItemTableView reloadData];
     // Do any additional setup after loading the view.
@@ -34,6 +44,60 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//empty table view implementation
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+    return [UIImage imageNamed:@"orange_f"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    NSString* text = @"No items available to rent";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    
+    return  [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *text = @"Please return to your search to find other items categories. Thanks!";
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraph.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:14.0f],
+                                 NSForegroundColorAttributeName: [UIColor lightGrayColor],
+                                 NSParagraphStyleAttributeName: paragraph};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+//either this or image for button
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+}
+
+//- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+//    return [UIImage imageNamed:@"orange_f"];
+//}
+
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView{
+    return [UIColor whiteColor];
+}
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView{
+    return YES;
+}
+
+- (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView{
+    return YES;
+}
+
+- (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView{
+    return YES;
 }
 
 

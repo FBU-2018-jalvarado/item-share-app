@@ -10,6 +10,7 @@ target 'item-share-app' do
   # Pods for ItemShareApp
   pod 'Parse'
   pod 'ParseUI'
+  pod 'DZNEmptyDataSet'
   pod 'Stripe'
   pod 'AFNetworking'
   pod 'JTCalendar', '~> 2.0'
