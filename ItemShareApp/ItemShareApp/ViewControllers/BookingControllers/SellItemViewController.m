@@ -171,7 +171,7 @@
     self.itemImage.image = editedImage;
 
     //save the image
-//    self.itemImage.file = [Item getPFFileFromImage:editedImage];
+    self.itemImage.file = [Item getPFFileFromImage:editedImage];
 
     [self.itemImage loadInBackground];
     // Dismiss UIImagePickerController to go back to your original view controller
