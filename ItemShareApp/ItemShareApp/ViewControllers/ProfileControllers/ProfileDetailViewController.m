@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.firstNameLabel.text = [NSString stringWithFormat:@"First Name: %@", self.user.firstName];
+    self.lastNameLabel.text = [NSString stringWithFormat:@"Last Name: %@", self.user.lastName];
+    self.emailLabel.text = [NSString stringWithFormat:@"Email: %@", self.user.email];
+    self.numberLabel.text = [NSString stringWithFormat:@"Phone: %@", self.user.phoneNumber];
 }
 
 - (void)didReceiveMemoryWarning {
