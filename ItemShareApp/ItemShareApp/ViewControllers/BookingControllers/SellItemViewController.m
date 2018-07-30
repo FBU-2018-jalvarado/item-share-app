@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *itemAddress;
 @property (strong, nonatomic) NSMutableArray *categoryArray;
 @property (weak, nonatomic) IBOutlet UITextField *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
 @property (weak, nonatomic) IBOutlet UILabel *cat1;
 @property (weak, nonatomic) IBOutlet UILabel *cat2;
 @property (weak, nonatomic) IBOutlet UILabel *cat3;
@@ -30,7 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *catLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *itemImage;
 @property (strong, nonatomic) Item *thisItem;
-
+@property (strong, nonatomic) NSMutableArray *imageArray;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextView *descripLabel;
 
@@ -44,6 +45,7 @@
     self.categoryView.layer.borderColor = [[UIColor blackColor] CGColor];
     self.categoryView.layer.borderWidth = 1;
     self.categoryArray = [[NSMutableArray alloc] init];
+    self.imageArray = [[NSMutableArray alloc] init];
     self.itemTitle.delegate = self;
     self.itemAddress.delegate = self;
     self.priceLabel.delegate = self;
@@ -51,22 +53,6 @@
     
     // Do any additional setup after loading the view.
     // TODO: make name field optional after login
-//    self.categoryView.userInteractionEnabled = NO;
-//    self.cat1.userInteractionEnabled = NO;
-//    self.cat1.userInteractionEnabled = NO;
-//    self.cat1.userInteractionEnabled = NO;
-//    self.catLabel.userInteractionEnabled = NO;
-//    self.label1.userInteractionEnabled = NO;
-//    self.label2.userInteractionEnabled = NO;
-//    self.label3.userInteractionEnabled = NO;
-//    self.categoryView.alpha = 0;
-//    self.cat1.alpha = 0;
-//    self.cat1.alpha = 0;
-//    self.cat1.alpha = 0;
-//    self.catLabel.alpha = 0;
-//    self.label1.alpha = 0;
-//    self.label2.alpha = 0;
-//    self.label3.alpha = 0;
     
     self.itemImage.layer.borderColor = [[UIColor blackColor] CGColor];
     self.itemImage.layer.borderWidth = 2;
@@ -83,36 +69,20 @@
     return YES;
 }
 
-- (IBAction)categoryAvailable:(id)sender {
-//    self.categoryView.userInteractionEnabled = YES;
-//    self.cat1.userInteractionEnabled = YES;
-//    self.cat1.userInteractionEnabled = YES;
-//    self.cat1.userInteractionEnabled = YES;
-//    self.catLabel.userInteractionEnabled = YES;
-//    self.label1.userInteractionEnabled = YES;
-//    self.label2.userInteractionEnabled = YES;
-//    self.label3.userInteractionEnabled = YES;
-//    self.categoryView.alpha = 1;
-//    self.cat1.alpha = 1;
-//    self.cat1.alpha = 1;
-//    self.cat1.alpha = 1;
-//    self.catLabel.alpha = 1;
-//    self.label1.alpha = 1;
-//    self.label2.alpha = 1;
-//    self.label3.alpha = 1;
-    if(self.itemTitle.isFirstResponder)
-    {
-        [self.itemTitle resignFirstResponder];
-    }
-    if(self.itemAddress.isFirstResponder)
-    {
-        [self.itemAddress resignFirstResponder];
-    }
-    if(self.priceLabel.isFirstResponder)
-    {
-        [self.priceLabel resignFirstResponder];
-    }
-}
+//- (IBAction)categoryAvailable:(id)sender {
+//    if(self.itemTitle.isFirstResponder)
+//    {
+//        [self.itemTitle resignFirstResponder];
+//    }
+//    if(self.itemAddress.isFirstResponder)
+//    {
+//        [self.itemAddress resignFirstResponder];
+//    }
+//    if(self.priceLabel.isFirstResponder)
+//    {
+//        [self.priceLabel resignFirstResponder];
+//    }
+//}
 
 - (IBAction)sellOnTap:(id)sender {
     //create and set item and user objects
@@ -120,7 +90,7 @@
     User *owner = (User*)[PFUser currentUser];
 
 
-    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:self.descripLabel.text withImage:self.itemImage.image withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceLabel.text withCompletion:^(Item *item, NSError *error) {
+    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:self.descripLabel.text withImage:self.imageArray withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceLabel.text withCompletion:^(Item *item, NSError *error) {
         if(error)
         {
             NSLog(@"Unable to post the item for sale");
@@ -152,7 +122,12 @@
         }
     }];
 }
+
 - (IBAction)tapPhoto:(id)sender {
+    [self choosePic:NO];
+}
+
+- (IBAction)tapImage:(id)sender {
     [self choosePic:NO];
 }
 
@@ -193,8 +168,9 @@
     editedImage = [self resizeImage:editedImage withSize:CGSizeMake(250, 250)];
     self.itemImage.image = editedImage;
 
+    [self.imageArray addObject:editedImage];
     //save the image
-    self.itemImage.file = [Item getPFFileFromImage:editedImage];
+    //self.itemImage.file = [Item getPFFileFromImage:editedImage];
 
     [self.itemImage loadInBackground];
     // Dismiss UIImagePickerController to go back to your original view controller

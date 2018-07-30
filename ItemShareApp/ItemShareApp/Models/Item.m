@@ -19,7 +19,7 @@
 @dynamic bookingsArray;
 @dynamic categories;
 @dynamic descrip;
-@dynamic image;
+@dynamic images;
 @dynamic pickedUp;
 @dynamic distanceToUser;
 @dynamic price;
@@ -45,7 +45,16 @@
 //    [FBUDateHelper dateConflicers:date1 yo: date];
 //}
 
-+ (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withPrice:(NSString *)price withCompletion:(void(^)(Item * item, NSError *error))completion {
++ (NSMutableArray *)imagesToFiles: (NSMutableArray *)images {
+    NSMutableArray *pffiles = [[NSMutableArray alloc] init];
+    for (UIImage* image in images)
+    {
+        [pffiles addObject:[Item getPFFileFromImage:image]];
+    }
+    return pffiles;
+}
+
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(NSMutableArray *_Nullable)images withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withPrice:(NSString *)price withCompletion:(void(^)(Item * item, NSError *error))completion {
     
     Item *newItem = [Item new];
     newItem.title = title;
@@ -55,7 +64,7 @@
     newItem.bookingsArray = [[NSMutableArray alloc] init];
     newItem.categories = categories;
     newItem.descrip = descrip;
-    newItem.image = [self getPFFileFromImage:image];
+    newItem.images = [Item imagesToFiles:images];
     newItem.pickedUp = pickedUp;
     newItem.price = price;
     [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
