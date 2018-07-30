@@ -30,6 +30,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *catLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *itemImage;
 @property (strong, nonatomic) Item *thisItem;
+@property (weak, nonatomic) IBOutlet UITextView *descripLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *sellButton;
+
 
 
 @end
@@ -59,6 +63,13 @@
     self.label1.alpha = 0;
     self.label2.alpha = 0;
     self.label3.alpha = 0;
+
+    CGFloat cwidth = self.scrollView.frame.size.width;
+    CGFloat cheight = self.scrollView.frame.size.width*2;
+    self.scrollView.contentSize = CGSizeMake(cwidth, cheight);
+    self.descripLabel.frame = CGRectMake(self.descripLabel.frame.origin.x, self.label3.frame.origin.y + 50, self.descripLabel.frame.size.width, self.descripLabel.frame.size.height);
+    self.sellButton.frame = CGRectMake(self.sellButton.frame.origin.x, self.descripLabel.frame.origin.y + 150, self.sellButton.frame.size.width, self.sellButton.frame.size.height);
+
 }
 
 - (IBAction)categoryAvailable:(id)sender {
@@ -97,7 +108,7 @@
     Item *itemToBeSold = [Item new];
     User *owner = (User*)[PFUser currentUser];
 
-    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:nil withImage:self.itemImage.image withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceLabel.text withCompletion:^(Item *item, NSError *error) {
+    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:self.descripLabel.text withImage:self.itemImage.image withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceLabel.text withCompletion:^(Item *item, NSError *error) {
         if(error)
         {
             NSLog(@"Unable to post the item for sale");
