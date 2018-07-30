@@ -251,7 +251,7 @@
 - (IBAction)doneButtonPressed:(id)sender {
     //[self performSegueWithIdentifier:@"detailsBackSegue" sender:nil];
     [self.calendarDelegate sendDates:self.startDate withEndDate:self.endDate];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Navigation
@@ -264,16 +264,16 @@
     }
 }
 
-- (void)fetchBookings {
-    [self.timeModel fetchAllBookingsWithCompletion:^(NSArray<Item *> *bookings, NSError *error) {
-        if(error){
-            NSLog(@"error");
-        }
-        else{
-            self.bookingsArray = [bookings mutableCopy];
-        }
-    }];
-}
+//- (void)fetchBookings {
+//    [self.timeModel fetchAllBookingsWithCompletion:^(NSArray<Item *> *bookings, NSError *error) {
+//        if(error){
+//            NSLog(@"error");
+//        }
+//        else{
+//            self.bookingsArray = [bookings mutableCopy];
+//        }
+//    }];
+//}
 
 - (BOOL)isBetweenDates:(NSDate *)date withStartDate: (NSDate *)startTime withEndDate:(NSDate*)endTime {
     if (([date compare:startTime] == NSOrderedDescending) && ([date compare:endTime] == NSOrderedAscending)){
