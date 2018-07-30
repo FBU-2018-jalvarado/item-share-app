@@ -36,7 +36,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stp_card_visa.png" translatesAutoresizingMaskIntoConstraints="NO" id="7KG-ar-3hg">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stp_card_visa.png" translatesAutoresizingMaskIntoConstraints="NO" id="7KG-ar-3hg" customClass="PFImageView">
                                         <rect key="frame" x="129" y="28" width="129" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -172,6 +172,7 @@
                         <outlet property="categoryLabel" destination="29t-5N-W1F" id="yTK-5i-1HW"/>
                         <outlet property="descriptionLabel" destination="6Mq-t1-ItP" id="cFv-Ji-Qkd"/>
                         <outlet property="endTimeLabel" destination="U9x-ib-fL9" id="jNW-uf-FLb"/>
+                        <outlet property="itemImageView" destination="7KG-ar-3hg" id="SxH-Xl-kjd"/>
                         <outlet property="priceLabel" destination="NBn-2a-tkv" id="M7w-Ew-u3r"/>
                         <outlet property="scrollView" destination="98i-iQ-tg9" id="0d2-0R-6Za"/>
                         <outlet property="selectDatesButton" destination="TSU-6t-6qX" id="GoR-Ab-6Bc"/>

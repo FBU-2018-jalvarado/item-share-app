@@ -9,6 +9,7 @@
 #import "DetailsViewController.h"
 #import "Booking.h"
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 #import "Parse.h"
 #import "timeModel.h"
 #import "PopUpViewController.h"
@@ -17,6 +18,7 @@
 #import <Passkit/Passkit.h>
 
 @interface DetailsViewController () <CalendarViewControllerDelegate, PKPaymentAuthorizationViewControllerDelegate>
+@property (weak, nonatomic) IBOutlet PFImageView *itemImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
@@ -68,6 +70,10 @@
 }
 
 - (void)setUpUI {
+    //image setup
+    self.itemImageView.file = self.item.image;
+    [self.itemImageView loadInBackground];
+    
     //text setup
     self.titleLabel.text = self.item.title;
     self.addressLabel.text = self.item.address;
