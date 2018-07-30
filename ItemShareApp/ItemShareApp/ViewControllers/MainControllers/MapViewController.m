@@ -15,6 +15,10 @@
 #import "Pin.h"
 #import "PlaceholdViewController.h"
 #import "myAnnotation.h"
+#import <ClusterKit/MKMapView+ClusterKit.h>
+
+NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotation";
+NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
 
 
 @interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
@@ -46,14 +50,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self init];
+    
+    CKNonHierarchicalDistanceBasedAlgorithm *algorithm = [CKNonHierarchicalDistanceBasedAlgorithm new];
+    algorithm.cellSize = 100;
+    
+   // self.mapView.clusterManager.algorithm = algorithm;
+    //self.mapView.clusterManager.marginFactor = 1;
+    
     self.locationManager.delegate = self;
     self.searchBar.delegate = self;
     self.mapView.delegate = self;
     self.previousUserLocation = [MKUserLocation new];
-    
-    CLLocationCoordinate2D coordinates = CLLocationCoordinate2DMake(40.7538, -73.9836);
-    myAnnotation *annotation = [[myAnnotation alloc] initWithLocation:coordinates];
-    [self.mapView addAnnotation:annotation];
     
     [self locationSetup];
     [self fetchItems];
@@ -68,6 +75,8 @@
         if (items) {
             self.itemsArray = [items mutableCopy];
             self.filteredItemsArray = [items mutableCopy];
+            //self.mapView.clusterManager.annotations = self.filteredItemsArray;
+            //THIS IS THE ERROR. WAS ASSIGNING ANNOTATIONS ARRAY WITH ITEMS
             [self addAnnotations:self.filteredItemsArray];
             [self removeAllPinsButUserLocation];
         } else {
@@ -93,20 +102,16 @@
     }
 }
 
-//this method is deprecated. What is the new alternative? didUpdateToLocation only is called when user location changes, while didUpdateUserLocation is called various times even when there is no change to user location. I need to use this method to fix the constant zooming to user location in bug.
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
-    NSLog(@"5");
-    MKCoordinateRegion mapRegion;
-    mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
-    mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
-    [self.mapView setRegion:mapRegion animated: YES];
-    
-}
-
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     NSLog(@"1");
     [self performSegueWithIdentifier:@"detailsViewSegue" sender:view];
 }
+
+/*
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    [mapView.clusterManager updateClustersIfNeeded];
+}
+ */
 
 //setup the views on each annotation.
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
@@ -125,11 +130,27 @@
             return nil;
         }
     }
+    /*
+    CKCluster *cluster = (CKCluster *)annotation;
     
+    if (cluster) {
+        MKAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:CKMapViewDefaultClusterAnnotationViewReuseIdentifier];
+        if (view) {
+            return view;
+        }
+        return [[CKClusterView alloc] initWithAnnotation:cluster reuseIdentifier:CKMapViewDefaultClusterAnnotationViewReuseIdentifier];
+    }
+    
+    MKAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:CKMapViewDefaultAnnotationViewReuseIdentifier];
+    if (view) {
+        return view;
+    }
+    return [[CKClusterView alloc] initWithAnnotation:cluster reuseIdentifier:CKMapViewDefaultAnnotationViewReuseIdentifier];
+    */
     if([annotation isKindOfClass:[myAnnotation class]]){
         myAnnotation *customAnnotation = (myAnnotation*)annotation;
-        MKAnnotationView *annotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"customAnimation"];
-        
+        MKAnnotationView *annotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:CKMapViewDefaultAnnotationViewReuseIdentifier];
+
         if(!annotationView){
             annotationView = customAnnotation.annotationView;
         }
@@ -224,6 +245,10 @@
     }];
 }
 
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+    
+}
+
 //for later implementation. Plan to allow seller to set a pin for the pickup location instead of address, which will send in a coordinate instead. Can use this or implement a method to convert from coordinate to address.
 - (void)addAnnotationAtCoordinate: (CLLocationCoordinate2D)coordinate { //why no stars on this? is this not an object?
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
@@ -246,42 +271,42 @@
 
 //zooms in to user location (when user location changes). //solution to bug in this method is to create an instance location variable with user location. Compare it to user location passed in to this method. If it is the same, return, if not, update the instance and change the center view.
 //- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-//    //[MapModel updateUserLocation:self.mapView];
-////    MKCoordinateRegion mapRegion;
-////    mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
-////    mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
-////    [self.mapView setRegion:mapRegion animated: YES];
+    //[MapModel updateUserLocation:self.mapView];
+//    MKCoordinateRegion mapRegion;
+//    mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
+//    mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
+//    [self.mapView setRegion:mapRegion animated: YES];
 //}
-
-//Commented out by Stephanie. Keeping because she might need it later in her search implementation.
-
-////this method runs once search button is clicked and keyboard goes away. This is an option to reload all the pins, instead of autopopulating the pins (design choice).
-//- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-//    [self.view endEditing:YES];
-//}
-//
-////closes keyboard once search is clicked.
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-//    [self.view endEditing:YES];
-//    [self.locationManager requestWhenInUseAuthorization];
-//}
-//
-////text changes, update pins with filtered array of items
-//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-//    if (searchText.length != 0) {
-//        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
-//            return [evaluatedObject.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound;
-//        }];
-//        NSArray *temp = [self.itemsArray filteredArrayUsingPredicate:predicate];
-//        self.filteredItemsArray = [NSMutableArray arrayWithArray:temp];
-//    }
-//    else {
-//        self.filteredItemsArray = self.itemsArray;
-//    }
-//    [self addAnnotations:self.filteredItemsArray];
-//    [self removeAllPinsButUserLocation];
-//}
-
 
 
 @end
+
+/*
+@implementation CKAnnotationView
+
+- (instancetype)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        self.canShowCallout = YES;
+        self.draggable = YES;
+        self.image = [UIImage imageNamed:@"marker"];
+    }
+    return self;
+}
+
+
+@end
+
+@implementation CKClusterView
+
+- (instancetype)initWithAnnotation:(id<MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.image = [UIImage imageNamed:@"cluster"];
+    }
+    return self;
+}
+
+@end
+*/

@@ -14,5 +14,6 @@ target 'item-share-app' do
   pod 'Stripe'
   pod 'AFNetworking'
   pod 'JTCalendar', '~> 2.0'
+  pod 'ClusterKit/MapKit'
 
 end
