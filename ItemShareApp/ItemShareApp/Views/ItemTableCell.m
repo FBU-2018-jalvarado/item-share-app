@@ -21,7 +21,8 @@
     // Configure the view for the selected state
 }
 
-- (void) setItem:(NSString *)itemName {
+- (void) setItem:(NSString *)itemName  withAddress:(NSString *)address{
     self.nameLabel.text = itemName;
+    self.addressLabel.text = address;
 }
 @end

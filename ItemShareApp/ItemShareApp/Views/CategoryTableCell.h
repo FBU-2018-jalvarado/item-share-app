@@ -10,7 +10,6 @@
 
 @interface CategoryTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-
 - (void) setCategory:(NSString *)categoryName;
 
 @end

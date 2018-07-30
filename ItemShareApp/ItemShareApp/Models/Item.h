@@ -9,7 +9,9 @@
 #import "PFObject.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+@class Booking;
 #import <Parse/Parse.h>
+#import "User.h"
 
 @interface Item : PFObject<PFSubclassing>
 
@@ -17,14 +19,22 @@
 //@property (strong, nonatomic) NSString _Nullable description;
 
 @property (strong, nonatomic) NSString *_Nonnull title;
-@property (strong, nonatomic) PFUser *_Nonnull owner;
+@property (strong, nonatomic) User *_Nonnull owner;
 @property (strong, nonatomic) CLLocation *_Nullable location;
 @property (strong, nonatomic) NSString *_Nullable address;
+@property (nonatomic, strong) NSMutableArray * _Nullable bookingsArray;
 @property (strong, nonatomic) NSString  * _Nonnull itemID;
 @property (strong, nonatomic) NSMutableArray *_Nullable categories;
 @property (strong, nonatomic) NSString *_Nullable descrip;
 @property (strong, nonatomic) PFFile *_Nullable image;
-@property (nonatomic) BOOL *_Nullable bookedNow;
+@property (strong, nonatomic) NSString *_Nullable pickedUp;
+@property (strong, nonatomic) NSNumber *_Nullable distanceToUser;
+@property (strong, nonatomic) NSString *_Nullable price;
 
-+ (void) postItem: ( NSString * _Nonnull )title withOwner:( PFUser * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withBookedNowBool:(BOOL *_Nullable)bookedNow withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(UIImage *_Nullable)image withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withPrice:(NSString *)price withCompletion:(void(^)(Item * item, NSError *error))completion;
+
+-(BOOL) isPickedUp: (NSString*)pickedUp;
+
++ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
+
 @end

@@ -15,34 +15,50 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.0)
+  - ClusterKit/Core (0.3.4)
+  - ClusterKit/MapKit (0.3.4):
+    - ClusterKit/Core
+  - DZNEmptyDataSet (1.8.1)
   - JTCalendar (2.2.3)
   - Parse (1.17.1):
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
-  - Stripe (13.0.3)
+  - ParseUI (1.2.0):
+    - Bolts/Tasks (~> 1.3)
+    - Parse (~> 1.9)
+  - Stripe (13.1.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - ClusterKit/MapKit
+  - DZNEmptyDataSet
   - JTCalendar (~> 2.0)
   - Parse
+  - ParseUI
   - Stripe
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - Bolts
+    - ClusterKit
+    - DZNEmptyDataSet
     - JTCalendar
     - Parse
+    - ParseUI
     - Stripe
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  ClusterKit: 30d15b449a398103d130ea9661cab82bb99eb52d
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   JTCalendar: f54975f1426facc38d112f372f0d3d955aae8d86
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
-  Stripe: 76c203e21555089b708e6cbe972a3e3baf1ab4d8
+  ParseUI: 2b37a0bc692a3e7666cf0c37b5521dfddd74a1af
+  Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
 
-PODFILE CHECKSUM: 528daf6b0e895e0f802b676dac7c1dfde3a3878a
+PODFILE CHECKSUM: 26d3ecc66b1a6d0a321d562d1cc9965ac0f82141
 
 COCOAPODS: 1.5.3
