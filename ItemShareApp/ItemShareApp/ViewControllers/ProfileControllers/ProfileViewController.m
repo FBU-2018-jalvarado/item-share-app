@@ -45,11 +45,11 @@
     
     if ([segue.identifier isEqualToString:@"ProfileDetail"]){
         ProfileDetailViewController *next = [segue destinationViewController];
+        next.user = (User *)[PFUser currentUser];
     }
     else if ([segue.identifier isEqualToString:@"ItemHistory"]){
         ItemHistoryViewController *next = [segue destinationViewController];
     }
-
 }
 
 @end
