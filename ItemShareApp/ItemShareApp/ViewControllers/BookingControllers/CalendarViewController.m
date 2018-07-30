@@ -29,6 +29,7 @@
 @property (strong, nonatomic) NSDate *selectedDate;
 @property (strong, nonatomic) timeModel *timeModel;
 @property (strong, nonatomic) ColorScheme *colors;
+@property (nonatomic) BOOL firstClick;
 
 @end
 
@@ -56,6 +57,7 @@
     [self.colors setColors];
     [self setUpUI];
     
+    self.firstClick = YES;
     self.calendarManager = [JTCalendarManager new];
     self.calendarManager.delegate = self;
     
@@ -103,16 +105,34 @@
     return view;
 }
 
-    
-
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView{
     self.selectedDate = dayView.date;
+    
+    if(self.firstClick){ //picking start date
+        self.firstClick = NO;
+        self.startDate = self.selectedDate;
+        self.endDate = nil;
+    }
+    else{ //picking end date
+        if(self.startDate != nil){ //if a start date is selected already
+            if([self firstDayIsAfter:dayView.date withSecondDate:self.startDate]){ //if the end date selected is before the currently selected start date, select that date as start date
+                self.endDate = self.selectedDate;
+                self.firstClick = YES;
+            }
+            else{
+                self.startDate = self.selectedDate;
+                self.endDate = nil;
+                self.firstClick = NO;
+            }
+        }
+    }
     
     dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
     [UIView transitionWithView:dayView duration:.3 options:0 animations:^{
         dayView.circleView.transform = CGAffineTransformIdentity;
         [self.calendarManager reload];
     } completion:nil];
+    
     
     //load or prev or next page if touch a day from another month
     if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
@@ -135,10 +155,17 @@
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
-    //selected date
-    else if(self.selectedDate && [self.calendarManager.dateHelper date:self.selectedDate isTheSameDayThan:dayView.date]){
+    //startDate
+    else if(self.startDate && [self.calendarManager.dateHelper date:self.startDate isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor blueColor];
+        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.dotView.backgroundColor = [UIColor whiteColor];
+        dayView.textLabel.textColor = [UIColor whiteColor];
+    }
+    //endDate
+    else if(self.endDate && [self.calendarManager.dateHelper date:self.endDate isTheSameDayThan:dayView.date]){
+        dayView.circleView.hidden = NO;
+        dayView.circleView.backgroundColor = [UIColor redColor];
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
@@ -159,6 +186,13 @@
             dayView.textLabel.textColor = [UIColor lightGrayColor];
         }
 
+    }
+    //in between selected dates
+    else if([self isBetweenDates:dayView.date withStartDate:self.startDate withEndDate:self.endDate] && (self.startDate != nil && self.endDate != nil)){
+        dayView.circleView.hidden = NO;
+        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.dotView.backgroundColor = [UIColor whiteColor];
+        dayView.textLabel.textColor = [UIColor whiteColor];
     }
     //another day of the current month
     else{
@@ -241,6 +275,20 @@
     }];
 }
 
+- (BOOL)isBetweenDates:(NSDate *)date withStartDate: (NSDate *)startTime withEndDate:(NSDate*)endTime {
+    if (([date compare:startTime] == NSOrderedDescending) && ([date compare:endTime] == NSOrderedAscending)){
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)firstDayIsAfter: (NSDate*)firstDate withSecondDate: (NSDate *)secondDate {
+    return [firstDate compare:secondDate] == NSOrderedDescending;
+}
+
+- (BOOL)firstDayisBefore: (NSDate*)firstDate withSecondDate: (NSDate *)secondDate {
+    return [firstDate compare:secondDate] == NSOrderedDescending;
+}
 //implementing this with nothing present nothing in contentview of calendar
 //- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
 //    //idk how to implement

@@ -10,6 +10,18 @@
 #import "Item.h"
 #import "MapModel.h"
 
+@interface CKMapKitViewController : UIViewController
+
+@end
+
+@interface CKAnnotationView : MKAnnotationView
+
+@end
+
+@interface CKClusterView : MKAnnotationView
+
+@end
+
 @interface MapViewController : UIViewController
 //@property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
