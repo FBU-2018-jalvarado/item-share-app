@@ -43,7 +43,7 @@
 
     self.categoryView.layer.borderColor = [[UIColor blackColor] CGColor];
     self.categoryView.layer.borderWidth = 1;
-    
+    self.categoryArray = [[NSMutableArray alloc] init];
     self.itemTitle.delegate = self;
     self.itemAddress.delegate = self;
     self.priceLabel.delegate = self;
