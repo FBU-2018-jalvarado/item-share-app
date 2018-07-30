@@ -77,6 +77,13 @@
     //text setup
     self.titleLabel.text = self.item.title;
     self.addressLabel.text = self.item.address;
+    [self.categoryLabel.text stringByAppendingString:self.item.categories[0]];
+    [self.categoryLabel.text stringByAppendingString:@", "];
+    [self.categoryLabel.text stringByAppendingString:self.item.categories[1]];
+    [self.categoryLabel.text stringByAppendingString:@", "];
+    [self.categoryLabel.text stringByAppendingString:self.item.categories[2]];
+    self.totalPriceLabel.text = self.item.price;
+    self.descriptionLabel.text = self.item.description;
     
     //date setup
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
