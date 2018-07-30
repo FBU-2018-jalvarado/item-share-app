@@ -14,7 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <ParseUI/ParseUI.h>
 
-@interface SellItemViewController ()
+@interface SellItemViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;
 @property (weak, nonatomic) IBOutlet UITextField *itemAddress;
@@ -43,50 +43,63 @@
 
     self.categoryView.layer.borderColor = [[UIColor blackColor] CGColor];
     self.categoryView.layer.borderWidth = 1;
+    
+    self.itemTitle.delegate = self;
+    self.itemAddress.delegate = self;
+    self.priceLabel.delegate = self;
+    self.descripLabel.delegate = self;
+    
     // Do any additional setup after loading the view.
     // TODO: make name field optional after login
-    self.categoryView.userInteractionEnabled = NO;
-    self.cat1.userInteractionEnabled = NO;
-    self.cat1.userInteractionEnabled = NO;
-    self.cat1.userInteractionEnabled = NO;
-    self.catLabel.userInteractionEnabled = NO;
-    self.label1.userInteractionEnabled = NO;
-    self.label2.userInteractionEnabled = NO;
-    self.label3.userInteractionEnabled = NO;
-    self.categoryView.alpha = 0;
-    self.cat1.alpha = 0;
-    self.cat1.alpha = 0;
-    self.cat1.alpha = 0;
-    self.catLabel.alpha = 0;
-    self.label1.alpha = 0;
-    self.label2.alpha = 0;
-    self.label3.alpha = 0;
+//    self.categoryView.userInteractionEnabled = NO;
+//    self.cat1.userInteractionEnabled = NO;
+//    self.cat1.userInteractionEnabled = NO;
+//    self.cat1.userInteractionEnabled = NO;
+//    self.catLabel.userInteractionEnabled = NO;
+//    self.label1.userInteractionEnabled = NO;
+//    self.label2.userInteractionEnabled = NO;
+//    self.label3.userInteractionEnabled = NO;
+//    self.categoryView.alpha = 0;
+//    self.cat1.alpha = 0;
+//    self.cat1.alpha = 0;
+//    self.cat1.alpha = 0;
+//    self.catLabel.alpha = 0;
+//    self.label1.alpha = 0;
+//    self.label2.alpha = 0;
+//    self.label3.alpha = 0;
     
     self.itemImage.layer.borderColor = [[UIColor blackColor] CGColor];
     self.itemImage.layer.borderWidth = 2;
+    self.descripLabel.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.descripLabel.layer.borderWidth = 2;
     CGFloat contentWidth = self.scrollView.bounds.size.width;
     CGFloat contentHeight = self.scrollView.bounds.size.height * 3;
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
+}
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:YES];
+    return YES;
 }
 
 - (IBAction)categoryAvailable:(id)sender {
-    self.categoryView.userInteractionEnabled = YES;
-    self.cat1.userInteractionEnabled = YES;
-    self.cat1.userInteractionEnabled = YES;
-    self.cat1.userInteractionEnabled = YES;
-    self.catLabel.userInteractionEnabled = YES;
-    self.label1.userInteractionEnabled = YES;
-    self.label2.userInteractionEnabled = YES;
-    self.label3.userInteractionEnabled = YES;
-    self.categoryView.alpha = 1;
-    self.cat1.alpha = 1;
-    self.cat1.alpha = 1;
-    self.cat1.alpha = 1;
-    self.catLabel.alpha = 1;
-    self.label1.alpha = 1;
-    self.label2.alpha = 1;
-    self.label3.alpha = 1;
+//    self.categoryView.userInteractionEnabled = YES;
+//    self.cat1.userInteractionEnabled = YES;
+//    self.cat1.userInteractionEnabled = YES;
+//    self.cat1.userInteractionEnabled = YES;
+//    self.catLabel.userInteractionEnabled = YES;
+//    self.label1.userInteractionEnabled = YES;
+//    self.label2.userInteractionEnabled = YES;
+//    self.label3.userInteractionEnabled = YES;
+//    self.categoryView.alpha = 1;
+//    self.cat1.alpha = 1;
+//    self.cat1.alpha = 1;
+//    self.cat1.alpha = 1;
+//    self.catLabel.alpha = 1;
+//    self.label1.alpha = 1;
+//    self.label2.alpha = 1;
+//    self.label3.alpha = 1;
     if(self.itemTitle.isFirstResponder)
     {
         [self.itemTitle resignFirstResponder];
