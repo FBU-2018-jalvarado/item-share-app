@@ -25,11 +25,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectDatesButton;
-@property (weak, nonatomic) IBOutlet UIView *insideView;
 
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) ColorScheme *colors;
 @property (strong, nonatomic) timeModel *timeModel;
@@ -52,6 +51,8 @@
     self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
     self.fetchMerchantID = @"merchant.com.nicolas.Fetch";
 }
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,10 +82,12 @@
     self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
     }
     
-    self.insideView.layer.cornerRadius = 10;
     self.applePayButton.layer.cornerRadius = 10;
     self.selectDatesButton.layer.cornerRadius = 8;
-    self.backButton.layer.cornerRadius = 5;
+    
+    CGFloat contentWidth = self.scrollView.bounds.size.width;
+    CGFloat contentHeight = self.scrollView.bounds.size.height *3;
+    self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
     
 }
 

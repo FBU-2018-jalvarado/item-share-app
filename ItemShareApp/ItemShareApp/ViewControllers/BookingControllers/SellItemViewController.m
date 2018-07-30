@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *catLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *itemImage;
 @property (strong, nonatomic) Item *thisItem;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 @end
@@ -59,6 +60,10 @@
     self.label1.alpha = 0;
     self.label2.alpha = 0;
     self.label3.alpha = 0;
+    
+    CGFloat contentWidth = self.scrollView.bounds.size.width;
+    CGFloat contentHeight = self.scrollView.bounds.size.height * 3;
+    self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
 }
 
 - (IBAction)categoryAvailable:(id)sender {
