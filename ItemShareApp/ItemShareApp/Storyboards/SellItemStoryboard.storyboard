@@ -107,15 +107,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDO-nW-AS6">
-                                        <rect key="frame" x="37" y="434" width="300" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Choose Your Item's Categories"/>
-                                        <connections>
-                                            <action selector="categoryAvailable:" destination="knq-YP-lhO" eventType="touchUpInside" id="MSJ-MF-139"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiW-ji-tX5">
                                         <rect key="frame" x="146" y="413" width="83" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -138,9 +129,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholdImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholdImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
                                         <rect key="frame" x="102" y="216" width="170" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="7o9-HB-aAi" appends="YES" id="o19-1q-CuG"/>
+                                        </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uW-ri-Xxy">
                                         <rect key="frame" x="60" y="814" width="101" height="21"/>
@@ -155,6 +150,7 @@
                                         <state key="normal" title="Sell"/>
                                         <connections>
                                             <action selector="sellOnTap:" destination="knq-YP-lhO" eventType="touchUpInside" id="OeP-7U-YLu"/>
+                                            <segue destination="cMl-Ei-P2L" kind="show" id="vm9-of-cKE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -180,9 +176,15 @@
                         <outlet property="label3" destination="Wfg-m0-HAw" id="o3A-Kq-eTs"/>
                         <outlet property="priceLabel" destination="wp8-ef-GXG" id="mp9-bL-dLg"/>
                         <outlet property="scrollView" destination="5TP-E0-G0X" id="Iav-qP-cSn"/>
+                        <outlet property="uploadButton" destination="OiW-ji-tX5" id="U1q-F9-xjT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wf8-F6-wr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7o9-HB-aAi">
+                    <connections>
+                        <action selector="tapImage:" destination="knq-YP-lhO" id="yvh-aR-yi9"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-231.19999999999999" y="1528.3358320839582"/>
         </scene>
@@ -258,6 +260,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJL-ci-3rM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="559" y="1528"/>
+        </scene>
+        <!--CategoriesStoryboard-->
+        <scene sceneID="IVt-pj-rp1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CategoriesStoryboard" id="cMl-Ei-P2L" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jAf-WY-kg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231" y="2119"/>
         </scene>
     </scenes>
     <resources>
