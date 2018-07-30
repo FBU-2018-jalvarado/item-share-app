@@ -179,7 +179,6 @@
                 else{
                     NSLog(@"updated item successfully/ booking added");
                     [self updateRenterInformation];
-                    [self updateSellerInformation];
                     [self makePurchase];
                 }
             }];
@@ -220,21 +219,6 @@
     }];
 }
 
-- (void)updateSellerInformation{
-//    User *seller = self.item.owner;
-//    [seller.itemsSelling addObject:self.item];
-//    [seller setObject:seller.itemsSelling forKey:@"itemsSelling"];
-//    [seller saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//        if(error){
-//            NSLog(@"%@", error); //will not work. User cannot be saved unless they have been authenticated via logIn or signUp
-//            // https://stackoverflow.com/questions/31087679/edit-parse-user-information-when-logged-in-as-other-user-in-android
-//        }
-//        else{
-//            NSLog(@"updated seller itemsFutureRent array");
-//        }
-//    }];
-}
-
 - (void)postPopUp {
     self.popUpVC = [[PopUpViewController alloc] initWithNibName:@"PopUpViewController" bundle:nil];
     [self.popUpVC setName:self.item.title];
@@ -244,16 +228,26 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"calendarSegue"]){
+    if([segue.identifier isEqualToString:@"embedSegue"]){
     CalendarViewController *calendarController = [segue destinationViewController];
     calendarController.calendarDelegate = self;
-        calendarController.bookingsArray = self.bookingsArray;
+    calendarController.bookingsArray = self.bookingsArray;
     }
 }
 
 - (void)sendDates:(NSDate *)startDate withEndDate:(NSDate *)endDate {
     self.selectedStartDate = startDate;
     self.selectedEndDate = endDate;
+    
+    //date setup
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM-dd-YY"];
+    if(self.selectedStartDate){
+        self.startTimeLabel.text = [formatter stringFromDate:self.selectedStartDate];
+    }
+    if(self.selectedEndDate){
+        self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
+    }
 }
 
 - (void)presentAlert{
