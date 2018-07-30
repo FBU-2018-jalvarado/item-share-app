@@ -22,6 +22,8 @@
 		4D816FB12109253400C24648 /* ColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FB02109253400C24648 /* ColorScheme.m */; };
 		4D816FB4210A909600C24648 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FB3210A909600C24648 /* RegisterViewController.m */; };
 		4D816FBB210BBBA700C24648 /* myAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FBA210BBBA700C24648 /* myAnnotation.m */; };
+		7D3D5D73210F879D00F05EF8 /* ItemHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D5D72210F879D00F05EF8 /* ItemHistoryDetailViewController.m */; };
+		7D3D5D76210F8DF500F05EF8 /* ItemHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D5D75210F8DF500F05EF8 /* ItemHistoryCell.m */; };
 		7D4F5E44210A91B600669616 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E43210A91B600669616 /* ProfileViewController.m */; };
 		7D4F5E4B210BC3DD00669616 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E4A210BC3DD00669616 /* ProfileDetailViewController.m */; };
 		7D4F5E4F210BEE8E00669616 /* ItemHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E4E210BEE8E00669616 /* ItemHistoryViewController.m */; };
@@ -76,6 +78,10 @@
 		4D816FB8210B8D1A00C24648 /* item-share-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "item-share-app.entitlements"; sourceTree = "<group>"; };
 		4D816FB9210BBBA700C24648 /* myAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myAnnotation.h; sourceTree = "<group>"; };
 		4D816FBA210BBBA700C24648 /* myAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myAnnotation.m; sourceTree = "<group>"; };
+		7D3D5D71210F879D00F05EF8 /* ItemHistoryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryDetailViewController.h; sourceTree = "<group>"; };
+		7D3D5D72210F879D00F05EF8 /* ItemHistoryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemHistoryDetailViewController.m; sourceTree = "<group>"; };
+		7D3D5D74210F8DF500F05EF8 /* ItemHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryCell.h; sourceTree = "<group>"; };
+		7D3D5D75210F8DF500F05EF8 /* ItemHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemHistoryCell.m; sourceTree = "<group>"; };
 		7D4F5E42210A91B500669616 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		7D4F5E43210A91B600669616 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		7D4F5E49210BC3DD00669616 /* ProfileDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileDetailViewController.h; sourceTree = "<group>"; };
@@ -201,6 +207,8 @@
 				908EC1AC21028E5000BAD946 /* CategoryTableCell.m */,
 				908EC1AE21028E6100BAD946 /* ItemTableCell.h */,
 				908EC1AF21028E6100BAD946 /* ItemTableCell.m */,
+				7D3D5D74210F8DF500F05EF8 /* ItemHistoryCell.h */,
+				7D3D5D75210F8DF500F05EF8 /* ItemHistoryCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +232,8 @@
 				7D4F5E4A210BC3DD00669616 /* ProfileDetailViewController.m */,
 				7D4F5E4D210BEE8E00669616 /* ItemHistoryViewController.h */,
 				7D4F5E4E210BEE8E00669616 /* ItemHistoryViewController.m */,
+				7D3D5D71210F879D00F05EF8 /* ItemHistoryDetailViewController.h */,
+				7D3D5D72210F879D00F05EF8 /* ItemHistoryDetailViewController.m */,
 			);
 			path = ProfileControllers;
 			sourceTree = "<group>";
@@ -480,7 +490,9 @@
 				4D2ECC9320FFBFE1006E6757 /* DetailsViewController.m in Sources */,
 				4D2ECCC821029806006E6757 /* CalendarViewController.m in Sources */,
 				90091E3621027BD9007AB8A7 /* PreviousViewController.m in Sources */,
+				7D3D5D73210F879D00F05EF8 /* ItemHistoryDetailViewController.m in Sources */,
 				9B9F7E8E20FE4F9F000E319F /* Item.m in Sources */,
+				7D3D5D76210F8DF500F05EF8 /* ItemHistoryCell.m in Sources */,
 				4D2ECCB821011750006E6757 /* MapModel.m in Sources */,
 				90091E3321027B3F007AB8A7 /* CategoriesViewController.m in Sources */,
 				7D4F5E4F210BEE8E00669616 /* ItemHistoryViewController.m in Sources */,

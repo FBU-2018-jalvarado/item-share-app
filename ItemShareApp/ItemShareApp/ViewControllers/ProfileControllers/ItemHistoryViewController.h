@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ItemHistoryViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *itemToFetch;
+@property (weak, nonatomic) IBOutlet UIButton *itemCurrentFetch;
+@property (weak, nonatomic) IBOutlet UIButton *itemPastFetch;
+@property (weak, nonatomic) IBOutlet UIButton *itemsSelling;
 
 @end
