@@ -81,6 +81,10 @@
     if(self.selectedEndDate){
     self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
     }
+    if(self.selectedStartDate && self.selectedEndDate){
+        NSInteger days = [self daysBetween:self.selectedStartDate and:self.selectedEndDate];
+        self.totalPriceLabel.text = [@(days * [self.item.price integerValue]) stringValue];
+    }
     
     self.applePayButton.layer.cornerRadius = 10;
     self.selectDatesButton.layer.cornerRadius = 8;
@@ -89,6 +93,14 @@
     CGFloat contentHeight = self.scrollView.bounds.size.height *3;
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
     
+}
+
+- (NSInteger)daysBetween:(NSDate *)dt1 and:(NSDate *)dt2 {
+    NSUInteger unitFlags = NSCalendarUnitDay;
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:unitFlags fromDate:dt1 toDate:dt2 options:0];
+    NSInteger daysBetween = labs([components day]);
+    return daysBetween+1;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -174,7 +186,7 @@
     
     self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
     NSDecimalNumber *price = [NSDecimalNumber decimalNumberWithString:self.totalPriceLabel.text];
-    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:self.titleLabel.text amount:price], [PKPaymentSummaryItem summaryItemWithLabel:@"razeware" amount:price]];
+    request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:self.titleLabel.text amount:price], [PKPaymentSummaryItem summaryItemWithLabel:@"Fetch&Co" amount:price]];
     
     PKPaymentAuthorizationViewController *appleVC = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];
     appleVC.delegate = self;
