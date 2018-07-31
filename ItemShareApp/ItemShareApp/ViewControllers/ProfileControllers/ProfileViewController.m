@@ -12,8 +12,9 @@
 
 @interface ProfileViewController () 
 
-@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
+
 @property (strong, nonatomic) NSArray *profileCellArray;
 @end
 
@@ -23,6 +24,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.profileCellArray = @[@"Profile", @"Item History"];
+    User *user = (User *)[PFUser currentUser];
+    if(user[@"profile_image"] != nil){
+        self.profilePicture.file = user[@"profile_image"];
+        [self.profilePicture loadInBackground];
+    }
+    self.profilePicture.layer.cornerRadius = 56;
+    self.profilePicture.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {
