@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="SellItemStoryboard" id="qr4-GI-D5A" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eox-27-HEX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245" y="127"/>
+            <point key="canvasLocation" x="878" y="681"/>
         </scene>
         <!--MapStoryboard-->
         <scene sceneID="9ka-YM-RpP">
@@ -24,7 +24,7 @@
                 <viewControllerPlaceholder storyboardName="MapStoryboard" id="0Ou-Bd-hbq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EJ5-fl-Gmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245" y="314"/>
+            <point key="canvasLocation" x="1362" y="681"/>
         </scene>
         <!--Map View-->
         <scene sceneID="8h6-He-cdE">
@@ -149,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1f-Zs-S5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197.59999999999999" y="945.4272863568217"/>
+            <point key="canvasLocation" x="2366" y="-391"/>
         </scene>
         <!--Cat And Item Table View Controller-->
         <scene sceneID="nY1-EI-yET">
@@ -248,7 +248,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-159.19999999999999" y="1605.697151424288"/>
+            <point key="canvasLocation" x="3281" y="-391"/>
         </scene>
         <!--Item History View Controller-->
         <scene sceneID="Hnz-WF-C79">
@@ -305,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zq-HW-x85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2260" y="1592"/>
+            <point key="canvasLocation" x="3281" y="1011"/>
         </scene>
         <!--Item History Detail View Controller-->
         <scene sceneID="FSC-GW-llp">
@@ -361,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGv-Dn-3cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3397.5999999999999" y="1605.2473763118442"/>
+            <point key="canvasLocation" x="4100" y="1011"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="XVJ-PW-WLd">
@@ -428,7 +428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRF-nK-XaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335.2" y="1526.5367316341831"/>
+            <point key="canvasLocation" x="4934" y="-391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YI1-Gz-b1G">
@@ -446,7 +446,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxg-n9-ha9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="618" y="1529"/>
+            <point key="canvasLocation" x="4146" y="-391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S32-SI-y6F">
@@ -464,7 +464,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rey-iv-1E8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197.59999999999999" y="127.28635682158921"/>
+            <point key="canvasLocation" x="260" y="127"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="yv1-uH-zWF">
@@ -527,14 +527,6 @@
                                 <rect key="frame" x="17" y="308" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jx-4O-k3s">
-                                <rect key="frame" x="49" y="348" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Payment">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="payment" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-3B-2iN">
                                 <rect key="frame" x="17" y="351" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -598,6 +590,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jx-4O-k3s">
+                                <rect key="frame" x="49" y="348" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Payment">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g92-ZQ-yHi"/>
@@ -611,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hI-DL-15t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1509.5999999999999" y="906.29685157421295"/>
+            <point key="canvasLocation" x="2366" y="616"/>
         </scene>
         <!--Profile Detail View Controller-->
         <scene sceneID="bKJ-WR-nSG">
@@ -832,7 +832,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qH-Cc-6Wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2260" y="734.48275862068976"/>
+            <point key="canvasLocation" x="3281" y="241"/>
         </scene>
     </scenes>
     <resources>
