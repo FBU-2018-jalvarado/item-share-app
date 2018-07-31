@@ -76,6 +76,22 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+- (void)pictureDone{
+    PFUser *user = [PFUser currentUser];
+    if(self.cameraPicture != nil){
+        user[@"profile_image"] = [self getPFFileFromImage:self.cameraPicture];
+    }
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"error");
+        }
+        else{
+            NSLog(@"success");
+            [self setUpUI];
+        }
+    }];
+}
+
 - (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
     // check if image is not nil
     if (!image) {
@@ -124,6 +140,7 @@
     self.cameraPicture = [self resizeImage:self.cameraPicture withSize:CGSizeMake(screenWidth, screenWidth)];
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self pictureDone];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
