@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (strong, nonatomic) User* user;
 
-@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UITextField *addressLabel;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 
 @end

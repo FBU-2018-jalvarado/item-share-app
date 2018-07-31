@@ -41,6 +41,12 @@
 }
 
 - (void)setUpUI {
+    
+    if(self.user[@"profile_image"] != nil){
+        self.profilePicture.file = self.user[@"profile_image"];
+        [self.profilePicture loadInBackground];
+    }
+    
     self.profilePicture.layer.cornerRadius = 37;
     self.profilePicture.clipsToBounds = YES;
     
