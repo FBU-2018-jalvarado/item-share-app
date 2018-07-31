@@ -12,10 +12,10 @@
 @implementation CategoryViewCell
 
 - (void) setCategory:(NSString *)keyString {
-    self.backImage.layer.cornerRadius = 20;
+    self.backImage.layer.cornerRadius = 10;
     //self.backImage.layer.borderWidth = 2;
 //    self.backImage.layer.borderColor = [[UIColor blackColor] CGColor];
-    self.blackTint.layer.cornerRadius = 20;
+    self.blackTint.layer.cornerRadius = 10;
 //    self.blackTint.layer.borderColor = [[UIColor blackColor] CGColor];
     self.categoryLabel.text = keyString;
     if([keyString isEqualToString:@"Clothing"])
