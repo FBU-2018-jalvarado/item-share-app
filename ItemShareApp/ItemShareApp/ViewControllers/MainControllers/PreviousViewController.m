@@ -73,6 +73,21 @@
         [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -201, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+201);
+        //only apply the blur if the user hasn't disabled transparency effects
+        if (!UIAccessibilityIsReduceTransparencyEnabled()) {
+            //self.view.backgroundColor = [UIColor clearColor];
+            
+            UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+            UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+            //always fill the view
+            blurEffectView.frame = CGRectMake(self.blackView.frame.origin.x, self.blackView.frame.origin.y, self.blackView.frame.size.width, self.searchView.frame.origin.y);
+//            self.blackView.bounds;
+            blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            
+            [self.view addSubview:blurEffectView]; //if you have more UIViews, use an insertSubview API to place it where needed
+        } else {
+            self.view.backgroundColor = [UIColor blackColor];
+        }
 
     }
 }
