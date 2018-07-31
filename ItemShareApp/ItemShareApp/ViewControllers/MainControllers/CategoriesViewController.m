@@ -11,6 +11,7 @@
 #import "MapViewController.h"
 #import "Category.h"
 #import "ColorScheme.h"
+#import "CategoriesFlowLayout.h"
 
 @interface CategoriesViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *categoryCollView;
@@ -43,16 +44,24 @@
     [self.colors setColors];
     
     //Cell organization and formatting
+//    UICollectionViewFlowLayout *layout = [[CategoriesFlowLayout alloc] init];
+    
+    // try
+//    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.categoryCollView.collectionViewLayout;
+//
+//    layout.minimumInteritemSpacing = 3;
+//    layout.minimumLineSpacing = 3;
+//
+//    CGFloat postersPerLine = 3;
+//    CGFloat itemWidth = (self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
+//    CGFloat itemHeight = itemWidth/2.5;
+//    layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+    // try
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.categoryCollView.collectionViewLayout;
-    
-    layout.minimumInteritemSpacing = 3;
-    layout.minimumLineSpacing = 3;
-    
-    CGFloat postersPerLine = 3;
-    CGFloat itemWidth = (self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
-    CGFloat itemHeight = itemWidth/2.5;
+
+    CGFloat itemWidth = (self.categoryCollView.frame.size.width / 2.5);
+    CGFloat itemHeight = self.categoryCollView.frame.size.height;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
-    
     Category *category = [[Category alloc] init];
     [category setCats];
     //only set the Dictionary if it is the first page of categories
