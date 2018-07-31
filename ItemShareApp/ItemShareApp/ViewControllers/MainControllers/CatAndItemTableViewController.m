@@ -195,6 +195,7 @@
         if(error != nil)
         {
             NSLog(@"ERROR GETTING FULL LIST OF ITEMS!");
+            [self.delegate dismissHUD];
         }
         else {
             if (items) {

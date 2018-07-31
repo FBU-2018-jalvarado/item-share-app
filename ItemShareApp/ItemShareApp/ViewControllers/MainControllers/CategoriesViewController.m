@@ -60,7 +60,7 @@
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.categoryCollView.collectionViewLayout;
 
     CGFloat itemWidth = (self.categoryCollView.frame.size.width / 2.5);
-    CGFloat itemHeight = self.categoryCollView.frame.size.height;
+    CGFloat itemHeight = self.categoryCollView.frame.size.height-15;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     Category *category = [[Category alloc] init];
     [category setCats];

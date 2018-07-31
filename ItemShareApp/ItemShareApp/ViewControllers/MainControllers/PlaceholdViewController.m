@@ -172,6 +172,7 @@
         if(error != nil)
         {
             NSLog(@"ERROR GETTING THE ITEMS!");
+            [self.HUD dismissAnimated:TRUE];
         }
         else {
             if (items) {
