@@ -36,7 +36,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
-                                <rect key="frame" x="300" y="123" width="48" height="48"/>
+                                <rect key="frame" x="216" y="29" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="profile-yellow"/>
                                 <connections>
@@ -44,12 +44,25 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-Ho-VrY">
-                                <rect key="frame" x="300" y="185" width="48" height="48"/>
+                                <rect key="frame" x="272" y="29" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="post-blue"/>
                                 <connections>
                                     <segue destination="ba1-cd-WDL" kind="show" identifier="sellSegue" id="Y0b-Gp-snI"/>
                                 </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fetch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQK-4a-4bp">
+                                <rect key="frame" x="22" y="37" width="118" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="26"/>
+                                <color key="textColor" red="0.92655456849999995" green="0.26306679509999997" blue="0.29913948509999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
+                                <rect key="frame" x="155" y="29" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="message-green"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,6 +71,7 @@
                     <connections>
                         <outlet property="mapView" destination="15s-9G-4Ok" id="YML-np-UdJ"/>
                         <outlet property="searchBar" destination="omP-vV-ahs" id="pBy-b4-Jo5"/>
+                        <outlet property="titleLabel" destination="OQK-4a-4bp" id="eGx-q8-Cu4"/>
                         <segue destination="fuC-EW-0wL" kind="show" identifier="detailsViewSegue" id="ecO-iD-ogK"/>
                     </connections>
                 </viewController>
@@ -75,6 +89,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="message-green" width="512" height="512"/>
         <image name="post-blue" width="512" height="512"/>
         <image name="profile-yellow" width="512" height="512"/>
     </resources>
