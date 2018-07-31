@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import <ParseUI/ParseUI.h>
+#import "Parse.h"
 
 @interface ProfileDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
@@ -15,4 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (strong, nonatomic) User* user;
+
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UITextField *addressLabel;
+
 @end
