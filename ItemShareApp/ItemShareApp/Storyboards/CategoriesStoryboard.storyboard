@@ -432,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRF-nK-XaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335.2" y="1526.0869565217392"/>
+            <point key="canvasLocation" x="4882" y="-391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YI1-Gz-b1G">
@@ -840,8 +840,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="grayarrow" width="338" height="338"/>
         <image name="gray_star" width="225" height="225"/>
+        <image name="grayarrow" width="338" height="338"/>
         <image name="help" width="225" height="225"/>
         <image name="history" width="225" height="225"/>
         <image name="logout" width="512" height="512"/>
