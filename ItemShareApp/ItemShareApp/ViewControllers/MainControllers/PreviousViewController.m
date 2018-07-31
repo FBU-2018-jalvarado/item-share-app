@@ -14,7 +14,7 @@
 #import "MapViewController.h"
 #import "ProfileViewController.h"
 
-@interface PreviousViewController ()
+@interface PreviousViewController () <MapViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (strong, nonatomic ) MapViewController *mapController;
 @property (weak, nonatomic) IBOutlet UIView *profileView;
@@ -76,6 +76,24 @@
 
     }
 }
+
+- (void)openSideProfile {
+    
+    if (self.profileView.frame.origin.x == -263) {
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+        }];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.blackView.alpha = 0.6;
+        }];
+    }
+    else {
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+        }];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.blackView.alpha = 0;
+        }];
+    }
+}
 - (IBAction)didTapProfile:(id)sender {
     if (self.profileView.frame.origin.x == -263) {
         [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
@@ -92,6 +110,7 @@
         }];
     }
 }
+
 - (IBAction)didTapBlack:(id)sender {
     [self didTapProfile:sender];
 }
@@ -153,6 +172,7 @@
     }
     else if([segue.identifier isEqualToString:@"mapSegue"]){
         self.mapController = [segue destinationViewController];
+        self.mapController.mapDelegate = self;
     }
 }
 

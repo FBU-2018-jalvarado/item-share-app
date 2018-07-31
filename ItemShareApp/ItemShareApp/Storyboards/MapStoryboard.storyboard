@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SellItemStoryboard-->
+        <scene sceneID="lvD-eG-akJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SellItemStoryboard" id="ba1-cd-WDL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z3g-lZ-9bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-718" y="-335"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="NXX-bu-HVk">
             <objects>
@@ -27,6 +35,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
+                                <rect key="frame" x="300" y="123" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="profile-yellow"/>
+                                <connections>
+                                    <action selector="profileButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="jNU-9H-Ed1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-Ho-VrY">
+                                <rect key="frame" x="300" y="185" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="post-blue"/>
+                                <connections>
+                                    <segue destination="ba1-cd-WDL" kind="show" identifier="sellSegue" id="Y0b-Gp-snI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="N7T-PW-YyS"/>
@@ -50,4 +74,8 @@
             <point key="canvasLocation" x="-650" y="58"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="post-blue" width="512" height="512"/>
+        <image name="profile-yellow" width="512" height="512"/>
+    </resources>
 </document>

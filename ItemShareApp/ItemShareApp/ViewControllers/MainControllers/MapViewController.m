@@ -267,6 +267,12 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     pins = nil;
 }
 
+
+- (IBAction)profileButtonPressed:(id)sender {
+    [self.mapDelegate openSideProfile];
+}
+
+
 //placeholder code. This should be in profile view controllers to update the history.
 
 
