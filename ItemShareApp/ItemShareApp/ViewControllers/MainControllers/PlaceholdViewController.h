@@ -14,7 +14,9 @@
 
 - (void)dismissToMap;
 - (void)showSearchView;
--(void)dismissKeyboard;
+- (void)dismissKeyboard;
+- (void)showHUD;
+- (void)dismissHUD;
 
 @end
 
@@ -30,6 +32,7 @@
 @property (nonatomic, weak) id <PlaceholderViewControllerDelegate> placeholderDelegate;
 @property (nonatomic, weak) id <PlaceHolderViewControllerDelegateMap> placeholderDelegateMap;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) JGProgressHUD *HUD;
 @property CatAndItemTableViewController *catAndItemTableViewController;
 
 @end

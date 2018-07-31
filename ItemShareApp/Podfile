@@ -15,5 +15,6 @@ target 'item-share-app' do
   pod 'AFNetworking'
   pod 'JTCalendar', '~> 2.0'
   pod 'ClusterKit/MapKit'
+  pod 'JGProgressHUD'
 
 end

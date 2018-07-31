@@ -6,12 +6,13 @@
 //  Copyright © 2018 FBU-2018. All rights reserved.
 //
 
+#import <JGProgressHUD/JGProgressHUD.h>
+#import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
 #import "PreviousViewController.h"
 #import "CategoriesViewController.h"
 #import "PlaceholdViewController.h"
 #import "MapViewController.h"
 #import "ProfileViewController.h"
-
 
 @interface PreviousViewController ()
 @property (weak, nonatomic) IBOutlet UIView *searchView;
@@ -27,11 +28,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // move searchView to bottom to raise to top when pressed
       self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +201, self.searchView.frame.size.width, self.searchView.frame.size.height);
     // move profileView out of screen to bring in later
     self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
     self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height-201);
+
+    [self makeHUD];
+    
 
     // Do any additional setup after loading the view.
 }
@@ -42,6 +47,15 @@
     }
 }
 
+// make and display HUD
+-(void) makeHUD {
+    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+    self.HUD.animation = [[JGProgressHUDFadeZoomAnimation alloc] init];
+    self.HUD.textLabel.text = @"Loading";
+    [self.HUD showInView:self.view];
+    self.placeholdViewController.HUD = self.HUD;
+    self.placeholdViewController.catAndItemTableViewController.categoriesViewController.HUD = self.HUD;
+}
 
 -(void)dismissKeyboard {
     [self.view endEditing:YES];
@@ -151,5 +165,13 @@
     [self.mapController removeAllPinsButUserLocation];
 }
 
+-(void)showHUD {
+    [self.HUD showInView:self.view];
+}
+
+-(void)dismissHUD {
+    [self.HUD dismissAnimated:TRUE];
+    
+}
 
 @end
