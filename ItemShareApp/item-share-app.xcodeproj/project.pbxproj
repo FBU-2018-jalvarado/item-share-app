@@ -36,6 +36,7 @@
 		90091E3621027BD9007AB8A7 /* PreviousViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90091E3521027BD9007AB8A7 /* PreviousViewController.m */; };
 		901C5ABC20FEADB300B17D70 /* SellItemStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */; };
 		901C5ABF20FEADCC00B17D70 /* SellItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901C5ABE20FEADCC00B17D70 /* SellItemViewController.m */; };
+		9020A98B210FD7DA002E285A /* CategoriesFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9020A98A210FD7DA002E285A /* CategoriesFlowLayout.m */; };
 		908EC1A7210283A500BAD946 /* CategoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908EC1A6210283A500BAD946 /* CategoryViewCell.m */; };
 		908EC1AA21028B6D00BAD946 /* CatAndItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908EC1A921028B6D00BAD946 /* CatAndItemTableViewController.m */; };
 		908EC1AD21028E5000BAD946 /* CategoryTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908EC1AC21028E5000BAD946 /* CategoryTableCell.m */; };
@@ -105,6 +106,8 @@
 		901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SellItemStoryboard.storyboard; sourceTree = "<group>"; };
 		901C5ABD20FEADCC00B17D70 /* SellItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SellItemViewController.h; sourceTree = "<group>"; };
 		901C5ABE20FEADCC00B17D70 /* SellItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SellItemViewController.m; sourceTree = "<group>"; };
+		9020A989210FD7DA002E285A /* CategoriesFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoriesFlowLayout.h; sourceTree = "<group>"; };
+		9020A98A210FD7DA002E285A /* CategoriesFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoriesFlowLayout.m; sourceTree = "<group>"; };
 		908EC1A5210283A500BAD946 /* CategoryViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryViewCell.h; sourceTree = "<group>"; };
 		908EC1A6210283A500BAD946 /* CategoryViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryViewCell.m; sourceTree = "<group>"; };
 		908EC1A821028B6D00BAD946 /* CatAndItemTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatAndItemTableViewController.h; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 				4D015A7D210639A00014509E /* timeModel.m */,
 				4D816FAF2109253400C24648 /* ColorScheme.h */,
 				4D816FB02109253400C24648 /* ColorScheme.m */,
+				9020A989210FD7DA002E285A /* CategoriesFlowLayout.h */,
+				9020A98A210FD7DA002E285A /* CategoriesFlowLayout.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				9B9F7E6C20FE4EEE000E319F /* main.m in Sources */,
 				4D816FB4210A909600C24648 /* RegisterViewController.m in Sources */,
 				4D816FB12109253400C24648 /* ColorScheme.m in Sources */,
+				9020A98B210FD7DA002E285A /* CategoriesFlowLayout.m in Sources */,
 				908EC1B021028E6100BAD946 /* ItemTableCell.m in Sources */,
 				908EC1AD21028E5000BAD946 /* CategoryTableCell.m in Sources */,
 				4D015A7E210639A00014509E /* timeModel.m in Sources */,
