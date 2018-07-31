@@ -152,6 +152,9 @@
     }
 }
 
+-(void) dismissHUD {
+    [self.placeholderDelegate dismissHUD];
+}
 
 - (void)fetchItems {
     
@@ -185,6 +188,8 @@
                 NSLog(@"SUCCESSFULLY RETREIVED ITEMS!");
                 [self.catAndItemTableViewController.catAndItemTableView reloadData];
                 
+                // stop displaying HUD
+                [self.HUD dismissAnimated:TRUE];
             }
         }
     }];
@@ -211,4 +216,7 @@
     [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
 }
 
+- (void)showHUD {
+    [self.placeholderDelegate showHUD];
+}
 @end

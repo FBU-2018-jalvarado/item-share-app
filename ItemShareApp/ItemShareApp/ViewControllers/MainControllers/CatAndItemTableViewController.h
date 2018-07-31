@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CategoriesViewController.h"
+#import <JGProgressHUD/JGProgressHUD.h>
 
 @protocol CatAndItemTableViewControllerDelegate
 
@@ -16,6 +17,7 @@
 -(void)goToMap;
 -(void)clearSearchBar;
 -(void)filterInMap:(NSMutableArray *)listOfItems;
+-(void)dismissHUD;
 
 @end
 

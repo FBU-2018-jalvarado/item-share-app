@@ -87,6 +87,8 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.delegate showHUD];
+    
     NSArray *arrayOfKeys = [self.categories allKeys];
     NSString *clickedKey = arrayOfKeys[indexPath.item];
     if([self.categories[clickedKey] isKindOfClass:[NSString class]])

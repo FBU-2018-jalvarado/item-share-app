@@ -5,7 +5,7 @@
 //  Created by Stephanie Lampotang on 7/20/18.
 //  Copyright © 2018 FBU-2018. All rights reserved.
 //
-
+#import <JGProgressHUD/JGProgressHUD.h>
 #import "CatAndItemTableViewController.h"
 #import "CategoryTableCell.h"
 #import "ItemTableCell.h"
@@ -28,11 +28,9 @@
     self.catAndItemTableView.dataSource = self;
     self.catAndItemTableView.emptyDataSetSource = self;
     self.catAndItemTableView.emptyDataSetDelegate = self;
-    
+
     //remove cell separators
     self.catAndItemTableView.tableFooterView = [UIView new];
-    
-
     [self.catAndItemTableView reloadData];
     // Do any additional setup after loading the view.
 }
@@ -217,6 +215,7 @@
                 self.itemRows = itemsInCategory;
                 [self.catAndItemTableView reloadData];
                 [self.delegate filterInMap:self.itemRows];
+                [self.delegate dismissHUD];
             }
         }
     }];

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PreviousViewController : UIViewController
-
+@property (nonatomic, strong) JGProgressHUD *HUD;
 @end
