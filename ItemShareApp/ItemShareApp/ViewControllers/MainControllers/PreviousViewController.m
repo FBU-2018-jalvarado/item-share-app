@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIView *profileView;
 @property (weak, nonatomic) IBOutlet UIView *blackView;
 @property PlaceholdViewController *placeholdViewController;
+@property UIVisualEffectView *blurredView;
+@property (weak, nonatomic) IBOutlet UIView *mapContainerView;
 
 @end
 
@@ -79,16 +81,20 @@
             
             UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
             UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+            self.blurredView = blurEffectView;
             //always fill the view
-            blurEffectView.frame = CGRectMake(self.blackView.frame.origin.x, self.blackView.frame.origin.y, self.blackView.frame.size.width, self.searchView.frame.origin.y);
-//            self.blackView.bounds;
+//            blurEffectView.frame = CGRectMake(self.blackView.frame.origin.x, self.blackView.frame.origin.y, self.blackView.frame.size.width, self.searchView.frame.origin.y - 50);
+            blurEffectView.frame = CGRectMake(self.mapContainerView.frame.origin.x, self.mapContainerView.frame.origin.y, self.blackView.frame.size.width, self.mapContainerView.frame.size.height);
             blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            
-            [self.view addSubview:blurEffectView]; //if you have more UIViews, use an insertSubview API to place it where needed
+            [self.mapContainerView addSubview:blurEffectView];
+            //if you have more UIViews, use an insertSubview API to place it where needed
+            blurEffectView.alpha = 0;
+            [UIView animateWithDuration:0.5 animations:^{
+                blurEffectView.alpha = 1;
+            }];
         } else {
             self.view.backgroundColor = [UIColor blackColor];
         }
-
     }
 }
 - (IBAction)didTapProfile:(id)sender {
@@ -114,7 +120,7 @@
 - (void)dismissToMap {
     if(self.searchView.frame.origin.y == 350)
     {
-        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +263, self.searchView.frame.size.width, self.searchView.frame.size.height);
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +285, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height-263);
 
@@ -124,8 +130,11 @@
         [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +201, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height-201);
-
     }
+    [UIView animateWithDuration:0.5 animations:^{
+        self.blurredView.alpha = 0;
+    }];
+    [self.blurredView removeFromSuperview];
     [self.view endEditing:YES];
 }
 
@@ -135,7 +144,6 @@
         [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -464, self.searchView.frame.size.width, self.searchView.frame.size.height);
         }];
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+464);
-
     }
     
     if(self.searchView.frame.origin.y == 350)

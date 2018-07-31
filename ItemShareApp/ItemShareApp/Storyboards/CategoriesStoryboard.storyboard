@@ -87,6 +87,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blackView" destination="TSS-KL-spe" id="Req-4u-xBJ"/>
+                        <outlet property="mapContainerView" destination="IIi-Rs-AEf" id="h4H-X3-wJw"/>
                         <outlet property="profileView" destination="LAL-Wz-eQu" id="6Lq-hR-JdH"/>
                         <outlet property="searchView" destination="29r-N8-hCX" id="wrO-ep-z0J"/>
                     </connections>
