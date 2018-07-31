@@ -33,6 +33,9 @@
 @property (nonatomic, weak) id <PlaceHolderViewControllerDelegateMap> placeholderDelegateMap;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) JGProgressHUD *HUD;
+@property (weak, nonatomic) IBOutlet UIImageView *arrowImage;
+@property (weak, nonatomic) IBOutlet UIImageView *downArrow;
 @property CatAndItemTableViewController *catAndItemTableViewController;
+@property (weak, nonatomic) IBOutlet UIImageView *grayBar;
 
 @end

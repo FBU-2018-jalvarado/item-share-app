@@ -135,6 +135,14 @@
                                 <rect key="frame" x="166" y="0.0" width="42" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayarrowdown" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-Je-FbP">
+                                <rect key="frame" x="166" y="0.0" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graybar" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-qo-IH2">
+                                <rect key="frame" x="166" y="0.0" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -148,7 +156,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="arrowImage" destination="Pd2-IW-0AJ" id="fWc-v1-k99"/>
                         <outlet property="catAndItemTableV" destination="Ryr-op-2nR" id="qpX-L3-wOC"/>
+                        <outlet property="downArrow" destination="u4i-Je-FbP" id="2A1-kV-d3y"/>
+                        <outlet property="grayBar" destination="hVa-qo-IH2" id="6Nc-Ed-E7C"/>
                         <outlet property="searchBar" destination="cul-Gc-laT" id="Ee4-Ek-ZoJ"/>
                     </connections>
                 </viewController>
@@ -843,6 +854,8 @@
     <resources>
         <image name="gray_star" width="225" height="225"/>
         <image name="grayarrow" width="338" height="338"/>
+        <image name="grayarrowdown" width="338" height="338"/>
+        <image name="graybar" width="626" height="626"/>
         <image name="help" width="225" height="225"/>
         <image name="history" width="225" height="225"/>
         <image name="logout" width="512" height="512"/>
