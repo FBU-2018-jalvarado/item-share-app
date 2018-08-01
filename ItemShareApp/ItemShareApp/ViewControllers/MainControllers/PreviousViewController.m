@@ -14,7 +14,7 @@
 #import "MapViewController.h"
 #import "ProfileViewController.h"
 
-@interface PreviousViewController ()
+@interface PreviousViewController () <MapViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (strong, nonatomic ) MapViewController *mapController;
 @property (weak, nonatomic) IBOutlet UIView *profileView;
@@ -76,6 +76,33 @@
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+201);
         [self createBlur];
     }
+}
+
+- (void)openSideProfile {
+    
+    if (self.profileView.frame.origin.x == -263) {
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+        }];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.blackView.alpha = 0.6;
+        }];
+    }
+    else {
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+        }];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.blackView.alpha = 0;
+        }];
+    }
+}
+- (IBAction)didTapProfile:(id)sender {
+    if (self.profileView.frame.origin.x == -263) {
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+        }];
+        [UIView animateWithDuration:0.5 animations:^{
+            self.blackView.alpha = 0.6;
+        }];
+    }
     
     if(self.searchView.frame.origin.y == 647 && self.blackView.alpha == 0)
     {
@@ -85,6 +112,10 @@
         }];
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+297);
     }
+}
+
+- (IBAction)didTapBlack:(id)sender {
+    [self didTapProfile:sender];
 }
 
 - (void)dismissToMap {
@@ -196,6 +227,7 @@
     }
     else if([segue.identifier isEqualToString:@"mapSegue"]){
         self.mapController = [segue destinationViewController];
+        self.mapController.mapDelegate = self;
     }
 }
 

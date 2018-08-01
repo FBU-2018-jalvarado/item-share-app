@@ -16,6 +16,7 @@
 #import "PlaceholdViewController.h"
 #import "myAnnotation.h"
 #import <ClusterKit/MKMapView+ClusterKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotation";
 NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
@@ -23,6 +24,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 
 @interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;
@@ -30,8 +32,12 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) Item *item;
 @property (strong, nonatomic) MapModel *model;
-
 @property (strong, nonnull) MKUserLocation *previousUserLocation;
+@property (weak, nonatomic) IBOutlet UIView *titleView;
+@property (weak, nonatomic) IBOutlet UIView *viewWithLabel;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UIButton *profileButton;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 @end
 
@@ -61,9 +67,75 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     self.searchBar.delegate = self;
     self.mapView.delegate = self;
     self.previousUserLocation = [MKUserLocation new];
-    
+   
+    [self setUpUI];
+
     [self locationSetup];
     [self fetchItems];
+}
+
+- (void)setUpUI {
+    
+    //baseView
+    self.titleView.backgroundColor = [UIColor clearColor];
+    self.titleView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.titleView.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.titleView.layer.shadowOpacity = 1.0;
+    self.titleView.layer.shadowRadius = 4.0;
+    
+    self.titleLabel.frame = self.titleView.bounds;
+    self.titleLabel.layer.cornerRadius = 10;
+    self.titleLabel.layer.masksToBounds = YES;
+    [self.titleView addSubview:self.titleLabel];
+    
+    //map UI
+    self.mapView.showsScale = YES;
+    self.mapView.showsCompass = NO;
+    
+    //scale
+    MKScaleView *scale = [MKScaleView scaleViewWithMapView:self.mapView];
+    [scale setScaleVisibility:MKFeatureVisibilityVisible];
+    scale.frame = CGRectMake(5, -80, scale.frame.size.width, scale.frame.size.width);
+    [self.view addSubview:scale];
+    
+    //compass
+    MKCompassButton *compass = [MKCompassButton compassButtonWithMapView:self.mapView];
+    compass.frame = CGRectMake(self.view.frame.size.width - 47, self.view.frame.origin.y + 240, compass.frame.size.width, compass.frame.size.width);
+    [compass setCompassVisibility:MKFeatureVisibilityVisible];
+    [self.view addSubview:compass];
+    
+    
+    //buttons
+    self.profileButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.profileButton.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.profileButton.layer.shadowOpacity = 0.6;
+    self.profileButton.layer.shadowRadius = 4.0;
+    self.profileButton.layer.masksToBounds = NO;
+    
+    self.postButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.postButton.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.postButton.layer.shadowOpacity = 0.6;
+    self.postButton.layer.shadowRadius = 4.0;
+    self.postButton.layer.masksToBounds = NO;
+    
+    self.messageButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.messageButton.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.messageButton.layer.shadowOpacity = 0.6;
+    self.messageButton.layer.shadowRadius = 4.0;
+    self.messageButton.layer.masksToBounds = NO;
+    
+    /* will add border view to it
+     //add border view
+     UIView *borderView = [UIView new];
+     borderView.frame = self.titleView.bounds;
+     borderView.layer.cornerRadius = 10;
+     borderView.layer.borderColor = [UIColor blackColor].CGColor;
+     borderView.layer.borderWidth = 1.0;
+     borderView.layer.masksToBounds = YES;
+     borderView.layer.backgroundColor = [UIColor redColor].CGColor;
+     [self.titleView addSubview:borderView];
+     */
+    //add title
 }
 
 //retrieve items array
@@ -266,6 +338,12 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [self.mapView removeAnnotations:pins];
     pins = nil;
 }
+
+
+- (IBAction)profileButtonPressed:(id)sender {
+    [self.mapDelegate openSideProfile];
+}
+
 
 //placeholder code. This should be in profile view controllers to update the history.
 

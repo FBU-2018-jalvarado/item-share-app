@@ -10,21 +10,29 @@
 #import "Item.h"
 #import "MapModel.h"
 
-@interface CKMapKitViewController : UIViewController
+//@interface CKMapKitViewController : UIViewController
+//
+//@end
+//
+//@interface CKAnnotationView : MKAnnotationView
+//
+//@end
+//
+//@interface CKClusterView : MKAnnotationView
+//
+//@end
 
-@end
+@protocol MapViewControllerDelegate
 
-@interface CKAnnotationView : MKAnnotationView
-
-@end
-
-@interface CKClusterView : MKAnnotationView
+- (void)openSideProfile;
 
 @end
 
 @interface MapViewController : UIViewController
 //@property (strong, nonatomic) NSMutableArray *itemsArray;
+
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
+@property (nonatomic, weak) id <MapViewControllerDelegate> mapDelegate;
 
 - (void)removeAllPinsButUserLocation;
 - (void)addAnnotations: (NSMutableArray *)filteredItemsArray;
