@@ -840,10 +840,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="grayarrowdown" width="338" height="338"/>
-        <image name="graybar" width="626" height="626"/>
         <image name="gray_star" width="2000" height="1918"/>
         <image name="grayarrow" width="338" height="338"/>
+        <image name="grayarrowdown" width="338" height="338"/>
+        <image name="graybar" width="626" height="626"/>
         <image name="help" width="225" height="225"/>
         <image name="history" width="225" height="225"/>
         <image name="logout" width="512" height="512"/>

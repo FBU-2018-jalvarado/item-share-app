@@ -76,6 +76,14 @@
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+201);
         [self createBlur];
     }
+    if(self.searchView.frame.origin.y == 647)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -297, self.searchView.frame.size.width, self.searchView.frame.size.height);
+            self.placeholdViewController.grayBar.alpha = 1;
+            self.placeholdViewController.arrowImage.alpha = 0;
+        }];
+        self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+464);
+    }
 }
 
 - (void)openSideProfile {
@@ -94,28 +102,6 @@
             self.blackView.alpha = 0;
         }];
     }
-}
-- (IBAction)didTapProfile:(id)sender {
-    if (self.profileView.frame.origin.x == -263) {
-        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
-        }];
-        [UIView animateWithDuration:0.5 animations:^{
-            self.blackView.alpha = 0.6;
-        }];
-    }
-    
-    if(self.searchView.frame.origin.y == 647 && self.blackView.alpha == 0)
-    {
-        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -297, self.searchView.frame.size.width, self.searchView.frame.size.height);
-            self.placeholdViewController.grayBar.alpha = 1;
-            self.placeholdViewController.arrowImage.alpha = 0;
-        }];
-        self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+297);
-    }
-}
-
-- (IBAction)didTapBlack:(id)sender {
-    [self didTapProfile:sender];
 }
 
 - (void)dismissToMap {
@@ -169,7 +155,8 @@
     if (!UIAccessibilityIsReduceTransparencyEnabled()) {
         //self.view.backgroundColor = [UIColor clearColor];
         
-        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
         UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         self.blurredView = blurEffectView;
         //always fill the view
@@ -203,6 +190,7 @@
         }];
     }
 }
+
 - (IBAction)didTapBlack:(id)sender {
     [self didTapProfile:sender];
 }
