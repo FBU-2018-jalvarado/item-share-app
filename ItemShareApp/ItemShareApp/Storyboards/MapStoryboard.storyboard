@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="post-blue"/>
                                 <connections>
-                                    <segue destination="ba1-cd-WDL" kind="show" identifier="sellSegue" id="Y0b-Gp-snI"/>
+                                    <segue destination="ba1-cd-WDL" kind="presentation" identifier="sellSegue" id="Y0b-Gp-snI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fetch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQK-4a-4bp">
@@ -62,9 +62,9 @@
                                 <state key="normal" backgroundImage="message-green"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
-                                <rect key="frame" x="319" y="118" width="53" height="53"/>
+                                <rect key="frame" x="321" y="119" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="profile-female"/>
+                                <state key="normal" backgroundImage="profile-orange"/>
                                 <connections>
                                     <action selector="profileButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="jNU-9H-Ed1"/>
                                 </connections>
@@ -100,6 +100,6 @@
     <resources>
         <image name="message-green" width="512" height="512"/>
         <image name="post-blue" width="512" height="512"/>
-        <image name="profile-female" width="260" height="260"/>
+        <image name="profile-orange" width="512" height="512"/>
     </resources>
 </document>
