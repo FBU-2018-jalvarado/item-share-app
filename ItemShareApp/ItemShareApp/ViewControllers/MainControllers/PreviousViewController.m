@@ -118,13 +118,17 @@
         [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y +201, self.searchView.frame.size.width, self.searchView.frame.size.height);
             self.placeholdViewController.grayBar.alpha = 1;
             self.placeholdViewController.downArrow.alpha = 0;
+            self.blurredView.alpha = 0;
+        }
+        completion:^(BOOL finished){
+            if (finished) {
+                // Do your method here after your animation.
+                [self.blurredView removeFromSuperview];
+            }
         }];
-        self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height-201);
+    self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height-201);
     }
-    [UIView animateWithDuration:0.5 animations:^{
-        self.blurredView.alpha = 0;
-    }];
-    [self.blurredView removeFromSuperview];
+    
     [self.view endEditing:YES];
 }
 
