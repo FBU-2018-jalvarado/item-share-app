@@ -45,7 +45,12 @@
     self.buttonLabel.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];
    // [self.buttonLabel setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
      [self.buttonLabel setTitleColor:self.colorModel.mainColor forState:UIControlStateNormal];
-    self.nameLabel.text = self.name;
+    
+    self.nameLabel.text = self.item.title;
+    self.firstNameLabel.text = self.owner.firstName;
+    self.lastNameLabel.text = self.owner.lastName;
+    self.phoneLabel.text = self.owner.phoneNumber;
+    self.addressLabel.text = self.item.address;
     
 }
 

@@ -52,7 +52,6 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self init];
@@ -72,6 +71,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 
     [self locationSetup];
     [self fetchItems];
+    
 }
 
 - (void)setUpUI {
@@ -89,7 +89,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [self.titleView addSubview:self.titleLabel];
     
     //map UI
-    self.mapView.showsScale = YES;
+    self.mapView.showsScale = NO;
     self.mapView.showsCompass = NO;
     
     //scale
@@ -142,7 +142,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 - (void)fetchItems {
     [self.model fetchItemsWithCompletion:^(NSArray<Item *> *items, NSError *error) {
         if (error) {
-            return;
+            NSLog(@"%@", error);
         }
         if (items) {
             self.itemsArray = [items mutableCopy];
@@ -257,7 +257,8 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
          MKAnnotationView *view = (MKAnnotationView*)sender;
          myAnnotation *annotation = view.annotation;
          for(Item *item in self.itemsArray){
-             if(item == annotation.item){
+             
+             if(annotation != self.mapView.userLocation && item == annotation.item){ //if it is user location, there is no item
                  detailsViewController.item = item;
              }
          }

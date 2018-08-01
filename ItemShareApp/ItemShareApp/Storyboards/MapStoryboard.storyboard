@@ -40,19 +40,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="post-blue"/>
                                 <connections>
-                                    <segue destination="ba1-cd-WDL" kind="show" identifier="sellSegue" id="Y0b-Gp-snI"/>
+                                    <segue destination="ba1-cd-WDL" kind="presentation" identifier="sellSegue" id="Y0b-Gp-snI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fetch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQK-4a-4bp">
                                 <rect key="frame" x="16" y="20" width="118" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.97933279418583319" green="0.97807776492647269" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="17"/>
                                 <color key="textColor" red="0.92655456849999995" green="0.26306679509999997" blue="0.29913948509999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9pL-cr-h2O">
-                                <rect key="frame" x="5" y="20" width="364" height="30"/>
+                                <rect key="frame" x="260" y="20" width="109" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -62,9 +62,9 @@
                                 <state key="normal" backgroundImage="message-green"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
-                                <rect key="frame" x="319" y="118" width="53" height="53"/>
+                                <rect key="frame" x="321" y="119" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="profile-female"/>
+                                <state key="normal" backgroundImage="profile-orange"/>
                                 <connections>
                                     <action selector="profileButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="jNU-9H-Ed1"/>
                                 </connections>
@@ -100,6 +100,6 @@
     <resources>
         <image name="message-green" width="512" height="512"/>
         <image name="post-blue" width="512" height="512"/>
-        <image name="profile-female" width="260" height="260"/>
+        <image name="profile-orange" width="512" height="512"/>
     </resources>
 </document>

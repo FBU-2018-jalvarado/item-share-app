@@ -14,6 +14,7 @@
 #import "timeModel.h"
 #import "Booking.h"
 #import "ColorScheme.h"
+#import "Item.h"
 
 @interface CalendarViewController () <JTCalendarDelegate>
 
@@ -24,7 +25,6 @@
 
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
-
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (strong, nonatomic) NSDate *selectedDate;
 @property (strong, nonatomic) timeModel *timeModel;
@@ -57,6 +57,11 @@
     [self.colors setColors];
     [self setUpUI];
     
+    [self fetchBookings];
+}
+
+- (void)finishSetup {
+    
     self.firstClick = YES;
     self.calendarManager = [JTCalendarManager new];
     self.calendarManager.delegate = self;
@@ -66,7 +71,24 @@
     [self.calendarManager setDate:[NSDate date]];
 }
 
+- (void)fetchBookings {
+    [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
+        if (error) {
+            return;
+        }
+        if (bookings) {
+            self.bookingsArray = [bookings mutableCopy];
+            [self.calendarDelegate sendBookings:self.bookingsArray];
+            [self finishSetup];
+            
+        } else {
+            // HANDLE NO ITEMS
+        }
+    }];
+}
+
 - (void)setUpUI {
+    
     self.startTimeButton.backgroundColor = self.colors.thirdColor;
     self.endTimeButton.backgroundColor = self.colors.thirdColor;
     [self.startTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
@@ -92,7 +114,7 @@
     return view;
 }
 
-//edit calendar view with the day names on top
+//edit calendar day boxes
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar{
     JTCalendarDayView *view = [JTCalendarDayView new];
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:15];
@@ -118,6 +140,8 @@
             if([self firstDayIsAfter:dayView.date withSecondDate:self.startDate]){ //if the end date selected is before the currently selected start date, select that date as start date
                 self.endDate = self.selectedDate;
                 self.firstClick = YES;
+                //update date labels
+                [self.calendarDelegate sendDates:self.startDate withEndDate:self.endDate];
             }
             else{
                 self.startDate = self.selectedDate;
@@ -132,7 +156,6 @@
         dayView.circleView.transform = CGAffineTransformIdentity;
         [self.calendarManager reload];
     } completion:nil];
-    
     
     //load or prev or next page if touch a day from another month
     if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
@@ -232,26 +255,15 @@
     }
     return NO;
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)startTimeButtonPressed:(id)sender {
-    self.startDate = self.selectedDate;
-    [self.startTimeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-}
-
-- (IBAction)endTimeButtonPressed:(id)sender {
-    self.endDate = self.selectedDate;
-    [self.endTimeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-}
-
 - (IBAction)doneButtonPressed:(id)sender {
-    //[self performSegueWithIdentifier:@"detailsBackSegue" sender:nil];
     [self.calendarDelegate sendDates:self.startDate withEndDate:self.endDate];
-    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Navigation

@@ -91,15 +91,15 @@
 
 - (void)openSideProfile {
     
-    if (self.profileView.frame.origin.x == -263) {
-        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+    if (self.profileView.frame.origin.x == -297) {
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
         }];
         [UIView animateWithDuration:0.5 animations:^{
             self.blackView.alpha = 0.6;
         }];
     }
     else {
-        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
         }];
         [UIView animateWithDuration:0.5 animations:^{
             self.blackView.alpha = 0;
