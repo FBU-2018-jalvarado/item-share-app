@@ -222,7 +222,7 @@
         if([self dayIsBooked:dayView.date]){
         //make it gray or something
             dayView.circleView.hidden = NO;
-            dayView.circleView.backgroundColor = [UIColor darkGrayColor];
+            dayView.circleView.backgroundColor = [UIColor lightGrayColor];
           //  dayView.dotView.backgroundColor = [UIColor redColor];
             dayView.textLabel.textColor = self.colors.thirdColor;
         }
