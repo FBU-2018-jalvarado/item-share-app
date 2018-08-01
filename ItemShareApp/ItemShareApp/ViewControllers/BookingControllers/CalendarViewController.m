@@ -14,6 +14,7 @@
 #import "timeModel.h"
 #import "Booking.h"
 #import "ColorScheme.h"
+#import "Item.h"
 
 @interface CalendarViewController () <JTCalendarDelegate>
 
@@ -24,7 +25,6 @@
 
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
-
 @property (strong, nonatomic) JTCalendarManager *calendarManager;
 @property (strong, nonatomic) NSDate *selectedDate;
 @property (strong, nonatomic) timeModel *timeModel;
@@ -57,6 +57,11 @@
     [self.colors setColors];
     [self setUpUI];
     
+    [self fetchBookings];
+}
+
+- (void)finishSetup {
+    
     self.firstClick = YES;
     self.calendarManager = [JTCalendarManager new];
     self.calendarManager.delegate = self;
@@ -64,6 +69,22 @@
     [self.calendarManager setMenuView:_calendarMenuView];
     [self.calendarManager setContentView:_calendarContentView];
     [self.calendarManager setDate:[NSDate date]];
+}
+
+- (void)fetchBookings {
+    [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
+        if (error) {
+            return;
+        }
+        if (bookings) {
+            self.bookingsArray = [bookings mutableCopy];
+            [self.calendarDelegate sendBookings:self.bookingsArray];
+            [self finishSetup];
+            
+        } else {
+            // HANDLE NO ITEMS
+        }
+    }];
 }
 
 - (void)setUpUI {
@@ -201,7 +222,7 @@
         if([self dayIsBooked:dayView.date]){
         //make it gray or something
             dayView.circleView.hidden = NO;
-            dayView.circleView.backgroundColor = [UIColor lightGrayColor];
+            dayView.circleView.backgroundColor = [UIColor darkGrayColor];
           //  dayView.dotView.backgroundColor = [UIColor redColor];
             dayView.textLabel.textColor = self.colors.thirdColor;
         }
@@ -234,6 +255,8 @@
     }
     return NO;
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

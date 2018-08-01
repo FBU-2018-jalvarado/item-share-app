@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 @protocol CalendarViewControllerDelegate
 
 - (void)sendDates: (NSDate *)startDate withEndDate:(NSDate *)endDate;
+- (void)sendBookings: (NSMutableArray *)bookings;
 
 @end
 
@@ -18,5 +20,6 @@
 
 @property (nonatomic, weak) id <CalendarViewControllerDelegate> calendarDelegate;
 @property (strong, nonatomic) NSMutableArray *bookingsArray;
+@property (strong, nonatomic) Item *item;
 
 @end

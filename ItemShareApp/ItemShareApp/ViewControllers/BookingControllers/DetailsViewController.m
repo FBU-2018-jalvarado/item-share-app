@@ -60,7 +60,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self.colors setColors];
-    [self fetchBookings];
     [self setUpUI];
     //check if payments are authorized. If not, the pay button will be hidden
     // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
@@ -145,19 +144,6 @@
     return YES;
 }
 
-- (void)fetchBookings {
-    [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
-        if (error) {
-            return;
-        }
-        if (bookings) {
-            self.bookingsArray = [bookings mutableCopy];
-        } else {
-            // HANDLE NO ITEMS
-        }
-    }];
-}
-
 //set booking
 - (void)postCurrentBooking{
     User *renter = (User*)[PFUser currentUser];
@@ -238,9 +224,12 @@
     if([segue.identifier isEqualToString:@"embedSegue"]){
     CalendarViewController *calendarController = [segue destinationViewController];
     calendarController.calendarDelegate = self;
-    calendarController.bookingsArray = self.bookingsArray;
+    calendarController.item = self.item;
+    //calendarController.bookingsArray = self.bookingsArray;
     }
 }
+
+//delegate methods
 
 - (void)sendDates:(NSDate *)startDate withEndDate:(NSDate *)endDate {
     self.selectedStartDate = startDate;
@@ -256,6 +245,10 @@
 //    if(self.selectedEndDate){
 //        self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
 //    }
+}
+
+- (void)sendBookings: (NSMutableArray *)bookings{
+    self.bookingsArray = bookings;
 }
 
 - (void)presentAlert{
