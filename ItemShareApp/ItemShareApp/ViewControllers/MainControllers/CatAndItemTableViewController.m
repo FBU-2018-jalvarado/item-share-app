@@ -28,6 +28,8 @@
     self.catAndItemTableView.dataSource = self;
     self.catAndItemTableView.emptyDataSetSource = self;
     self.catAndItemTableView.emptyDataSetDelegate = self;
+    
+    self.catAndItemTableView.rowHeight = UITableViewAutomaticDimension;
 
     //remove cell separators
     self.catAndItemTableView.tableFooterView = [UIView new];

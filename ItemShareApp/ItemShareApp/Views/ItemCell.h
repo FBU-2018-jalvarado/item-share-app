@@ -6,6 +6,8 @@
 //  Copyright © 2018 Nicolas Machado. All rights reserved.
 //
 
+//  D E P R E C A T E D
+
 #import <UIKit/UIKit.h>
 #import "Item.h"
 

@@ -190,7 +190,7 @@
                 [self.catAndItemTableViewController.catAndItemTableView reloadData];
                 
                 // stop displaying HUD
-                [self.HUD dismissAnimated:TRUE];
+                [self.placeholderDelegate dismissHUD];
             }
         }
     }];
