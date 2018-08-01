@@ -35,6 +35,9 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 @property (strong, nonnull) MKUserLocation *previousUserLocation;
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UIView *viewWithLabel;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) IBOutlet UIButton *profileButton;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 
 @end
 
@@ -85,20 +88,41 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     self.titleLabel.layer.masksToBounds = YES;
     [self.titleView addSubview:self.titleLabel];
     
-    
+    //map UI
     self.mapView.showsScale = YES;
     self.mapView.showsCompass = NO;
     
+    //scale
     MKScaleView *scale = [MKScaleView scaleViewWithMapView:self.mapView];
     [scale setScaleVisibility:MKFeatureVisibilityVisible];
     scale.frame = CGRectMake(5, -80, scale.frame.size.width, scale.frame.size.width);
     [self.view addSubview:scale];
-
+    
+    //compass
     MKCompassButton *compass = [MKCompassButton compassButtonWithMapView:self.mapView];
     compass.frame = CGRectMake(self.view.frame.size.width - 47, self.view.frame.origin.y + 240, compass.frame.size.width, compass.frame.size.width);
-    
     [compass setCompassVisibility:MKFeatureVisibilityVisible];
     [self.view addSubview:compass];
+    
+    
+    //buttons
+    self.profileButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.profileButton.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.profileButton.layer.shadowOpacity = 0.6;
+    self.profileButton.layer.shadowRadius = 4.0;
+    self.profileButton.layer.masksToBounds = NO;
+    
+    self.postButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.postButton.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.postButton.layer.shadowOpacity = 0.6;
+    self.postButton.layer.shadowRadius = 4.0;
+    self.postButton.layer.masksToBounds = NO;
+    
+    self.messageButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.messageButton.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.messageButton.layer.shadowOpacity = 0.6;
+    self.messageButton.layer.shadowRadius = 4.0;
+    self.messageButton.layer.masksToBounds = NO;
     
     /* will add border view to it
      //add border view
