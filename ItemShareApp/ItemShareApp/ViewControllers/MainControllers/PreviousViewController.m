@@ -39,7 +39,10 @@
     self.placeholdViewController.grayBar.alpha = 1;
     self.placeholdViewController.arrowImage.alpha = 0;
     self.placeholdViewController.downArrow.alpha = 0;
-
+    self.searchView.clipsToBounds = YES;
+    self.searchView.layer.cornerRadius = 20;
+    self.searchView.layer.backgroundColor = [UIColor blackColor].CGColor;
+    
     [self makeHUD];
     
 

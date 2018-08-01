@@ -56,7 +56,7 @@
                                     <outletCollection property="gestureRecognizers" destination="8Eg-QV-RUc" appends="YES" id="v0A-7t-sVD"/>
                                 </connections>
                             </view>
-                            <containerView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
                                 <rect key="frame" x="0.0" y="149" width="375" height="518"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
