@@ -67,6 +67,16 @@
 }
 
 - (IBAction)swipeUp:(id)sender {
+    if(self.searchView.frame.origin.y == 350 && self.blackView.alpha == 0)
+    {
+        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -201, self.searchView.frame.size.width, self.searchView.frame.size.height);
+            self.placeholdViewController.grayBar.alpha = 0;
+            self.placeholdViewController.downArrow.alpha = 1;
+        }];
+        self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+201);
+        [self createBlur];
+    }
+    
     if(self.searchView.frame.origin.y == 647 && self.blackView.alpha == 0)
     {
         [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -297, self.searchView.frame.size.width, self.searchView.frame.size.height);
@@ -75,15 +85,6 @@
         }];
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+297);
     }
-    if(self.searchView.frame.origin.y == 350 && self.blackView.alpha == 0)
-    {
-        [UIView animateWithDuration:0.5 animations:^{self.searchView.frame = CGRectMake(self.searchView.frame.origin.x, self.searchView.frame.origin.y -201, self.searchView.frame.size.width, self.searchView.frame.size.height);
-            self.placeholdViewController.grayBar.alpha = 0;
-            self.placeholdViewController.downArrow.alpha = 1;
-        }];
-        self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+201);
-    }
-    [self createBlur];
 }
 
 - (void)dismissToMap {
@@ -127,7 +128,6 @@
             self.placeholdViewController.downArrow.alpha = 1;
         }];
         self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+201);
-        self.placeholdViewController.arrowImage.image = [UIImage imageNamed: @"grayarrowdown"];
     }
     [self.placeholdViewController.searchBar becomeFirstResponder];
     [self createBlur];

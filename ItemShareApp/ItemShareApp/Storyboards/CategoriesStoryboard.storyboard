@@ -41,13 +41,6 @@
                                     <segue destination="0Ou-Bd-hbq" kind="embed" identifier="mapSegue" id="5Oe-In-5aL"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
-                                <rect key="frame" x="0.0" y="149" width="375" height="518"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="KQT-bc-Xc1" kind="embed" identifier="showSearchViewSegue" id="6LK-3b-dAG"/>
-                                </connections>
-                            </containerView>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-KL-spe">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -57,6 +50,13 @@
                                     <outletCollection property="gestureRecognizers" destination="8Eg-QV-RUc" appends="YES" id="v0A-7t-sVD"/>
                                 </connections>
                             </view>
+                            <containerView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
+                                <rect key="frame" x="0.0" y="149" width="375" height="518"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="KQT-bc-Xc1" kind="embed" identifier="showSearchViewSegue" id="6LK-3b-dAG"/>
+                                </connections>
+                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAL-Wz-eQu">
                                 <rect key="frame" x="0.0" y="64" width="263" height="603"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -165,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1f-Zs-S5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366" y="-391"/>
+            <point key="canvasLocation" x="2365.5999999999999" y="-391.304347826087"/>
         </scene>
         <!--Cat And Item Table View Controller-->
         <scene sceneID="nY1-EI-yET">
