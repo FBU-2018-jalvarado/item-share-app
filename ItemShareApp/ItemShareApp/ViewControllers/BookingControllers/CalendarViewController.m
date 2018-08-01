@@ -67,6 +67,7 @@
 }
 
 - (void)setUpUI {
+    
     self.startTimeButton.backgroundColor = self.colors.thirdColor;
     self.endTimeButton.backgroundColor = self.colors.thirdColor;
     [self.startTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
@@ -118,6 +119,8 @@
             if([self firstDayIsAfter:dayView.date withSecondDate:self.startDate]){ //if the end date selected is before the currently selected start date, select that date as start date
                 self.endDate = self.selectedDate;
                 self.firstClick = YES;
+                //update date labels
+                [self.calendarDelegate sendDates:self.startDate withEndDate:self.endDate];
             }
             else{
                 self.startDate = self.selectedDate;
@@ -132,7 +135,6 @@
         dayView.circleView.transform = CGAffineTransformIdentity;
         [self.calendarManager reload];
     } completion:nil];
-    
     
     //load or prev or next page if touch a day from another month
     if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
@@ -237,21 +239,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)startTimeButtonPressed:(id)sender {
-    self.startDate = self.selectedDate;
-    [self.startTimeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-}
-
-- (IBAction)endTimeButtonPressed:(id)sender {
-    self.endDate = self.selectedDate;
-    [self.endTimeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-}
-
 - (IBAction)doneButtonPressed:(id)sender {
-    //[self performSegueWithIdentifier:@"detailsBackSegue" sender:nil];
     [self.calendarDelegate sendDates:self.startDate withEndDate:self.endDate];
-    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Navigation

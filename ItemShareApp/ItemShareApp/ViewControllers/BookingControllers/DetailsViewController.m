@@ -71,6 +71,7 @@
 }
 
 - (void)setUpUI {
+    
     //image setup
     self.itemImageView.file = [self.item.images firstObject];
     [self.itemImageView loadInBackground];
