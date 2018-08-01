@@ -19,6 +19,7 @@ PODS:
   - ClusterKit/MapKit (0.3.4):
     - ClusterKit/Core
   - DZNEmptyDataSet (1.8.1)
+  - iCarousel (1.8.3)
   - JGProgressHUD (2.0.3)
   - JTCalendar (2.2.3)
   - Parse (1.17.1):
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - AFNetworking
   - ClusterKit/MapKit
   - DZNEmptyDataSet
+  - iCarousel (~> 1.8.3)
   - JGProgressHUD
   - JTCalendar (~> 2.0)
   - Parse
@@ -46,6 +48,7 @@ SPEC REPOS:
     - Bolts
     - ClusterKit
     - DZNEmptyDataSet
+    - iCarousel
     - JGProgressHUD
     - JTCalendar
     - Parse
@@ -57,12 +60,13 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   ClusterKit: 30d15b449a398103d130ea9661cab82bb99eb52d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   JTCalendar: f54975f1426facc38d112f372f0d3d955aae8d86
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   ParseUI: 2b37a0bc692a3e7666cf0c37b5521dfddd74a1af
   Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
 
-PODFILE CHECKSUM: aa76b2d6d2ab96824c3b02209c7d79c8b9cb4b1b
+PODFILE CHECKSUM: f14e255fb82d22b0fd827c6db1c3566d81026de8
 
 COCOAPODS: 1.5.3

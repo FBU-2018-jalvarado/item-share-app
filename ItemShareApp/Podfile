@@ -16,5 +16,5 @@ target 'item-share-app' do
   pod 'JTCalendar', '~> 2.0'
   pod 'ClusterKit/MapKit'
   pod 'JGProgressHUD'
-
+  pod 'iCarousel', '~> 1.8.3'
 end
