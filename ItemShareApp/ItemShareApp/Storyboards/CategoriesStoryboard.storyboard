@@ -41,13 +41,6 @@
                                     <segue destination="0Ou-Bd-hbq" kind="embed" identifier="mapSegue" id="5Oe-In-5aL"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
-                                <rect key="frame" x="0.0" y="149" width="375" height="518"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="KQT-bc-Xc1" kind="embed" identifier="showSearchViewSegue" id="6LK-3b-dAG"/>
-                                </connections>
-                            </containerView>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-KL-spe">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,6 +56,13 @@
                                     <outletCollection property="gestureRecognizers" destination="8Eg-QV-RUc" appends="YES" id="v0A-7t-sVD"/>
                                 </connections>
                             </view>
+                            <containerView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
+                                <rect key="frame" x="0.0" y="149" width="375" height="518"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="KQT-bc-Xc1" kind="embed" identifier="showSearchViewSegue" id="6LK-3b-dAG"/>
+                                </connections>
+                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAL-Wz-eQu">
                                 <rect key="frame" x="0.0" y="0.0" width="263" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -93,6 +93,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blackView" destination="TSS-KL-spe" id="Req-4u-xBJ"/>
+                        <outlet property="mapContainerView" destination="IIi-Rs-AEf" id="h4H-X3-wJw"/>
                         <outlet property="profileView" destination="LAL-Wz-eQu" id="6Lq-hR-JdH"/>
                         <outlet property="searchView" destination="29r-N8-hCX" id="wrO-ep-z0J"/>
                     </connections>
@@ -140,6 +141,14 @@
                                 <rect key="frame" x="166" y="0.0" width="42" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayarrowdown" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-Je-FbP">
+                                <rect key="frame" x="166" y="0.0" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graybar" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-qo-IH2">
+                                <rect key="frame" x="166" y="0.0" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -153,13 +162,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="arrowImage" destination="Pd2-IW-0AJ" id="fWc-v1-k99"/>
                         <outlet property="catAndItemTableV" destination="Ryr-op-2nR" id="qpX-L3-wOC"/>
+                        <outlet property="downArrow" destination="u4i-Je-FbP" id="2A1-kV-d3y"/>
+                        <outlet property="grayBar" destination="hVa-qo-IH2" id="6Nc-Ed-E7C"/>
                         <outlet property="searchBar" destination="cul-Gc-laT" id="Ee4-Ek-ZoJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1f-Zs-S5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366" y="-391"/>
+            <point key="canvasLocation" x="2365.5999999999999" y="-391.304347826087"/>
         </scene>
         <!--Cat And Item Table View Controller-->
         <scene sceneID="nY1-EI-yET">
@@ -438,7 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRF-nK-XaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5159" y="-391"/>
+            <point key="canvasLocation" x="4882" y="-391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YI1-Gz-b1G">
@@ -828,6 +840,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="grayarrowdown" width="338" height="338"/>
+        <image name="graybar" width="626" height="626"/>
         <image name="gray_star" width="2000" height="1918"/>
         <image name="grayarrow" width="338" height="338"/>
         <image name="help" width="225" height="225"/>
