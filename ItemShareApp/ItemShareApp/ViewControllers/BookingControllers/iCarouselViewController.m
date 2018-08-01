@@ -55,12 +55,8 @@
     _carousel.type = iCarouselTypeRotary;
     _carousel.delegate = self;
     _carousel.dataSource = self;
-    self.images = [[NSMutableArray alloc] init];
-//    for (int i = 0; i < 100; i++)
-//    {
-//        [_items addObject:@(i)];
-//    }
-    [_carousel reloadData];
+    //self.images = [[NSMutableArray alloc] init];
+//    [_carousel reloadData];
 }
 
 - (void)viewDidUnload

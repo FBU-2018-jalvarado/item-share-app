@@ -14,6 +14,7 @@
 #import "timeModel.h"
 #import "PopUpViewController.h"
 #import "ColorScheme.h"
+#import "iCarouselViewController.h"
 #import "User.h"
 #import <Passkit/Passkit.h>
 
@@ -229,9 +230,18 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"embedSegue"]){
-    CalendarViewController *calendarController = [segue destinationViewController];
-    calendarController.calendarDelegate = self;
-    calendarController.bookingsArray = self.bookingsArray;
+        CalendarViewController *calendarController = [segue destinationViewController];
+        calendarController.calendarDelegate = self;
+        calendarController.bookingsArray = self.bookingsArray;
+    }
+    if([segue.identifier isEqualToString:@"imageCarouselSegue"])
+    {
+        iCarouselViewController *icarVC = [segue destinationViewController];
+        //self.imageArray = [[NSMutableArray alloc] init];
+        //[self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
+        //icarVC.images = [[NSMutableArray alloc] init];
+        icarVC.images = self.item.images;
+//        self.icarVC = icarVC;
     }
 }
 

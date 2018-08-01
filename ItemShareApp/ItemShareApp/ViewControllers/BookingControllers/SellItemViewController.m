@@ -230,7 +230,7 @@
      {
          iCarouselViewController *icarVC = [segue destinationViewController];
          self.imageArray = [[NSMutableArray alloc] init];
-         [self.imageArray addObject:[UIImage imageNamed:@"placeholdImage"]];
+         [self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
          icarVC.images = [[NSMutableArray alloc] init];
          icarVC.images = self.imageArray;
          self.icarVC = icarVC;
