@@ -150,7 +150,7 @@
                                         <rect key="frame" x="0.0" y="1048" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
-                                            <segue destination="R78-Py-iAr" kind="embed" id="QPN-Vr-3cc"/>
+                                            <segue destination="R78-Py-iAr" kind="embed" identifier="imageCarouselSegue" id="QPN-Vr-3cc"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-gs-y7E">
@@ -304,6 +304,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="car" destination="P0l-RC-yn2" id="PMu-Mw-PvG"/>
                         <outlet property="carousel" destination="P0l-RC-yn2" id="T4s-kw-LQn"/>
                     </connections>
                 </viewController>

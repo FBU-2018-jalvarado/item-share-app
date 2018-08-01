@@ -11,5 +11,7 @@
 
 @interface iCarouselViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 @property (nonatomic, strong) IBOutlet iCarousel *carousel;
+@property (nonatomic, strong) NSMutableArray *images;
+- (void)reload;
 @end
 

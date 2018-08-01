@@ -8,6 +8,7 @@
 
 #import "SellItemViewController.h"
 #import "Item.h"
+#import "iCarouselViewController.h"
 #import <Parse/Parse.h>
 #import "User.h"
 #import "CategoriesViewController.h"
@@ -34,6 +35,8 @@
 @property (strong, nonatomic) NSMutableArray *imageArray;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextView *descripLabel;
+@property iCarouselViewController *icarVC;
+@property BOOL thisIsFirstPic;
 
 @end
 
@@ -45,7 +48,7 @@
     self.categoryView.layer.borderColor = [[UIColor blackColor] CGColor];
     self.categoryView.layer.borderWidth = 1;
     self.categoryArray = [[NSMutableArray alloc] init];
-    self.imageArray = [[NSMutableArray alloc] init];
+    self.thisIsFirstPic = YES;
     self.itemTitle.delegate = self;
     self.itemAddress.delegate = self;
     self.priceLabel.delegate = self;
@@ -167,13 +170,19 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     editedImage = [self resizeImage:editedImage withSize:CGSizeMake(250, 250)];
     self.itemImage.image = editedImage;
-
-    [self.imageArray addObject:editedImage];
+    if(self.thisIsFirstPic)
+    {
+        self.icarVC.images[0] = editedImage;
+        self.thisIsFirstPic = NO;
+    }
+    else {
+        [self.icarVC.images addObject:editedImage];
+    }
     //save the image
     //self.itemImage.file = [Item getPFFileFromImage:editedImage];
-
     [self.itemImage loadInBackground];
-    // Dismiss UIImagePickerController to go back to your original view controller
+    [self.icarVC reload];
+    // Dismiss UIImagePickerVC to go back to your original VC
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -216,6 +225,15 @@
          categoriesViewController.firstPage = YES;
          categoriesViewController.title = @"Categories";
          categoriesViewController.sellDelegate = self;
+     }
+     if([segue.identifier isEqualToString:@"imageCarouselSegue"])
+     {
+         iCarouselViewController *icarVC = [segue destinationViewController];
+         self.imageArray = [[NSMutableArray alloc] init];
+         [self.imageArray addObject:[UIImage imageNamed:@"placeholdImage"]];
+         icarVC.images = [[NSMutableArray alloc] init];
+         icarVC.images = self.imageArray;
+         self.icarVC = icarVC;
      }
  }
  
