@@ -10,7 +10,15 @@
 #import "Item.h"
 #import "User.h"
 
+@protocol popUpDelegate
+
+- (void)dismiss;
+
+@end
+
 @interface PopUpViewController : UIViewController
+
+@property (nonatomic, weak) id <popUpDelegate> popUpDelegate;
 
 @property (weak, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

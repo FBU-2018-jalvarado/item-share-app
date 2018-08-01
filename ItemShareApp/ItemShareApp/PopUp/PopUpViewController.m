@@ -78,13 +78,16 @@
 }
 
 - (IBAction)closePopup:(id)sender {
-    NSLog(@"tapped");
+    NSLog(@"YEEt");
     [self removeAnimate];
+    [self.popUpDelegate dismiss];
+    
 }
 
 - (IBAction)close:(id)sender {
     NSLog(@"tapped");
     [self removeAnimate];
+    [self.popUpDelegate dismiss];
 }
 
 - (void)showInView:(UIView *)aView animated:(BOOL)animated

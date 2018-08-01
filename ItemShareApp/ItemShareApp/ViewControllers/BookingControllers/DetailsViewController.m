@@ -17,7 +17,7 @@
 #import "User.h"
 #import <Passkit/Passkit.h>
 
-@interface DetailsViewController () <CalendarViewControllerDelegate, PKPaymentAuthorizationViewControllerDelegate>
+@interface DetailsViewController () <CalendarViewControllerDelegate, popUpDelegate, PKPaymentAuthorizationViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet PFImageView *itemImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -211,6 +211,7 @@
 
 - (void)postPopUp {
     self.popUpVC = [[PopUpViewController alloc] initWithNibName:@"PopUpViewController" bundle:nil];
+    self.popUpVC.popUpDelegate = self;
     [self.popUpVC setName:self.item.title];
     [self.popUpVC setItem:self.item];
     [self.popUpVC setOwner:self.item.owner];
@@ -275,9 +276,21 @@
 //how to see entire method in autofill
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion{
         completion(PKPaymentAuthorizationStatusSuccess);
-    [self postPopUp];
+    [self performSelector:@selector(bookingFinished) withObject:nil afterDelay:2.0 ];
+
 }
 
+- (void)bookingFinished {
+    [self postPopUp];
+    // [self performSelector:@selector(postPopUp) withObject:nil afterDelay:3.0 ];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+   // [self performSelector:@selector(postPopUp) withObject:nil afterDelay:3.0 ];
+}
+
+
+- (void)dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
 
