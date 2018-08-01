@@ -93,7 +93,7 @@
     return view;
 }
 
-//edit calendar view with the day names on top
+//edit calendar day boxes
 - (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar{
     JTCalendarDayView *view = [JTCalendarDayView new];
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:15];

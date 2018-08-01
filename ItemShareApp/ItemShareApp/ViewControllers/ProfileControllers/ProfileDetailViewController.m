@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *line8;
 @property (weak, nonatomic) IBOutlet UIView *line1;
 @property (weak, nonatomic) IBOutlet UIView *line5;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (strong,nonatomic) UIImage *cameraPicture;
 
@@ -162,6 +163,9 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+- (IBAction)backButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
