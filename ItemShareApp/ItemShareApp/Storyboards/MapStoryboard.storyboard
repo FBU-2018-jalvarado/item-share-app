@@ -35,8 +35,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fetch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQK-4a-4bp">
+                                <rect key="frame" x="16" y="20" width="118" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="17"/>
+                                <color key="textColor" red="0.92655456849999995" green="0.26306679509999997" blue="0.29913948509999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9pL-cr-h2O">
+                                <rect key="frame" x="5" y="20" width="364" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
-                                <rect key="frame" x="216" y="29" width="48" height="48"/>
+                                <rect key="frame" x="321" y="118" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="profile-yellow"/>
                                 <connections>
@@ -44,23 +57,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-Ho-VrY">
-                                <rect key="frame" x="272" y="29" width="48" height="48"/>
+                                <rect key="frame" x="321" y="58" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="post-blue"/>
                                 <connections>
                                     <segue destination="ba1-cd-WDL" kind="show" identifier="sellSegue" id="Y0b-Gp-snI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fetch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQK-4a-4bp">
-                                <rect key="frame" x="22" y="37" width="118" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="26"/>
-                                <color key="textColor" red="0.92655456849999995" green="0.26306679509999997" blue="0.29913948509999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
-                                <rect key="frame" x="155" y="29" width="48" height="48"/>
+                                <rect key="frame" x="321" y="179" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="message-green"/>
                             </button>
@@ -71,7 +76,8 @@
                     <connections>
                         <outlet property="mapView" destination="15s-9G-4Ok" id="YML-np-UdJ"/>
                         <outlet property="searchBar" destination="omP-vV-ahs" id="pBy-b4-Jo5"/>
-                        <outlet property="titleLabel" destination="OQK-4a-4bp" id="eGx-q8-Cu4"/>
+                        <outlet property="titleLabel" destination="OQK-4a-4bp" id="0Ez-Fm-Kzz"/>
+                        <outlet property="titleView" destination="9pL-cr-h2O" id="0Jg-s5-Fxn"/>
                         <segue destination="fuC-EW-0wL" kind="show" identifier="detailsViewSegue" id="ecO-iD-ogK"/>
                     </connections>
                 </viewController>

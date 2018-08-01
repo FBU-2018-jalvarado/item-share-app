@@ -32,8 +32,9 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) Item *item;
 @property (strong, nonatomic) MapModel *model;
-
 @property (strong, nonnull) MKUserLocation *previousUserLocation;
+@property (weak, nonatomic) IBOutlet UIView *titleView;
+@property (weak, nonatomic) IBOutlet UIView *viewWithLabel;
 
 @end
 
@@ -63,16 +64,54 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     self.searchBar.delegate = self;
     self.mapView.delegate = self;
     self.previousUserLocation = [MKUserLocation new];
-    
-    
-    self.titleLabel.layer.cornerRadius = 10;
-    self.titleLabel.clipsToBounds = YES;
-    self.titleLabel.layer.shadowOpacity = 1.0;
-    self.titleLabel.layer.shadowRadius = 0.0;
-    self.titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.titleLabel.layer.shadowOffset = CGSizeMake(5.0, 5.0);
+   
+    [self setUpUI];
+
     [self locationSetup];
     [self fetchItems];
+}
+
+- (void)setUpUI {
+    
+    //baseView
+    self.titleView.backgroundColor = [UIColor clearColor];
+    self.titleView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.titleView.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.titleView.layer.shadowOpacity = 1.0;
+    self.titleView.layer.shadowRadius = 4.0;
+    
+    self.titleLabel.frame = self.titleView.bounds;
+    self.titleLabel.layer.cornerRadius = 10;
+    self.titleLabel.layer.masksToBounds = YES;
+    [self.titleView addSubview:self.titleLabel];
+    
+    
+    self.mapView.showsScale = YES;
+    self.mapView.showsCompass = NO;
+    
+    MKScaleView *scale = [MKScaleView scaleViewWithMapView:self.mapView];
+    [scale setScaleVisibility:MKFeatureVisibilityVisible];
+    scale.frame = CGRectMake(5, -80, scale.frame.size.width, scale.frame.size.width);
+    [self.view addSubview:scale];
+
+    MKCompassButton *compass = [MKCompassButton compassButtonWithMapView:self.mapView];
+    compass.frame = CGRectMake(self.view.frame.size.width - 47, self.view.frame.origin.y + 240, compass.frame.size.width, compass.frame.size.width);
+    
+    [compass setCompassVisibility:MKFeatureVisibilityVisible];
+    [self.view addSubview:compass];
+    
+    /* will add border view to it
+     //add border view
+     UIView *borderView = [UIView new];
+     borderView.frame = self.titleView.bounds;
+     borderView.layer.cornerRadius = 10;
+     borderView.layer.borderColor = [UIColor blackColor].CGColor;
+     borderView.layer.borderWidth = 1.0;
+     borderView.layer.masksToBounds = YES;
+     borderView.layer.backgroundColor = [UIColor redColor].CGColor;
+     [self.titleView addSubview:borderView];
+     */
+    //add title
 }
 
 //retrieve items array
