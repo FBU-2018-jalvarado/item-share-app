@@ -30,11 +30,11 @@
             <objects>
                 <viewController id="knq-YP-lhO" customClass="SellItemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LU0-oK-TRk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5TP-E0-G0X">
-                                <rect key="frame" x="0.0" y="9" width="375" height="991"/>
+                                <rect key="frame" x="0.0" y="9" width="375" height="1491"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item's Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sgg-PR-3dp">
@@ -67,21 +67,6 @@
                                             <action selector="tapPhoto:" destination="knq-YP-lhO" eventType="touchUpInside" id="4CE-cm-py3"/>
                                         </connections>
                                     </button>
-                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-gs-y7E">
-                                        <rect key="frame" x="0.0" y="492" width="375" height="171"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <connections>
-                                            <segue destination="JKu-vV-JB6" kind="embed" identifier="sellCategorySegue" id="YgU-nV-wzk"/>
-                                        </connections>
-                                    </containerView>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholdImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
-                                        <rect key="frame" x="102" y="216" width="170" height="170"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="7o9-HB-aAi" appends="YES" id="o19-1q-CuG"/>
-                                        </connections>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categories : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEx-fs-Vju">
                                         <rect key="frame" x="57" y="684" width="208" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -153,6 +138,28 @@
                                             <segue destination="cMl-Ei-P2L" kind="show" id="vm9-of-cKE"/>
                                         </connections>
                                     </button>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholdImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
+                                        <rect key="frame" x="97" y="225" width="168" height="168"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="7o9-HB-aAi" appends="YES" id="o19-1q-CuG"/>
+                                        </connections>
+                                    </imageView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-bt-VeE">
+                                        <rect key="frame" x="0.0" y="1048" width="375" height="260"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <connections>
+                                            <segue destination="R78-Py-iAr" kind="embed" id="QPN-Vr-3cc"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-gs-y7E">
+                                        <rect key="frame" x="0.0" y="480" width="375" height="171"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <connections>
+                                            <segue destination="JKu-vV-JB6" kind="embed" identifier="sellCategorySegue" id="YgU-nV-wzk"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -160,7 +167,7 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="VdR-u5-dOS"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1000"/>
+                    <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="cat1" destination="Lzi-mL-ukw" id="Jxv-JA-dMU"/>
                         <outlet property="cat2" destination="pMp-uJ-soU" id="SRW-gn-bpX"/>
@@ -186,7 +193,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-231.19999999999999" y="1528.3358320839582"/>
+            <point key="canvasLocation" x="175.19999999999999" y="1602.9985007496252"/>
         </scene>
         <!--CategoriesStoryboard-->
         <scene sceneID="IVt-pj-rp1">
@@ -194,7 +201,7 @@
                 <viewControllerPlaceholder storyboardName="CategoriesStoryboard" id="cMl-Ei-P2L" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAf-WY-kg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="2119"/>
+            <point key="canvasLocation" x="793" y="1737"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="FJo-xP-fu9">
@@ -261,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pq-Qm-7Lz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="1577.3613193403301"/>
+            <point key="canvasLocation" x="1686" y="1576"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t5p-qD-Ha5">
@@ -279,7 +286,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bz-3b-zcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="1578"/>
+            <point key="canvasLocation" x="886" y="1576"/>
+        </scene>
+        <!--Carousel View Controller-->
+        <scene sceneID="ODJ-Ka-mvZ">
+            <objects>
+                <viewController id="R78-Py-iAr" customClass="iCarouselViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Nw-81-rDY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0l-RC-yn2" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="carousel" destination="P0l-RC-yn2" id="T4s-kw-LQn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Meg-up-efJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.59999999999999" y="2542.1289355322342"/>
         </scene>
     </scenes>
     <resources>
