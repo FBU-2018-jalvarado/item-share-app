@@ -172,7 +172,7 @@
         if(error != nil)
         {
             NSLog(@"ERROR GETTING THE ITEMS!");
-            [self.HUD dismissAnimated:TRUE];
+            [self.placeholderDelegate dismissHUD];
         }
         else {
             if (items) {

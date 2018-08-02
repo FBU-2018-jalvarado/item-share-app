@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <JGProgressHUD/JGProgressHUD.h>
 
 @protocol CategoriesViewControllerDelegate
 
@@ -27,7 +26,6 @@
 
 @property (strong, nonatomic) NSDictionary *categories;
 @property BOOL firstPage;
-@property (nonatomic, strong) JGProgressHUD *HUD;
 @property (nonatomic, weak) id <CategoriesViewControllerDelegate> delegate;
 @property (nonatomic, weak) id <CategoriesViewControllerSellDelegate> sellDelegate;
 

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CategoriesViewController.h"
-#import <JGProgressHUD/JGProgressHUD.h>
 
 @protocol CatAndItemTableViewControllerDelegate
 

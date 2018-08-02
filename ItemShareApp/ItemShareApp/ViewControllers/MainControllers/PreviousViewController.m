@@ -6,8 +6,6 @@
 //  Copyright © 2018 FBU-2018. All rights reserved.
 //
 
-#import <JGProgressHUD/JGProgressHUD.h>
-#import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
 #import <FLAnimatedImage/FLAnimatedImage.h>
 #import "PreviousViewController.h"
 #import "CategoriesViewController.h"
