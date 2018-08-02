@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
 @property (weak, nonatomic) IBOutlet UIButton *startTimeButton;
 @property (weak, nonatomic) IBOutlet UIButton *endTimeButton;
+@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
@@ -170,9 +171,11 @@
     if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
         if([self.calendarContentView.date compare:dayView.date] == NSOrderedAscending){
             [self.calendarContentView loadNextPageWithAnimation];
+            [self.calendarManager setMenuView:_calendarMenuView];
         }
         else{
             [self.calendarContentView loadPreviousPageWithAnimation];
+            [self.calendarManager setMenuView:_calendarMenuView];
         }
     }
 }
@@ -312,16 +315,16 @@
 }
 //implementing this with nothing present nothing in contentview of calendar
 - (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
-//    static NSDateFormatter *dateFormatter;
-//    if(!dateFormatter){
-//        dateFormatter = [NSDateFormatter new];
-//        dateFormatter.dateFormat = @"MMMM yyyy";
-//        
-//        dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
-//        dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
-//    }
-//    
-//    menuItemView.text = [dateFormatter stringFromDate:date];
+    static NSDateFormatter *dateFormatter;
+    if(!dateFormatter){
+        dateFormatter = [NSDateFormatter new];
+        dateFormatter.dateFormat = @"MMMM";
+        
+        dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
+        dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
+    }
+    
+    self.monthLabel.text = [dateFormatter stringFromDate:date];
 }
 
 //tips for pod

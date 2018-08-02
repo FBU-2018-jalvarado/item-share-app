@@ -59,7 +59,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
                                 <rect key="frame" x="321" y="179" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="blue-arrow"/>
+                                <state key="normal" backgroundImage="location-blue"/>
                                 <connections>
                                     <action selector="recenterButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="t7g-nM-Wcx"/>
                                 </connections>
@@ -67,7 +67,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
                                 <rect key="frame" x="321" y="119" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="profile-orange"/>
+                                <state key="normal" backgroundImage="home-blue"/>
                                 <connections>
                                     <action selector="profileButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="jNU-9H-Ed1"/>
                                 </connections>
@@ -101,8 +101,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blue-arrow" width="512" height="512"/>
+        <image name="home-blue" width="512" height="512"/>
+        <image name="location-blue" width="512" height="512"/>
         <image name="post-blue" width="512" height="512"/>
-        <image name="profile-orange" width="512" height="512"/>
     </resources>
 </document>
