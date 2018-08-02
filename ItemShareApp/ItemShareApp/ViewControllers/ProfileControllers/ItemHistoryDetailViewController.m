@@ -11,9 +11,9 @@
 #import "Item.h"
 #import "User.h"
 
-@interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
-@property (strong, nonatomic) NSArray *itemsArray;
+@property (strong, nonatomic) NSMutableArray *itemsArray;
 @end
 
 @implementation ItemHistoryDetailViewController
@@ -30,7 +30,7 @@
             NSLog(@"Error fetching objects: %@", error);
         }
         else {
-            self.itemsArray = items;
+            self.itemsArray = [items mutableCopy];
             [self.tableview reloadData];
         }
     }];
@@ -90,15 +90,33 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MGItemHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
+    cell.delegate = self;
     Item *item = self.itemsArray[indexPath.row];
 //    NSString *itemTitle = item.title;
     cell.item = item;
     
-    // swipe config
-    cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]]];
-    cell.leftSwipeSettings.transition = MGSwipeTransition3D;
+    // swipe and expansion config
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]]];
+    cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    cell.rightExpansion.buttonIndex = 0;
+    cell.rightExpansion.fillOnTrigger = YES;
+    cell.rightExpansion.threshold = 1.5;
     
     return cell;
+}
+
+-(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion {
+    
+    if (direction == MGSwipeDirectionRightToLeft && index == 0) {
+        //delete button
+        NSIndexPath * path = [_tableview indexPathForCell:cell];
+        // remove item from Parse
+        [self.itemsArray removeObjectAtIndex:path.row];
+        [_tableview deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        return NO; //Don't autohide to improve delete expansion animation
+    }
+    
+    return YES;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
