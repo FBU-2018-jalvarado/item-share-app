@@ -1,16 +1,14 @@
 //
-//  ItemHistoryCell.m
+//  MGItemHistoryCell.m
 //  item-share-app
 //
-//  Created by Tarini Singh on 7/30/18.
+//  Created by Tarini Singh on 8/1/18.
 //  Copyright © 2018 FBU-2018. All rights reserved.
 //
 
-#import "ItemHistoryCell.h"
+#import "MGItemHistoryCell.h"
 
-// D E P R E C A T E D
-
-@implementation ItemHistoryCell
+@implementation MGItemHistoryCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -7,7 +7,7 @@
 //
 
 #import "ItemHistoryDetailViewController.h"
-#import "ItemHistoryCell.h"
+#import "MGItemHistoryCell.h"
 #import "Item.h"
 #import "User.h"
 
@@ -89,10 +89,15 @@
 */
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ItemHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
+    MGItemHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
     Item *item = self.itemsArray[indexPath.row];
 //    NSString *itemTitle = item.title;
     cell.item = item;
+    
+    // swipe config
+    cell.leftButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]]];
+    cell.leftSwipeSettings.transition = MGSwipeTransition3D;
+    
     return cell;
 }
 

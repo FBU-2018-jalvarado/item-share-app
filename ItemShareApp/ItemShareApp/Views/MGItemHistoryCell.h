@@ -1,17 +1,15 @@
 //
-//  ItemHistoryCell.h
+//  MGItemHistoryCell.h
 //  item-share-app
 //
-//  Created by Tarini Singh on 7/30/18.
+//  Created by Tarini Singh on 8/1/18.
 //  Copyright © 2018 FBU-2018. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MGSwipeTableCell.h"
 #import "Item.h"
 
-// D E P R E C A T E D
-
-@interface ItemHistoryCell : UITableViewCell
+@interface MGItemHistoryCell : MGSwipeTableCell
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
