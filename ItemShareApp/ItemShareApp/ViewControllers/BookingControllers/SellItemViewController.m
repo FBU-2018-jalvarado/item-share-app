@@ -233,6 +233,7 @@
          [self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
          icarVC.images = [[NSMutableArray alloc] init];
          icarVC.images = self.imageArray;
+         icarVC.parentVC = @"sell";
          self.icarVC = icarVC;
      }
  }

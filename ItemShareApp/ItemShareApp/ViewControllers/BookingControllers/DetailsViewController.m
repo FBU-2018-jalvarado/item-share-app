@@ -33,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property iCarouselViewController *icarVC;
+
 @property (strong, nonatomic) ColorScheme *colors;
 @property (strong, nonatomic) timeModel *timeModel;
 @property (strong, nonatomic) PopUpViewController * popUpVC;
@@ -62,6 +64,7 @@
 //    [self.colors setColors];
     [self fetchBookings];
     [self setUpUI];
+    [self.icarVC reload];
     //check if payments are authorized. If not, the pay button will be hidden
     // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
 }
@@ -234,14 +237,16 @@
         calendarController.calendarDelegate = self;
         calendarController.bookingsArray = self.bookingsArray;
     }
-    if([segue.identifier isEqualToString:@"imageCarouselSegue"])
+    if([segue.identifier isEqualToString:@"CarouselSegue"])
     {
         iCarouselViewController *icarVC = [segue destinationViewController];
         //self.imageArray = [[NSMutableArray alloc] init];
         //[self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
-        //icarVC.images = [[NSMutableArray alloc] init];
+        icarVC.images = [[NSMutableArray alloc] init];
         icarVC.images = self.item.images;
-//        self.icarVC = icarVC;
+        icarVC.parentVC = @"detail";
+      //  self.icarVC = icarVC;
+        [icarVC reload];
     }
 }
 

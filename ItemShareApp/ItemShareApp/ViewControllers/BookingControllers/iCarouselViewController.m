@@ -1,3 +1,4 @@
+
 //
 //  iCarouselViewController.m
 //  item-share-app
@@ -34,15 +35,15 @@
 
 }
 
-- (void)dealloc
-{
-    //it's a good idea to set these to nil here to avoid
-    //sending messages to a deallocated viewcontroller
-    //this is true even if your project is using ARC, unless
-    //you are targeting iOS 5 as a minimum deployment target
-    _carousel.delegate = nil;
-    _carousel.dataSource = nil;
-}
+//- (void)dealloc
+//{
+//    //it's a good idea to set these to nil here to avoid
+//    //sending messages to a deallocated viewcontroller
+//    //this is true even if your project is using ARC, unless
+//    //you are targeting iOS 5 as a minimum deployment target
+//    _carousel.delegate = nil;
+//    _carousel.dataSource = nil;
+//}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -56,16 +57,16 @@
     _carousel.delegate = self;
     _carousel.dataSource = self;
     //self.images = [[NSMutableArray alloc] init];
-//    [_carousel reloadData];
+    [_carousel reloadData];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    
-    //free up memory by releasing subviews
-    self.carousel = nil;
-}
+//- (void)viewDidUnload
+//{
+//    [super viewDidUnload];
+//
+//    //free up memory by releasing subviews
+//    self.carousel = nil;
+//}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -92,7 +93,14 @@
         //this `if (view == nil) {...}` statement because the view will be
         //recycled and used with other index values later
         view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        view.image = self.images[index];
+        if([self.parentVC isEqualToString:@"detail"])
+        {
+            view.file = self.images[index];
+        }
+        if([self.parentVC isEqualToString:@"sell"])
+        {
+            view.image = self.images[index];
+        }
         [view loadInBackground];
         view.contentMode = UIViewContentModeCenter;
         
