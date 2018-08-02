@@ -92,10 +92,10 @@
 - (nonnull __kindof CategoryViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     CategoryViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CategoryCell" forIndexPath:indexPath];
-    if(![[self.arrayOfKeys firstObject] isEqualToString:@"Back"])
-    {
-        [self.arrayOfKeys insertObject:@"Back" atIndex:0];
-    }
+//    if(![[self.arrayOfKeys firstObject] isEqualToString:@"Back"])
+//    {
+//        [self.arrayOfKeys insertObject:@"Back" atIndex:0];
+//    }
     [cell setCategory:self.arrayOfKeys[indexPath.item]];
     
     return cell;
