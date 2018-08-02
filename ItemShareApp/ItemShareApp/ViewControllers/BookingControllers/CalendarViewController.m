@@ -99,9 +99,18 @@
 
 //edits contentView (month view)
 - (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar{
+//    UILabel *label = [UILabel new];
+//    label.backgroundColor = [UIColor redColor];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.font = [UIFont fontWithName:@"Avenir-Medium" size:25];
+//    [label setTextColor:[UIColor blackColor]];
+//    //label.textColor = [UIColor blackColor];
+//    return label;
     UILabel *label = [UILabel new];
+    
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont fontWithName:@"Avenir-Medium" size:25];
+    label.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+    
     return label;
 }
 
@@ -302,9 +311,18 @@
     return [firstDate compare:secondDate] == NSOrderedDescending;
 }
 //implementing this with nothing present nothing in contentview of calendar
-//- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
-//    //idk how to implement
-//}
+- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
+//    static NSDateFormatter *dateFormatter;
+//    if(!dateFormatter){
+//        dateFormatter = [NSDateFormatter new];
+//        dateFormatter.dateFormat = @"MMMM yyyy";
+//        
+//        dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
+//        dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
+//    }
+//    
+//    menuItemView.text = [dateFormatter stringFromDate:date];
+}
 
 //tips for pod
 
