@@ -56,7 +56,7 @@
     [self init];
     [self.colors setColors];
     [self setUpUI];
-    [self finishSetup];
+   // [self finishSetup];
     [self fetchBookings];
 }
 
@@ -74,7 +74,7 @@
 - (void)fetchBookings {
     [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
         if (error) {
-            return;
+            NSLog(@"%@", error);
         }
         if (bookings) {
             self.bookingsArray = [bookings mutableCopy];
@@ -230,7 +230,7 @@
         //make it normal
             dayView.circleView.hidden = YES;
             dayView.dotView.backgroundColor = [UIColor blueColor];
-            dayView.textLabel.textColor = [UIColor blackColor];
+            dayView.textLabel.textColor = [UIColor redColor];
         }
     }
     

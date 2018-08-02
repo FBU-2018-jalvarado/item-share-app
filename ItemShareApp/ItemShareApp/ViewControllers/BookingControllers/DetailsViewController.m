@@ -229,6 +229,7 @@
     if([segue.identifier isEqualToString:@"embedSegue"]){
         CalendarViewController *calendarController = [segue destinationViewController];
         calendarController.calendarDelegate = self;
+        calendarController.item = self.item;
         //calendarController.bookingsArray = self.bookingsArray;
     }
     if([segue.identifier isEqualToString:@"CarouselSegue"])
