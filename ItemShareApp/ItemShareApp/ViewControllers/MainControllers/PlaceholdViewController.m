@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 @property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
 @property (strong, nonatomic) NSMutableArray *categoryArray;
+@property(nonatomic, strong) UIBarButtonItem *backBarButtonItem;
 @end
 
 @implementation PlaceholdViewController
@@ -141,6 +142,7 @@
     {
         UINavigationController *navVC = [segue destinationViewController];
         CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
+        [categoriesViewController.navigationItem.backBarButtonItem] = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         categoriesViewController.firstPage = YES;
         categoriesViewController.title = @"Categories";
         categoriesViewController.delegate = self;
