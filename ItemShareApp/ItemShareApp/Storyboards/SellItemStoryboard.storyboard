@@ -10,21 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="BQt-QG-D7R">
-            <objects>
-                <viewController id="M9X-l4-TgW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fz5-Dq-3k9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="gzf-kf-Hd6"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wJQ-cS-isE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1013" y="1719"/>
-        </scene>
         <!--Sell Item View Controller-->
         <scene sceneID="Pmw-Hf-J5C">
             <objects>
@@ -136,6 +121,14 @@
                                             <segue destination="cMl-Ei-P2L" kind="show" id="vm9-of-cKE"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-gy-D4c">
+                                        <rect key="frame" x="16" y="19" width="86" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back to Map"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="knq-YP-lhO" eventType="touchUpInside" id="zPo-cD-Miy"/>
+                                        </connections>
+                                    </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholdImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
                                         <rect key="frame" x="116" y="1272" width="168" height="168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -169,6 +162,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="backButton" destination="ApP-gy-D4c" id="Rf2-Yi-Z3Y"/>
                         <outlet property="cat1" destination="Lzi-mL-ukw" id="Jxv-JA-dMU"/>
                         <outlet property="cat2" destination="pMp-uJ-soU" id="SRW-gn-bpX"/>
                         <outlet property="cat3" destination="Sc9-hb-lj5" id="H3C-1x-KhY"/>

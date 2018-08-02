@@ -18,7 +18,7 @@
 #import "User.h"
 #import <Passkit/Passkit.h>
 
-@interface DetailsViewController () <CalendarViewControllerDelegate, PKPaymentAuthorizationViewControllerDelegate>
+@interface DetailsViewController () <CalendarViewControllerDelegate, popUpDelegate, PKPaymentAuthorizationViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet PFImageView *itemImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectDatesButton;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
@@ -62,7 +63,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self.colors setColors];
-    [self fetchBookings];
     [self setUpUI];
     [self.icarVC reload];
     //check if payments are authorized. If not, the pay button will be hidden
@@ -74,6 +74,7 @@
 }
 
 - (void)setUpUI {
+    
     //image setup
     self.itemImageView.file = [self.item.images firstObject];
     [self.itemImageView loadInBackground];
@@ -89,20 +90,6 @@
     [self.descriptionLabel sizeToFit];
     self.descriptionLabel.text = self.item.descrip;
     
-    //date setup
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM-dd-YY"];
-    if(self.selectedStartDate){
-    self.startTimeLabel.text = [formatter stringFromDate:self.selectedStartDate];
-    }
-    if(self.selectedEndDate){
-    self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
-    }
-    if(self.selectedStartDate && self.selectedEndDate){
-        NSInteger days = [self daysBetween:self.selectedStartDate and:self.selectedEndDate];
-        self.totalPriceLabel.text = [@(days * [self.item.price integerValue]) stringValue];
-    }
-    
     self.applePayButton.layer.cornerRadius = 10;
     self.selectDatesButton.layer.cornerRadius = 8;
     
@@ -110,6 +97,22 @@
     CGFloat contentHeight = self.scrollView.bounds.size.height *3;
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
     
+}
+
+- (void)updateDateUI {
+    //date setup
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MM-dd-YY"];
+    if(self.selectedStartDate){
+        self.startTimeLabel.text = [formatter stringFromDate:self.selectedStartDate];
+    }
+    if(self.selectedEndDate){
+        self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
+    }
+    if(self.selectedStartDate && self.selectedEndDate){
+        NSInteger days = [self daysBetween:self.selectedStartDate and:self.selectedEndDate];
+        self.totalPriceLabel.text = [@(days * [self.item.price integerValue]) stringValue];
+    }
 }
 
 - (NSInteger)daysBetween:(NSDate *)dt1 and:(NSDate *)dt2 {
@@ -143,19 +146,6 @@
         }
     }
     return YES;
-}
-
-- (void)fetchBookings {
-    [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
-        if (error) {
-            return;
-        }
-        if (bookings) {
-            self.bookingsArray = [bookings mutableCopy];
-        } else {
-            // HANDLE NO ITEMS
-        }
-    }];
 }
 
 //set booking
@@ -225,7 +215,11 @@
 
 - (void)postPopUp {
     self.popUpVC = [[PopUpViewController alloc] initWithNibName:@"PopUpViewController" bundle:nil];
+    self.popUpVC.popUpDelegate = self;
     [self.popUpVC setName:self.item.title];
+    [self.popUpVC setItem:self.item];
+    [self.popUpVC setOwner:self.item.owner];
+    [self.popUpVC setPhoneNumber:self.item.owner.phoneNumber];
     [self.popUpVC showInView:self.view animated:YES];
 }
 
@@ -235,7 +229,7 @@
     if([segue.identifier isEqualToString:@"embedSegue"]){
         CalendarViewController *calendarController = [segue destinationViewController];
         calendarController.calendarDelegate = self;
-        calendarController.bookingsArray = self.bookingsArray;
+        //calendarController.bookingsArray = self.bookingsArray;
     }
     if([segue.identifier isEqualToString:@"CarouselSegue"])
     {
@@ -250,19 +244,26 @@
     }
 }
 
+//delegate methods
+
 - (void)sendDates:(NSDate *)startDate withEndDate:(NSDate *)endDate {
     self.selectedStartDate = startDate;
     self.selectedEndDate = endDate;
     
+    [self updateDateUI];
     //date setup
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MM-dd-YY"];
-    if(self.selectedStartDate){
-        self.startTimeLabel.text = [formatter stringFromDate:self.selectedStartDate];
-    }
-    if(self.selectedEndDate){
-        self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
-    }
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"MM-dd-YY"];
+//    if(self.selectedStartDate){
+//        self.startTimeLabel.text = [formatter stringFromDate:self.selectedStartDate];
+//    }
+//    if(self.selectedEndDate){
+//        self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
+//    }
+}
+
+- (void)sendBookings: (NSMutableArray *)bookings{
+    self.bookingsArray = bookings;
 }
 
 - (void)presentAlert{
@@ -289,8 +290,21 @@
 //how to see entire method in autofill
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion{
         completion(PKPaymentAuthorizationStatusSuccess);
+    [self performSelector:@selector(bookingFinished) withObject:nil afterDelay:2.0 ];
+
 }
 
+- (void)bookingFinished {
+    [self postPopUp];
+    // [self performSelector:@selector(postPopUp) withObject:nil afterDelay:3.0 ];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+   // [self performSelector:@selector(postPopUp) withObject:nil afterDelay:3.0 ];
+}
+
+
+- (void)dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
 

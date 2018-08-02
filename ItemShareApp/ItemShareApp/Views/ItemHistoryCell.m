@@ -18,6 +18,9 @@
 - (void) setItem:(Item *)item {
     _item = item;
     self.itemTitle.text = self.item.title;
+    self.priceLabel.text = self.item.price;
+    self.addressLabel.text = self.item.address;
+    self.descriptionLabel.text = self.item.description;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

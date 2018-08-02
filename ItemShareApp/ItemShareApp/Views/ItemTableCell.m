@@ -23,6 +23,6 @@
 
 - (void) setItem:(NSString *)itemName  withAddress:(NSString *)address{
     self.nameLabel.text = itemName;
-    self.addressLabel.text = address;
+    self.distanceLabel.text = @"0.2 miles";
 }
 @end

@@ -8,11 +8,16 @@
 
 #import <JGProgressHUD/JGProgressHUD.h>
 #import <JGProgressHUD/JGProgressHUDFadeZoomAnimation.h>
+#import <FLAnimatedImage/FLAnimatedImage.h>
 #import "PreviousViewController.h"
 #import "CategoriesViewController.h"
 #import "PlaceholdViewController.h"
 #import "MapViewController.h"
 #import "ProfileViewController.h"
+
+#define GIF_WIDTH 450
+#define GIF_HEIGHT 276
+#define SCALE 0.4
 
 @interface PreviousViewController () <MapViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *searchView;
@@ -22,6 +27,8 @@
 @property PlaceholdViewController *placeholdViewController;
 @property UIVisualEffectView *blurredView;
 @property (weak, nonatomic) IBOutlet UIView *mapContainerView;
+@property (nonatomic, strong) FLAnimatedImage *gifImage;
+@property (nonatomic, strong) FLAnimatedImageView *gifView;
 
 @end
 
@@ -39,8 +46,12 @@
     self.placeholdViewController.grayBar.alpha = 1;
     self.placeholdViewController.arrowImage.alpha = 0;
     self.placeholdViewController.downArrow.alpha = 0;
-
-    [self makeHUD];
+    self.searchView.clipsToBounds = YES;
+    self.searchView.layer.cornerRadius = 20;
+    self.searchView.layer.backgroundColor = [UIColor blackColor].CGColor;
+    
+//    [self makeHUD];
+    [self showHUD];
     
 
     // Do any additional setup after loading the view.
@@ -52,15 +63,41 @@
     }
 }
 
-// make and display HUD
--(void) makeHUD {
-    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-    self.HUD.animation = [[JGProgressHUDFadeZoomAnimation alloc] init];
-    self.HUD.textLabel.text = @"Loading";
-    [self.HUD showInView:self.view];
-    self.placeholdViewController.HUD = self.HUD;
-    self.placeholdViewController.catAndItemTableViewController.categoriesViewController.HUD = self.HUD;
+-(void) showHUD {
+    if (self.gifView){
+        self.gifView.alpha = 1;
+    }
+    else {
+        [self setUpGifView];
+        [self.view addSubview:self.gifView];
+    }
 }
+
+-(void) dismissHUD {
+    self.gifView.alpha = 0;
+}
+
+-(void) setUpGifView {
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    
+    self.gifImage = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://cdn-images-1.medium.com/max/1600/1*dgfd5JaT0d7JT4VfhFEnzg.gif"]]];
+    FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
+    imageView.animatedImage = self.gifImage;
+    imageView.frame = CGRectMake((width / 2) - ((GIF_WIDTH * SCALE) / 2), (height / 2) - ((GIF_HEIGHT * SCALE) / 2), (GIF_WIDTH * SCALE), (GIF_HEIGHT * SCALE));
+    
+    self.gifView = imageView;
+}
+
+// make and display HUD
+//-(void) makeHUD {
+//    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
+//    self.HUD.animation = [[JGProgressHUDFadeZoomAnimation alloc] init];
+//    self.HUD.textLabel.text = @"Loading";
+//    [self.HUD showInView:self.view];
+//    self.placeholdViewController.HUD = self.HUD;
+//    self.placeholdViewController.catAndItemTableViewController.categoriesViewController.HUD = self.HUD;
+//}
 
 -(void)dismissKeyboard {
     [self.view endEditing:YES];
@@ -88,15 +125,15 @@
 
 - (void)openSideProfile {
     
-    if (self.profileView.frame.origin.x == -263) {
-        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+    if (self.profileView.frame.origin.x == -297) {
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x +297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
         }];
         [UIView animateWithDuration:0.5 animations:^{
             self.blackView.alpha = 0.6;
         }];
     }
     else {
-        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -263, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
+        [UIView animateWithDuration:0.5 animations:^{self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
         }];
         [UIView animateWithDuration:0.5 animations:^{
             self.blackView.alpha = 0;
@@ -231,14 +268,6 @@
 - (void)removeAnnotationsInMap{
     [self.mapController removeAllPinsButUserLocation];
 }
-
--(void)showHUD {
-    [self.HUD showInView:self.view];
-}
-
--(void)dismissHUD {
-    [self.HUD dismissAnimated:TRUE];
     
-}
 
 @end
