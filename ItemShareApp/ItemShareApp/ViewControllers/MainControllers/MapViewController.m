@@ -75,6 +75,8 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 }
 
 - (void)setUpUI {
+
+    //[self.mapView setMapType:MKMapTypeStandard];
     
     //baseView
     self.titleView.backgroundColor = [UIColor clearColor];
@@ -233,19 +235,6 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
         return annotationView;
     }
     return nil;
-    
-//    //old
-//    MKPinAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"current"];
-//    pin.pinTintColor = [UIColor blueColor];
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//    [button addTarget:self action:@selector(annotationClicked) forControlEvents:UIControlEventTouchUpInside];
-//
-//    //need to make the white pop up from pin be clickable without adding button on side.
-//    pin.rightCalloutAccessoryView = button; //adds button to the right. This calls both calloutAcessoryControlTapped, AND the action I selected (annotation clicked). Need to figure out how to set it as just a view not a button with a method. Temp solution.
-//    pin.canShowCallout = NO;
-//    pin.draggable = NO;
-//    pin.highlighted = YES;
-//    return pin;
 }
 
 
@@ -257,7 +246,6 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
          MKAnnotationView *view = (MKAnnotationView*)sender;
          myAnnotation *annotation = view.annotation;
          for(Item *item in self.itemsArray){
-             
              if(annotation != self.mapView.userLocation && item == annotation.item){ //if it is user location, there is no item
                  detailsViewController.item = item;
              }
@@ -270,7 +258,6 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 - (void)addAnnotations: (NSMutableArray *)filteredItemsArray{ //(MKMapView*)mapView
     for(Item *item in filteredItemsArray){
         [self addAnnotationAtAddress:item];
-        // [self addAnnotationAtAddress:item.address withTitle:item.title];
     }
 }
 
@@ -310,13 +297,28 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             annotation.title = item.title;
             annotation.item = item;
             [self.mapView addAnnotation:annotation];
-//            Pin *pin = [[Pin alloc] init];
-//            pin.coordinate = placemark.location.coordinate;
-//            pin.title = item.title;
-//            pin.item = item;
-//            [self.mapView addAnnotation:pin];
         }
     }];
+}
+
+- (void)convertAddressToPlacemark: (NSString *)address withCompletion:(void(^)(CLPlacemark *placemark, NSError *error))completion
+{
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"%@", error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil, error);
+            });
+        }
+        else{
+            CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(placemark, nil);
+            });
+        }
+    }];
+
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
@@ -345,18 +347,32 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [self.mapDelegate openSideProfile];
 }
 
-
-//placeholder code. This should be in profile view controllers to update the history.
-
-
-//zooms in to user location (when user location changes). //solution to bug in this method is to create an instance location variable with user location. Compare it to user location passed in to this method. If it is the same, return, if not, update the instance and change the center view.
-//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    //[MapModel updateUserLocation:self.mapView];
-//    MKCoordinateRegion mapRegion;
-//    mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
-//    mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
-//    [self.mapView setRegion:mapRegion animated: YES];
-//}
+- (void)requestDirections: (Item *)item {
+    
+    MKMapItem *myMapItem = [MKMapItem alloc];
+    [self convertAddressToPlacemark:item.address withCompletion:^(CLPlacemark *placemark, NSError *error) {
+        if(error){
+            NSLog(@"%@", error);
+        }
+        else{
+            [myMapItem initWithPlacemark:placemark];
+        }
+    }];
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    [request setSource:[MKMapItem mapItemForCurrentLocation]];
+    [request setDestination:myMapItem];
+    [request setTransportType:MKDirectionsTransportTypeAny]; // This can be limited to automobile and walking directions.
+    [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (!error) {
+            for (MKRoute *route in [response routes]) {
+                [self.mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
+                // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties.
+            }
+        }
+    }];
+}
 
 
 @end
