@@ -10,6 +10,7 @@
 
 @interface CategoryTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *icon;
 - (void) setCategory:(NSString *)categoryName;
 
 @end

@@ -43,6 +43,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// fetches items selling
 - (void)fetchUserItemsWithCompletion:(User *)user withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
     if (user){
         PFQuery *itemQuery = [Item query];
