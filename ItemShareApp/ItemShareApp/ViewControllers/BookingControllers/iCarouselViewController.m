@@ -99,7 +99,7 @@
         //don't do anything specific to the index within
         //this `if (view == nil) {...}` statement because the view will be
         //recycled and used with other index values later
-        view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+        view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0f, 375.0f)];
         if([self.parentVC isEqualToString:@"detail"])
         {
             view.file = self.images[index];
@@ -120,6 +120,7 @@
     }
     else
     {
+        view.frame = CGRectMake(0, 0, 375.0f, 375.0f);
         //get a reference to the label in the recycled view
         label = (UILabel *)[view viewWithTag:1];
     }
@@ -138,7 +139,11 @@
 {
     if (option == iCarouselOptionSpacing)
     {
-        return value * 1.3;
+        return value * 1.8;
+    }
+    if (option == iCarouselOptionWrap)
+    {
+        return value * 1.1;
     }
     return value;
 }

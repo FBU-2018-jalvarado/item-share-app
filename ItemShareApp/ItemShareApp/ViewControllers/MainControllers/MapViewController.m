@@ -56,6 +56,9 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [super viewDidLoad];
     [self init];
     
+    self.mapView.tintColor = [UIColor redColor];
+    self.mapView.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
+    
     CKNonHierarchicalDistanceBasedAlgorithm *algorithm = [CKNonHierarchicalDistanceBasedAlgorithm new];
     algorithm.cellSize = 100;
     
@@ -375,7 +378,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
         else{
            // [myMapItem initWithPlacemark:placemark];
             
-            NSString* directionsURL = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f",self.mapView.userLocation.coordinate.latitude, self.mapView.userLocation.coordinate.longitude, placemark.location.coordinate.latitude, placemark.location.coordinate.longitude];
+            NSString* directionsURL = [NSString stringWithFormat:@"https://maps.apple.com/?saddr=%f,%f&daddr=%f,%f",self.mapView.userLocation.coordinate.latitude, self.mapView.userLocation.coordinate.longitude, placemark.location.coordinate.latitude, placemark.location.coordinate.longitude];
             if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{} completionHandler:^(BOOL success) {}];
             } else {

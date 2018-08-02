@@ -11,6 +11,7 @@
 
 @interface PopUpViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *directionsButton;
 @property (strong, nonatomic) ColorScheme *colorModel;
 @end
 
@@ -40,6 +41,10 @@
     self.buttonLabel.layer.cornerRadius = 5;
 //    self.nameLabel.textColor = [UIColor blackColor];
 //    self.messageLabel.textColor = [UIColor blackColor];
+    
+    self.directionsButton.layer.borderColor = [UIColor blueColor].CGColor;
+    self.directionsButton.layer.borderWidth = 1;
+    self.directionsButton.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];
     self.buttonLabel.layer.borderColor = [UIColor blueColor].CGColor;
     self.buttonLabel.layer.borderWidth = 1;
     self.buttonLabel.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];

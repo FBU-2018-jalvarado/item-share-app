@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="addressLabel" destination="Bkl-2p-nXr" id="isz-FM-Psi"/>
                 <outlet property="buttonLabel" destination="qiu-d0-aeN" id="KCN-yi-jyS"/>
+                <outlet property="directionsButton" destination="F3l-q1-XMr" id="dA2-RZ-i3C"/>
                 <outlet property="firstNameLabel" destination="VEp-aU-5cU" id="174-y5-3a2"/>
                 <outlet property="lastNameLabel" destination="Ea5-7e-l4P" id="rGL-fg-EjY"/>
                 <outlet property="messageLabel" destination="2kK-x5-12N" id="bCq-oo-XWK"/>

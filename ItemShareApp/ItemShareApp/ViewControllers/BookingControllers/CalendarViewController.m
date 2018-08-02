@@ -89,8 +89,8 @@
 
 - (void)setUpUI {
     
-    self.startTimeButton.backgroundColor = self.colors.thirdColor;
-    self.endTimeButton.backgroundColor = self.colors.thirdColor;
+    self.startTimeButton.backgroundColor = [UIColor whiteColor];
+    self.endTimeButton.backgroundColor = [UIColor whiteColor];
     [self.startTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
     [self.endTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
     self.startTimeButton.layer.cornerRadius = 5;
@@ -119,11 +119,11 @@
     JTCalendarDayView *view = [JTCalendarDayView new];
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:15];
     view.textLabel.textAlignment = NSTextAlignmentCenter;
-    view.textLabel.textColor = self.colors.thirdColor;
+    view.textLabel.textColor = [UIColor blackColor];
     view.backgroundColor = [UIColor whiteColor];
     view.circleRatio = .8;
     //view.dotRatio = 1. / .9;
-    self.calendarContentView.backgroundColor = self.colors.secondColor;
+    self.calendarContentView.backgroundColor = [UIColor whiteColor];
     return view;
 }
 
@@ -198,15 +198,15 @@
         if([self dayIsBooked:dayView.date]){
             //make it gray or something
             dayView.circleView.hidden = NO;
-            dayView.circleView.backgroundColor = [UIColor lightGrayColor];
+            dayView.circleView.backgroundColor = [UIColor whiteColor];
            // dayView.dotView.backgroundColor = [UIColor redColor];
-            dayView.textLabel.textColor = [UIColor whiteColor];
+            dayView.textLabel.textColor = [UIColor darkGrayColor];
         }
         else{
             //make it normal
             dayView.circleView.hidden = YES;
             dayView.dotView.backgroundColor = [UIColor blueColor];
-            dayView.textLabel.textColor = [UIColor lightGrayColor];
+            dayView.textLabel.textColor = [UIColor darkGrayColor];
         }
 
     }
@@ -222,15 +222,15 @@
         if([self dayIsBooked:dayView.date]){
         //make it gray or something
             dayView.circleView.hidden = NO;
-            dayView.circleView.backgroundColor = [UIColor lightGrayColor];
+            dayView.circleView.backgroundColor = [UIColor whiteColor];
           //  dayView.dotView.backgroundColor = [UIColor redColor];
-            dayView.textLabel.textColor = self.colors.thirdColor;
+            dayView.textLabel.textColor = [UIColor darkGrayColor];
         }
         else{
         //make it normal
             dayView.circleView.hidden = YES;
             dayView.dotView.backgroundColor = [UIColor blueColor];
-            dayView.textLabel.textColor = self.colors.thirdColor;
+            dayView.textLabel.textColor = [UIColor blackColor];
         }
     }
     
@@ -244,7 +244,7 @@
 }
 
 - (BOOL)dayHasEventCheck:(NSDate *)date {
-    return YES;
+    return NO;
 }
 
 - (BOOL)dayIsBooked: (NSDate *)date {
