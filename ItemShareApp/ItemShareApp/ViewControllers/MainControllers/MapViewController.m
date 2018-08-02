@@ -153,6 +153,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             //THIS IS THE ERROR. WAS ASSIGNING ANNOTATIONS ARRAY WITH ITEMS
             [self addAnnotations:self.filteredItemsArray];
             [self removeAllPinsButUserLocation];
+            [self requestDirections:self.filteredItemsArray[0]];
         } else {
             // HANDLE NO ITEMS
         }
@@ -353,29 +354,55 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [self requestDirections:item];
     
 }
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+        [renderer setStrokeColor:[UIColor blueColor]];
+        [renderer setLineWidth:5.0];
+        return renderer;
+    }
+    return nil;
+}
+
 - (void)requestDirections: (Item *)item {
     
     MKMapItem *myMapItem = [MKMapItem alloc];
-    [self convertAddressToPlacemark:item.address withCompletion:^(CLPlacemark *placemark, NSError *error) {
+    [self convertAddressToPlacemark:@"555 Glenwood Av, Menlo Park, CA" withCompletion:^(CLPlacemark *placemark, NSError *error) {
         if(error){
             NSLog(@"%@", error);
         }
         else{
-            [myMapItem initWithPlacemark:placemark];
-        }
-    }];
-    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
-    [request setSource:[MKMapItem mapItemForCurrentLocation]];
-    [request setDestination:myMapItem];
-    [request setTransportType:MKDirectionsTransportTypeAny]; // This can be limited to automobile and walking directions.
-    [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
-    MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
-    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
-        if (!error) {
-            for (MKRoute *route in [response routes]) {
-                [self.mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
-                // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties.
-            }
+           // [myMapItem initWithPlacemark:placemark];
+            
+            NSString* directionsURL = [NSString stringWithFormat:@"http://maps.apple.com/?saddr=%f,%f&daddr=%f,%f",self.mapView.userLocation.coordinate.latitude, self.mapView.userLocation.coordinate.longitude, placemark.location.coordinate.latitude, placemark.location.coordinate.longitude];
+            if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{} completionHandler:^(BOOL success) {}];
+            } else {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString: directionsURL] options:@{} completionHandler:^(BOOL success) {
+                    NSLog(@"hi");
+                }];
+            };
+            /*
+            MKMapItem *myMapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+            MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+            [request setSource:[MKMapItem mapItemForCurrentLocation]];
+            [request setDestination:myMapItem];
+            [request setTransportType:MKDirectionsTransportTypeAny]; // This can be limited to automobile and walking directions.
+            [request setRequestsAlternateRoutes:YES]; // Gives you several route options.
+            MKDirections *directions = [[MKDirections alloc] initWithRequest:request];
+            [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+                if(error){
+                    NSLog(@"%@", error);
+                }
+                if (!error) {
+                    for (MKRoute *route in [response routes]) {
+                        [self.mapView addOverlay:[route polyline] level:MKOverlayLevelAboveRoads]; // Draws the route above roads, but below labels.
+                        // You can also get turn-by-turn steps, distance, advisory notices, ETA, etc by accessing various route properties.
+                    }
+                }
+            }];*/
         }
     }];
 }
