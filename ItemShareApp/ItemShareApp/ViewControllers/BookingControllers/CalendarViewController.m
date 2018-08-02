@@ -56,7 +56,7 @@
     [self init];
     [self.colors setColors];
     [self setUpUI];
-    [self finishSetup];
+   // [self finishSetup];
     [self fetchBookings];
 }
 
@@ -74,7 +74,7 @@
 - (void)fetchBookings {
     [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
         if (error) {
-            return;
+            NSLog(@"%@", error);
         }
         if (bookings) {
             self.bookingsArray = [bookings mutableCopy];
@@ -99,9 +99,18 @@
 
 //edits contentView (month view)
 - (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar{
+//    UILabel *label = [UILabel new];
+//    label.backgroundColor = [UIColor redColor];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.font = [UIFont fontWithName:@"Avenir-Medium" size:25];
+//    [label setTextColor:[UIColor blackColor]];
+//    //label.textColor = [UIColor blackColor];
+//    return label;
     UILabel *label = [UILabel new];
+    
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont fontWithName:@"Avenir-Medium" size:25];
+    label.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+    
     return label;
 }
 
@@ -230,7 +239,7 @@
         //make it normal
             dayView.circleView.hidden = YES;
             dayView.dotView.backgroundColor = [UIColor blueColor];
-            dayView.textLabel.textColor = [UIColor blackColor];
+            dayView.textLabel.textColor = [UIColor redColor];
         }
     }
     
@@ -302,9 +311,18 @@
     return [firstDate compare:secondDate] == NSOrderedDescending;
 }
 //implementing this with nothing present nothing in contentview of calendar
-//- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
-//    //idk how to implement
-//}
+- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
+//    static NSDateFormatter *dateFormatter;
+//    if(!dateFormatter){
+//        dateFormatter = [NSDateFormatter new];
+//        dateFormatter.dateFormat = @"MMMM yyyy";
+//        
+//        dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
+//        dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
+//    }
+//    
+//    menuItemView.text = [dateFormatter stringFromDate:date];
+}
 
 //tips for pod
 

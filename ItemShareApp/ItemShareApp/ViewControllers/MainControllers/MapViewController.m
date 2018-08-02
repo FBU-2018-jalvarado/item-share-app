@@ -37,7 +37,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 @property (weak, nonatomic) IBOutlet UIView *viewWithLabel;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UIButton *profileButton;
-@property (weak, nonatomic) IBOutlet UIButton *messageButton;
+@property (weak, nonatomic) IBOutlet UIButton *recenterButton;
 
 @end
 
@@ -123,11 +123,11 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     self.postButton.layer.shadowRadius = 4.0;
     self.postButton.layer.masksToBounds = NO;
     
-    self.messageButton.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.messageButton.layer.shadowOffset = CGSizeMake(2.0, 2.0);
-    self.messageButton.layer.shadowOpacity = 0.6;
-    self.messageButton.layer.shadowRadius = 4.0;
-    self.messageButton.layer.masksToBounds = NO;
+    self.recenterButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.recenterButton.layer.shadowOffset = CGSizeMake(2.0, 2.0);
+    self.recenterButton.layer.shadowOpacity = 0.6;
+    self.recenterButton.layer.shadowRadius = 4.0;
+    self.recenterButton.layer.masksToBounds = NO;
     
     /* will add border view to it
      //add border view
@@ -346,6 +346,13 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     pins = nil;
 }
 
+- (IBAction)recenterButtonPressed:(id)sender {
+    MKCoordinateRegion mapRegion;
+    mapRegion.center = self.mapView.userLocation.coordinate;//self.mapView.userLocation.coordinate;
+    mapRegion.span = MKCoordinateSpanMake(0.5, 0.5);
+    [self.mapView setRegion:mapRegion animated: YES];
+    //self.previousUserLocation = mapView.userLocation;
+}
 
 - (IBAction)profileButtonPressed:(id)sender {
     [self.mapDelegate openSideProfile];

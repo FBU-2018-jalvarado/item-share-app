@@ -59,7 +59,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
                                 <rect key="frame" x="321" y="179" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="message-green"/>
+                                <state key="normal" backgroundImage="blue-arrow"/>
+                                <connections>
+                                    <action selector="recenterButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="t7g-nM-Wcx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
                                 <rect key="frame" x="321" y="119" width="48" height="48"/>
@@ -75,9 +78,9 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="15s-9G-4Ok" id="YML-np-UdJ"/>
-                        <outlet property="messageButton" destination="qqp-BQ-lWW" id="yD7-Pv-olQ"/>
                         <outlet property="postButton" destination="kvI-Ho-VrY" id="pgO-SB-8kW"/>
                         <outlet property="profileButton" destination="QCP-vZ-UHZ" id="is2-9V-7Ah"/>
+                        <outlet property="recenterButton" destination="qqp-BQ-lWW" id="E6y-YZ-RHz"/>
                         <outlet property="searchBar" destination="omP-vV-ahs" id="pBy-b4-Jo5"/>
                         <outlet property="titleLabel" destination="OQK-4a-4bp" id="0Ez-Fm-Kzz"/>
                         <outlet property="titleView" destination="9pL-cr-h2O" id="0Jg-s5-Fxn"/>
@@ -98,7 +101,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="message-green" width="512" height="512"/>
+        <image name="blue-arrow" width="512" height="512"/>
         <image name="post-blue" width="512" height="512"/>
         <image name="profile-orange" width="512" height="512"/>
     </resources>
