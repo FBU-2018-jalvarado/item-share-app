@@ -240,24 +240,24 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothing" translatesAutoresizingMaskIntoConstraints="NO" id="rxi-hu-r6w">
+                                                    <rect key="frame" x="20" y="11" width="34" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="FK7-CA-2r4"/>
+                                                        <constraint firstAttribute="width" constant="34" id="iuK-Cy-xP2"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMb-CO-4p0">
-                                                    <rect key="frame" x="101" y="8" width="79.5" height="21"/>
+                                                    <rect key="frame" x="74" y="11" width="83.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ggH-1D-b1r"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothing" translatesAutoresizingMaskIntoConstraints="NO" id="rxi-hu-r6w">
-                                                    <rect key="frame" x="20" y="11" width="35" height="34"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="34" id="FK7-CA-2r4"/>
-                                                        <constraint firstAttribute="width" constant="35" id="iuK-Cy-xP2"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luU-El-12b">
-                                                    <rect key="frame" x="101" y="32" width="96" height="18"/>
+                                                    <rect key="frame" x="74" y="35" width="96" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="LRG-IC-yVr"/>
                                                     </constraints>
@@ -267,16 +267,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dMb-CO-4p0" firstAttribute="leading" secondItem="rxi-hu-r6w" secondAttribute="trailing" constant="46" id="0J8-24-xVj"/>
-                                                <constraint firstItem="rxi-hu-r6w" firstAttribute="leading" secondItem="rDa-yB-Sdu" secondAttribute="leadingMargin" constant="12" id="A69-PL-ebR"/>
+                                                <constraint firstItem="dMb-CO-4p0" firstAttribute="leading" secondItem="rxi-hu-r6w" secondAttribute="trailing" constant="20" id="0J8-24-xVj"/>
+                                                <constraint firstItem="rxi-hu-r6w" firstAttribute="leading" secondItem="rDa-yB-Sdu" secondAttribute="leadingMargin" constant="5" id="A69-PL-ebR"/>
                                                 <constraint firstItem="luU-El-12b" firstAttribute="top" secondItem="dMb-CO-4p0" secondAttribute="bottom" constant="3" id="DdX-tb-Kor"/>
                                                 <constraint firstItem="dMb-CO-4p0" firstAttribute="top" secondItem="rDa-yB-Sdu" secondAttribute="topMargin" id="Kis-d6-zeq"/>
-                                                <constraint firstItem="rxi-hu-r6w" firstAttribute="top" secondItem="rDa-yB-Sdu" secondAttribute="topMargin" constant="3" id="OFL-wB-Y6U"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="rxi-hu-r6w" secondAttribute="bottom" constant="5" id="f1U-7K-Adi"/>
+                                                <constraint firstItem="rxi-hu-r6w" firstAttribute="top" secondItem="rDa-yB-Sdu" secondAttribute="topMargin" id="OFL-wB-Y6U"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="rxi-hu-r6w" secondAttribute="bottom" constant="8" id="f1U-7K-Adi"/>
                                                 <constraint firstItem="luU-El-12b" firstAttribute="top" secondItem="dMb-CO-4p0" secondAttribute="bottom" constant="3" id="kAR-8D-cex"/>
-                                                <constraint firstItem="dMb-CO-4p0" firstAttribute="leading" secondItem="rxi-hu-r6w" secondAttribute="trailing" constant="46" id="tdW-dU-ti5"/>
+                                                <constraint firstItem="dMb-CO-4p0" firstAttribute="leading" secondItem="rxi-hu-r6w" secondAttribute="trailing" constant="20" id="tdW-dU-ti5"/>
                                                 <constraint firstItem="luU-El-12b" firstAttribute="bottom" secondItem="rDa-yB-Sdu" secondAttribute="bottomMargin" id="w16-hk-zh0"/>
-                                                <constraint firstItem="luU-El-12b" firstAttribute="leading" secondItem="rxi-hu-r6w" secondAttribute="trailing" constant="46" id="y56-Uk-ijY"/>
+                                                <constraint firstItem="luU-El-12b" firstAttribute="leading" secondItem="rxi-hu-r6w" secondAttribute="trailing" constant="20" id="y56-Uk-ijY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
