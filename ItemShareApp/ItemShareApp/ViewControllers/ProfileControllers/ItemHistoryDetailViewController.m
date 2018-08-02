@@ -95,9 +95,12 @@
 //    NSString *itemTitle = item.title;
     cell.item = item;
     
-    // swipe and expansion config
-    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]]];
+    // basic swipe config
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]],
+                          [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"more"] backgroundColor:[UIColor grayColor]]];
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    
+    // expansion config
     cell.rightExpansion.buttonIndex = 0;
     cell.rightExpansion.fillOnTrigger = YES;
     cell.rightExpansion.threshold = 1.5;
@@ -105,22 +108,40 @@
     return cell;
 }
 
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.itemsArray.count;
+}
+
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion {
     
+    NSIndexPath * path = [_tableview indexPathForCell:cell];
+    
+    // trash button
     if (direction == MGSwipeDirectionRightToLeft && index == 0) {
-        //delete button
-        NSIndexPath * path = [_tableview indexPathForCell:cell];
         // remove item from Parse
+        MGItemHistoryCell *histCell = [self.tableview cellForRowAtIndexPath:path];
+        [self removeObjectFromDatabase:histCell.item];
+        // remove item from table
         [self.itemsArray removeObjectAtIndex:path.row];
         [_tableview deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
         return NO; //Don't autohide to improve delete expansion animation
     }
-    
+    // more button
+    else if (direction == MGSwipeDirectionRightToLeft && index == 1) {
+        // TO DO: make popup appear with more options/perform segue to detailed view
+    }
     return YES;
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.itemsArray.count;
+- (void) removeObjectFromDatabase: (Item *) item {
+    [item deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Failed to delete item: %@", error);
+        }
+        else {
+            NSLog(@"Successfully deleted item!");
+        }
+    }];
 }
 
 @end
