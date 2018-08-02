@@ -98,6 +98,7 @@
         if(error)
         {
             NSLog(@"Unable to post the item for sale");
+            NSLog(@"%@", error);
         }
         else {
             NSLog(@"Posted the item for sale: ");

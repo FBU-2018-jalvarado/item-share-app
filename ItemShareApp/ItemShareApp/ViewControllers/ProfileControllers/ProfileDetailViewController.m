@@ -74,7 +74,7 @@
     }
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(error){
-            NSLog(@"error");
+            NSLog(@"%@", error);
         }
         else{
             NSLog(@"success");
@@ -90,7 +90,7 @@
     }
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(error){
-            NSLog(@"error");
+            NSLog(@"%@", error);
         }
         else{
             NSLog(@"success");
