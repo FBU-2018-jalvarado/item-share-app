@@ -7,13 +7,13 @@
 //
 
 #import "ItemHistoryDetailViewController.h"
-#import "ItemHistoryCell.h"
+#import "MGItemHistoryCell.h"
 #import "Item.h"
 #import "User.h"
 
-@interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
-@property (strong, nonatomic) NSArray *itemsArray;
+@property (strong, nonatomic) NSMutableArray *itemsArray;
 @end
 
 @implementation ItemHistoryDetailViewController
@@ -30,7 +30,7 @@
             NSLog(@"Error fetching objects: %@", error);
         }
         else {
-            self.itemsArray = items;
+            self.itemsArray = [items mutableCopy];
             [self.tableview reloadData];
         }
     }];
@@ -89,15 +89,59 @@
 */
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ItemHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
+    MGItemHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"historyCell"];
+    cell.delegate = self;
     Item *item = self.itemsArray[indexPath.row];
 //    NSString *itemTitle = item.title;
     cell.item = item;
+    
+    // basic swipe config
+    cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]],
+                          [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"more"] backgroundColor:[UIColor grayColor]]];
+    cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    
+    // expansion config
+    cell.rightExpansion.buttonIndex = 0;
+    cell.rightExpansion.fillOnTrigger = YES;
+    cell.rightExpansion.threshold = 1.5;
+    
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.itemsArray.count;
+}
+
+-(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion {
+    
+    NSIndexPath * path = [_tableview indexPathForCell:cell];
+    
+    // trash button
+    if (direction == MGSwipeDirectionRightToLeft && index == 0) {
+        // remove item from Parse
+        MGItemHistoryCell *histCell = [self.tableview cellForRowAtIndexPath:path];
+        [self removeObjectFromDatabase:histCell.item];
+        // remove item from table
+        [self.itemsArray removeObjectAtIndex:path.row];
+        [_tableview deleteRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationLeft];
+        return NO; //Don't autohide to improve delete expansion animation
+    }
+    // more button
+    else if (direction == MGSwipeDirectionRightToLeft && index == 1) {
+        // TO DO: make popup appear with more options/perform segue to detailed view
+    }
+    return YES;
+}
+
+- (void) removeObjectFromDatabase: (Item *) item {
+    [item deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"Failed to delete item: %@", error);
+        }
+        else {
+            NSLog(@"Successfully deleted item!");
+        }
+    }];
 }
 
 @end

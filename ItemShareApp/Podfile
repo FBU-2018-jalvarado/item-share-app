@@ -18,4 +18,5 @@ target 'item-share-app' do
   pod 'JGProgressHUD'
   pod 'iCarousel', '~> 1.8.3'
   pod 'FLAnimatedImage'
+  pod 'MGSwipeTableCell'
 end
