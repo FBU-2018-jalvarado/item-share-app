@@ -153,7 +153,6 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             //THIS IS THE ERROR. WAS ASSIGNING ANNOTATIONS ARRAY WITH ITEMS
             [self addAnnotations:self.filteredItemsArray];
             [self removeAllPinsButUserLocation];
-            [self requestDirections:self.filteredItemsArray[0]];
         } else {
             // HANDLE NO ITEMS
         }
@@ -369,7 +368,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 - (void)requestDirections: (Item *)item {
     
     MKMapItem *myMapItem = [MKMapItem alloc];
-    [self convertAddressToPlacemark:@"555 Glenwood Av, Menlo Park, CA" withCompletion:^(CLPlacemark *placemark, NSError *error) {
+    [self convertAddressToPlacemark:item.address withCompletion:^(CLPlacemark *placemark, NSError *error) {
         if(error){
             NSLog(@"%@", error);
         }
