@@ -78,6 +78,13 @@
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
+    if([_images count] <= 2)
+    {
+        _carousel.type = iCarouselTypeLinear;
+    }
+    else {
+        _carousel.type = iCarouselTypeRotary;
+    }
     //return the total number of items in the carousel
     return [_images count];
 }
@@ -131,7 +138,7 @@
 {
     if (option == iCarouselOptionSpacing)
     {
-        return value * 1.1;
+        return value * 1.3;
     }
     return value;
 }

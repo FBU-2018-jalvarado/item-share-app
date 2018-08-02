@@ -129,14 +129,6 @@
                                             <action selector="backButtonPressed:" destination="knq-YP-lhO" eventType="touchUpInside" id="zPo-cD-Miy"/>
                                         </connections>
                                     </button>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholdImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
-                                        <rect key="frame" x="116" y="1272" width="168" height="168"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="7o9-HB-aAi" appends="YES" id="o19-1q-CuG"/>
-                                        </connections>
-                                    </imageView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-bt-VeE">
                                         <rect key="frame" x="0.0" y="211" width="375" height="194"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -170,7 +162,6 @@
                         <outlet property="categoryView" destination="JKb-gs-y7E" id="Wty-x1-Q38"/>
                         <outlet property="descripLabel" destination="kI2-01-8LJ" id="ch5-UI-W0V"/>
                         <outlet property="itemAddress" destination="bYk-Sg-eW1" id="qEM-bH-7ER"/>
-                        <outlet property="itemImage" destination="rLq-aj-stf" id="WNy-dr-emg"/>
                         <outlet property="itemTitle" destination="Sgg-PR-3dp" id="9ep-8e-UTC"/>
                         <outlet property="label1" destination="oMD-TX-vnk" id="CGa-Ay-1Hu"/>
                         <outlet property="label2" destination="job-kh-6or" id="Dv6-gU-LFT"/>
@@ -296,6 +287,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="zzO-me-9QV"/>
                     </view>
                     <connections>
                         <outlet property="car" destination="P0l-RC-yn2" id="PMu-Mw-PvG"/>
@@ -307,7 +299,4 @@
             <point key="canvasLocation" x="173.59999999999999" y="2542.1289355322342"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="placeholdImage" width="1500" height="1500"/>
-    </resources>
 </document>
