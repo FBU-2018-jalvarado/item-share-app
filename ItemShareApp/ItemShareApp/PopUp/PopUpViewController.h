@@ -13,6 +13,7 @@
 @protocol popUpDelegate
 
 - (void)dismiss;
+- (void)askedForDirections;
 
 @end
 
