@@ -12,7 +12,7 @@
 @implementation CategoryViewCell
 
 - (void) setCategory:(NSString *)keyString {
-    self.layer.borderWidth = 4;
+    self.layer.borderWidth = 2;
     self.layer.borderColor = [[UIColor blackColor] CGColor];
     self.blackTint.layer.cornerRadius = 10;
 //    self.blackTint.layer.borderColor = [[UIColor blackColor] CGColor];
