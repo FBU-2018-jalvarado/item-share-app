@@ -10,8 +10,15 @@
 #import "Item.h"
 #import "CalendarViewController.h"
 
+@protocol DetailsViewControllerDelegate
+
+- (void)sendDirectionRequestToMap: (Item *)item;
+
+@end
+
 @interface DetailsViewController : UIViewController
 
+@property (nonatomic, weak) id <DetailsViewControllerDelegate> detailsDelegate;
 @property (strong, nonatomic) Item *item;
 @property (strong, nonatomic) NSDate *selectedStartDate;
 @property (strong, nonatomic) NSDate *selectedEndDate;

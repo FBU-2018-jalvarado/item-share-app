@@ -287,6 +287,10 @@
    // [self performSelector:@selector(postPopUp) withObject:nil afterDelay:3.0 ];
 }
 
+- (void)askedForDirections {
+    [self.detailsDelegate sendDirectionRequestToMap:self.item];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES completion:nil];

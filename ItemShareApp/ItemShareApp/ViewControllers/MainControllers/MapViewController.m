@@ -22,7 +22,7 @@ NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotat
 NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
 
 
-@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate>
+@interface MapViewController () <MKMapViewDelegate, CLLocationManagerDelegate, DetailsViewControllerDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -243,6 +243,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if([segue.identifier isEqualToString:@"detailsViewSegue"]){
          DetailsViewController *detailsViewController = [segue destinationViewController];
+         detailsViewController.detailsDelegate = self;
          MKAnnotationView *view = (MKAnnotationView*)sender;
          myAnnotation *annotation = view.annotation;
          for(Item *item in self.itemsArray){
@@ -347,6 +348,11 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [self.mapDelegate openSideProfile];
 }
 
+//delegate method. Needs to ask for directions and present
+- (void)sendDirectionRequestToMap: (Item *)item {
+    [self requestDirections:item];
+    
+}
 - (void)requestDirections: (Item *)item {
     
     MKMapItem *myMapItem = [MKMapItem alloc];

@@ -84,6 +84,10 @@
     
 }
 
+- (IBAction)directionsPressed:(id)sender {
+    [self.popUpDelegate askedForDirections];
+}
+
 - (IBAction)close:(id)sender {
     NSLog(@"tapped");
     [self removeAnimate];
