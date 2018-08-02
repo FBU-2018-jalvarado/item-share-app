@@ -56,7 +56,7 @@
     [self init];
     [self.colors setColors];
     [self setUpUI];
-    
+    [self finishSetup];
     [self fetchBookings];
 }
 
