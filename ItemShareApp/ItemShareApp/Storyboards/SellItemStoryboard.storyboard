@@ -43,15 +43,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiW-ji-tX5">
-                                        <rect key="frame" x="146" y="413" width="83" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Upload Photo"/>
+                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-gs-y7E">
+                                        <rect key="frame" x="0.0" y="480" width="375" height="171"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
-                                            <action selector="tapPhoto:" destination="knq-YP-lhO" eventType="touchUpInside" id="4CE-cm-py3"/>
+                                            <segue destination="JKu-vV-JB6" kind="embed" identifier="sellCategorySegue" id="YgU-nV-wzk"/>
                                         </connections>
-                                    </button>
+                                    </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categories : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEx-fs-Vju">
                                         <rect key="frame" x="57" y="684" width="208" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,7 +130,7 @@
                                         </connections>
                                     </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholdImage" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-aj-stf" customClass="PFImageView">
-                                        <rect key="frame" x="97" y="225" width="168" height="168"/>
+                                        <rect key="frame" x="116" y="1272" width="168" height="168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -140,19 +138,21 @@
                                         </connections>
                                     </imageView>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-bt-VeE">
-                                        <rect key="frame" x="0.0" y="1048" width="375" height="260"/>
+                                        <rect key="frame" x="0.0" y="211" width="375" height="194"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
-                                            <segue destination="R78-Py-iAr" kind="embed" id="QPN-Vr-3cc"/>
+                                            <segue destination="R78-Py-iAr" kind="embed" identifier="imageCarouselSegue" id="QPN-Vr-3cc"/>
                                         </connections>
                                     </containerView>
-                                    <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-gs-y7E">
-                                        <rect key="frame" x="0.0" y="480" width="375" height="171"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiW-ji-tX5">
+                                        <rect key="frame" x="143" y="430" width="83" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Upload Photo"/>
                                         <connections>
-                                            <segue destination="JKu-vV-JB6" kind="embed" identifier="sellCategorySegue" id="YgU-nV-wzk"/>
+                                            <action selector="tapPhoto:" destination="knq-YP-lhO" eventType="touchUpInside" id="4CE-cm-py3"/>
                                         </connections>
-                                    </containerView>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -287,7 +287,7 @@
             <objects>
                 <viewController id="R78-Py-iAr" customClass="iCarouselViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Nw-81-rDY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0l-RC-yn2" customClass="iCarousel">
@@ -298,6 +298,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="car" destination="P0l-RC-yn2" id="PMu-Mw-PvG"/>
                         <outlet property="carousel" destination="P0l-RC-yn2" id="T4s-kw-LQn"/>
                     </connections>
                 </viewController>

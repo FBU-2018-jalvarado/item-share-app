@@ -37,6 +37,6 @@
 
 + (NSMutableArray *)imagesToFiles:(NSMutableArray *)images;
 
-+ (NSMutableArray *)getPFFileFromImage: (UIImage * _Nullable)image;
++ (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
 
 @end

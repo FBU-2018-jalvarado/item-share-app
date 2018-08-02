@@ -1,3 +1,4 @@
+
 //
 //  iCarouselViewController.m
 //  item-share-app
@@ -8,9 +9,11 @@
 
 #import "iCarouselViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <ParseUI/ParseUI.h>
 
 @interface iCarouselViewController ()
-@property (nonatomic, strong) NSMutableArray *items;
+
+@property (weak, nonatomic) IBOutlet iCarousel *car;
 
 @end
 
@@ -29,22 +32,18 @@
     //data of some kind - don't store data in your item views
     //or the recycling mechanism will destroy your data once
     //your item views move off-screen
-    self.items = [NSMutableArray array];
-    for (int i = 0; i < 100; i++)
-    {
-        [_items addObject:@(i)];
-    }
+
 }
 
-- (void)dealloc
-{
-    //it's a good idea to set these to nil here to avoid
-    //sending messages to a deallocated viewcontroller
-    //this is true even if your project is using ARC, unless
-    //you are targeting iOS 5 as a minimum deployment target
-    _carousel.delegate = nil;
-    _carousel.dataSource = nil;
-}
+//- (void)dealloc
+//{
+//    //it's a good idea to set these to nil here to avoid
+//    //sending messages to a deallocated viewcontroller
+//    //this is true even if your project is using ARC, unless
+//    //you are targeting iOS 5 as a minimum deployment target
+//    _carousel.delegate = nil;
+//    _carousel.dataSource = nil;
+//}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -52,26 +51,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.car.layer.cornerRadius = 15;
     //configure carousel
-    _carousel.type = iCarouselTypeCylinder;
+    _carousel.type = iCarouselTypeRotary;
     _carousel.delegate = self;
     _carousel.dataSource = self;
-    self.items = [NSMutableArray array];
-    for (int i = 0; i < 100; i++)
-    {
-        [_items addObject:@(i)];
-    }
+    //self.images = [[NSMutableArray alloc] init];
     [_carousel reloadData];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    
-    //free up memory by releasing subviews
-    self.carousel = nil;
-}
+//- (void)viewDidUnload
+//{
+//    [super viewDidUnload];
+//
+//    //free up memory by releasing subviews
+//    self.carousel = nil;
+//}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -84,10 +79,10 @@
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
     //return the total number of items in the carousel
-    return [_items count];
+    return [_images count];
 }
 
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
+- (PFImageView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(PFImageView *)view
 {
     UILabel *label = nil;
     
@@ -97,8 +92,16 @@
         //don't do anything specific to the index within
         //this `if (view == nil) {...}` statement because the view will be
         //recycled and used with other index values later
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        ((UIImageView *)view).image = [UIImage imageNamed:@"vehicles"];
+        view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+        if([self.parentVC isEqualToString:@"detail"])
+        {
+            view.file = self.images[index];
+        }
+        if([self.parentVC isEqualToString:@"sell"])
+        {
+            view.image = self.images[index];
+        }
+        [view loadInBackground];
         view.contentMode = UIViewContentModeCenter;
         
         label = [[UILabel alloc] initWithFrame:view.bounds];
@@ -119,7 +122,7 @@
     //views outside of the `if (view == nil) {...}` check otherwise
     //you'll get weird issues with carousel item content appearing
     //in the wrong place in the carousel
-    label.text = [_items[index] stringValue];
+    //label.text = [_images[index] stringValue];
     
     return view;
 }
@@ -133,6 +136,9 @@
     return value;
 }
 
+- (void)reload {
+    [self.carousel reloadData];
+}
 /*
 #pragma mark - Navigation
 

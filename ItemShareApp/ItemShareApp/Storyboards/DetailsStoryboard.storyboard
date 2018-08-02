@@ -199,6 +199,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-Lo-7uS">
+                                        <rect key="frame" x="0.0" y="1116" width="375" height="238"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="238" id="2kf-EA-oxN"/>
+                                            <constraint firstAttribute="width" constant="375" id="eiG-bC-NVd"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="efd-2b-SBf" kind="embed" identifier="CarouselSegue" id="TRR-z3-Xaz"/>
+                                        </connections>
+                                    </containerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvS-lF-FJp">
                                         <rect key="frame" x="20" y="21" width="86" height="30"/>
                                         <constraints>
@@ -215,6 +225,7 @@
                                 <constraints>
                                     <constraint firstItem="hf0-Qf-VUo" firstAttribute="top" secondItem="4rH-3H-qg6" secondAttribute="bottom" constant="32" id="3Tc-SJ-O5b"/>
                                     <constraint firstAttribute="trailing" secondItem="hf0-Qf-VUo" secondAttribute="trailing" constant="19" id="3cY-dJ-VsR"/>
+                                    <constraint firstItem="eT1-Lo-7uS" firstAttribute="top" secondItem="OX1-Vu-qli" secondAttribute="bottom" constant="49" id="4se-pu-kze"/>
                                     <constraint firstItem="6Mq-t1-ItP" firstAttribute="top" secondItem="xEd-rp-ygU" secondAttribute="bottom" constant="24" id="4u2-DN-QIj"/>
                                     <constraint firstItem="xRw-XS-3Kd" firstAttribute="leading" secondItem="7Ii-DG-Fe7" secondAttribute="trailing" constant="122" id="5xp-9t-cmO"/>
                                     <constraint firstItem="frx-zw-9co" firstAttribute="top" secondItem="7KG-ar-3hg" secondAttribute="bottom" constant="26" id="6A1-Rs-yOB"/>
@@ -239,6 +250,7 @@
                                     <constraint firstItem="42E-TH-HBT" firstAttribute="top" secondItem="29t-5N-W1F" secondAttribute="bottom" constant="8" id="SBc-Cz-ryr"/>
                                     <constraint firstAttribute="trailing" secondItem="U9x-ib-fL9" secondAttribute="trailing" constant="43" id="Sdy-6i-eRD"/>
                                     <constraint firstItem="OX1-Vu-qli" firstAttribute="top" secondItem="FfG-GA-UgZ" secondAttribute="bottom" constant="24" id="Spo-zc-OpE"/>
+                                    <constraint firstAttribute="trailing" secondItem="eT1-Lo-7uS" secondAttribute="trailing" id="ULn-EJ-GUc"/>
                                     <constraint firstItem="U9x-ib-fL9" firstAttribute="leading" secondItem="Iiq-jJ-6yq" secondAttribute="trailing" constant="130" id="YUH-1s-rOz"/>
                                     <constraint firstItem="6Mq-t1-ItP" firstAttribute="leading" secondItem="TZo-HM-BXs" secondAttribute="trailing" constant="22" id="ZBf-sS-Pkp"/>
                                     <constraint firstItem="FfG-GA-UgZ" firstAttribute="leading" secondItem="keE-7W-inE" secondAttribute="trailing" constant="3" id="a3i-Rv-Y1N"/>
@@ -254,11 +266,13 @@
                                     <constraint firstItem="OX1-Vu-qli" firstAttribute="leading" secondItem="98i-iQ-tg9" secondAttribute="leading" constant="118" id="gBb-9o-dTA"/>
                                     <constraint firstItem="xRw-XS-3Kd" firstAttribute="top" secondItem="hf0-Qf-VUo" secondAttribute="bottom" constant="19" id="gZu-Wg-sBN"/>
                                     <constraint firstItem="4rH-3H-qg6" firstAttribute="top" secondItem="TZo-HM-BXs" secondAttribute="bottom" constant="37" id="gvz-I2-t0a"/>
+                                    <constraint firstItem="eT1-Lo-7uS" firstAttribute="leading" secondItem="98i-iQ-tg9" secondAttribute="leading" id="haF-ru-xO4"/>
                                     <constraint firstAttribute="trailing" secondItem="6Mq-t1-ItP" secondAttribute="trailing" constant="31" id="j61-v4-MBu"/>
                                     <constraint firstItem="AvS-lF-FJp" firstAttribute="top" secondItem="98i-iQ-tg9" secondAttribute="top" constant="21" id="jJO-Bp-fAY"/>
                                     <constraint firstItem="AvS-lF-FJp" firstAttribute="leading" secondItem="98i-iQ-tg9" secondAttribute="leading" constant="20" id="kDc-M7-Loy"/>
                                     <constraint firstItem="6sY-rE-IUu" firstAttribute="top" secondItem="Iiq-jJ-6yq" secondAttribute="bottom" constant="33" id="kT9-Kp-lhG"/>
                                     <constraint firstAttribute="trailing" secondItem="xRw-XS-3Kd" secondAttribute="trailing" constant="43" id="l5y-qy-Mvi"/>
+                                    <constraint firstAttribute="bottom" secondItem="eT1-Lo-7uS" secondAttribute="bottom" constant="146" id="sZd-iR-J2V"/>
                                     <constraint firstItem="4rH-3H-qg6" firstAttribute="baseline" secondItem="0LG-oE-PAE" secondAttribute="baseline" id="mZZ-KL-XGx"/>
                                     <constraint firstAttribute="trailing" secondItem="frx-zw-9co" secondAttribute="trailing" constant="8" id="vVp-cp-mZd"/>
                                     <constraint firstItem="Iiq-jJ-6yq" firstAttribute="top" secondItem="7Ii-DG-Fe7" secondAttribute="bottom" constant="8" id="vyE-lR-u22"/>
@@ -336,6 +350,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxA-1C-4aW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-203" y="-708"/>
+        </scene>
+        <!--Carousel View Controller-->
+        <scene sceneID="okn-60-zxn">
+            <objects>
+                <viewController id="Hin-QJ-7XZ" customClass="iCarouselViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J0k-w4-o4N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oAY-c8-Kj8" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2XG-4g-yWQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="car" destination="oAY-c8-Kj8" id="ihc-sE-aGt"/>
+                        <outlet property="carousel" destination="oAY-c8-Kj8" id="Jmi-di-6Mu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ng2-DX-mRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.59999999999999" y="2542.1289355322342"/>
+        </scene>
+        <!--Carousel View Controller-->
+        <scene sceneID="XxR-1w-AEE">
+            <objects>
+                <viewController id="efd-2b-SBf" customClass="iCarouselViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ldm-Rv-NTR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="238"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NpG-ks-bkY" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="car" destination="NpG-ks-bkY" id="Bhf-bG-a1Y"/>
+                        <outlet property="carousel" destination="NpG-ks-bkY" id="AFe-Tm-mTr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gti-dh-Ayt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-842.39999999999998" y="324.7376311844078"/>
         </scene>
     </scenes>
     <resources>

@@ -14,6 +14,7 @@
 #import "timeModel.h"
 #import "PopUpViewController.h"
 #import "ColorScheme.h"
+#import "iCarouselViewController.h"
 #import "User.h"
 #import <Passkit/Passkit.h>
 
@@ -32,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property iCarouselViewController *icarVC;
 
 @property (strong, nonatomic) ColorScheme *colors;
 @property (strong, nonatomic) timeModel *timeModel;
@@ -61,6 +64,7 @@
     [super viewDidLoad];
 //    [self.colors setColors];
     [self setUpUI];
+    [self.icarVC reload];
     //check if payments are authorized. If not, the pay button will be hidden
     // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
 }
@@ -223,10 +227,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"embedSegue"]){
-    CalendarViewController *calendarController = [segue destinationViewController];
-    calendarController.calendarDelegate = self;
-    calendarController.item = self.item;
-    //calendarController.bookingsArray = self.bookingsArray;
+        CalendarViewController *calendarController = [segue destinationViewController];
+        calendarController.calendarDelegate = self;
+        //calendarController.bookingsArray = self.bookingsArray;
+    }
+    if([segue.identifier isEqualToString:@"CarouselSegue"])
+    {
+        iCarouselViewController *icarVC = [segue destinationViewController];
+        //self.imageArray = [[NSMutableArray alloc] init];
+        //[self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
+        icarVC.images = [[NSMutableArray alloc] init];
+        icarVC.images = self.item.images;
+        icarVC.parentVC = @"detail";
+      //  self.icarVC = icarVC;
+        [icarVC reload];
     }
 }
 
