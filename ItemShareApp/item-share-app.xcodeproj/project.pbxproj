@@ -29,7 +29,7 @@
 		7D4F5E44210A91B600669616 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E43210A91B600669616 /* ProfileViewController.m */; };
 		7D4F5E4B210BC3DD00669616 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E4A210BC3DD00669616 /* ProfileDetailViewController.m */; };
 		7D4F5E4F210BEE8E00669616 /* ItemHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E4E210BEE8E00669616 /* ItemHistoryViewController.m */; };
-		7D9BDED120FEA6F70085F862 /* loginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D9BDED020FEA6F60085F862 /* loginStoryboard.storyboard */; };
+		7D8BB5142113D53F00AD27A3 /* loginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8BB5132113D53E00AD27A3 /* loginStoryboard.storyboard */; };
 		7D9BDED520FEA7A70085F862 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDED420FEA7A70085F862 /* LoginViewController.m */; };
 		7D9BDED8210788170085F862 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDED7210788170085F862 /* Category.m */; };
 		7D9BDEDD2107F2B70085F862 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDEDC2107F2B70085F862 /* User.m */; };
@@ -51,7 +51,7 @@
 		9B9F7E8220FE4F58000E319F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E7E20FE4F57000E319F /* MapViewController.m */; };
 		9B9F7E8520FE4F5F000E319F /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E8420FE4F5F000E319F /* ItemCell.m */; };
 		9B9F7E8E20FE4F9F000E319F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F7E8C20FE4F9F000E319F /* Item.m */; };
-		9CE1E004B613D60392A24DAB /* libPods-item-share-app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF8E794D23F7D350583F5B86 /* libPods-item-share-app.a */; };
+		D9CBE9E7CAA0462D9310A923 /* libPods-item-share-app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FCE958E23164D6E0F896A3 /* libPods-item-share-app.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +81,7 @@
 		4D816FB8210B8D1A00C24648 /* item-share-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "item-share-app.entitlements"; sourceTree = "<group>"; };
 		4D816FB9210BBBA700C24648 /* myAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myAnnotation.h; sourceTree = "<group>"; };
 		4D816FBA210BBBA700C24648 /* myAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myAnnotation.m; sourceTree = "<group>"; };
+		58FCE958E23164D6E0F896A3 /* libPods-item-share-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-item-share-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D3D5D71210F879D00F05EF8 /* ItemHistoryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryDetailViewController.h; sourceTree = "<group>"; };
 		7D3D5D72210F879D00F05EF8 /* ItemHistoryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemHistoryDetailViewController.m; sourceTree = "<group>"; };
 		7D3D5D74210F8DF500F05EF8 /* ItemHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryCell.h; sourceTree = "<group>"; };
@@ -94,7 +95,7 @@
 		7D4F5E4A210BC3DD00669616 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		7D4F5E4D210BEE8E00669616 /* ItemHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryViewController.h; sourceTree = "<group>"; };
 		7D4F5E4E210BEE8E00669616 /* ItemHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemHistoryViewController.m; sourceTree = "<group>"; };
-		7D9BDED020FEA6F60085F862 /* loginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = loginStoryboard.storyboard; sourceTree = "<group>"; };
+		7D8BB5132113D53E00AD27A3 /* loginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = loginStoryboard.storyboard; sourceTree = "<group>"; };
 		7D9BDED320FEA7A70085F862 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ItemShareApp/ViewControllers/Login/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		7D9BDED420FEA7A70085F862 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ItemShareApp/ViewControllers/Login/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		7D9BDED6210788170085F862 /* Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -138,7 +139,6 @@
 		9B9F7E8A20FE4F9F000E319F /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		9B9F7E8C20FE4F9F000E319F /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		CDEF3461A6FAE4F1BAA97F0A /* Pods-item-share-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-item-share-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-item-share-app/Pods-item-share-app.release.xcconfig"; sourceTree = "<group>"; };
-		EF8E794D23F7D350583F5B86 /* libPods-item-share-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-item-share-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CE1E004B613D60392A24DAB /* libPods-item-share-app.a in Frameworks */,
+				D9CBE9E7CAA0462D9310A923 /* libPods-item-share-app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,9 +254,9 @@
 		7D9BDED220FEA6FF0085F862 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				7D8BB5132113D53E00AD27A3 /* loginStoryboard.storyboard */,
 				9B2B49FD20FE553E00A91997 /* LaunchScreen.storyboard */,
 				4D6B6EE220FE57DD006CC875 /* SearchStoryboard.storyboard */,
-				7D9BDED020FEA6F60085F862 /* loginStoryboard.storyboard */,
 				901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */,
 				4D2ECC8E20FFB71E006E6757 /* MapStoryboard.storyboard */,
 				4D2ECC9420FFC005006E6757 /* DetailsStoryboard.storyboard */,
@@ -341,7 +341,7 @@
 		CDF522BE2B4E6AF7A7A75485 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EF8E794D23F7D350583F5B86 /* libPods-item-share-app.a */,
+				58FCE958E23164D6E0F896A3 /* libPods-item-share-app.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				9B9F7E4820FE4E42000E319F /* Sources */,
 				9B9F7E4920FE4E42000E319F /* Frameworks */,
 				9B9F7E4A20FE4E42000E319F /* Resources */,
-				B59930385298AF477FB630A0 /* [CP] Copy Pods Resources */,
+				18138C4A254D6ED25180ED48 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -424,9 +424,9 @@
 				4D2ECC9520FFC005006E6757 /* DetailsStoryboard.storyboard in Resources */,
 				4D2ECC8F20FFB71E006E6757 /* MapStoryboard.storyboard in Resources */,
 				7D3D5DBE211290C400F05EF8 /* Assets.xcassets in Resources */,
-				7D9BDED120FEA6F70085F862 /* loginStoryboard.storyboard in Resources */,
 				4D2ECCCA2102989B006E6757 /* CalendarStoryboard.storyboard in Resources */,
 				4D6B6EE320FE57DD006CC875 /* SearchStoryboard.storyboard in Resources */,
+				7D8BB5142113D53F00AD27A3 /* loginStoryboard.storyboard in Resources */,
 				90091E3021026262007AB8A7 /* CategoriesStoryboard.storyboard in Resources */,
 				4D816FAE2109116A00C24648 /* PopUpViewController.xib in Resources */,
 			);
@@ -435,6 +435,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18138C4A254D6ED25180ED48 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-item-share-app/Pods-item-share-app-resources.sh",
+				"${PODS_ROOT}/CCTextFieldEffects/CCTextFieldEffects/pencil.png",
+				"${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
+				"${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pencil.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JGProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Stripe.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-item-share-app/Pods-item-share-app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2C1963D1A452DC1C13970C28 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,34 +481,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B59930385298AF477FB630A0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-item-share-app/Pods-item-share-app-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
-				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
-				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
-				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JGProgressHUD.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Stripe.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-item-share-app/Pods-item-share-app-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -653,6 +655,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 854C16B81717E65328EEF5EE /* Pods-item-share-app.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -674,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CDEF3461A6FAE4F1BAA97F0A /* Pods-item-share-app.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";

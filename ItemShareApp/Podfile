@@ -19,4 +19,5 @@ target 'item-share-app' do
   pod 'iCarousel', '~> 1.8.3'
   pod 'FLAnimatedImage'
   pod 'MGSwipeTableCell'
+  pod 'CCTextFieldEffects'
 end
