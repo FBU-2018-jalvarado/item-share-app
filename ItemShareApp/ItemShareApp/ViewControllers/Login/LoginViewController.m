@@ -140,9 +140,6 @@
 
 
 - (IBAction)didTapLogin:(id)sender {
-    
-    NSLog(@"%@", self.usernameTextField.text);
-    
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
     [self loginUser];
 }
