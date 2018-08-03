@@ -660,7 +660,7 @@
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PG4FD326ZC;
+				DEVELOPMENT_TEAM = 6VXY7J79LR;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -682,7 +682,7 @@
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PG4FD326ZC;
+				DEVELOPMENT_TEAM = 6VXY7J79LR;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

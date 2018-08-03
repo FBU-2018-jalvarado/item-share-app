@@ -107,12 +107,12 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // if they click on the back category
-    if(indexPath.item == 0)
-    {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    
+//    // if they click on the back category
+//    if(indexPath.item == 0)
+//    {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+//    
     [self.delegate showHUD];
     
     NSArray *arrayOfKeys = [self.categories allKeys];

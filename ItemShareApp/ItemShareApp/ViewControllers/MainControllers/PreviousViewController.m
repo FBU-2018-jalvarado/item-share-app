@@ -135,7 +135,6 @@
     [self.view endEditing:YES];
 }
 
-
 - (void)openSideProfile {
     
     if (self.profileView.frame.origin.x == -297) {
