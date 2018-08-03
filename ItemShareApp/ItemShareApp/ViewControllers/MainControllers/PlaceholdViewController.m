@@ -26,7 +26,6 @@
 @property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
 @property (strong, nonatomic) NSMutableArray *categoryArray;
 @property(nonatomic, strong) UIBarButtonItem *backBarButtonItem;
-@property (weak, nonatomic) IBOutlet UIView *fetchView;
 @end
 
 @implementation PlaceholdViewController
@@ -46,6 +45,10 @@
 }
 
 - (IBAction)fetchSearch:(id)sender {
+    [self showSearch];
+}
+
+- (void)showSearch {
     [UIView animateWithDuration:0.5 animations:^{
         self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x-375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
         self.fetchView.alpha = 0;
