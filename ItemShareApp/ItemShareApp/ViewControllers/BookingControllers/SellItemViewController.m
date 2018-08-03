@@ -46,8 +46,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.categoryView.layer.borderColor = [[UIColor blackColor] CGColor];
-    self.categoryView.layer.borderWidth = 1;
+//    self.categoryView.layer.borderColor = [[UIColor blackColor] CGColor];
+//    self.categoryView.layer.borderWidth = 1;
     self.categoryArray = [[NSMutableArray alloc] init];
     self.thisIsFirstPic = YES;
     self.itemTitle.delegate = self;
@@ -60,8 +60,8 @@
     
     self.itemImage.layer.borderColor = [[UIColor blackColor] CGColor];
     self.itemImage.layer.borderWidth = 2;
-    self.descripLabel.layer.borderColor = [[UIColor blackColor] CGColor];
-    self.descripLabel.layer.borderWidth = 2;
+    self.descripLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descripLabel.layer.borderWidth = 1;
     CGFloat contentWidth = self.scrollView.bounds.size.width;
     CGFloat contentHeight = self.scrollView.bounds.size.height * 3;
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
