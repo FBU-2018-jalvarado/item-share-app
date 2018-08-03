@@ -183,6 +183,8 @@
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView{
     dayView.hidden = NO;
     
+    UIColor *color = [UIColor colorWithRed:255.0f/255.0f green:139.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    
     //today
     if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
@@ -193,14 +195,14 @@
     //startDate
     else if(self.startDate && [self.calendarManager.dateHelper date:self.startDate isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.circleView.backgroundColor = color;
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
     //endDate
     else if(self.endDate && [self.calendarManager.dateHelper date:self.endDate isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.circleView.backgroundColor = color;
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
@@ -225,7 +227,7 @@
     //in between selected dates
     else if([self isBetweenDates:dayView.date withStartDate:self.startDate withEndDate:self.endDate] && (self.startDate != nil && self.endDate != nil)){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.circleView.backgroundColor = color;
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
@@ -242,7 +244,7 @@
         //make it normal
             dayView.circleView.hidden = YES;
             dayView.dotView.backgroundColor = [UIColor blueColor];
-            dayView.textLabel.textColor = [UIColor redColor];
+            dayView.textLabel.textColor = color;
         }
     }
     
