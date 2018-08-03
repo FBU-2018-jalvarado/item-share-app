@@ -34,8 +34,8 @@
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 @property (nonatomic, weak) id <MapViewControllerDelegate> mapDelegate;
 
-- (void)removeAllPinsButUserLocation;
-- (void)addAnnotations: (NSMutableArray *)filteredItemsArray;
+- (void)removeAllMarkersButUserLocation;
+- (void)addMarkers: (NSMutableArray *)filteredItemsArray;
 
 
 @end

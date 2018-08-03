@@ -312,11 +312,11 @@
 
 
 - (void)addAnnotationsInMap:(NSMutableArray*)filteredItemArray {
-    [self.mapController addAnnotations:filteredItemArray];
+    [self.mapController addMarkers:filteredItemArray];
 }
 
 - (void)removeAnnotationsInMap{
-    [self.mapController removeAllPinsButUserLocation];
+    [self.mapController removeAllMarkersButUserLocation];
 }
     
 

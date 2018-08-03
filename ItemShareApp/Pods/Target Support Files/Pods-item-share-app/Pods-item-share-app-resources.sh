@@ -93,6 +93,8 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/CCTextFieldEffects/CCTextFieldEffects/pencil.png"
+  install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
+  install_resource "${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj"
@@ -102,6 +104,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/CCTextFieldEffects/CCTextFieldEffects/pencil.png"
+  install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
+  install_resource "${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj"

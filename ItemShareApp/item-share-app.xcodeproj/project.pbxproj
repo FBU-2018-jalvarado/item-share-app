@@ -21,7 +21,8 @@
 		4D816FAE2109116A00C24648 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D816FAC2109116A00C24648 /* PopUpViewController.xib */; };
 		4D816FB12109253400C24648 /* ColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FB02109253400C24648 /* ColorScheme.m */; };
 		4D816FB4210A909600C24648 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FB3210A909600C24648 /* RegisterViewController.m */; };
-		4D816FBB210BBBA700C24648 /* myAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FBA210BBBA700C24648 /* myAnnotation.m */; };
+		4D816FBB210BBBA700C24648 /* myMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FBA210BBBA700C24648 /* myMarker.m */; };
+		4DE4BA002114F25400ACC4DC /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4B9FF2114F25300ACC4DC /* style.json */; };
 		7D3D5D73210F879D00F05EF8 /* ItemHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D5D72210F879D00F05EF8 /* ItemHistoryDetailViewController.m */; };
 		7D3D5D76210F8DF500F05EF8 /* ItemHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D5D75210F8DF500F05EF8 /* ItemHistoryCell.m */; };
 		7D3D5DBC21128A6000F05EF8 /* MGItemHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D5DBB21128A6000F05EF8 /* MGItemHistoryCell.m */; };
@@ -79,8 +80,9 @@
 		4D816FB2210A909600C24648 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		4D816FB3210A909600C24648 /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		4D816FB8210B8D1A00C24648 /* item-share-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "item-share-app.entitlements"; sourceTree = "<group>"; };
-		4D816FB9210BBBA700C24648 /* myAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myAnnotation.h; sourceTree = "<group>"; };
-		4D816FBA210BBBA700C24648 /* myAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myAnnotation.m; sourceTree = "<group>"; };
+		4D816FB9210BBBA700C24648 /* myMarker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myMarker.h; sourceTree = "<group>"; };
+		4D816FBA210BBBA700C24648 /* myMarker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myMarker.m; sourceTree = "<group>"; };
+		4DE4B9FF2114F25300ACC4DC /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = style.json; path = ../../style.json; sourceTree = "<group>"; };
 		58FCE958E23164D6E0F896A3 /* libPods-item-share-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-item-share-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D3D5D71210F879D00F05EF8 /* ItemHistoryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryDetailViewController.h; sourceTree = "<group>"; };
 		7D3D5D72210F879D00F05EF8 /* ItemHistoryDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemHistoryDetailViewController.m; sourceTree = "<group>"; };
@@ -298,8 +300,8 @@
 		9B9F7E8820FE4F9F000E319F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4D816FB9210BBBA700C24648 /* myAnnotation.h */,
-				4D816FBA210BBBA700C24648 /* myAnnotation.m */,
+				4D816FB9210BBBA700C24648 /* myMarker.h */,
+				4D816FBA210BBBA700C24648 /* myMarker.m */,
 				9B9F7E8A20FE4F9F000E319F /* Item.h */,
 				9B9F7E8C20FE4F9F000E319F /* Item.m */,
 				7D9BDEDB2107F2B70085F862 /* User.h */,
@@ -334,6 +336,7 @@
 				9B9F7E6820FE4EE6000E319F /* AppDelegate.m */,
 				9B9F7E6A20FE4EED000E319F /* main.m */,
 				9B9F7E6B20FE4EEE000E319F /* Info.plist */,
+				4DE4B9FF2114F25300ACC4DC /* style.json */,
 			);
 			path = ItemShareApp;
 			sourceTree = SOURCE_ROOT;
@@ -419,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE4BA002114F25400ACC4DC /* style.json in Resources */,
 				9B2B4A0020FE553F00A91997 /* LaunchScreen.storyboard in Resources */,
 				901C5ABC20FEADB300B17D70 /* SellItemStoryboard.storyboard in Resources */,
 				4D2ECC9520FFC005006E6757 /* DetailsStoryboard.storyboard in Resources */,
@@ -443,6 +447,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-item-share-app/Pods-item-share-app-resources.sh",
 				"${PODS_ROOT}/CCTextFieldEffects/CCTextFieldEffects/pencil.png",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
 				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
@@ -453,6 +459,8 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pencil.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JGProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
@@ -519,7 +527,7 @@
 				90091E3321027B3F007AB8A7 /* CategoriesViewController.m in Sources */,
 				7D4F5E4F210BEE8E00669616 /* ItemHistoryViewController.m in Sources */,
 				7D9BDED8210788170085F862 /* Category.m in Sources */,
-				4D816FBB210BBBA700C24648 /* myAnnotation.m in Sources */,
+				4D816FBB210BBBA700C24648 /* myMarker.m in Sources */,
 				9B9F7E6920FE4EE6000E319F /* AppDelegate.m in Sources */,
 				908EC1AA21028B6D00BAD946 /* CatAndItemTableViewController.m in Sources */,
 				7D4F5E4B210BC3DD00669616 /* ProfileDetailViewController.m in Sources */,
@@ -660,7 +668,7 @@
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VXY7J79LR;
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -682,7 +690,7 @@
 				CODE_SIGN_ENTITLEMENTS = "item-share-app.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6VXY7J79LR;
+				DEVELOPMENT_TEAM = PG4FD326ZC;
 				INFOPLIST_FILE = "$(SRCROOT)/ItemShareApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
