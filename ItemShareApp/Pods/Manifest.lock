@@ -21,6 +21,13 @@ PODS:
     - ClusterKit/Core
   - DZNEmptyDataSet (1.8.1)
   - FLAnimatedImage (1.0.12)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
   - iCarousel (1.8.3)
   - JGProgressHUD (2.0.3)
   - JTCalendar (2.2.3)
@@ -40,6 +47,8 @@ DEPENDENCIES:
   - ClusterKit/MapKit
   - DZNEmptyDataSet
   - FLAnimatedImage
+  - GoogleMaps
+  - GooglePlaces
   - iCarousel (~> 1.8.3)
   - JGProgressHUD
   - JTCalendar (~> 2.0)
@@ -56,6 +65,8 @@ SPEC REPOS:
     - ClusterKit
     - DZNEmptyDataSet
     - FLAnimatedImage
+    - GoogleMaps
+    - GooglePlaces
     - iCarousel
     - JGProgressHUD
     - JTCalendar
@@ -71,6 +82,8 @@ SPEC CHECKSUMS:
   ClusterKit: 30d15b449a398103d130ea9661cab82bb99eb52d
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   JTCalendar: f54975f1426facc38d112f372f0d3d955aae8d86
@@ -79,6 +92,6 @@ SPEC CHECKSUMS:
   ParseUI: 2b37a0bc692a3e7666cf0c37b5521dfddd74a1af
   Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
 
-PODFILE CHECKSUM: 06654ba2aa9ce272654cca7fdbd54bd32ef6cb21
+PODFILE CHECKSUM: 64bd80122ff463005e461e4ae5a11a1753090873
 
 COCOAPODS: 1.5.3

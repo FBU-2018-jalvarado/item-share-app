@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import <Stripe/Stripe.h>
 #import "User.h"
+@import GoogleMaps;
+@import GooglePlaces;
 
 @interface AppDelegate ()
 
@@ -23,6 +25,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    [GMSServices provideAPIKey:@"AIzaSyDWcPqlz31jbQEqzivaqzfoFZc3BeJbqwk"]; //AIzaSyDWcPqlz31jbQEqzivaqzfoFZc3BeJbqwk is google map api key
+    [GMSPlacesClient provideAPIKey:@"AIzaSyDWcPqlz31jbQEqzivaqzfoFZc3BeJbqwk"];
+    
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
         // set config keys etc.

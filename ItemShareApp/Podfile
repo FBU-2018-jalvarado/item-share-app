@@ -20,4 +20,7 @@ target 'item-share-app' do
   pod 'FLAnimatedImage'
   pod 'MGSwipeTableCell'
   pod 'CCTextFieldEffects'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+
 end
