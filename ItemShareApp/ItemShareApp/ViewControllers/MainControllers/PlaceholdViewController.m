@@ -34,6 +34,8 @@
     [super viewDidLoad];
     self.fetchView.backgroundColor = [UIColor orangeColor];
     self.searchBar.barTintColor = [UIColor orangeColor];
+    self.searchBar.layer.borderWidth = 1;
+    self.searchBar.layer.borderColor = [[UIColor orangeColor] CGColor];
     // from SearchBar
     self.searchBar.delegate = self;
     self.categoryArray = [[NSMutableArray alloc] init];
