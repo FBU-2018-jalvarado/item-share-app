@@ -54,7 +54,9 @@
     
     // move searchView to bottom to raise to top when pressed
     [self arrowAndSearchViewMove:201];
+    [self arrowAndSearchViewMove:261];
     [self moveArrows:-207];
+    [self moveArrows:-261];
     // move profileView out of screen to bring in later
     self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
     // adjust table view size
@@ -133,30 +135,6 @@
     [self.view endEditing:YES];
 }
 
-- (IBAction)swipeUp:(id)sender {
-    if(self.searchView.frame.origin.y == 350 && self.blackView.alpha == 0)
-    {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-201];
-            [self tableViewMove:201];
-            self.grayBar.alpha = 0;
-            self.downArrow.alpha = 1;
-            [self moveArrows:201];
-        }];
-        [self createBlur];
-    }
-    if(self.searchView.frame.origin.y == 611)
-    {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-261];
-            [self tableViewMove:261];
-            self.grayBar.alpha = 1;
-            self.upArrow.alpha = 0;
-            [self moveArrows:261];
-        }];
-        
-    }
-}
 
 - (void)openSideProfile {
     
@@ -176,7 +154,68 @@
     }
 }
 
+- (IBAction)swipeUp:(id)sender {
+    // middle to top
+    if(self.searchView.frame.origin.y == 350 && self.blackView.alpha == 0)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self arrowAndSearchViewMove:-201];
+            [self tableViewMove:201];
+            self.grayBar.alpha = 0;
+            self.downArrow.alpha = 1;
+            [self moveArrows:201];
+        }];
+        [self createBlur];
+    }
+    // bottom to middle
+    if(self.searchView.frame.origin.y == 611)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self arrowAndSearchViewMove:-261];
+            [self tableViewMove:261];
+            self.grayBar.alpha = 1;
+            self.upArrow.alpha = 0;
+            [self moveArrows:261];
+        }];
+        [self.placeholdViewController showSearch];
+    }
+}
+
+- (void)showSearchView {
+    // middle to top
+    if(self.searchView.frame.origin.y == 350)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self arrowAndSearchViewMove:-201];
+            [self tableViewMove:201];
+            self.grayBar.alpha = 0;
+            self.downArrow.alpha = 1;
+            [self moveArrows:201];
+        }];
+        [self.placeholdViewController.searchBar becomeFirstResponder];
+        [self createBlur];
+    }
+    else // bottom to middle
+    {
+        if(self.searchView.frame.origin.y == 611)
+        {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self arrowAndSearchViewMove:-261];
+                self.grayBar.alpha = 1;
+                self.upArrow.alpha = 0;
+                [self moveArrows:261];
+            }];
+            if(self.placeholdViewController.fetchView.frame.origin.x == 0)
+            {
+                [self.placeholdViewController showSearch];
+            }
+            //[self tableViewMove:297];
+        }
+    }
+}
+
 - (void)dismissToMap {
+    // middle to bottom
     if(self.searchView.frame.origin.y == 350)
     {
         [UIView animateWithDuration:0.5 animations:^{
@@ -185,8 +224,10 @@
             self.upArrow.alpha = 1;
             [self moveArrows:-261];
         }];
+        [self.placeholdViewController hideSearch];
         //[self tableViewMove:-297];
     }
+    // top to middle
     if(self.searchView.frame.origin.y == 149)
     {
         [UIView animateWithDuration:0.5 animations:^{
@@ -204,7 +245,6 @@
             }
         }];
     }
-    
     [self.view endEditing:YES];
 }
 
@@ -212,35 +252,6 @@
     self.grayBar.frame = CGRectMake(self.grayBar.frame.origin.x, self.grayBar.frame.origin.y - num, self.grayBar.frame.size.width, self.grayBar.frame.size.height);
     self.upArrow.frame = CGRectMake(self.upArrow.frame.origin.x, self.upArrow.frame.origin.y - num, self.upArrow.frame.size.width, self.upArrow.frame.size.height);
     self.downArrow.frame = CGRectMake(self.downArrow.frame.origin.x, self.downArrow.frame.origin.y - num, self.downArrow.frame.size.width, self.downArrow.frame.size.height);
-}
-
-- (void)showSearchView {
-    if(self.searchView.frame.origin.y == 611)
-    {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-261];
-            self.grayBar.alpha = 1;
-            self.upArrow.alpha = 0;
-            [self moveArrows:261];
-        }];
-        //[self tableViewMove:297];
-    }
-    
-    else
-    {
-        if(self.searchView.frame.origin.y == 350)
-        {
-            [UIView animateWithDuration:0.5 animations:^{
-                [self arrowAndSearchViewMove:-201];
-                [self tableViewMove:201];
-                self.grayBar.alpha = 0;
-                self.downArrow.alpha = 1;
-                [self moveArrows:201];
-            }];
-        }
-        [self.placeholdViewController.searchBar becomeFirstResponder];
-        [self createBlur];
-    }
 }
 
 - (void)createBlur {
