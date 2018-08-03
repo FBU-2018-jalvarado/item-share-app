@@ -10,13 +10,12 @@
 #import <Parse/Parse.h>
 #import "ColorScheme.h"
 #import "User.h"
+#import <CCTextFieldEffects/CCTextFieldEffects.h>
+#import <CCTextFieldEffects/CCTextField.h>
 
 @interface LoginViewController () <UITextFieldDelegate>
-
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-
+@property (strong, nonatomic) HoshiTextField *usernameTextField;
+@property (strong, nonatomic) HoshiTextField *passwordTextField;
 @property (strong, nonatomic) ColorScheme *colors;
 
 @end
@@ -34,13 +33,104 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     [self init];
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     [self.colors setColors];
-    [self setUpUI];
-    [self setUpGradient];
-    // Do any additional setup after loading the view.
+//    [self setUpUI];
+//    [self setUpGradient];
+    [self setUpUsernameField];
+    [self setupPasswordField];
+}
+
+-(void) setUpUsernameField {
+    // Recommended frame height is around 70.
+    self.usernameTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(30, 124, 315, 70)];
+    self.usernameTextField.placeholder = @"username";
+    
+    // The size of the placeholder label relative to the font size of the text field, default value is 0.65
+    self.usernameTextField.placeholderFontScale = 0.65;
+    
+    // The color of the inactive border, default value is R185 G193 B202
+    self.usernameTextField.borderInactiveColor = [UIColor colorWithRed:(185 / 255) green:(193 / 255) blue:(202 / 255) alpha:1];
+    
+    // The color of the active border, default value is R106 G121 B137
+    self.usernameTextField.borderActiveColor = [UIColor colorWithRed:(106/255) green:(121/255) blue:(137/255) alpha:1];
+    
+    // The color of the placeholder, default value is R185 G193 B202
+    self.usernameTextField.placeholderColor = [UIColor colorWithRed:(185/255) green:(193/255) blue:(202/255) alpha:1];
+    
+    // The color of the cursor, default value is R89 G95 B110
+    self.usernameTextField.cursorColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
+    
+    // The color of the text, default value is R89 G95 B110
+    self.usernameTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
+    
+    // The block excuted when the animation for obtaining focus has completed.
+    // Do not use textFieldDidBeginEditing:
+    self.usernameTextField.didBeginEditingHandler = ^{
+        // ...
+    };
+    
+    // The block excuted when the animation for losing focus has completed.
+    // Do not use textFieldDidEndEditing:
+    self.usernameTextField.didEndEditingHandler = ^{
+        // ...
+    };
+    
+    [self.view addSubview:self.usernameTextField];
+}
+
+- (void) setupPasswordField {
+    /* summary of colors for easy distinction of different parts of text field:
+     inactive border = red
+     active border = green
+     placeholder = blue
+     cursor = blue + red = purple
+     text = red + green = yellow (?)
+     */
+    
+    // Recommended frame height is around 70.
+    self.passwordTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(30, 210, 315, 70)];
+    self.passwordTextField.placeholder = @"password";
+    
+    // The size of the placeholder label relative to the font size of the text field, default value is 0.65
+    self.passwordTextField.placeholderFontScale = 0.65;
+    
+    // The color of the inactive border, default value is R185 G193 B202
+    self.passwordTextField.borderInactiveColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    
+    // The color of the active border, default value is R106 G121 B137
+    self.passwordTextField.borderActiveColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+    
+    // The color of the placeholder, default value is R185 G193 B202
+    self.passwordTextField.placeholderColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
+    
+    // The color of the cursor, default value is R89 G95 B110
+    self.passwordTextField.cursorColor = [UIColor colorWithRed:1 green:0 blue:1 alpha:1];
+    
+    // The color of the text, default value is R89 G95 B110
+    self.passwordTextField.textColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
+    
+    // make it a secure entry text field
+    [self.passwordTextField setSecureTextEntry:true];
+
+    // The block excuted when the animation for obtaining focus has completed.
+    // Do not use textFieldDidBeginEditing:
+    self.passwordTextField.didBeginEditingHandler = ^{
+        // ...
+    };
+    
+    // The block excuted when the animation for losing focus has completed.
+    // Do not use textFieldDidEndEditing:
+    self.passwordTextField.didEndEditingHandler = ^{
+        // ...
+    };
+    
+//    [self.passwordTextField isSecureTextEntry:TRUE];
+    
+    [self.view addSubview:self.passwordTextField];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -50,6 +140,9 @@
 
 
 - (IBAction)didTapLogin:(id)sender {
+    
+    NSLog(@"%@", self.usernameTextField.text);
+    
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
     [self loginUser];
 }
@@ -59,9 +152,9 @@
 //}
 
 - (void)setUpUI{
-    self.usernameTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
+//    self.usernameTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
     self.passwordTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
-    self.emailTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
+//    self.emailTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
 }
 - (void)setUpGradient{
     // Create the colors

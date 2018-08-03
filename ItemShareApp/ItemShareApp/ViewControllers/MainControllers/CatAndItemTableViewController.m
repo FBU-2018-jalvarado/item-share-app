@@ -5,7 +5,6 @@
 //  Created by Stephanie Lampotang on 7/20/18.
 //  Copyright © 2018 FBU-2018. All rights reserved.
 //
-
 #import "CatAndItemTableViewController.h"
 #import "CategoryTableCell.h"
 #import "ItemTableCell.h"
@@ -29,10 +28,10 @@
     self.catAndItemTableView.emptyDataSetSource = self;
     self.catAndItemTableView.emptyDataSetDelegate = self;
     
+    self.catAndItemTableView.rowHeight = UITableViewAutomaticDimension;
+
     //remove cell separators
     self.catAndItemTableView.tableFooterView = [UIView new];
-    
-
     [self.catAndItemTableView reloadData];
     // Do any additional setup after loading the view.
 }
@@ -197,6 +196,7 @@
         if(error != nil)
         {
             NSLog(@"ERROR GETTING FULL LIST OF ITEMS!");
+            [self.delegate dismissHUD];
         }
         else {
             if (items) {
@@ -217,6 +217,7 @@
                 self.itemRows = itemsInCategory;
                 [self.catAndItemTableView reloadData];
                 [self.delegate filterInMap:self.itemRows];
+                [self.delegate dismissHUD];
             }
         }
     }];

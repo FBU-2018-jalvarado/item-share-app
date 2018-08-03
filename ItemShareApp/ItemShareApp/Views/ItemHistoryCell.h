@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Item.h"
 
+// D E P R E C A T E D
+
 @interface ItemHistoryCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (strong, nonatomic) Item *item;
 @end

@@ -10,6 +10,8 @@
 
 @interface CategoryViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *backImage;
+@property (weak, nonatomic) IBOutlet UIImageView *blackTint;
 
 - (void) setCategory:(NSString *)keyString;
 @end

@@ -13,6 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    self.icon.layer.cornerRadius = 17;
+    self.icon.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -23,6 +26,6 @@
 
 - (void) setItem:(NSString *)itemName  withAddress:(NSString *)address{
     self.nameLabel.text = itemName;
-    self.addressLabel.text = address;
+    self.distanceLabel.text = @"0.2 miles";
 }
 @end

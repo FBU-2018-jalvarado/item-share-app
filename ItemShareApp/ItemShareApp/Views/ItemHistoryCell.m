@@ -8,6 +8,8 @@
 
 #import "ItemHistoryCell.h"
 
+// D E P R E C A T E D
+
 @implementation ItemHistoryCell
 
 - (void)awakeFromNib {
@@ -18,6 +20,9 @@
 - (void) setItem:(Item *)item {
     _item = item;
     self.itemTitle.text = self.item.title;
+    self.priceLabel.text = self.item.price;
+    self.addressLabel.text = self.item.address;
+    self.descriptionLabel.text = self.item.descrip;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

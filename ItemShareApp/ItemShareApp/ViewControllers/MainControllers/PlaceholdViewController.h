@@ -14,7 +14,9 @@
 
 - (void)dismissToMap;
 - (void)showSearchView;
--(void)dismissKeyboard;
+- (void)dismissKeyboard;
+- (void)showHUD;
+- (void)dismissHUD;
 
 @end
 
@@ -30,6 +32,12 @@
 @property (nonatomic, weak) id <PlaceholderViewControllerDelegate> placeholderDelegate;
 @property (nonatomic, weak) id <PlaceHolderViewControllerDelegateMap> placeholderDelegateMap;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+//@property (weak, nonatomic) IBOutlet UIImageView *arrowImage;
+//@property (weak, nonatomic) IBOutlet UIImageView *downArrow;
 @property CatAndItemTableViewController *catAndItemTableViewController;
+//@property (weak, nonatomic) IBOutlet UIImageView *grayBar;
+@property (weak, nonatomic) IBOutlet UIView *fetchView;
+- (void)showSearch;
+- (void)hideSearch;
 
 @end

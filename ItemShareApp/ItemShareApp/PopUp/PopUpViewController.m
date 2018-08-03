@@ -11,6 +11,7 @@
 
 @interface PopUpViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *directionsButton;
 @property (strong, nonatomic) ColorScheme *colorModel;
 @end
 
@@ -40,12 +41,21 @@
     self.buttonLabel.layer.cornerRadius = 5;
 //    self.nameLabel.textColor = [UIColor blackColor];
 //    self.messageLabel.textColor = [UIColor blackColor];
+    
+    self.directionsButton.layer.borderColor = [UIColor blueColor].CGColor;
+    self.directionsButton.layer.borderWidth = 1;
+    self.directionsButton.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];
     self.buttonLabel.layer.borderColor = [UIColor blueColor].CGColor;
     self.buttonLabel.layer.borderWidth = 1;
     self.buttonLabel.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];
    // [self.buttonLabel setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
      [self.buttonLabel setTitleColor:self.colorModel.mainColor forState:UIControlStateNormal];
-    self.nameLabel.text = self.name;
+    
+    self.nameLabel.text = self.item.title;
+    self.firstNameLabel.text = self.owner.firstName;
+    self.lastNameLabel.text = self.owner.lastName;
+    self.phoneLabel.text = self.owner.phoneNumber;
+    self.addressLabel.text = self.item.address;
     
 }
 
@@ -73,13 +83,20 @@
 }
 
 - (IBAction)closePopup:(id)sender {
-    NSLog(@"tapped");
+    NSLog(@"YEEt");
     [self removeAnimate];
+    [self.popUpDelegate dismiss];
+    
+}
+
+- (IBAction)directionsPressed:(id)sender {
+    [self.popUpDelegate askedForDirections];
 }
 
 - (IBAction)close:(id)sender {
     NSLog(@"tapped");
     [self removeAnimate];
+    [self.popUpDelegate dismiss];
 }
 
 - (void)showInView:(UIView *)aView animated:(BOOL)animated

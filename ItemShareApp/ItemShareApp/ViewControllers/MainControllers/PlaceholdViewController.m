@@ -25,13 +25,17 @@
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 @property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
 @property (strong, nonatomic) NSMutableArray *categoryArray;
+@property(nonatomic, strong) UIBarButtonItem *backBarButtonItem;
 @end
 
 @implementation PlaceholdViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.fetchView.backgroundColor = [UIColor orangeColor];
+    self.searchBar.barTintColor = [UIColor orangeColor];
+    self.searchBar.layer.borderWidth = 1;
+    self.searchBar.layer.borderColor = [[UIColor orangeColor] CGColor];
     // from SearchBar
     self.searchBar.delegate = self;
     self.categoryArray = [[NSMutableArray alloc] init];
@@ -41,6 +45,25 @@
     
     [self fetchItems];
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)fetchSearch:(id)sender {
+    [self showSearch];
+}
+
+- (void)showSearch {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x-375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
+        self.fetchView.alpha = 0;
+        [self.placeholderDelegate showSearchView];
+    }];
+}
+
+- (void)hideSearch {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x+375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
+        self.fetchView.alpha = 1;
+    }];
 }
 
 - (IBAction)onTapMap:(id)sender {
@@ -121,7 +144,7 @@
 
 - (void)emptyTextBarFormat {
     // make the category collection view reappear
-    self.catAndItemTableViewController.categoryCollView.frame = CGRectMake(self.catAndItemTableViewController.categoryCollView.frame.origin.x, self.catAndItemTableViewController.categoryCollView.frame.origin.y, self.catAndItemTableViewController.categoryCollView.frame.size.width, 146);
+    self.catAndItemTableViewController.categoryCollView.frame = CGRectMake(self.catAndItemTableViewController.categoryCollView.frame.origin.x, self.catAndItemTableViewController.categoryCollView.frame.origin.y, self.catAndItemTableViewController.categoryCollView.frame.size.width, 203);
     self.catAndItemTableViewController.categoryCollView.alpha = 1;
 }
 
@@ -141,6 +164,7 @@
     {
         UINavigationController *navVC = [segue destinationViewController];
         CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
+//        [categoriesViewController.navigationItem.backBarButtonItem] = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         categoriesViewController.firstPage = YES;
         categoriesViewController.title = @"Categories";
         categoriesViewController.delegate = self;
@@ -152,6 +176,9 @@
     }
 }
 
+-(void) dismissHUD {
+    [self.placeholderDelegate dismissHUD];
+}
 
 - (void)fetchItems {
     
@@ -169,6 +196,7 @@
         if(error != nil)
         {
             NSLog(@"ERROR GETTING THE ITEMS!");
+            [self.placeholderDelegate dismissHUD];
         }
         else {
             if (items) {
@@ -185,6 +213,8 @@
                 NSLog(@"SUCCESSFULLY RETREIVED ITEMS!");
                 [self.catAndItemTableViewController.catAndItemTableView reloadData];
                 
+                // stop displaying HUD
+                [self.placeholderDelegate dismissHUD];
             }
         }
     }];
@@ -211,4 +241,7 @@
     [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
 }
 
+- (void)showHUD {
+    [self.placeholderDelegate showHUD];
+}
 @end
