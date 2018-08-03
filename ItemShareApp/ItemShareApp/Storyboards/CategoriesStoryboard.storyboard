@@ -549,11 +549,11 @@
             <objects>
                 <viewController storyboardIdentifier="CategoriesViewController" id="I6d-3y-5cK" customClass="CategoriesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ar8-wy-ltY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IxB-s5-xFf">
-                                <rect key="frame" x="16" y="60" width="343" height="128"/>
+                                <rect key="frame" x="16" y="15" width="343" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZME-Fn-9fB">
@@ -616,7 +616,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hIC-St-eLC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q9o-zM-YUf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="q9o-zM-YUf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

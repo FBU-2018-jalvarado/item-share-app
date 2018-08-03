@@ -43,14 +43,10 @@
                                             <segue destination="R78-Py-iAr" kind="embed" identifier="imageCarouselSegue" id="QPN-Vr-3cc"/>
                                         </connections>
                                     </containerView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-gy-D4c">
-                                        <rect key="frame" x="16" y="19" width="86" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" highlightedImage="placeholderImageBlack" translatesAutoresizingMaskIntoConstraints="NO" id="MWj-kZ-9tb">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Back to Map"/>
-                                        <connections>
-                                            <action selector="backButtonPressed:" destination="knq-YP-lhO" eventType="touchUpInside" id="zPo-cD-Miy"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiW-ji-tX5">
                                         <rect key="frame" x="158" y="257" width="59" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -184,6 +180,17 @@
                                             <segue destination="vZX-yr-bj1" kind="embed" identifier="sellCategorySegue" id="pth-XX-maw"/>
                                         </connections>
                                     </containerView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-gy-D4c">
+                                        <rect key="frame" x="42" y="8" width="36" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="knq-YP-lhO" eventType="touchUpInside" id="zPo-cD-Miy"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Im-ZA-fbm">
                                         <rect key="frame" x="172" y="965" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -351,11 +358,11 @@
             <objects>
                 <viewController storyboardIdentifier="CategoriesViewController" id="bXZ-Fn-dZq" customClass="CategoriesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GVI-1o-fHD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="g1S-vg-KT1">
-                                <rect key="frame" x="16" y="60" width="343" height="128"/>
+                                <rect key="frame" x="16" y="17" width="343" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yz9-FI-LPS">
@@ -418,7 +425,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vZX-yr-bj1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ozp-BA-20E">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ozp-BA-20E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -432,4 +439,7 @@
             <point key="canvasLocation" x="1156" y="1580"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholderImageBlack" width="1900" height="1200"/>
+    </resources>
 </document>

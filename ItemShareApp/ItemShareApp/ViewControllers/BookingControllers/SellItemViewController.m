@@ -39,15 +39,27 @@
 @property BOOL thisIsFirstPic;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
+
 @end
 
 @implementation SellItemViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    self.categoryView.layer.borderColor = [[UIColor blackColor] CGColor];
-//    self.categoryView.layer.borderWidth = 1;
+    // setup UI
+    self.backButton.backgroundColor = [UIColor clearColor];
+    self.backButton.layer.cornerRadius = 5;
+    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.backButton.layer.borderWidth = 1;
+    self.itemImage.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.itemImage.layer.borderWidth = 2;
+    self.descripLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.descripLabel.layer.borderWidth = 1;
+    CGFloat contentWidth = self.scrollView.bounds.size.width;
+    CGFloat contentHeight = self.scrollView.bounds.size.height * 3;
+    self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
+    
+    // setting up initial info
     self.categoryArray = [[NSMutableArray alloc] init];
     self.thisIsFirstPic = YES;
     self.itemTitle.delegate = self;
@@ -57,14 +69,6 @@
     
     // Do any additional setup after loading the view.
     // TODO: make name field optional after login
-    
-    self.itemImage.layer.borderColor = [[UIColor blackColor] CGColor];
-    self.itemImage.layer.borderWidth = 2;
-    self.descripLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.descripLabel.layer.borderWidth = 1;
-    CGFloat contentWidth = self.scrollView.bounds.size.width;
-    CGFloat contentHeight = self.scrollView.bounds.size.height * 3;
-    self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
 }
 
 
