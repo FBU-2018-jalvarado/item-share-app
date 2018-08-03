@@ -81,9 +81,9 @@ NSString * const kMapStyleURLString = @"https://maps.googleapis.com/maps/api/sta
     // [self setUpUI];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
+//- (UIStatusBarStyle)preferredStatusBarStyle{
+//    return UIStatusBarStyleLightContent;
+//}
 
 - (void)setUpStyle {
     NSBundle *mainBundle = [NSBundle mainBundle];
