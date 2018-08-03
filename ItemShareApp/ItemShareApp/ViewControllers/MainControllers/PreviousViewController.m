@@ -140,22 +140,23 @@
     {
         [UIView animateWithDuration:0.5 animations:^{
             [self arrowAndSearchViewMove:-201];
+            [self tableViewMove:201];
             self.grayBar.alpha = 0;
             self.downArrow.alpha = 1;
             [self moveArrows:201];
         }];
-        [self tableViewMove:201];
         [self createBlur];
     }
-    if(self.searchView.frame.origin.y == 647)
+    if(self.searchView.frame.origin.y == 611)
     {
         [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-297];
+            [self arrowAndSearchViewMove:-261];
+            [self tableViewMove:261];
             self.grayBar.alpha = 1;
             self.upArrow.alpha = 0;
-            [self moveArrows:297];
+            [self moveArrows:261];
         }];
-        [self tableViewMove:297];
+        
     }
 }
 
@@ -181,10 +182,10 @@
     if(self.searchView.frame.origin.y == 350)
     {
         [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:297];
+            [self arrowAndSearchViewMove:261];
             self.grayBar.alpha = 0;
             self.upArrow.alpha = 1;
-            [self moveArrows:-297];
+            [self moveArrows:-261];
         }];
         //[self tableViewMove:-297];
     }
@@ -192,6 +193,7 @@
     {
         [UIView animateWithDuration:0.5 animations:^{
             [self arrowAndSearchViewMove:201];
+            [self tableViewMove:-201];
             self.grayBar.alpha = 1;
             self.downArrow.alpha = 0;
             self.blurredView.alpha = 0;
@@ -203,7 +205,6 @@
                 //[self.blurredView removeFromSuperview];
             }
         }];
-        [self tableViewMove:-201];
     }
     
     [self.view endEditing:YES];
@@ -216,13 +217,13 @@
 }
 
 - (void)showSearchView {
-    if(self.searchView.frame.origin.y == 647)
+    if(self.searchView.frame.origin.y == 611)
     {
         [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-297];
+            [self arrowAndSearchViewMove:-261];
             self.grayBar.alpha = 1;
             self.upArrow.alpha = 0;
-            [self moveArrows:297];
+            [self moveArrows:261];
         }];
         //[self tableViewMove:297];
     }
@@ -233,11 +234,11 @@
         {
             [UIView animateWithDuration:0.5 animations:^{
                 [self arrowAndSearchViewMove:-201];
+                [self tableViewMove:201];
                 self.grayBar.alpha = 0;
                 self.downArrow.alpha = 1;
                 [self moveArrows:201];
             }];
-            [self tableViewMove:201];
         }
         [self.placeholdViewController.searchBar becomeFirstResponder];
         [self createBlur];
