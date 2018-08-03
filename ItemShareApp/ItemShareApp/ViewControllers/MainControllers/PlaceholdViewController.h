@@ -37,5 +37,6 @@
 //@property (weak, nonatomic) IBOutlet UIImageView *downArrow;
 @property CatAndItemTableViewController *catAndItemTableViewController;
 //@property (weak, nonatomic) IBOutlet UIImageView *grayBar;
+- (void)hideSearch;
 
 @end

@@ -56,7 +56,9 @@
     
     // move searchView to bottom to raise to top when pressed
     [self arrowAndSearchViewMove:201];
+    [self arrowAndSearchViewMove:261];
     [self moveArrows:-207];
+    [self moveArrows:-261];
     // move profileView out of screen to bring in later
     self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
     // adjust table view size
@@ -156,7 +158,7 @@
             self.upArrow.alpha = 0;
             [self moveArrows:261];
         }];
-        
+        [self.placeholdViewController hideSearch];
     }
 }
 
@@ -187,6 +189,7 @@
             self.upArrow.alpha = 1;
             [self moveArrows:-261];
         }];
+        [self.placeholdViewController hideSearch];
         //[self tableViewMove:-297];
     }
     if(self.searchView.frame.origin.y == 149)
@@ -225,6 +228,7 @@
             self.upArrow.alpha = 0;
             [self moveArrows:261];
         }];
+        [self.placeholdViewController hideSearch];
         //[self tableViewMove:297];
     }
     
