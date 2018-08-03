@@ -212,7 +212,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="CdN-Tz-6CC">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="172"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <connections>
                                         <segue destination="hIC-St-eLC" kind="embed" identifier="CategoryCollSegue" id="HsA-aQ-4Gs"/>
@@ -220,7 +220,7 @@
                                 </containerView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategorySearchCell" rowHeight="52" id="9c2-Zt-0Qk" customClass="CategoryTableCell">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="52"/>
+                                        <rect key="frame" x="0.0" y="231" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9c2-Zt-0Qk" id="EUx-2K-cZ8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
@@ -258,7 +258,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" alpha="0.20000000000000001" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemSearchCell" rowHeight="64" id="dyF-rn-0bO" customClass="ItemTableCell">
-                                        <rect key="frame" x="0.0" y="252" width="375" height="64"/>
+                                        <rect key="frame" x="0.0" y="283" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dyF-rn-0bO" id="rDa-yB-Sdu">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
@@ -527,11 +527,11 @@
             <objects>
                 <viewController storyboardIdentifier="CategoriesViewController" id="I6d-3y-5cK" customClass="CategoriesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ar8-wy-ltY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="172"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="203"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IxB-s5-xFf">
-                                <rect key="frame" x="16" y="44" width="343" height="128"/>
+                                <rect key="frame" x="16" y="60" width="343" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZME-Fn-9fB">

@@ -19,27 +19,27 @@
     self.categoryLabel.text = keyString;
     if([keyString isEqualToString:@"Clothing"])
     {
-        self.backImage.image = [UIImage imageNamed: @"happyicon"];
+        self.backImage.image = [UIImage imageNamed: @"notification"];
     }
     if([keyString isEqualToString:@"Instruments"])
     {
-        self.backImage.image = [UIImage imageNamed: @"homeicon"];
+        self.backImage.image = [UIImage imageNamed: @"history"];
     }
     if([keyString isEqualToString:@"Home"])
     {
-        self.backImage.image = [UIImage imageNamed: @"happyicon"];
+        self.backImage.image = [UIImage imageNamed: @"history"];
     }
     if([keyString isEqualToString:@"Electronics"])
     {
-        self.backImage.image = [UIImage imageNamed: @"homeicon"];
+        self.backImage.image = [UIImage imageNamed: @"notification"];
     }
     if([keyString isEqualToString:@"Sports and Outdoors"])
     {
-        self.backImage.image = [UIImage imageNamed: @"happyicon"];
+        self.backImage.image = [UIImage imageNamed: @"notification"];
     }
     if([keyString isEqualToString:@"Vehicles"])
     {
-        self.backImage.image = [UIImage imageNamed: @"homeicon"];
+        self.backImage.image = [UIImage imageNamed: @"history"];
     }
 }
 
