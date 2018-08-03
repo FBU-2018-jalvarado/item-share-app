@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) NSMutableArray *itemsIdArray;
+@property (strong, nonatomic) NSDictionary *itemsIdDictionary;
+@property (strong, nonatomic) NSString *objectId;
 @end
 
 @implementation ItemHistoryDetailViewController
@@ -25,16 +27,22 @@
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     self.titleLabel.text = self.buttonTitle;
+
+    //
     self.itemsIdArray = [PFUser currentUser][[NSString stringWithFormat:@"%@", self.historyType]];
-//    [self fetchUserItemsWithCompletion:(User *)[PFUser currentUser] withCompletion:^(NSArray<User *> *items, NSError *error) {
-//        if (error) {
-//            NSLog(@"Error fetching objects: %@", error);
-//        }
-//        else {
-//            self.itemsArray = [items mutableCopy];
-//            [self.tableview reloadData];
-//        }
-//    }];
+    NSLog(@"%@", self.itemsIdArray);
+    self.itemsIdDictionary = self.itemsIdArray[0];
+    NSLog(@"%@", self.itemsIdDictionary);
+    self.objectId = self.itemsIdDictionary[@"objectId"];
+    [self fetchUserItemsWithCompletion:(User *)[PFUser currentUser] withCompletion:^(NSArray<User *> *items, NSError *error) {
+        if (error) {
+            NSLog(@"Error fetching objects: %@", error);
+        }
+        else {
+            self.itemsArray = [items mutableCopy];
+            [self.tableview reloadData];
+        }
+    }];
     
     self.tableview.rowHeight = UITableViewAutomaticDimension;
 }
@@ -45,9 +53,9 @@
 }
 
 // fetch items by id
--(void) fetchItemsByIdsWithCompletion:(NSArray<NSString *> *)ids withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
+-(void) fetchItemsByIdsWithCompletion:(NSArray<NSString *> *)idArray withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
     
-    for (NSString *itemID in ids) {
+    for (NSString *itemID in idArray) {
         [[Item query] getObjectInBackgroundWithId:itemID block:^(PFObject * _Nullable object, NSError * _Nullable error) {
             //
         }];
@@ -57,34 +65,33 @@
 }
 
 // fetches items selling
-//- (void)fetchUserItemsWithCompletion:(User *)user withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
-//    if (user){
-//        PFQuery *itemQuery = [Item query];
-//        [itemQuery orderByDescending:@"createdAt"];
-//        [itemQuery includeKey:@"title"];
-//        [itemQuery includeKey:@"location"];
-//        [itemQuery includeKey:@"title"];
-//        [itemQuery includeKey:@"owner"];
-//        [itemQuery includeKey:@"address"];
-//        itemQuery.limit = 20;
-//
-//        [itemQuery whereKey:@"owner" equalTo:user];
-//
-//        [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<User *> * _Nullable items, NSError * _Nullable error) {
-//            if(error != nil)
-//            {
-//                NSLog(@"Error finding objects: %@", error);
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    completion(nil, error);
-//                });
-//            } else {
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    completion(items, nil);
-//                });
-//            }
-//        }];
-//    }
-//}
+- (void)fetchUserItemsWithCompletion:(User *)user withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
+    if (user){
+        PFQuery *itemQuery = [Item query];
+        [itemQuery orderByDescending:@"createdAt"];
+        [itemQuery includeKey:@"title"];
+        [itemQuery includeKey:@"location"];
+        [itemQuery includeKey:@"owner"];
+        [itemQuery includeKey:@"address"];
+        itemQuery.limit = 20;
+
+        [itemQuery whereKey:@"owner" equalTo:user];
+
+        [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<User *> * _Nullable items, NSError * _Nullable error) {
+            if(error != nil)
+            {
+                NSLog(@"Error finding objects: %@", error);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(nil, error);
+                });
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(items, nil);
+                });
+            }
+        }];
+    }
+}
 
 - (IBAction)backButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
