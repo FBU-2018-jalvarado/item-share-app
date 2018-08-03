@@ -29,7 +29,7 @@
 		7D4F5E44210A91B600669616 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E43210A91B600669616 /* ProfileViewController.m */; };
 		7D4F5E4B210BC3DD00669616 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E4A210BC3DD00669616 /* ProfileDetailViewController.m */; };
 		7D4F5E4F210BEE8E00669616 /* ItemHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4F5E4E210BEE8E00669616 /* ItemHistoryViewController.m */; };
-		7D8BB5122113CC6900AD27A3 /* loginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8BB5112113CC6900AD27A3 /* loginStoryboard.storyboard */; };
+		7D8BB5142113D53F00AD27A3 /* loginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8BB5132113D53E00AD27A3 /* loginStoryboard.storyboard */; };
 		7D9BDED520FEA7A70085F862 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDED420FEA7A70085F862 /* LoginViewController.m */; };
 		7D9BDED8210788170085F862 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDED7210788170085F862 /* Category.m */; };
 		7D9BDEDD2107F2B70085F862 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9BDEDC2107F2B70085F862 /* User.m */; };
@@ -95,7 +95,7 @@
 		7D4F5E4A210BC3DD00669616 /* ProfileDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileDetailViewController.m; sourceTree = "<group>"; };
 		7D4F5E4D210BEE8E00669616 /* ItemHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryViewController.h; sourceTree = "<group>"; };
 		7D4F5E4E210BEE8E00669616 /* ItemHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemHistoryViewController.m; sourceTree = "<group>"; };
-		7D8BB5112113CC6900AD27A3 /* loginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = loginStoryboard.storyboard; sourceTree = "<group>"; };
+		7D8BB5132113D53E00AD27A3 /* loginStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = loginStoryboard.storyboard; sourceTree = "<group>"; };
 		7D9BDED320FEA7A70085F862 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ItemShareApp/ViewControllers/Login/LoginViewController.h; sourceTree = SOURCE_ROOT; };
 		7D9BDED420FEA7A70085F862 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ItemShareApp/ViewControllers/Login/LoginViewController.m; sourceTree = SOURCE_ROOT; };
 		7D9BDED6210788170085F862 /* Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 		7D9BDED220FEA6FF0085F862 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				7D8BB5112113CC6900AD27A3 /* loginStoryboard.storyboard */,
+				7D8BB5132113D53E00AD27A3 /* loginStoryboard.storyboard */,
 				9B2B49FD20FE553E00A91997 /* LaunchScreen.storyboard */,
 				4D6B6EE220FE57DD006CC875 /* SearchStoryboard.storyboard */,
 				901C5ABB20FEADB300B17D70 /* SellItemStoryboard.storyboard */,
@@ -426,7 +426,7 @@
 				7D3D5DBE211290C400F05EF8 /* Assets.xcassets in Resources */,
 				4D2ECCCA2102989B006E6757 /* CalendarStoryboard.storyboard in Resources */,
 				4D6B6EE320FE57DD006CC875 /* SearchStoryboard.storyboard in Resources */,
-				7D8BB5122113CC6900AD27A3 /* loginStoryboard.storyboard in Resources */,
+				7D8BB5142113D53F00AD27A3 /* loginStoryboard.storyboard in Resources */,
 				90091E3021026262007AB8A7 /* CategoriesStoryboard.storyboard in Resources */,
 				4D816FAE2109116A00C24648 /* PopUpViewController.xib in Resources */,
 			);

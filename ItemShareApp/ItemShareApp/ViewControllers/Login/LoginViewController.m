@@ -14,7 +14,6 @@
 #import <CCTextFieldEffects/CCTextField.h>
 
 @interface LoginViewController () <UITextFieldDelegate>
-
 @property (strong, nonatomic) HoshiTextField *usernameTextField;
 @property (strong, nonatomic) HoshiTextField *passwordTextField;
 @property (strong, nonatomic) ColorScheme *colors;
@@ -36,7 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self init];
-//    self.usernameTextField.delegate = self;
+    self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     [self.colors setColors];
 //    [self setUpUI];
@@ -114,6 +113,9 @@
     // The color of the text, default value is R89 G95 B110
     self.passwordTextField.textColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
     
+    // make it a secure entry text field
+    [self.passwordTextField setSecureTextEntry:true];
+
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
     self.passwordTextField.didBeginEditingHandler = ^{
@@ -138,6 +140,9 @@
 
 
 - (IBAction)didTapLogin:(id)sender {
+    
+    NSLog(@"%@", self.usernameTextField.text);
+    
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
     [self loginUser];
 }
