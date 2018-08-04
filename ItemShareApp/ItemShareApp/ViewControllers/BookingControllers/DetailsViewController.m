@@ -125,7 +125,7 @@
             
             //NSInteger weeks = [@(days/7) integerValue];
             double weeks = (double)days/7;
-            double price = weeks * 6.5;
+            double price = weeks * 6.5 * [self.item.price integerValue];
             self.totalPriceLabel.text = [NSString stringWithFormat:@"%.02f", price];
         }
     }
