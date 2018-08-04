@@ -32,6 +32,13 @@ PODS:
   - JGProgressHUD (2.0.3)
   - JTCalendar (2.2.3)
   - MGSwipeTableCell (1.6.7)
+  - NYTPhotoViewer (2.0.0):
+    - NYTPhotoViewer/AnimatedGifSupport (= 2.0.0)
+    - NYTPhotoViewer/Core (= 2.0.0)
+  - NYTPhotoViewer/AnimatedGifSupport (2.0.0):
+    - FLAnimatedImage (~> 1.0.12)
+    - NYTPhotoViewer/Core
+  - NYTPhotoViewer/Core (2.0.0)
   - Parse (1.17.1):
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
@@ -53,6 +60,7 @@ DEPENDENCIES:
   - JGProgressHUD
   - JTCalendar (~> 2.0)
   - MGSwipeTableCell
+  - NYTPhotoViewer (~> 2.0.0)
   - Parse
   - ParseUI
   - Stripe
@@ -71,6 +79,7 @@ SPEC REPOS:
     - JGProgressHUD
     - JTCalendar
     - MGSwipeTableCell
+    - NYTPhotoViewer
     - Parse
     - ParseUI
     - Stripe
@@ -88,10 +97,11 @@ SPEC CHECKSUMS:
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   JTCalendar: f54975f1426facc38d112f372f0d3d955aae8d86
   MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
+  NYTPhotoViewer: 34b8bd6bcc297466adec1668f9a01249d73c90e6
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
   ParseUI: 2b37a0bc692a3e7666cf0c37b5521dfddd74a1af
   Stripe: 4f043bb840721b1f30492fa77790bbf9e3508ab0
 
-PODFILE CHECKSUM: 64bd80122ff463005e461e4ae5a11a1753090873
+PODFILE CHECKSUM: 8f421f4aee3e1d00235db0eda6522f2d1dc99d25
 
 COCOAPODS: 1.5.3
