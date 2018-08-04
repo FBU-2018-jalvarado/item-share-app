@@ -12,6 +12,7 @@
 #import <Parse/Parse.h>
 #import "User.h"
 #import "CategoriesViewController.h"
+#import "NYTPhotosViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <ParseUI/ParseUI.h>
 
@@ -36,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextView *descripLabel;
 @property iCarouselViewController *icarVC;
+@property NYTPhotosViewController *nytPhotoVC;
 @property BOOL thisIsFirstPic;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
@@ -245,6 +247,20 @@
          icarVC.parentVC = @"sell";
          self.icarVC = icarVC;
      }
+//     if([segue.identifier isEqualToString:@"NYTPhotoSegue"])
+//     {
+//         NYTPhotosViewController *nytPhotoVC = [segue destinationViewController];
+//         NYTPhotosViewController *photosViewController = [[NYTPhotosViewController alloc] initWithDataSource:self.dataSource initialPhoto:nil delegate:self];
+//         photo
+//
+//         [self presentViewController:photosViewController animated:YES completion:nil];
+////         self.imageArray = [[NSMutableArray alloc] init];
+////         [self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
+////         nytPhotoVC.photos = [[NSMutableArray alloc] init];
+////         icarVC.images = self.imageArray;
+////         icarVC.parentVC = @"sell";
+//         self.nytPhotoVC = nytPhotoVC;
+//     }
  }
  
 
