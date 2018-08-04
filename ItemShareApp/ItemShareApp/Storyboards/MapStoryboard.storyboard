@@ -79,6 +79,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
                                         <rect key="frame" x="8" y="8" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.45621816479999999" green="0.72745919660000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" backgroundImage="house-icon-color"/>
                                         <connections>
                                             <action selector="profileButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="jNU-9H-Ed1"/>

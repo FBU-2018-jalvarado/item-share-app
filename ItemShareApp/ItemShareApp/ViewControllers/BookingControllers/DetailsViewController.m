@@ -23,16 +23,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceWeekLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceMonthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *applePayButton;
-@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
-@property (weak, nonatomic) IBOutlet UIButton *selectDatesButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
 
 @property iCarouselViewController *icarVC;
 
@@ -90,12 +91,14 @@
 
     self.categoryLabel.text = strng;
     self.priceLabel.text = self.item.price;
+    self.priceWeekLabel.text = [@([self.item.price doubleValue] * 6.5) stringValue];
+    self.priceMonthLabel.text = [@([self.item.price integerValue] * 24) stringValue];
 
     [self.descriptionLabel sizeToFit];
     self.descriptionLabel.text = self.item.descrip;
     
     self.applePayButton.layer.cornerRadius = 10;
-    self.selectDatesButton.layer.cornerRadius = 8;
+    //self.selectDatesButton.layer.cornerRadius = 8;
     
     CGFloat contentWidth = self.scrollView.bounds.size.width;
     CGFloat contentHeight = self.scrollView.bounds.size.height *3;
@@ -108,14 +111,23 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM-dd-YY"];
     if(self.selectedStartDate){
-        self.startTimeLabel.text = [formatter stringFromDate:self.selectedStartDate];
+       // self.startTimeLabel.text = [formatter stringFromDate:self.selectedStartDate];
     }
     if(self.selectedEndDate){
-        self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
+       // self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
     }
     if(self.selectedStartDate && self.selectedEndDate){
         NSInteger days = [self daysBetween:self.selectedStartDate and:self.selectedEndDate];
-        self.totalPriceLabel.text = [@(days * [self.item.price integerValue]) stringValue];
+        if(days < 7){
+            self.totalPriceLabel.text = [@(days * [self.item.price integerValue]) stringValue];
+        }
+        else if(days < 30){
+            
+            //NSInteger weeks = [@(days/7) integerValue];
+            double weeks = (double)days/7;
+            double price = weeks * 6.5;
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%.02f", price];
+        }
     }
 }
 
