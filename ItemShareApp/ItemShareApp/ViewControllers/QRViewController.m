@@ -11,7 +11,7 @@
 
 @interface QRViewController ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *qrImageView;
+@property BOOL isReading;
 
 
 @end
@@ -21,32 +21,134 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   // NSString *info = @"http://codeafterhours.wordpress.com";
-    NSString *info = @"hello_world";
-    // Generation of QR code image
-    NSData *qrCodeData = [info dataUsingEncoding:NSISOLatin1StringEncoding]; // recommended encoding
-    CIFilter *qrCodeFilter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    [qrCodeFilter setValue:qrCodeData forKey:@"inputMessage"];
-    [qrCodeFilter setValue:@"M" forKey:@"inputCorrectionLevel"]; //default of L,M,Q & H modes
+    _captureSession = nil;
+    _isReading = NO;
+    _lblStatus.text = @"Your Text Will Shown Below.";
+    [self loadBeepSound];
     
-    CIImage *qrCodeImage = qrCodeFilter.outputImage;
-    
-    CGRect imageSize = CGRectIntegral(qrCodeImage.extent); // generated image size
-    CGSize outputSize = CGSizeMake(240.0, 240.0); // required image size
-    CIImage *imageByTransform = [qrCodeImage imageByApplyingTransform:CGAffineTransformMakeScale(outputSize.width/CGRectGetWidth(imageSize), outputSize.height/CGRectGetHeight(imageSize))];
-    
-    UIImage *qrCodeImageByTransform = [UIImage imageWithCIImage:imageByTransform];
-    self.qrImageView.image = qrCodeImageByTransform;
-    
-//    // Generation of bar code image
-//    CIFilter *barCodeFilter = [CIFilter filterWithName:@"CICode128BarcodeGenerator"];
-//    NSData *barCodeData = [info dataUsingEncoding:NSASCIIStringEncoding]; // recommended encoding
-//    [barCodeFilter setValue:barCodeData forKey:@"inputMessage"];
-//    [barCodeFilter setValue:[NSNumber numberWithFloat:7.0] forKey:@"inputQuietSpace"]; //default whitespace on sides of barcode
-//
-//    CIImage *barCodeImage = barCodeFilter.outputImage;
-//    self.qrImageView.image = [UIImage imageWithCIImage:barCodeImage];
 }
+
+- (IBAction)startButtonClicked:(UIButton *)sender{
+    if (!_isReading)
+    {
+        if ([self startReading])
+        {
+            [_lblStatus setText:@"Scanning for QR Code..."];
+        }
+    }
+    else
+    {
+        [self stopReading];
+    }
+    
+    _isReading = !_isReading;
+    
+}
+
+-(BOOL)startReading{
+    NSError *error;
+    
+    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    
+    if (captureDevice.position == AVCaptureDevicePositionBack) {
+        NSLog(@"back camera");
+        
+    }else if (captureDevice.position == AVCaptureDevicePositionFront){
+        NSLog(@"Front Camera");
+        
+        
+    }else{
+        NSLog(@"Unspecified");
+    }
+    
+    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
+    if (!input)
+    {
+        NSLog(@"%@", [error localizedDescription]);
+        return NO;
+    }
+    _captureSession = [[AVCaptureSession alloc] init];
+    [_captureSession addInput:input];
+    
+    AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
+    [_captureSession addOutput:captureMetadataOutput];
+    
+    dispatch_queue_t dispatchQueue;
+    dispatchQueue = dispatch_queue_create("myQueue", NULL);
+    [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
+    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
+    
+    _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
+    [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    [_videoPreviewLayer setFrame:_viewforCamera.layer.bounds];
+    [_viewforCamera.layer addSublayer:_videoPreviewLayer];
+    [_captureSession startRunning];
+    return YES;
+}
+
+-(void)stopReading{
+    [_captureSession stopRunning];
+    _captureSession = nil;
+    [_videoPreviewLayer removeFromSuperlayer];
+}
+
+-(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
+    if (metadataObjects != nil && [metadataObjects count] > 0) {
+        AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
+        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+            [_textView performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
+            if ([_textView.text containsString:@"http"]) {
+                NSString* text = _textView.text;
+                NSURL *url  = [[NSURL alloc] initWithString:text];
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Alert" message:@"This code have a http link.Do you want to open it.?" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                {
+                    [[UIApplication sharedApplication] openURL:url];
+                }];
+                UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                {
+                    _lblStatus.text = @"Your Text Will Shown Below.";
+                }];
+                [alert addAction:cancel];
+                [alert addAction:okAction];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            }
+            else
+            {
+                //you can show your custom alert like - there is no HTTP link present in the QR Code. //
+            }
+            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+            // [_bbitemStart performSelectorOnMainThread:@selector(setTitle:) withObject:@"Start!" waitUntilDone:NO];
+            _isReading = NO;
+            
+            if (_audioPlayer)
+            {
+                [_audioPlayer play];
+            }
+            
+        }
+    }
+}
+
+-(void)loadBeepSound{
+    NSString *beepFilePath = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"mp3"];
+    NSURL *beepURL = [NSURL URLWithString:beepFilePath];
+    NSError *error;
+    
+    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:beepURL error:&error];
+    if (error)
+    {
+        NSLog(@"Could not play beep file.");
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    else
+    {
+        [_audioPlayer prepareToPlay];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

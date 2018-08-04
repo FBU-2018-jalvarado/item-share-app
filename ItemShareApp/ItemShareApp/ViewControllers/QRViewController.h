@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface QRViewController : UIViewController
+@interface QRViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
+
+@property (strong, nonatomic) IBOutlet UIView *viewforCamera;
+- (IBAction)startButtonClicked:(UIButton *)sender;
+-(BOOL)startReading;
+-(void)stopReading;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (strong, nonatomic) IBOutlet UILabel *lblStatus;
+@property (strong, nonatomic) IBOutlet UITextView *textView;
+-(void)loadBeepSound;
+@property (nonatomic, strong) AVCaptureSession *captureSession;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
 @end

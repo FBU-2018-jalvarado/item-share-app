@@ -26,6 +26,7 @@
 		4DDD700121155AF100AC8C53 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD700021155AF100AC8C53 /* QRViewController.m */; };
 		4DDD70052115623300AC8C53 /* QRPopUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD70032115623300AC8C53 /* QRPopUpController.m */; };
 		4DDD70062115623300AC8C53 /* QRPopUpController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DDD70042115623300AC8C53 /* QRPopUpController.xib */; };
+		4DDD70082115692700AC8C53 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DDD70072115692700AC8C53 /* AVFoundation.framework */; };
 		4DE4BA002114F25400ACC4DC /* styleWhite.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4B9FF2114F25300ACC4DC /* styleWhite.json */; };
 		7D3D5D73210F879D00F05EF8 /* ItemHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D5D72210F879D00F05EF8 /* ItemHistoryDetailViewController.m */; };
 		7D3D5D76210F8DF500F05EF8 /* ItemHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D3D5D75210F8DF500F05EF8 /* ItemHistoryCell.m */; };
@@ -92,6 +93,7 @@
 		4DDD70022115623300AC8C53 /* QRPopUpController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRPopUpController.h; sourceTree = "<group>"; };
 		4DDD70032115623300AC8C53 /* QRPopUpController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRPopUpController.m; sourceTree = "<group>"; };
 		4DDD70042115623300AC8C53 /* QRPopUpController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRPopUpController.xib; sourceTree = "<group>"; };
+		4DDD70072115692700AC8C53 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4DE4B9FF2114F25300ACC4DC /* styleWhite.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = styleWhite.json; path = ../../styleWhite.json; sourceTree = "<group>"; };
 		58FCE958E23164D6E0F896A3 /* libPods-item-share-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-item-share-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D3D5D71210F879D00F05EF8 /* ItemHistoryDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemHistoryDetailViewController.h; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDD70082115692700AC8C53 /* AVFoundation.framework in Frameworks */,
 				D9CBE9E7CAA0462D9310A923 /* libPods-item-share-app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +363,7 @@
 		CDF522BE2B4E6AF7A7A75485 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DDD70072115692700AC8C53 /* AVFoundation.framework */,
 				58FCE958E23164D6E0F896A3 /* libPods-item-share-app.a */,
 			);
 			name = Frameworks;
