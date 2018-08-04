@@ -9,11 +9,13 @@
 #import "ProfileViewController.h"
 #import "ProfileDetailViewController.h"
 #import "ItemHistoryViewController.h"
+#import "QRPopUpController.h"
 
 @interface ProfileViewController () 
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
+@property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 
 @property (strong, nonatomic) NSArray *profileCellArray;
 @end
@@ -44,6 +46,23 @@
     [self performSegueWithIdentifier:@"ItemHistory" sender:nil];
 }
 
+- (IBAction)confirmSellButtonPressed:(id)sender {
+    [self postQRCode];
+}
+
+- (void)postQRCode {
+    self.QRPopUpVC = [[QRPopUpController alloc] initWithNibName:@"QRPopUpController" bundle:nil];
+    // self.QRPopUpVC.popUpDelegate = self;
+    // [self.QRPopUpVC setName:self.item.title];
+    Item *item = [Item new];
+    item.title = @"baseball";
+    [self.QRPopUpVC setItem:item];
+    //[self.QRPopUpVC setOwner:self.item.owner];
+    //[self.popUpVC setPhoneNumber:self.item.owner.phoneNumber];
+    
+    [self.QRPopUpVC showInView:self.view animated:YES];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -58,5 +77,7 @@
         ItemHistoryViewController *next = [segue destinationViewController];
     }
 }
+
+
 
 @end

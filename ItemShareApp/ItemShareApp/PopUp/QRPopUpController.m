@@ -91,4 +91,9 @@
     }
 }
 
+- (IBAction)backButtonPressed:(id)sender {
+    [self removeAnimate];
+   // [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

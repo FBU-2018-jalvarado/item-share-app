@@ -24,11 +24,8 @@
     _captureSession = nil;
     _isReading = NO;
     _lblStatus.text = @"Your Text Will Shown Below.";
-    [self loadBeepSound];
+   // [self loadBeepSound];
     
-}
-
-- (IBAction)startButtonClicked:(UIButton *)sender{
     if (!_isReading)
     {
         if ([self startReading])
@@ -42,6 +39,10 @@
     }
     
     _isReading = !_isReading;
+    
+}
+
+- (IBAction)startButtonClicked:(UIButton *)sender{
     
 }
 
@@ -131,7 +132,12 @@
         }
     }
 }
+- (IBAction)backButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+//add a sound if needed
+/*
 -(void)loadBeepSound{
     NSString *beepFilePath = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"mp3"];
     NSURL *beepURL = [NSURL URLWithString:beepFilePath];
@@ -148,6 +154,7 @@
         [_audioPlayer prepareToPlay];
     }
 }
+ */
 
 
 - (void)didReceiveMemoryWarning {
