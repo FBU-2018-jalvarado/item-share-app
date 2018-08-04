@@ -72,6 +72,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdL-x8-lDE">
+                                <rect key="frame" x="128" y="318" width="119" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Confirm Pick Up"/>
+                                <connections>
+                                    <action selector="pickUpButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="B1u-uN-3eG"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-21-mBm">
                                 <rect key="frame" x="321" y="97" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -116,6 +125,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qAj-3F-RCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-650" y="58"/>
+        </scene>
+        <!--QRCodeStoryboard-->
+        <scene sceneID="jCc-SC-nHK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QRCodeStoryboard" id="O1R-rm-ykz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70L-xG-hTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-650" y="312"/>
         </scene>
     </scenes>
     <resources>
