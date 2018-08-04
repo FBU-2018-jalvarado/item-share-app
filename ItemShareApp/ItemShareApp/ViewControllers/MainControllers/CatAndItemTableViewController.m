@@ -120,11 +120,17 @@
         if (indexPath.row < self.categoryRows.count) {
             CategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategorySearchCell"];
             [cell setCategory:self.categoryRows[indexPath.row]];
+            UIView *selectionColor = [[UIView alloc] init];
+            selectionColor.backgroundColor = [UIColor orangeColor];
+            cell.selectedBackgroundView = selectionColor;
             return cell;
         }
         else {
             ItemTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemSearchCell"];
             [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count][@"title"] withAddress:self.itemRows[indexPath.row-self.categoryRows.count][@"address"]];
+            UIView *selectionColor = [[UIView alloc] init];
+            selectionColor.backgroundColor = [UIColor orangeColor];
+            cell.selectedBackgroundView = selectionColor;
             return cell;
         }
 }
@@ -139,6 +145,7 @@
     {
         // empty the category array and populate the items with ones w that have  category
         [self choseCat:self.categoryRows[indexPath.row]];
+        [self.delegate goToMap];
     }
     // if its an item cell
     else {
@@ -148,6 +155,7 @@
         NSMutableArray *theOneItemArray = [[NSMutableArray alloc] init];
         [theOneItemArray addObject:selectedItem];
         [self.delegate filterInMap:theOneItemArray];
+        [self.catAndItemTableView deselectRowAtIndexPath:indexPath animated:YES];
         // dismiss the search view
         [self.delegate goToMap];
     }

@@ -176,9 +176,6 @@
             [self moveArrows:462];
             [self.placeholdViewController.searchBar becomeFirstResponder];
         }];
-//        [UIView animateWithDuration:0.8 animations:^{
-//            [self.placeholdViewController.searchBar becomeFirstResponder];
-//        }];
         [self createBlur];
         [self.placeholdViewController showSearch];
     }
@@ -198,9 +195,6 @@
             {
                 [self.placeholdViewController showSearch];
             }
-//            [UIView animateWithDuration:0.8 animations:^{
-//                [self.placeholdViewController.searchBar becomeFirstResponder];
-//            }];
             [self createBlur];
         }
 }
