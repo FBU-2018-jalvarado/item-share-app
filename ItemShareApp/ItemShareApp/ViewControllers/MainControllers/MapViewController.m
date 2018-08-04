@@ -19,10 +19,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
+#import "QRPopUpController.h"
+
 NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotation";
 NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
 
 @interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, DetailsViewControllerDelegate, UISearchBarDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UILabel *fetchLabel;
 @property (weak, nonatomic) IBOutlet GMSMapView *googleMapView;
@@ -44,6 +47,9 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 
 @property (strong, nonatomic) NSURL *mapStyleURL;
 @property (strong, nonatomic) NSMutableArray *markersArray;
+
+
+@property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 
 @end
 
@@ -294,6 +300,23 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             };
         }
     }];
+}
+
+- (IBAction)pickUpButtonPressed:(id)sender {
+    [self postQRCode];
+}
+
+- (void)postQRCode {
+    self.QRPopUpVC = [[QRPopUpController alloc] initWithNibName:@"QRPopUpController" bundle:nil];
+   // self.QRPopUpVC.popUpDelegate = self;
+   // [self.QRPopUpVC setName:self.item.title];
+    Item *item = [Item new];
+    item.title = @"baseball";
+    [self.QRPopUpVC setItem:item];
+    [self.QRPopUpVC setOwner:self.item.owner];
+    //[self.popUpVC setPhoneNumber:self.item.owner.phoneNumber];
+    
+    [self.QRPopUpVC showInView:self.view animated:YES];
 }
 
 @end
