@@ -11,10 +11,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import <ParseUI/ParseUI.h>
 
-@interface iCarouselViewController ()
+@interface iCarouselViewController () <UIPageViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet iCarousel *car;
-
+//@property (nonatomic, strong, readonly) NSArray *indexesForVisibleItems;
+//@property (nonatomic, assign) NSInteger currentItemIndex;
 @end
 
 @implementation iCarouselViewController
@@ -56,6 +57,7 @@
     _carousel.type = iCarouselTypeRotary;
     _carousel.delegate = self;
     _carousel.dataSource = self;
+    _carousel.pagingEnabled = YES;
     //self.images = [[NSMutableArray alloc] init];
     [_carousel reloadData];
 }
@@ -135,6 +137,12 @@
     
     return view;
 }
+
+- (void)carouselWillBeginScrollingAnimation:(iCarousel *)carousel
+{
+    [self.delegate updatePage:[_carousel currentItemIndex]];
+}
+
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
 {

@@ -96,24 +96,20 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
   install_resource "${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/NYTPhotoViewer/NYTPhotoViewer.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/CCTextFieldEffects/CCTextFieldEffects/pencil.png"
   install_resource "${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle"
   install_resource "${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/NYTPhotoViewer/NYTPhotoViewer.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

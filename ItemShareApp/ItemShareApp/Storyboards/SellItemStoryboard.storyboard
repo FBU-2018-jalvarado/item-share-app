@@ -208,6 +208,12 @@
                                             <segue destination="vZX-yr-bj1" kind="embed" identifier="sellCategorySegue" id="pth-XX-maw"/>
                                         </connections>
                                     </containerView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="W2W-56-1u7">
+                                        <rect key="frame" x="90" y="406" width="196" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </pageControl>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -224,6 +230,7 @@
                         <outlet property="catLabel" destination="OEx-fs-Vju" id="A2z-BV-UPg"/>
                         <outlet property="categoryView" destination="JKb-gs-y7E" id="Wty-x1-Q38"/>
                         <outlet property="descripLabel" destination="kI2-01-8LJ" id="ch5-UI-W0V"/>
+                        <outlet property="imagePageControl" destination="W2W-56-1u7" id="Q5l-7d-yjR"/>
                         <outlet property="itemAddress" destination="bYk-Sg-eW1" id="qEM-bH-7ER"/>
                         <outlet property="itemTitle" destination="Sgg-PR-3dp" id="9ep-8e-UTC"/>
                         <outlet property="label1" destination="oMD-TX-vnk" id="CGa-Ay-1Hu"/>
