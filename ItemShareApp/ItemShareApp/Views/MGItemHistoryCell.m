@@ -18,7 +18,7 @@
 - (void) setItem:(Item *)item {
     _item = item;
     self.itemTitle.text = self.item.title;
-    self.priceLabel.text = self.item.price;
+    self.priceLabel.text = [NSString stringWithFormat:@"$%@", self.item.price];
     self.addressLabel.text = self.item.address;
     self.descriptionLabel.text = self.item.descrip;
     if(item[@"images"] != nil){

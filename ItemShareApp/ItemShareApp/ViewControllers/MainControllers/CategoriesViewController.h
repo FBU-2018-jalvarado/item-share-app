@@ -13,6 +13,7 @@
 - (void)goToMap;
 - (void)callChoseCat:(NSString *)categoryName;
 - (void)showHUD;
+- (void)fetchItems;
 
 @end
 
