@@ -13,6 +13,7 @@
 
 @property BOOL isReading;
 
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpUI];
     _captureSession = nil;
     _isReading = NO;
     _lblStatus.text = @"Your Text Will Shown Below.";
@@ -156,11 +158,31 @@
 }
  */
 
+- (void)setUpUI {
+    self.backButton.layer.cornerRadius = 5;
+    self.backButton.layer.borderWidth = 1;
+    self.backButton.backgroundColor = [UIColor clearColor];
+    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)postQRCode {
+    self.QRPopUpVC = [[QRPopUpController alloc] initWithNibName:@"QRPopUpController" bundle:nil];
+    // self.QRPopUpVC.popUpDelegate = self;
+    // [self.QRPopUpVC setName:self.item.title];
+    Item *item = [Item new];
+    item.title = @"baseball";
+    [self.QRPopUpVC setItem:item];
+    [self.QRPopUpVC setOwner:self.item.owner];
+    //[self.popUpVC setPhoneNumber:self.item.owner.phoneNumber];
+    
+    [self.QRPopUpVC showInView:self.view animated:YES];
+}
+
 
 /*
 #pragma mark - Navigation

@@ -49,6 +49,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 @property (strong, nonatomic) NSMutableArray *markersArray;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *QRButton;
 @property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 
 @end
@@ -303,20 +304,11 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 }
 
 - (IBAction)pickUpButtonPressed:(id)sender {
-    [self postQRCode];
+    //[self postQRCode];
 }
 
-- (void)postQRCode {
-    self.QRPopUpVC = [[QRPopUpController alloc] initWithNibName:@"QRPopUpController" bundle:nil];
-   // self.QRPopUpVC.popUpDelegate = self;
-   // [self.QRPopUpVC setName:self.item.title];
-    Item *item = [Item new];
-    item.title = @"baseball";
-    [self.QRPopUpVC setItem:item];
-    [self.QRPopUpVC setOwner:self.item.owner];
-    //[self.popUpVC setPhoneNumber:self.item.owner.phoneNumber];
-    
-    [self.QRPopUpVC showInView:self.view animated:YES];
+- (IBAction)QRButtonPressed:(id)sender {
+    //open scanner VC
 }
 
 @end

@@ -10,10 +10,13 @@
 #import "MGItemHistoryCell.h"
 #import "Item.h"
 #import "User.h"
+#import "QRPopUpController.h"
 
 @interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) NSMutableArray *itemsArray;
+@property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 @end
 
 @implementation ItemHistoryDetailViewController
@@ -129,6 +132,7 @@
     }
     // more button
     else if (direction == MGSwipeDirectionRightToLeft && index == 1) {
+        [self postQRCode:self.itemsArray[path.row]];
         // TO DO: make popup appear with more options/perform segue to detailed view
     }
     return YES;
@@ -143,6 +147,17 @@
             NSLog(@"Successfully deleted item!");
         }
     }];
+}
+
+- (void)postQRCode: (Item *)item {
+    self.QRPopUpVC = [[QRPopUpController alloc] initWithNibName:@"QRPopUpController" bundle:nil];
+    // self.QRPopUpVC.popUpDelegate = self;
+    // [self.QRPopUpVC setName:self.item.title];
+    [self.QRPopUpVC setItem:item];
+    [self.QRPopUpVC setOwner:item.owner];
+    //[self.popUpVC setPhoneNumber:self.item.owner.phoneNumber];
+    
+    [self.QRPopUpVC showInView:self.view animated:YES];
 }
 
 @end
