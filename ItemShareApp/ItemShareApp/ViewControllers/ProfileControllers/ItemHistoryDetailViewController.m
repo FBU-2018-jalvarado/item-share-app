@@ -14,6 +14,7 @@
 @interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) NSMutableArray *itemsArray;
+@property (strong, nonatomic) NSMutableArray *itemsIdArray;
 @end
 
 @implementation ItemHistoryDetailViewController
@@ -21,21 +22,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.itemsIdArray = [[NSMutableArray alloc] init];
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     self.titleLabel.text = self.buttonTitle;
-//    self.itemsArray = [PFUser currentUser][[NSString stringWithFormat:@"%@", self.historyType]];
-    [self fetchUserItemsWithCompletion:(User *)[PFUser currentUser] withCompletion:^(NSArray<User *> *items, NSError *error) {
-        if (error) {
-            NSLog(@"Error fetching objects: %@", error);
+    [self getItemsIdArray];
+    [self fetchItemsByIdsWithCompletion:self.itemsIdArray withCompletion:^(NSArray<User *> *items, NSError *error) {
+        if (error){
+            NSLog(@"Error fetching items: %@", error);
         }
         else {
             self.itemsArray = [items mutableCopy];
             [self.tableview reloadData];
         }
     }];
-    
-    self.tableview.rowHeight = UITableViewAutomaticDimension;
+//    [self fetchUserItemsWithCompletion:(User *)[PFUser currentUser] withCompletion:^(NSArray<User *> *items, NSError *error) {
+//        if (error) {
+//            NSLog(@"Error fetching objects: %@", error);
+//        }
+//        else {
+//            self.itemsArray = [items mutableCopy];
+//            [self.tableview reloadData];
+//        }
+//    }];
+//
+//    self.tableview.rowHeight = UITableViewAutomaticDimension;
+}
+
+-(void) getItemsIdArray {
+    NSMutableArray *itemsPointerArr = [PFUser currentUser][[NSString stringWithFormat:@"%@", self.historyType]];
+    Item *item = [[Item alloc] init];
+    for (int i = 0; i < [itemsPointerArr count]; i++) {
+        item = itemsPointerArr[i];
+        [self.itemsIdArray addObject:item.objectId];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,21 +63,46 @@
     // Dispose of any resources that can be recreated.
 }
 
-// fetches items selling
+// fetch items by id
+-(void) fetchItemsByIdsWithCompletion:(NSArray<NSString *> *)idArray withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
+    NSMutableArray *itemsarr = [[NSMutableArray alloc] init];
+
+    for (NSString *itemID in idArray) {
+//        PFQuery *itemQuery = [Item query];
+        [[Item query] getObjectInBackgroundWithId:itemID block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+            if (error) {
+                NSLog(@"Error finding object with itemID %@: %@", itemID, error);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(nil, error);
+                });
+            }
+            else if (object){
+                [itemsarr addObject:object];
+                
+                if (itemsarr.count == idArray.count) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completion(itemsarr, nil);
+                    });
+                }
+            }
+        }];
+    }
+}
+
+// only fetches items selling
 - (void)fetchUserItemsWithCompletion:(User *)user withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
     if (user){
         PFQuery *itemQuery = [Item query];
         [itemQuery orderByDescending:@"createdAt"];
         [itemQuery includeKey:@"title"];
         [itemQuery includeKey:@"location"];
-        [itemQuery includeKey:@"title"];
         [itemQuery includeKey:@"owner"];
         [itemQuery includeKey:@"address"];
         [itemQuery includeKey:@"images"];
         itemQuery.limit = 20;
-        
+
         [itemQuery whereKey:@"owner" equalTo:user];
-        
+
         [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<User *> * _Nullable items, NSError * _Nullable error) {
             if(error != nil)
             {
@@ -98,7 +143,7 @@
     
     // basic swipe config
     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]],
-                          [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"more"] backgroundColor:[UIColor grayColor]]];
+                          [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"qrcodereal"] backgroundColor:[UIColor grayColor]]];
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
     // expansion config

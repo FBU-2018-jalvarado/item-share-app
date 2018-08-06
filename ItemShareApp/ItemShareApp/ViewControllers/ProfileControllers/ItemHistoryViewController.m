@@ -20,13 +20,13 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)didTapToFetch:(id)sender {
-//    [self performSegueWithIdentifier:@"showItems" sender:self.itemToFetch];
+    [self performSegueWithIdentifier:@"showItems" sender:self.itemToFetch];
 }
 - (IBAction)didTapCurrentFetch:(id)sender {
-//    [self performSegueWithIdentifier:@"showItems" sender:self.itemCurrentFetch];
+    [self performSegueWithIdentifier:@"showItems" sender:self.itemCurrentFetch];
 }
 - (IBAction)didTapPreviousFetch:(id)sender {
-//    [self performSegueWithIdentifier:@"showItems" sender:self.itemPastFetch];
+    [self performSegueWithIdentifier:@"showItems" sender:self.itemPastFetch];
 }
 - (IBAction)didTapItemsSell:(id)sender {
     [self performSegueWithIdentifier:@"showItems" sender:self.itemsSelling];

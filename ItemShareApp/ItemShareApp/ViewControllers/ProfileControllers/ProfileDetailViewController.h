@@ -12,13 +12,7 @@
 #import "Parse.h"
 
 @interface ProfileDetailViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 @property (strong, nonatomic) User* user;
-
-@property (weak, nonatomic) IBOutlet UITextField *addressLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 
 @end
