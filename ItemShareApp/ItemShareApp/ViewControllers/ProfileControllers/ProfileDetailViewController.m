@@ -7,6 +7,8 @@
 //
 
 #import "ProfileDetailViewController.h"
+#import <CCTextFieldEffects/CCTextFieldEffects.h>
+#import <CCTextFieldEffects/CCTextField.h>
 
 @interface ProfileDetailViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *view4;
@@ -24,18 +26,26 @@
 
 @end
 
+#define BOTTOM_VIEW_HEIGHT 240
+
 @implementation ProfileDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // when text fields are edited, info is not stored in database
     // Do any additional setup after loading the view.
-    self.firstNameLabel.text = self.user.firstName;
-    self.lastNameLabel.text = self.user.lastName;
-    self.emailLabel.text = self.user.email;
-    self.numberLabel.text = self.user.phoneNumber;
+//    self.firstNameTextField.text = self.user.firstName;
+//    self.lastNameTextField.text = self.user.lastName;
+//    self.addressTextField.text = @"1 Hacker Way, Menlo Park, CA";
+//    self.paymentTextField.text = @"Visa **** **** **** ****";
+//    self.emailTextField.text = self.user.email;
+//    self.phoneTextField.text = self.user.phoneNumber;
+//    self.memberTextField.text = @"Yes";
     
     [self setUpUI];
 }
+
 
 - (void)viewDidAppear:(BOOL)animated{
     [self setUpUI];
@@ -52,7 +62,7 @@
     self.profilePicture.clipsToBounds = YES;
     
     self.view4.layer.borderWidth = 1;
-    self.view4.layer.backgroundColor = [UIColor whiteColor].CGColor;
+    self.view4.layer.backgroundColor = [UIColor purpleColor].CGColor;
     self.view4.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:.1f].CGColor;
     
     
