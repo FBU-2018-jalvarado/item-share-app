@@ -25,6 +25,8 @@
     self.QRPopUpView.layer.shadowOpacity = 0.8;
     self.QRPopUpView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     
+    self.QRPopUpView.layer.borderWidth = 7;
+    self.QRPopUpView.layer.borderColor = [UIColor orangeColor].CGColor;
     [super viewDidLoad];
     
     // NSString *info = @"http://codeafterhours.wordpress.com";

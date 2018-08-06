@@ -24,6 +24,7 @@
 @property (strong, nonatomic) User *owner;
 @property (strong, nonatomic) Item *item;
 @property (strong, nonatomic) NSString *itemName;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 - (void)showInView:(UIView *)aView animated:(BOOL)animated;
 

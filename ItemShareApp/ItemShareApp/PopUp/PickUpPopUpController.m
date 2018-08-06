@@ -30,6 +30,12 @@
 
 - (void)setUpUI{
     self.itemLabel.text = self.itemName;
+    self.okButton.layer.borderColor = [UIColor blueColor].CGColor;
+    self.okButton.layer.borderWidth = 3;
+    self.okButton.layer.cornerRadius = 5;
+    self.okButton.clipsToBounds = YES;
+    self.popUpView.layer.borderWidth = 7;
+    self.popUpView.layer.borderColor = [UIColor orangeColor].CGColor;
 }
 
 
