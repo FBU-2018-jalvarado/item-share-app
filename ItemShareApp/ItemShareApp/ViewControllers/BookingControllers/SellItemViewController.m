@@ -113,6 +113,7 @@
             self.cat1.text  = @"";
             self.cat2.text  = @"";
             self.cat3.text  = @"";
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
         [self.categoryArray removeAllObjects];
         
