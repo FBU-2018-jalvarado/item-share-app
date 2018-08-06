@@ -143,7 +143,7 @@
     
     // basic swipe config
     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]],
-                          [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"qrcodereal"] backgroundColor:[UIColor grayColor]]];
+                          [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"qrcoderealrealrealreal"] backgroundColor:[UIColor colorWithRed:(211/255) green:(211/255) blue:(211/255) alpha:.2]]];
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
     // expansion config
