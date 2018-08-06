@@ -53,6 +53,7 @@
         [itemQuery includeKey:@"title"];
         [itemQuery includeKey:@"owner"];
         [itemQuery includeKey:@"address"];
+        [itemQuery includeKey:@"images"];
         itemQuery.limit = 20;
         
         [itemQuery whereKey:@"owner" equalTo:user];
