@@ -21,6 +21,12 @@
     self.priceLabel.text = self.item.price;
     self.addressLabel.text = self.item.address;
     self.descriptionLabel.text = self.item.descrip;
+    if(item[@"images"] != nil){
+        self.iconView.file = [item.images firstObject];
+        [self.iconView loadInBackground];
+        self.iconView.layer.cornerRadius = 5;
+        self.iconView.clipsToBounds = YES;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
