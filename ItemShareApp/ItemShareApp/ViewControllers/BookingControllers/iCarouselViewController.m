@@ -51,7 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.car.layer.cornerRadius = 15;
+    //self.car.layer.cornerRadius = 15;
     //configure carousel
     _carousel.type = iCarouselTypeRotary;
     _carousel.delegate = self;
@@ -109,8 +109,8 @@
             view.image = self.images[index];
         }
         [view loadInBackground];
-        view.contentMode = UIViewContentModeCenter;
-        
+//        view.contentMode = UIViewContentModeCenter;
+        view.contentMode = UIViewContentModeScaleAspectFill;
         label = [[UILabel alloc] initWithFrame:view.bounds];
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
@@ -121,6 +121,7 @@
     else
     {
         view.frame = CGRectMake(0, 0, 375.0f, 375.0f);
+        view.contentMode = UIViewContentModeScaleAspectFill;
         //get a reference to the label in the recycled view
         label = (UILabel *)[view viewWithTag:1];
     }
@@ -139,7 +140,7 @@
 {
     if (option == iCarouselOptionSpacing)
     {
-        return value * 1.8;
+        return value * 1;
     }
     if (option == iCarouselOptionWrap)
     {
