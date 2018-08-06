@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "PickUpPopUpController.h"
 
-@interface QRViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
+@interface QRViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate, pickUpPopUpDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *viewforCamera;
 - (IBAction)startButtonClicked:(UIButton *)sender;

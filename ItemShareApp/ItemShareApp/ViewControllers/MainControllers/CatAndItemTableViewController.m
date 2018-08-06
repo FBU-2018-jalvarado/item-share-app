@@ -87,6 +87,11 @@
     return [UIColor whiteColor];
 }
 
+- (BOOL)emptyDataSetShouldFadeIn:(UIScrollView *)scrollView {
+    return YES;
+}
+
+
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView{
     return YES;
 }

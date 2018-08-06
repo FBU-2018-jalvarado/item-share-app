@@ -8,11 +8,15 @@
 
 #import "QRViewController.h"
 #import <CoreImage/CoreImage.h>
+#import "PickUpPopUpController.h"
 
 @interface QRViewController ()
 
 @property BOOL isReading;
 
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (strong, nonatomic) PickUpPopUpController *pickUpPopUpVC;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
 
@@ -21,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpUI];
     _captureSession = nil;
     _isReading = NO;
     _lblStatus.text = @"Your Text Will Shown Below.";
@@ -97,6 +102,7 @@
     if (metadataObjects != nil && [metadataObjects count] > 0) {
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+            [self performSelectorOnMainThread:@selector(postQRCode:) withObject:[metadataObj stringValue] waitUntilDone:NO];
             [_textView performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
             if ([_textView.text containsString:@"http"]) {
                 NSString* text = _textView.text;
@@ -156,11 +162,38 @@
 }
  */
 
+- (void)setUpUI {
+    self.backButton.layer.cornerRadius = 5;
+    self.backButton.layer.borderWidth = 1;
+    self.backButton.backgroundColor = [UIColor clearColor];
+    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.statusLabel.layer.cornerRadius = 5;
+    self.statusLabel.layer.borderWidth = 1;
+    self.statusLabel.backgroundColor = [UIColor clearColor];
+    self.statusLabel.layer.borderColor = [UIColor whiteColor].CGColor;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)postQRCode: (NSString *)itemName {
+    self.pickUpPopUpVC = [[PickUpPopUpController alloc] initWithNibName:@"PickUpPopUpController" bundle:nil];
+    self.pickUpPopUpVC.pickUpPopUpDelegate = self;
+    // self.QRPopUpVC.popUpDelegate = self;
+    // [self.QRPopUpVC setName:self.item.title];
+    [self.pickUpPopUpVC setItemName:itemName];
+    //[self.popUpVC setOwner:self.item.owner];
+    //[self.popUpVC setPhoneNumber:self.item.owner.phoneNumber];
+     //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.pickUpPopUpVC showInView:self.view animated:YES];
+}
+
+- (void)dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 /*
 #pragma mark - Navigation
