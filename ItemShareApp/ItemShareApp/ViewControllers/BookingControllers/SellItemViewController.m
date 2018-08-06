@@ -12,7 +12,7 @@
 #import <Parse/Parse.h>
 #import "User.h"
 #import "CategoriesViewController.h"
-#import "NYTPhotosViewController.h"
+//#import "NYTPhotosViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <ParseUI/ParseUI.h>
 
@@ -38,7 +38,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextView *descripLabel;
 @property iCarouselViewController *icarVC;
-@property NYTPhotosViewController *nytPhotoVC;
+//@property NYTPhotosViewController *nytPhotoVC;
 @property BOOL thisIsFirstPic;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property int numberOfPages;
