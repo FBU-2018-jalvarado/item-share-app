@@ -241,7 +241,7 @@
      {
          iCarouselViewController *icarVC = [segue destinationViewController];
          self.imageArray = [[NSMutableArray alloc] init];
-         [self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
+         [self.imageArray addObject:[UIImage imageNamed:@"placeholderImageBlack"]];
          icarVC.images = [[NSMutableArray alloc] init];
          icarVC.images = self.imageArray;
          icarVC.parentVC = @"sell";
