@@ -15,8 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) NSMutableArray *itemsIdArray;
-@property (strong, nonatomic) NSDictionary *itemsIdDictionary;
-@property (strong, nonatomic) NSString *objectId;
 @end
 
 @implementation ItemHistoryDetailViewController
@@ -27,13 +25,7 @@
     self.tableview.dataSource = self;
     self.tableview.delegate = self;
     self.titleLabel.text = self.buttonTitle;
-
-    //
-    self.itemsIdArray = [PFUser currentUser][[NSString stringWithFormat:@"%@", self.historyType]];
-    NSLog(@"%@", self.itemsIdArray);
-    self.itemsIdDictionary = self.itemsIdArray[0];
-    NSLog(@"%@", self.itemsIdDictionary);
-    self.objectId = self.itemsIdDictionary[@"objectId"];
+//    [self getItemsIdArray];
     [self fetchUserItemsWithCompletion:(User *)[PFUser currentUser] withCompletion:^(NSArray<User *> *items, NSError *error) {
         if (error) {
             NSLog(@"Error fetching objects: %@", error);
@@ -45,6 +37,13 @@
     }];
     
     self.tableview.rowHeight = UITableViewAutomaticDimension;
+}
+
+-(void) getItemsIdArray {
+    NSMutableArray *itemsPointerArr = [PFUser currentUser][[NSString stringWithFormat:@"%@", self.historyType]];
+    for (int i = 0; i < [itemsPointerArr count]; i++) {
+        [self.itemsIdArray addObject:itemsPointerArr[i]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -117,7 +116,7 @@
     
     // basic swipe config
     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]],
-                          [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"more"] backgroundColor:[UIColor grayColor]]];
+                          [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"qrcode"] backgroundColor:[UIColor grayColor]]];
     cell.rightSwipeSettings.transition = MGSwipeTransition3D;
     
     // expansion config
