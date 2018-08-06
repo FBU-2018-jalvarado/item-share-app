@@ -109,7 +109,9 @@
 //        [self.arrayOfKeys insertObject:@"Back" atIndex:0];
 //    }
     [cell setCategory:self.arrayOfKeys[indexPath.item]];
-    
+    UIView *selectionColor = [[UIView alloc] init];
+    selectionColor.backgroundColor = [UIColor orangeColor];
+    cell.selectedBackgroundView = selectionColor;
     return cell;
 }
 
