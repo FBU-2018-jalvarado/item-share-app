@@ -50,6 +50,36 @@
                                     <segue destination="0Ou-Bd-hbq" kind="embed" identifier="mapSegue" id="5Oe-In-5aL"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
+                                <rect key="frame" x="0.0" y="149" width="375" height="518"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="KQT-bc-Xc1" kind="embed" identifier="showSearchViewSegue" id="6LK-3b-dAG"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-j8-Lwt">
+                                <rect key="frame" x="0.0" y="117" width="375" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Cbn-Mw-5wn" appends="YES" id="3rj-ok-y1O"/>
+                                    <outletCollection property="gestureRecognizers" destination="aK2-2c-oUL" appends="YES" id="x8b-Ps-4h0"/>
+                                    <outletCollection property="gestureRecognizers" destination="KGo-pf-M1d" appends="YES" id="JQs-NR-4kL"/>
+                                </connections>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graybar" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-qo-IH2">
+                                <rect key="frame" x="166" y="120" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayarrowdown" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-Je-FbP">
+                                <rect key="frame" x="166" y="120" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayarrow" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-IW-0AJ">
+                                <rect key="frame" x="166" y="120" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-KL-spe">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -65,13 +95,6 @@
                                     <outletCollection property="gestureRecognizers" destination="8Eg-QV-RUc" appends="YES" id="v0A-7t-sVD"/>
                                 </connections>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29r-N8-hCX">
-                                <rect key="frame" x="0.0" y="149" width="375" height="518"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="KQT-bc-Xc1" kind="embed" identifier="showSearchViewSegue" id="6LK-3b-dAG"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAL-Wz-eQu">
                                 <rect key="frame" x="0.0" y="0.0" width="263" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -79,29 +102,6 @@
                                     <segue destination="1PN-sF-iY8" kind="embed" identifier="profileSegue" id="8cA-CV-oIQ"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graybar" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-qo-IH2">
-                                <rect key="frame" x="166" y="120" width="42" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayarrowdown" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-Je-FbP">
-                                <rect key="frame" x="166" y="120" width="42" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayarrow" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-IW-0AJ">
-                                <rect key="frame" x="166" y="120" width="42" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-j8-Lwt">
-                                <rect key="frame" x="0.0" y="117" width="375" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Cbn-Mw-5wn" appends="YES" id="3rj-ok-y1O"/>
-                                    <outletCollection property="gestureRecognizers" destination="aK2-2c-oUL" appends="YES" id="x8b-Ps-4h0"/>
-                                    <outletCollection property="gestureRecognizers" destination="KGo-pf-M1d" appends="YES" id="JQs-NR-4kL"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>

@@ -167,21 +167,26 @@
 }
 
 - (IBAction)swipeUp:(id)sender {
-    if(self.searchView.frame.origin.y == 611)
+    if(self.blackView.alpha == 0)
     {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-462];
-            self.upArrow.alpha = 0;
-            self.downArrow.alpha = 1;
-            [self moveArrows:462];
-            [self.placeholdViewController.searchBar becomeFirstResponder];
-        }];
-        [self createBlur];
-        [self.placeholdViewController showSearch];
+        if(self.searchView.frame.origin.y == 611)
+        {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self arrowAndSearchViewMove:-462];
+                self.upArrow.alpha = 0;
+                self.downArrow.alpha = 1;
+                [self moveArrows:462];
+                [self.placeholdViewController.searchBar becomeFirstResponder];
+            }];
+            [self createBlur];
+            [self.placeholdViewController showSearch];
+        }
     }
 }
 
 - (void)showSearchView {
+    if(self.blackView.alpha == 0)
+    {
         if(self.searchView.frame.origin.y == 611)
         {
             [UIView animateWithDuration:0.5 animations:^{
@@ -197,6 +202,7 @@
             }
             [self createBlur];
         }
+    }
 }
 
 - (void)dismissToMap {

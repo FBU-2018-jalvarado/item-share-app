@@ -35,6 +35,17 @@
     }
     return self;
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    if([self.title isEqualToString:@"Categories"])
+    {
+        [self.delegate fetchItems];
+    }
+    else {
+        [self.delegate callChoseCat:self.title];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.categoryCollView.delegate = self;
