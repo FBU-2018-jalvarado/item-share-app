@@ -8,12 +8,14 @@
 
 #import "QRViewController.h"
 #import <CoreImage/CoreImage.h>
+#import "PickUpPopUpController.h"
 
 @interface QRViewController ()
 
 @property BOOL isReading;
 
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (strong, nonatomic) PickUpPopUpController *pickUpPopUpVC;
 
 @end
 
@@ -99,6 +101,7 @@
     if (metadataObjects != nil && [metadataObjects count] > 0) {
         AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
         if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+            [self performSelectorOnMainThread:@selector(postQRCode:) withObject:[metadataObj stringValue] waitUntilDone:NO];
             [_textView performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
             if ([_textView.text containsString:@"http"]) {
                 NSString* text = _textView.text;
@@ -170,17 +173,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)postQRCode {
-    self.QRPopUpVC = [[QRPopUpController alloc] initWithNibName:@"QRPopUpController" bundle:nil];
+- (void)postQRCode: (NSString *)itemName {
+    self.pickUpPopUpVC = [[PickUpPopUpController alloc] initWithNibName:@"PickUpPopUpController" bundle:nil];
+    self.pickUpPopUpVC.pickUpPopUpDelegate = self;
     // self.QRPopUpVC.popUpDelegate = self;
     // [self.QRPopUpVC setName:self.item.title];
-    Item *item = [Item new];
-    item.title = @"baseball";
-    [self.QRPopUpVC setItem:item];
-    [self.QRPopUpVC setOwner:self.item.owner];
+    [self.pickUpPopUpVC setItemName:itemName];
+    //[self.popUpVC setOwner:self.item.owner];
     //[self.popUpVC setPhoneNumber:self.item.owner.phoneNumber];
-    
-    [self.QRPopUpVC showInView:self.view animated:YES];
+     //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.pickUpPopUpVC showInView:self.view animated:YES];
+}
+
+- (void)dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

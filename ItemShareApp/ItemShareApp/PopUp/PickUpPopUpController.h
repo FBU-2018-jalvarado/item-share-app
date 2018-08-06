@@ -10,10 +10,20 @@
 #import "Item.h"
 #import "User.h"
 
+@protocol pickUpPopUpDelegate
+
+- (void)dismiss;
+- (void)askedForDirections;
+
+@end
+
+
 @interface PickUpPopUpController : UIViewController
 
+@property (nonatomic, weak) id <pickUpPopUpDelegate> pickUpPopUpDelegate;
 @property (strong, nonatomic) User *owner;
 @property (strong, nonatomic) Item *item;
+@property (strong, nonatomic) NSString *itemName;
 
 - (void)showInView:(UIView *)aView animated:(BOOL)animated;
 

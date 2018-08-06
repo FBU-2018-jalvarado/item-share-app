@@ -10,28 +10,69 @@
 
 @interface PickUpPopUpController ()
 
+@property (weak, nonatomic) IBOutlet UIView *popUpView;
+@property (weak, nonatomic) IBOutlet UILabel *itemLabel;
+
 @end
 
 @implementation PickUpPopUpController
 
+
 - (void)viewDidLoad {
+    self.view.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:.6];
+    self.popUpView.backgroundColor = [UIColor whiteColor];
+    self.popUpView.layer.cornerRadius = 5;
+    self.popUpView.layer.shadowOpacity = 0.8;
+    self.popUpView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self setUpUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setUpUI{
+    self.itemLabel.text = self.itemName;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)showAnimate
+{
+    self.view.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    self.view.alpha = 0;
+    [UIView animateWithDuration:.25 animations:^{
+        self.view.alpha = 1;
+        self.view.transform = CGAffineTransformMakeScale(1, 1);
+    }];
 }
-*/
+
+- (void)removeAnimate
+{
+    [UIView animateWithDuration:.25 animations:^{
+        self.view.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        self.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [self.view removeFromSuperview];
+        }
+    }];
+}
+
+- (IBAction)closePopup:(id)sender {
+    NSLog(@"YEEt");
+    [self removeAnimate];
+    [self.pickUpPopUpDelegate dismiss];
+}
+
+- (IBAction)close:(id)sender {
+    NSLog(@"tapped");
+    [self removeAnimate];
+    [self.pickUpPopUpDelegate dismiss];
+}
+
+- (void)showInView:(UIView *)aView animated:(BOOL)animated
+{
+    [aView addSubview:self.view];
+    if (animated) {
+        [self showAnimate];
+    }
+}
 
 @end
