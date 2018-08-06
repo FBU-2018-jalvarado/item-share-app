@@ -22,6 +22,8 @@
 		4D816FB12109253400C24648 /* ColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FB02109253400C24648 /* ColorScheme.m */; };
 		4D816FB4210A909600C24648 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FB3210A909600C24648 /* RegisterViewController.m */; };
 		4D816FBB210BBBA700C24648 /* myMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D816FBA210BBBA700C24648 /* myMarker.m */; };
+		4DD871B62118B6E60093901B /* PickUpPopUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD871B42118B6E60093901B /* PickUpPopUpController.m */; };
+		4DD871B72118B6E60093901B /* PickUpPopUpController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD871B52118B6E60093901B /* PickUpPopUpController.xib */; };
 		4DDD6FFE21155A7400AC8C53 /* QRCodeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDD6FFD21155A7400AC8C53 /* QRCodeStoryboard.storyboard */; };
 		4DDD700121155AF100AC8C53 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD700021155AF100AC8C53 /* QRViewController.m */; };
 		4DDD70052115623300AC8C53 /* QRPopUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD70032115623300AC8C53 /* QRPopUpController.m */; };
@@ -87,6 +89,9 @@
 		4D816FB8210B8D1A00C24648 /* item-share-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "item-share-app.entitlements"; sourceTree = "<group>"; };
 		4D816FB9210BBBA700C24648 /* myMarker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myMarker.h; sourceTree = "<group>"; };
 		4D816FBA210BBBA700C24648 /* myMarker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myMarker.m; sourceTree = "<group>"; };
+		4DD871B32118B6E60093901B /* PickUpPopUpController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickUpPopUpController.h; sourceTree = "<group>"; };
+		4DD871B42118B6E60093901B /* PickUpPopUpController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickUpPopUpController.m; sourceTree = "<group>"; };
+		4DD871B52118B6E60093901B /* PickUpPopUpController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickUpPopUpController.xib; sourceTree = "<group>"; };
 		4DDD6FFD21155A7400AC8C53 /* QRCodeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRCodeStoryboard.storyboard; sourceTree = "<group>"; };
 		4DDD6FFF21155AF100AC8C53 /* QRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
 		4DDD700021155AF100AC8C53 /* QRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
@@ -252,6 +257,9 @@
 				4DDD70022115623300AC8C53 /* QRPopUpController.h */,
 				4DDD70032115623300AC8C53 /* QRPopUpController.m */,
 				4DDD70042115623300AC8C53 /* QRPopUpController.xib */,
+				4DD871B32118B6E60093901B /* PickUpPopUpController.h */,
+				4DD871B42118B6E60093901B /* PickUpPopUpController.m */,
+				4DD871B52118B6E60093901B /* PickUpPopUpController.xib */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -450,6 +458,7 @@
 				4D2ECC8F20FFB71E006E6757 /* MapStoryboard.storyboard in Resources */,
 				7D3D5DBE211290C400F05EF8 /* Assets.xcassets in Resources */,
 				4DDD70062115623300AC8C53 /* QRPopUpController.xib in Resources */,
+				4DD871B72118B6E60093901B /* PickUpPopUpController.xib in Resources */,
 				4D2ECCCA2102989B006E6757 /* CalendarStoryboard.storyboard in Resources */,
 				4D6B6EE320FE57DD006CC875 /* SearchStoryboard.storyboard in Resources */,
 				7D8BB5142113D53F00AD27A3 /* loginStoryboard.storyboard in Resources */,
@@ -544,6 +553,7 @@
 				90091E3621027BD9007AB8A7 /* PreviousViewController.m in Sources */,
 				7D3D5D73210F879D00F05EF8 /* ItemHistoryDetailViewController.m in Sources */,
 				9B9F7E8E20FE4F9F000E319F /* Item.m in Sources */,
+				4DD871B62118B6E60093901B /* PickUpPopUpController.m in Sources */,
 				7D3D5D76210F8DF500F05EF8 /* ItemHistoryCell.m in Sources */,
 				4D2ECCB821011750006E6757 /* MapModel.m in Sources */,
 				90091E3321027B3F007AB8A7 /* CategoriesViewController.m in Sources */,

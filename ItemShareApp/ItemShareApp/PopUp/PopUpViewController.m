@@ -42,6 +42,9 @@
 //    self.nameLabel.textColor = [UIColor blackColor];
 //    self.messageLabel.textColor = [UIColor blackColor];
     
+    self.popUpView.layer.borderWidth = 7;
+    self.popUpView.layer.borderColor = [UIColor orangeColor].CGColor;
+    
     self.directionsButton.layer.borderColor = [UIColor blueColor].CGColor;
     self.directionsButton.layer.borderWidth = 1;
     self.directionsButton.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];

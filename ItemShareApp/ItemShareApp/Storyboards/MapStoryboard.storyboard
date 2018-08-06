@@ -57,8 +57,17 @@
                                     <segue destination="ba1-cd-WDL" kind="presentation" identifier="sellSegue" id="Y0b-Gp-snI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-j1-H4w">
+                                <rect key="frame" x="321" y="220" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="qr-orange"/>
+                                <connections>
+                                    <action selector="QRButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="CzY-Ke-9JY"/>
+                                    <segue destination="7E8-3m-uoB" kind="show" id="BXF-Af-MZ7"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
-                                <rect key="frame" x="321" y="158" width="48" height="48"/>
+                                <rect key="frame" x="321" y="160" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="compass-orange"/>
                                 <connections>
@@ -93,6 +102,7 @@
                         <viewLayoutGuide key="safeArea" id="N7T-PW-YyS"/>
                     </view>
                     <connections>
+                        <outlet property="QRButton" destination="h4l-j1-H4w" id="qi1-sE-rWJ"/>
                         <outlet property="fetchLabel" destination="Ywe-gT-ZUR" id="B1U-gp-TJV"/>
                         <outlet property="googleMapView" destination="aWK-ul-y0W" id="3nl-Q6-k4U"/>
                         <outlet property="homeButtonBackgroundView" destination="mBE-21-mBm" id="Csd-55-5Nm"/>
@@ -117,10 +127,19 @@
             </objects>
             <point key="canvasLocation" x="-650" y="58"/>
         </scene>
+        <!--QRCodeStoryboard-->
+        <scene sceneID="Qkp-Yc-0Lp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QRCodeStoryboard" id="7E8-3m-uoB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0m-40-qqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-658" y="263"/>
+        </scene>
     </scenes>
     <resources>
         <image name="compass-orange" width="512" height="512"/>
         <image name="edit-orange-color" width="512" height="512"/>
         <image name="house-icon-color" width="1024" height="1024"/>
+        <image name="qr-orange" width="512" height="512"/>
     </resources>
 </document>

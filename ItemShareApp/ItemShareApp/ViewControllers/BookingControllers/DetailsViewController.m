@@ -96,8 +96,8 @@
     self.categoryLabel2.text = self.item.categories[1];
     self.categoryLabel3.text = self.item.categories[2];
     self.priceLabel.text = self.item.price;
-    self.priceWeekLabel.text = [@([self.item.price doubleValue] * 6.5) stringValue];
-    self.priceMonthLabel.text = [@([self.item.price integerValue] * 24) stringValue];
+    self.priceWeekLabel.text = [@([self.item.price doubleValue] * 6) stringValue];
+    self.priceMonthLabel.text = [@([self.item.price integerValue] * 22) stringValue];
 
     [self.descriptionLabel sizeToFit];
     self.descriptionLabel.text = self.item.descrip;
@@ -121,17 +121,28 @@
     if(self.selectedEndDate){
        // self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
     }
+    
+    NSNumberFormatter *numfort = [[NSNumberFormatter alloc] init];
+    [numfort setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numfort setCurrencySymbol:@""];
+
     if(self.selectedStartDate && self.selectedEndDate){
         NSInteger days = [self daysBetween:self.selectedStartDate and:self.selectedEndDate];
         if(days < 7){
-            self.totalPriceLabel.text = [@(days * [self.item.price integerValue]) stringValue];
+            double price = days * [self.item.price integerValue];
+            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
+            NSString *formattedPrice = [numfort stringFromNumber:decnum];
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
         }
         else if(days < 30){
-            
             //NSInteger weeks = [@(days/7) integerValue];
+            
             double weeks = (double)days/7;
-            double price = weeks * 6.5 * [self.item.price integerValue];
-            self.totalPriceLabel.text = [NSString stringWithFormat:@"%.02f", price];
+            double price = weeks * 6 * [self.item.price integerValue];
+            
+            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
+            NSString *formattedPrice = [numfort stringFromNumber:decnum];
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
         }
     }
 }
