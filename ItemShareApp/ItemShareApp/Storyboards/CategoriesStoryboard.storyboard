@@ -49,17 +49,6 @@
                                     <segue destination="KQT-bc-Xc1" kind="embed" identifier="showSearchViewSegue" id="6LK-3b-dAG"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-j8-Lwt">
-                                <rect key="frame" x="0.0" y="117" width="375" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Cbn-Mw-5wn" appends="YES" id="3rj-ok-y1O"/>
-                                    <outletCollection property="gestureRecognizers" destination="aK2-2c-oUL" appends="YES" id="x8b-Ps-4h0"/>
-                                    <outletCollection property="gestureRecognizers" destination="KGo-pf-M1d" appends="YES" id="JQs-NR-4kL"/>
-                                </connections>
-                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="graybar" translatesAutoresizingMaskIntoConstraints="NO" id="hVa-qo-IH2">
                                 <rect key="frame" x="166" y="120" width="42" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -72,6 +61,17 @@
                                 <rect key="frame" x="166" y="120" width="42" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYF-j8-Lwt">
+                                <rect key="frame" x="0.0" y="117" width="375" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Cbn-Mw-5wn" appends="YES" id="3rj-ok-y1O"/>
+                                    <outletCollection property="gestureRecognizers" destination="aK2-2c-oUL" appends="YES" id="x8b-Ps-4h0"/>
+                                    <outletCollection property="gestureRecognizers" destination="KGo-pf-M1d" appends="YES" id="JQs-NR-4kL"/>
+                                </connections>
+                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSS-KL-spe">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
