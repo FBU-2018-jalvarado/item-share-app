@@ -67,7 +67,9 @@
     self.categoryArray = [[NSMutableArray alloc] init];
     self.thisIsFirstPic = YES;
     self.itemTitle.delegate = self;
+    self.itemTitle.autocapitalizationType = UITextAutocapitalizationTypeWords;
     self.itemAddress.delegate = self;
+    self.itemAddress.autocapitalizationType = UITextAutocapitalizationTypeWords;
     self.priceLabel.delegate = self;
     self.descripLabel.delegate = self;
     self.numberOfPages = 0;
