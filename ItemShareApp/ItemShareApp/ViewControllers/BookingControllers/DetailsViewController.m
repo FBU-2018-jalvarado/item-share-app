@@ -36,7 +36,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
-
+@property NSInteger numberOfPages;
+@property (weak, nonatomic) IBOutlet UIPageControl *imagePageControl;
 @property iCarouselViewController *icarVC;
 
 @property (strong, nonatomic) ColorScheme *colors;
@@ -67,6 +68,7 @@
     [super viewDidLoad];
 //    [self.colors setColors];
     [self setUpUI];
+    self.imagePageControl.numberOfPages = self.item.images.count;
     [self.icarVC reload];
     //check if payments are authorized. If not, the pay button will be hidden
     // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
@@ -269,6 +271,7 @@
         iCarouselViewController *icarVC = [segue destinationViewController];
         //self.imageArray = [[NSMutableArray alloc] init];
         //[self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
+        icarVC.delegate = self;
         icarVC.images = [[NSMutableArray alloc] init];
         icarVC.images = self.item.images;
         icarVC.parentVC = @"detail";
@@ -341,6 +344,10 @@
 
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)updatePage:(NSInteger)index {
+    self.imagePageControl.currentPage = index;
 }
 
 @end
