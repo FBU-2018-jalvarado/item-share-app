@@ -12,7 +12,7 @@
 #import <Parse/Parse.h>
 #import "User.h"
 #import "CategoriesViewController.h"
-#import "NYTPhotosViewController.h"
+//#import "NYTPhotosViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <ParseUI/ParseUI.h>
 
@@ -32,14 +32,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *label3;
 @property (weak, nonatomic) IBOutlet UILabel *catLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *itemImage;
+@property (weak, nonatomic) IBOutlet UIPageControl *imagePageControl;
 @property (strong, nonatomic) Item *thisItem;
 @property (strong, nonatomic) NSMutableArray *imageArray;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextView *descripLabel;
 @property iCarouselViewController *icarVC;
-@property NYTPhotosViewController *nytPhotoVC;
+//@property NYTPhotosViewController *nytPhotoVC;
 @property BOOL thisIsFirstPic;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property int numberOfPages;
 
 
 @end
@@ -68,6 +70,8 @@
     self.itemAddress.delegate = self;
     self.priceLabel.delegate = self;
     self.descripLabel.delegate = self;
+    self.numberOfPages = 0;
+    self.imagePageControl.numberOfPages = self.numberOfPages;
     
     // Do any additional setup after loading the view.
     // TODO: make name field optional after login
@@ -119,6 +123,7 @@
         
     }];
 }
+
 
 - (void)updateSellerInformation: (Item *)item{
     User *seller = (User*) [PFUser currentUser];
@@ -179,6 +184,7 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     editedImage = [self resizeImage:editedImage withSize:CGSizeMake(250, 250)];
     self.itemImage.image = editedImage;
+    self.imagePageControl.numberOfPages = self.imagePageControl.numberOfPages + 1;
     if(self.thisIsFirstPic)
     {
         self.icarVC.images[0] = editedImage;
@@ -246,6 +252,7 @@
          icarVC.images = [[NSMutableArray alloc] init];
          icarVC.images = self.imageArray;
          icarVC.parentVC = @"sell";
+         icarVC.delegate = self;
          self.icarVC = icarVC;
      }
 //     if([segue.identifier isEqualToString:@"NYTPhotoSegue"])
@@ -263,6 +270,9 @@
 //         self.nytPhotoVC = nytPhotoVC;
 //     }
  }
- 
+
+- (void)updatePage:(NSInteger)index {
+    self.imagePageControl.currentPage = index;
+}
 
 @end

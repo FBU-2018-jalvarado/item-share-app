@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import <Stripe/Stripe.h>
+//#import <Stripe/Stripe.h>
 #import "User.h"
 @import GoogleMaps;
 @import GooglePlaces;
@@ -62,9 +62,10 @@
     //STRIPE
 //    [Stripe setDefaultPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
     
-    [[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
+    //[[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
     // do any other necessary launch configuration
     [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
        NSFontAttributeName:[UIFont fontWithName:@"Optima-Bold" size:21]}];
