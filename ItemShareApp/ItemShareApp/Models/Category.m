@@ -48,7 +48,7 @@
                                                 @"Brass"           : @"Brass",
                                                 @"Winds/Woodwinds" : @"Winds/Woodwinds"
                                                 },
-                                        @"Other Instrumental Stuff" : @{
+                                        @"Other Instrumental" : @{
                                                 @"Accessories"                 : @"Accessories",
                                                 @"Other Instruments/Equipment" : @"Other Instruments/Equipment"
                                                 }
@@ -130,7 +130,7 @@
                                                 },
                                         @"Outdoors" : @{
                                                 @"Camping/Hiking"         : @"Camping/Hiking",
-                                                @"Bikes and Other Wheels" : @"Bikes and Other Wheels",
+                                                @"Bikes"                  : @"Bikes",
                                                 @"Climbing"               : @"Climbing",
                                                 @"Extreme Sports"         : @"Extreme Sports",
                                                 @"Other Outdoor"          : @"Other Outdoor"
@@ -157,7 +157,7 @@
     self.catArray =            @[@"Clothing", @"Costumes", @"Halloween/Party/Event", @"Performance/Stage", @"Formal Wear", @"Girls", @"Boys", @"Women", @"Men", \
                                  @"Instruments", @"Strings", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Pianos/Keys", @"Acoustic", @"Digital/Electric", \
                                  @"Drums/Percussion", @"Drums", @"Percussion", @"Tech and Equipment", @"DJ", @"Amps/Effects", @"Mics/Recording", @"Band", @"Brass", \
-                                 @"Winds/Woodwinds", @"Other Instrumental Stuff", @"Accessories", @"Other Instruments/Equipment", @"Home", @"Furniture", @"Chairs", @"Desks", \
+                                 @"Winds/Woodwinds", @"Other Instrumental", @"Accessories", @"Other Instruments/Equipment", @"Home", @"Furniture", @"Chairs", @"Desks", \
                                  @"Tables", @"Other Furniture", @"Kitchen/Dinign", @"Cookware", @"Bakeware", @"Kitchen Appliances", @"Arts/Crafts Tools", @"Scrapbooking Tools", \
                                  @"Sewing Tools and Machines", @"Printmaking Tools", @"Beading/Jewelry Making Tools", @"Other Arts/Crafts Tools", @"Cleaning Tools", @"Brushes", \
                                  @"Dusting", @"Mopping", @"Sweeping", @"Cleaning Appliances", @"Other Cleaning Tools", @"Garden/Outdoor", @"Grills and Similar", @"Lawn Mowers", \
@@ -165,7 +165,7 @@
                                  @"Theater", @"Audio/Speakers/Headphones", @"Speakers", @"Headphones", @"Other Audio", @"Photography/Videography", @"Photography", @"Videography", \
                                  @"Video Game Consoles", @"PlayStation", @"Xbox", @"Nintendo DS/Switch", @"Wii", @"Other Consoles", @"Sports and Outdoors", @"Sports", \
                                  @"Exercise/Fitness", @"Hunting/Fishing", @"Team Sports", @"Water Sports", @"Winter Sports", @"Other Sports", @"Outdoors", @"Camping/Hiking", \
-                                 @"Bikes and Other Wheels", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Vehicles", @"Water Vehicles", @"Boats", @"Other Water Vehicles", \
+                                 @"Bikes", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Vehicles", @"Water Vehicles", @"Boats", @"Other Water Vehicles", \
                                  @"Land Vehicles", @"Cars", @"Motorcycles", @"Trucks", @"Other Land Vehicles", @"Air Vehicles", @"Planes", @"Other Air Vehicles"];
 }
 
