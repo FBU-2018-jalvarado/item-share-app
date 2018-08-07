@@ -136,7 +136,7 @@
         {
             [self.sellDelegate addCategory:clickedKey];
         }
-        [self.delegate goToMap];
+//        [self.delegate goToMap];
     }
     else {
         CategoriesViewController *categoriesViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"];
@@ -147,6 +147,7 @@
         categoriesViewController.delegate = self.delegate;
         categoriesViewController.sellDelegate = self.sellDelegate;
         [self.navigationController pushViewController:categoriesViewController animated:YES];
+        [self.categoryCollView deselectItemAtIndexPath:indexPath animated:YES];
     }
     [self.delegate callChoseCat:clickedKey];
 }
