@@ -18,7 +18,7 @@
 #define GIF_HEIGHT 276
 #define SCALE 0.4
 
-@interface PreviousViewController () <MapViewControllerDelegate>
+@interface PreviousViewController () <MapViewControllerDelegate, PlaceholderViewControllerDelegate, CatAndItemTableViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (strong, nonatomic ) MapViewController *mapController;
 @property (weak, nonatomic) IBOutlet UIView *profileView;

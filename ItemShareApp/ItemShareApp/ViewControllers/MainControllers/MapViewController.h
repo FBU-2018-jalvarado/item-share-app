@@ -25,6 +25,8 @@
 @protocol MapViewControllerDelegate
 
 - (void)openSideProfile;
+- (void)dismissHUD;
+- (void) showHUD;
 
 @end
 

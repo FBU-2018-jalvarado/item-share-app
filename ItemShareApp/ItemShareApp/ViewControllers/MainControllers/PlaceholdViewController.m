@@ -41,7 +41,7 @@
     self.categoryArray = [[NSMutableArray alloc] init];
     Category *category = [[Category alloc] init];
     [category setCats];
-    self.categoryArray = category.catArray;
+    self.categoryArray = [category.catArray mutableCopy];
     
     [self fetchItems];
     // Do any additional setup after loading the view.

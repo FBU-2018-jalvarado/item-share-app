@@ -74,10 +74,16 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     self.googleMapView.delegate = self;
     self.markersArray = [NSMutableArray new];
     
+    
     [self setUpUIGoogle];
     [self setUpStyle];
     [self locationSetup];
     [self fetchItems];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.mapDelegate showHUD];
+     [self fetchItems];
 }
 
 //- (UIStatusBarStyle)preferredStatusBarStyle{
@@ -137,6 +143,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             self.filteredItemsArray = [items mutableCopy];
             [self removeAllMarkersButUserLocation];
             [self addMarkers:self.filteredItemsArray];
+             [self.mapDelegate dismissHUD];
         } else {
             // HANDLE NO ITEMS
         }
