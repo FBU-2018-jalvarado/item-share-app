@@ -254,13 +254,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="electronics" translatesAutoresizingMaskIntoConstraints="NO" id="xNX-aE-YdO">
-                                                    <rect key="frame" x="20" y="8" width="35" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="35" id="8EZ-IT-NRK"/>
-                                                        <constraint firstAttribute="height" constant="35" id="WVi-4G-Dnm"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cat name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXj-EN-WVz">
                                                     <rect key="frame" x="101" y="15" width="68" height="21"/>
                                                     <constraints>
@@ -270,14 +263,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="electronics" translatesAutoresizingMaskIntoConstraints="NO" id="xNX-aE-YdO">
+                                                    <rect key="frame" x="15" y="8" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="8EZ-IT-NRK"/>
+                                                        <constraint firstAttribute="height" constant="35" id="WVi-4G-Dnm"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="AXj-EN-WVz" secondAttribute="bottom" constant="5" id="8GG-XH-hrb"/>
                                                 <constraint firstAttribute="bottom" secondItem="xNX-aE-YdO" secondAttribute="bottom" constant="8.5" id="Pdp-5M-FVm"/>
-                                                <constraint firstItem="xNX-aE-YdO" firstAttribute="leading" secondItem="EUx-2K-cZ8" secondAttribute="leading" constant="20" id="YNM-JV-5ci"/>
+                                                <constraint firstItem="xNX-aE-YdO" firstAttribute="leading" secondItem="EUx-2K-cZ8" secondAttribute="leading" constant="15" id="YNM-JV-5ci"/>
                                                 <constraint firstItem="AXj-EN-WVz" firstAttribute="top" secondItem="EUx-2K-cZ8" secondAttribute="topMargin" constant="4" id="eQv-Rx-Ngw"/>
                                                 <constraint firstItem="xNX-aE-YdO" firstAttribute="top" secondItem="EUx-2K-cZ8" secondAttribute="top" constant="8" id="kLu-FY-5Wx"/>
-                                                <constraint firstItem="AXj-EN-WVz" firstAttribute="leading" secondItem="xNX-aE-YdO" secondAttribute="trailing" constant="46" id="n78-Yn-pOh"/>
+                                                <constraint firstItem="AXj-EN-WVz" firstAttribute="leading" secondItem="xNX-aE-YdO" secondAttribute="trailing" constant="51" id="n78-Yn-pOh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -293,14 +293,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothing" translatesAutoresizingMaskIntoConstraints="NO" id="rxi-hu-r6w">
-                                                    <rect key="frame" x="20" y="11" width="34" height="34"/>
+                                                    <rect key="frame" x="13" y="8" width="34" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="FK7-CA-2r4"/>
                                                         <constraint firstAttribute="width" constant="34" id="iuK-Cy-xP2"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMb-CO-4p0">
-                                                    <rect key="frame" x="74" y="11" width="77.5" height="21"/>
+                                                    <rect key="frame" x="67" y="8" width="77.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ggH-1D-b1r"/>
                                                     </constraints>
@@ -309,7 +309,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luU-El-12b">
-                                                    <rect key="frame" x="74" y="35" width="103" height="18"/>
+                                                    <rect key="frame" x="67" y="32" width="103" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="LRG-IC-yVr"/>
                                                     </constraints>
