@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 @property (strong, nonatomic) NSMutableArray *itemsIdArray;
+
 @end
 
 @implementation ItemHistoryDetailViewController
@@ -30,15 +31,9 @@
     self.tableview.delegate = self;
     self.titleLabel.text = self.buttonTitle;
     [self getItemsIdArray];
-    [self fetchItemsByIdsWithCompletion:self.itemsIdArray withCompletion:^(NSArray<User *> *items, NSError *error) {
-        if (error){
-            NSLog(@"Error fetching items: %@", error);
-        }
-        else {
-            self.itemsArray = [items mutableCopy];
-            [self.tableview reloadData];
-        }
-    }];
+    [self fetchItemsByIds:self.itemsIdArray];
+    
+    
 //    [self fetchUserItemsWithCompletion:(User *)[PFUser currentUser] withCompletion:^(NSArray<User *> *items, NSError *error) {
 //        if (error) {
 //            NSLog(@"Error fetching objects: %@", error);
@@ -67,25 +62,19 @@
 }
 
 // fetch items by id
--(void) fetchItemsByIdsWithCompletion:(NSArray<NSString *> *)idArray withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
-    NSMutableArray *itemsarr = [[NSMutableArray alloc] init];
+-(void) fetchItemsByIds:(NSArray<NSString *> *)idArray {
+    self.itemsArray = [[NSMutableArray alloc] init];
 
     for (NSString *itemID in idArray) {
 //        PFQuery *itemQuery = [Item query];
         [[Item query] getObjectInBackgroundWithId:itemID block:^(PFObject * _Nullable object, NSError * _Nullable error) {
             if (error) {
                 NSLog(@"Error finding object with itemID %@: %@", itemID, error);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(nil, error);
-                });
             }
             else if (object){
-                [itemsarr addObject:object];
-                
-                if (itemsarr.count == idArray.count) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completion(itemsarr, nil);
-                    });
+                [self.itemsArray addObject:object];
+                if (self.itemsArray.count == self.itemsIdArray.count){
+                    [self.tableview reloadData];
                 }
             }
         }];
