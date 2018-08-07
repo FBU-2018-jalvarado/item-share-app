@@ -178,6 +178,10 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didTapAddress:" destination="bfb-xi-0l7" eventType="touchUpInside" id="6si-4F-UeB"/>
+                                    <action selector="didTapAddress:" destination="bfb-xi-0l7" eventType="editingDidBegin" id="9ex-oD-RUU"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -185,6 +189,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="G5f-sC-2xJ"/>
                     <connections>
+                        <outlet property="addressTextField" destination="HRZ-Yr-mSo" id="9MZ-B5-cKM"/>
                         <outlet property="emailLabel" destination="RdX-me-ic5" id="JDb-6d-0hm"/>
                         <outlet property="emailTextField" destination="wJy-Kt-3tU" id="MEu-xX-aAW"/>
                         <outlet property="firstLabel" destination="ed7-yP-IkQ" id="75H-zB-WJC"/>
