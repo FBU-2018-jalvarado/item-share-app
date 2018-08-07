@@ -322,8 +322,8 @@
 
 //how to see entire method in autofill
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion{
-        completion(PKPaymentAuthorizationStatusSuccess);
-    [self performSelector:@selector(bookingFinished) withObject:nil afterDelay:2.0 ];
+    completion(PKPaymentAuthorizationStatusSuccess);
+    [self performSelector:@selector(bookingFinished) withObject:nil afterDelay:2.0];
 
 }
 
