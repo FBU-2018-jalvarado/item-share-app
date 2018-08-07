@@ -26,7 +26,7 @@
 
 - (void)openSideProfile;
 - (void)dismissHUD;
-- (void) showHUD;
+- (void)showHUD;
 
 @end
 

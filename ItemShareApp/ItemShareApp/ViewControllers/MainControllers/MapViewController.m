@@ -20,6 +20,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
 #import "QRPopUpController.h"
+#import "SellItemViewController.h"
 
 NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotation";
 NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
@@ -74,16 +75,12 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     self.googleMapView.delegate = self;
     self.markersArray = [NSMutableArray new];
     
-    
+    [self.mapDelegate showHUD];
+    [self fetchItems];
     [self setUpUIGoogle];
     [self setUpStyle];
     [self locationSetup];
-    [self fetchItems];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self.mapDelegate showHUD];
-     [self fetchItems];
+   // [self fetchItems];
 }
 
 //- (UIStatusBarStyle)preferredStatusBarStyle{
@@ -143,7 +140,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             self.filteredItemsArray = [items mutableCopy];
             [self removeAllMarkersButUserLocation];
             [self addMarkers:self.filteredItemsArray];
-             [self.mapDelegate dismissHUD];
+            [self.mapDelegate dismissHUD];
         } else {
             // HANDLE NO ITEMS
         }
@@ -177,6 +174,11 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
         myMarker *marker = (myMarker *)sender;
         detailsViewController.item = marker.item;
     }
+    if([segue.identifier isEqualToString:@"sellSegue"]){
+        SellItemViewController *sellController = [segue destinationViewController];
+        sellController.sellItemDelegate = self;
+    }
+
 }
 
 //Error Domain=kCLErrorDomain Code=2 "(null)"
