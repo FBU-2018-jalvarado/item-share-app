@@ -137,17 +137,17 @@
                                                 }
                                         },
                                 @"Vehicles" : @{
-                                        @"Water" : @{
+                                        @"Water Vehicles" : @{
                                                 @"Boats"                : @"Boats",
                                                 @"Other Water Vehicles" : @"Other Water Vehicles"
                                                 },
-                                        @"Land" : @{
+                                        @"Land Vehicles" : @{
                                                 @"Cars"                : @"Cars",
                                                 @"Motorcycles"         : @"Motocycles",
                                                 @"Trucks"              : @"Trucks",
                                                 @"Other Land Vehicles" : @"Other Land Vehicles"
                                                 },
-                                        @"Air" : @{
+                                        @"Air Vehicles" : @{
                                                 @"Planes"             : @"Planes",
                                                 @"Other Air Vehicles" : @"Other Air Vehicles"
                                                 }
@@ -158,15 +158,135 @@
                                  @"Instruments", @"Strings", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Pianos/Keys", @"Acoustic", @"Digital/Electric", \
                                  @"Drums/Percussion", @"Drums", @"Percussion", @"Tech and Equipment", @"DJ", @"Amps/Effects", @"Mics/Recording", @"Band", @"Brass", \
                                  @"Winds/Woodwinds", @"Other Instrumental", @"Accessories", @"Other Instruments/Equipment", @"Home", @"Furniture", @"Chairs", @"Desks", \
-                                 @"Tables", @"Other Furniture", @"Kitchen/Dinign", @"Cookware", @"Bakeware", @"Kitchen Appliances", @"Arts/Crafts Tools", @"Scrapbooking Tools", \
+                                 @"Tables", @"Other Furniture", @"Kitchen/Dining", @"Cookware", @"Bakeware", @"Kitchen Appliances", @"Arts/Crafts Tools", @"Scrapbooking Tools", \
                                  @"Sewing Tools and Machines", @"Printmaking Tools", @"Beading/Jewelry Making Tools", @"Other Arts/Crafts Tools", @"Cleaning Tools", @"Brushes", \
                                  @"Dusting", @"Mopping", @"Sweeping", @"Cleaning Appliances", @"Other Cleaning Tools", @"Garden/Outdoor", @"Grills and Similar", @"Lawn Mowers", \
-                                 @"Pool/Hot Tub", @"Farming", @"Other Garden/Outdoor", @"Toys/Games", @"Toys", @"Games", @"Electronics", @"TV/Video/Theater", @"TV", @"Video", \
+                                 @"Pool/Hot Tub", @"Farming", @"Other Garden/Outdoor", @"Toys/Games", @"Toys", @"Games", @"Tools",  @"Power", @"Hand", @"Electronics", @"TV/Video/Theater", @"TV", @"Video", \
                                  @"Theater", @"Audio/Speakers/Headphones", @"Speakers", @"Headphones", @"Other Audio", @"Photography/Videography", @"Photography", @"Videography", \
                                  @"Video Game Consoles", @"PlayStation", @"Xbox", @"Nintendo DS/Switch", @"Wii", @"Other Consoles", @"Sports and Outdoors", @"Sports", \
                                  @"Exercise/Fitness", @"Hunting/Fishing", @"Team Sports", @"Water Sports", @"Winter Sports", @"Other Sports", @"Outdoors", @"Camping/Hiking", \
                                  @"Bikes", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Vehicles", @"Water Vehicles", @"Boats", @"Other Water Vehicles", \
                                  @"Land Vehicles", @"Cars", @"Motorcycles", @"Trucks", @"Other Land Vehicles", @"Air Vehicles", @"Planes", @"Other Air Vehicles"];
+    
+    /*
+     placeholders:
+     first:  @"instruments"
+     second: @"clothing"
+     third:  @"vehicles"
+     */
+    
+    self.iconDict =     @{@"Clothing" : @"instruments",
+                          @"Costumes" : @"clothing",
+                          @"Halloween/Party/Event": @"vehicles",
+                          @"Performance/Stage" : @"vehicles",
+                          @"Formal Wear" : @"clothing",
+                          @"Girls" : @"vehicles",
+                          @"Boys" : @"vehicles",
+                          @"Women" : @"vehicles",
+                          @"Men" : @"vehicles",
+                          @"Instruments" : @"instruments",
+                          @"Strings" : @"clothing",
+                          @"Guitar and Similar" : @"vehicles",
+                          @"Orchestral" : @"vehicles",
+                          @"Other Strings" : @"vehicles",
+                          @"Pianos/Keys" : @"clothing",
+                          @"Acoustic" : @"vehicles",
+                          @"Digital/Electric" : @"vehicles",
+                          @"Drums/Percussion" : @"clothing",
+                          @"Drums" : @"vehicles",
+                          @"Percussion" : @"vehicles",
+                          @"Tech and Equipment" : @"clothing",
+                          @"DJ" : @"vehicles",
+                          @"Amps/Effects" : @"vehicles",
+                          @"Mics/Recording" : @"vehicles",
+                          @"Band" : @"clothing",
+                          @"Brass" : @"vehicles",
+                          @"Winds/Woodwinds" : @"vehicles",
+                          @"Other Instrumental" : @"clothing",
+                          @"Accessories" : @"vehicles",
+                          @"Other Instruments/Equipment" : @"vehicles",
+                          @"Home" : @"instruments",
+                          @"Furniture" : @"clothing",
+                          @"Chairs" : @"vehicles",
+                          @"Desks" : @"vehicles",
+                          @"Tables" : @"vehicles",
+                          @"Other Furniture" : @"vehicles",
+                          @"Kitchen/Dining" : @"clothing",
+                          @"Cookware" : @"vehicles",
+                          @"Bakeware" : @"vehicles",
+                          @"Kitchen Appliances" : @"vehicles",
+                          @"Arts/Crafts Tools" : @"clothing",
+                          @"Scrapbooking Tools" : @"vehicles",
+                          @"Sewing Tools and Machines" : @"vehicles",
+                          @"Printmaking Tools" : @"vehicles",
+                          @"Beading/Jewelry Making Tools" : @"vehicles",
+                          @"Other Arts/Crafts Tools" : @"vehicles",
+                          @"Cleaning Tools" : @"clothing",
+                          @"Brushes" : @"vehicles",
+                          @"Dusting" : @"vehicles",
+                          @"Mopping" : @"vehicles",
+                          @"Sweeping" : @"vehicles",
+                          @"Cleaning Appliances" : @"vehicles",
+                          @"Other Cleaning Tools" : @"vehicles",
+                          @"Garden/Outdoor" : @"clothing",
+                          @"Grills and Similar" : @"vehicles",
+                          @"Lawn Mowers" : @"vehicles",
+                          @"Pool/Hot Tub" : @"vehicles",
+                          @"Farming" : @"vehicles",
+                          @"Other Garden/Outdoor" : @"vehicles",
+                          @"Toys/Games" : @"clothing",
+                          @"Toys" : @"vehicles",
+                          @"Games" : @"vehicles",
+                          @"Tools" : @"clothing",
+                          @"Power" : @"vehicles",
+                          @"Hand"  : @"vehicles",
+                          @"Electronics" : @"instruments",
+                          @"TV/Video/Theater" : @"clothing",
+                          @"TV" : @"vehicles",
+                          @"Video" : @"vehicles",
+                          @"Theater" : @"vehicles",
+                          @"Audio/Speakers/Headphones" : @"clothing",
+                          @"Speakers" : @"vehicles",
+                          @"Headphones" : @"vehicles",
+                          @"Other Audio" : @"vehicles",
+                          @"Photography/Videography" : @"clothing",
+                          @"Photography" : @"vehicles",
+                          @"Videography" : @"vehicles",
+                          @"Video Game Consoles" : @"clothing",
+                          @"PlayStation" : @"vehicles",
+                          @"Xbox" : @"vehicles",
+                          @"Nintendo DS/Switch" : @"vehicles",
+                          @"Wii" : @"vehicles",
+                          @"Other Consoles" : @"vehicles",
+                          @"Sports and Outdoors" : @"instruments",
+                          @"Sports" : @"clothing",
+                          @"Exercise/Fitness" : @"vehicles",
+                          @"Hunting/Fishing" : @"vehicles",
+                          @"Team Sports" : @"vehicles",
+                          @"Water Sports" : @"vehicles",
+                          @"Winter Sports" : @"vehicles",
+                          @"Other Sports" : @"vehicles",
+                          @"Outdoors" : @"clothing",
+                          @"Camping/Hiking" : @"vehicles",
+                          @"Bikes" : @"vehicles",
+                          @"Climbing" : @"vehicles",
+                          @"Extreme Sports" : @"vehicles",
+                          @"Other Outdoor" : @"vehicles",
+                          @"Vehicles" : @"instruments",
+                          @"Water Vehicles" : @"clothing",
+                          @"Boats" : @"vehicles",
+                          @"Other Water Vehicles" : @"vehicles",
+                          @"Land Vehicles" : @"clothing",
+                          @"Cars" : @"vehicles",
+                          @"Motorcycles" : @"vehicles",
+                          @"Trucks" : @"vehicles",
+                          @"Other Land Vehicles" : @"vehicles",
+                          @"Air Vehicles" : @"clothing",
+                          @"Planes" : @"vehicles",
+                          @"Other Air Vehicles" : @"vehicles"
+                          };
+    
+    
 }
 
 @end
