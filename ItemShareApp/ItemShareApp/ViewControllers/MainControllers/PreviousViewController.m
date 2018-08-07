@@ -59,7 +59,7 @@
     // move profileView out of screen to bring in later
     self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
     // adjust table view size
-    //[self tableViewMove:-462];
+    [self tableViewMove:99];
     self.grayBar.alpha = 0;
     self.upArrow.alpha = 1;
     self.downArrow.alpha = 0;
@@ -101,7 +101,7 @@
     }
     else
     {
-        if(self.searchView.frame.origin.y == 149)
+        if(self.searchView.frame.origin.y == 50)
         {
             [self dismissToMap];
         }
@@ -172,10 +172,10 @@
         if(self.searchView.frame.origin.y == 611)
         {
             [UIView animateWithDuration:0.5 animations:^{
-                [self arrowAndSearchViewMove:-462];
+                [self arrowAndSearchViewMove:-561];
                 self.upArrow.alpha = 0;
                 self.downArrow.alpha = 1;
-                [self moveArrows:462];
+                [self moveArrows:561];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
             [self createBlur];
@@ -190,10 +190,10 @@
         if(self.searchView.frame.origin.y == 611)
         {
             [UIView animateWithDuration:0.5 animations:^{
-                [self arrowAndSearchViewMove:-462];
+                [self arrowAndSearchViewMove:-561];
                 self.upArrow.alpha = 0;
                 self.downArrow.alpha = 1;
-                [self moveArrows:462];
+                [self moveArrows:561];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
             if(self.placeholdViewController.fetchView.frame.origin.x == 0)
@@ -206,14 +206,14 @@
 }
 
 - (void)dismissToMap {
-    if(self.searchView.frame.origin.y == 149)
+    if(self.searchView.frame.origin.y == 50)
     {
         [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:462];
+            [self arrowAndSearchViewMove:561];
             self.downArrow.alpha = 0;
             self.upArrow.alpha = 1;
             self.blurredView.alpha = 0;
-            [self moveArrows:-462];
+            [self moveArrows:-561];
         }
         completion:^(BOOL finished){
             if (finished) {
