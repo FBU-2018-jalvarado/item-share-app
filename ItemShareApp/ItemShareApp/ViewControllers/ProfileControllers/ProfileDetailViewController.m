@@ -11,18 +11,23 @@
 #import <CCTextFieldEffects/CCTextField.h>
 
 @interface ProfileDetailViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (weak, nonatomic) IBOutlet UIView *view4;
-@property (weak, nonatomic) IBOutlet UIView *line2;
-@property (weak, nonatomic) IBOutlet UIView *line3;
-@property (weak, nonatomic) IBOutlet UIView *line4;
 @property (weak, nonatomic) IBOutlet UIView *line6;
-@property (weak, nonatomic) IBOutlet UIView *line7;
-@property (weak, nonatomic) IBOutlet UIView *line8;
-@property (weak, nonatomic) IBOutlet UIView *line1;
-@property (weak, nonatomic) IBOutlet UIView *line5;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIView *tile1;
+@property (weak, nonatomic) IBOutlet UIView *tile2;
+@property (weak, nonatomic) IBOutlet UIView *tile3;
+@property (weak, nonatomic) IBOutlet UIView *tile4;
+@property (weak, nonatomic) IBOutlet UIView *tab1;
+@property (weak, nonatomic) IBOutlet UIView *tab2;
+@property (weak, nonatomic) IBOutlet UIView *tab3;
 
 @property (strong,nonatomic) UIImage *cameraPicture;
+@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 
 @end
 
@@ -49,31 +54,56 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [self setUpUI];
+    [self connectInfo];
+}
+
+- (void)connectInfo {
+    self.firstNameLabel.text = self.user.firstName;
+    self.lastNameLabel.text = self.user.lastName;
+    self.addressLabel.text = @"1 Hacker Way, Menlo Park, CA";
+    self.emailLabel.text = self.user.email;
+    self.phoneLabel.text = self.user.phoneNumber;
 }
 
 - (void)setUpUI {
+    
+    //tiles
+    self.tile1.backgroundColor = [UIColor orangeColor];
+    self.tile1.layer.cornerRadius = 2;
+    
+    self.tile2.backgroundColor = [UIColor orangeColor];
+    self.tile2.layer.cornerRadius = 2;
+    
+    self.tile3.backgroundColor = [UIColor orangeColor];
+    self.tile3.layer.cornerRadius = 2;
+    
+    self.tile4.backgroundColor = [UIColor orangeColor];
+    self.tile4.layer.cornerRadius = 2;
+    
+    //tabs
+    self.tab1.backgroundColor = [UIColor whiteColor];
+    self.tab2.backgroundColor = [UIColor whiteColor];
+    self.tab3.backgroundColor = [UIColor whiteColor];
+    
+    self.backButton.layer.borderWidth = 1;
+    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.backButton.titleLabel.textColor = [UIColor whiteColor];
+    self.backButton.layer.cornerRadius = 5;
+    
+    self.editProfileButton.layer.borderWidth = 1;
+    self.editProfileButton.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.editProfileButton.titleLabel.textColor = [UIColor orangeColor];
     
     if(self.user[@"profile_image"] != nil){
         self.profilePicture.file = self.user[@"profile_image"];
         [self.profilePicture loadInBackground];
     }
     
-    self.profilePicture.layer.cornerRadius = 37;
+    self.profilePicture.layer.cornerRadius = 55;
     self.profilePicture.clipsToBounds = YES;
     
-    self.view4.layer.borderWidth = 1;
-  //  self.view4.layer.backgroundColor = [UIColor purpleColor].CGColor;
-    self.view4.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:.1f].CGColor;
     
-    
-    self.line1.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
-    self.line2.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
-    self.line3.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
-    self.line4.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
-    self.line5.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
     self.line6.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
-    self.line7.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
-    self.line8.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
 }
 
 //update user profile information
