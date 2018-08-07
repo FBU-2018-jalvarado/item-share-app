@@ -21,6 +21,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="98i-iQ-tg9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="electronics" translatesAutoresizingMaskIntoConstraints="NO" id="MTL-eO-kUa" userLabel="testImage">
+                                        <rect key="frame" x="0.0" y="-26" width="375" height="291"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eT1-Lo-7uS">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="265"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -28,10 +32,6 @@
                                             <segue destination="efd-2b-SBf" kind="embed" identifier="CarouselSegue" id="TRR-z3-Xaz"/>
                                         </connections>
                                     </containerView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="electronics" translatesAutoresizingMaskIntoConstraints="NO" id="MTL-eO-kUa" userLabel="testImage">
-                                        <rect key="frame" x="0.0" y="-26" width="375" height="291"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvS-lF-FJp">
                                         <rect key="frame" x="10" y="11" width="63" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -257,6 +257,12 @@
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Etz-Kr-sds">
+                                        <rect key="frame" x="168" y="228" width="39" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
@@ -279,6 +285,7 @@
                         <outlet property="categoryLabel2" destination="471-PG-zRA" id="9vJ-8y-HcW"/>
                         <outlet property="categoryLabel3" destination="RlH-Mo-23n" id="kTN-cF-XG1"/>
                         <outlet property="descriptionLabel" destination="6Mq-t1-ItP" id="cFv-Ji-Qkd"/>
+                        <outlet property="imagePageControl" destination="Etz-Kr-sds" id="rY0-iE-9ZS"/>
                         <outlet property="priceLabel" destination="NBn-2a-tkv" id="M7w-Ew-u3r"/>
                         <outlet property="priceMonthLabel" destination="JiD-DL-Khu" id="mgQ-3T-gg0"/>
                         <outlet property="priceWeekLabel" destination="Be0-WX-cQx" id="kfZ-mf-iRc"/>
