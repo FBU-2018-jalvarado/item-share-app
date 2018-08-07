@@ -124,7 +124,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     //if (abs(howRecent) < 15.0) {
     self.previousUserLocation = location;
     self.googleMapView.myLocationEnabled = YES;
-    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:location.coordinate zoom:10]];
+    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:location.coordinate zoom:12]];
 
     //}
 }
@@ -276,7 +276,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 }
 
 - (IBAction)recenterButtonPressed:(id)sender {
-    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:self.googleMapView.myLocation.coordinate zoom:10]];
+    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:self.googleMapView.myLocation.coordinate zoom:12]];
     //self.previousUserLocation = mapView.userLocation;
 }
 
