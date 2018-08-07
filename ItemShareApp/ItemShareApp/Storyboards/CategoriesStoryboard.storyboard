@@ -293,14 +293,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothing" translatesAutoresizingMaskIntoConstraints="NO" id="rxi-hu-r6w">
-                                                    <rect key="frame" x="13" y="8" width="34" height="34"/>
+                                                    <rect key="frame" x="20" y="11" width="34" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="FK7-CA-2r4"/>
                                                         <constraint firstAttribute="width" constant="34" id="iuK-Cy-xP2"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMb-CO-4p0">
-                                                    <rect key="frame" x="67" y="8" width="83.5" height="21"/>
+                                                    <rect key="frame" x="74" y="11" width="83.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ggH-1D-b1r"/>
                                                     </constraints>
@@ -309,7 +309,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luU-El-12b">
-                                                    <rect key="frame" x="67" y="32" width="96" height="18"/>
+                                                    <rect key="frame" x="74" y="35" width="96" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="LRG-IC-yVr"/>
                                                     </constraints>
@@ -452,13 +452,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="158.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothing" translatesAutoresizingMaskIntoConstraints="NO" id="0hL-zw-zej" customClass="PFImageView">
-                                                    <rect key="frame" x="19" y="19" width="120" height="120"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="I3N-hj-7kY"/>
-                                                        <constraint firstAttribute="height" constant="120" id="yDW-4I-epN"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="monkey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSX-R1-xE8">
                                                     <rect key="frame" x="159" y="11" width="201" height="29"/>
                                                     <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="24"/>
@@ -483,6 +476,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothing" translatesAutoresizingMaskIntoConstraints="NO" id="0hL-zw-zej" customClass="PFImageView">
+                                                    <rect key="frame" x="19" y="19" width="120" height="120"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="I3N-hj-7kY"/>
+                                                        <constraint firstAttribute="height" constant="120" id="yDW-4I-epN"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XSX-R1-xE8" firstAttribute="leading" secondItem="0hL-zw-zej" secondAttribute="trailing" constant="20" id="0nJ-GR-6JP"/>
@@ -494,6 +494,7 @@
                                                 <constraint firstItem="D8J-ir-Puw" firstAttribute="top" secondItem="XSX-R1-xE8" secondAttribute="bottom" constant="3" id="PQI-C1-nKt"/>
                                                 <constraint firstItem="KJ5-jw-Vd8" firstAttribute="top" secondItem="Juc-jD-I13" secondAttribute="bottom" constant="5.5" id="YUJ-eV-t2a"/>
                                                 <constraint firstAttribute="bottom" secondItem="KJ5-jw-Vd8" secondAttribute="bottom" constant="13.5" id="aRa-sB-vdW"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0hL-zw-zej" secondAttribute="bottom" constant="19.5" id="fTV-a8-xYs"/>
                                                 <constraint firstItem="0hL-zw-zej" firstAttribute="top" secondItem="RMs-9W-rsD" secondAttribute="top" constant="19" id="gOA-M5-mty"/>
                                                 <constraint firstAttribute="trailing" secondItem="XSX-R1-xE8" secondAttribute="trailing" constant="15" id="i9h-4o-F6G"/>
                                                 <constraint firstItem="Juc-jD-I13" firstAttribute="top" secondItem="D8J-ir-Puw" secondAttribute="bottom" constant="4" id="vwo-GJ-qUS"/>
@@ -668,8 +669,15 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stephanie Lampotang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bg-fq-udd">
-                                        <rect key="frame" x="41" y="177" width="180" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stephanie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bg-fq-udd">
+                                        <rect key="frame" x="41" y="177" width="83" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lampotang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yf-KK-4P0">
+                                        <rect key="frame" x="132" y="177" width="93" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -770,7 +778,8 @@
                         <viewLayoutGuide key="safeArea" id="g92-ZQ-yHi"/>
                     </view>
                     <connections>
-                        <outlet property="nameLabel" destination="9Bg-fq-udd" id="7ZA-ZL-cbS"/>
+                        <outlet property="firstNameLabel" destination="9Bg-fq-udd" id="JMV-Ou-TIZ"/>
+                        <outlet property="lastNameLabel" destination="8Yf-KK-4P0" id="O89-Bb-oo2"/>
                         <outlet property="profilePicture" destination="P9L-c6-KUG" id="gK2-Yz-nlr"/>
                         <segue destination="3YR-XC-pBe" kind="show" identifier="ItemHistory" id="4xk-hq-1Pl"/>
                         <segue destination="ioO-xe-hrv" kind="show" identifier="ProfileDetail" id="kUE-xp-60f"/>

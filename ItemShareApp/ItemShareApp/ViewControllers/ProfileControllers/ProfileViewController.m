@@ -13,8 +13,9 @@
 
 @interface ProfileViewController () 
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 
 @property (strong, nonatomic) NSArray *profileCellArray;
@@ -33,6 +34,8 @@
     }
     self.profilePicture.layer.cornerRadius = 56;
     self.profilePicture.clipsToBounds = YES;
+    self.firstNameLabel.text = user.firstName;
+    self.lastNameLabel.text = user.lastName;
 }
 
 - (void)didReceiveMemoryWarning {

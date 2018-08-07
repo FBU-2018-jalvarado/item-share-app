@@ -62,7 +62,7 @@
     self.profilePicture.clipsToBounds = YES;
     
     self.view4.layer.borderWidth = 1;
-    self.view4.layer.backgroundColor = [UIColor purpleColor].CGColor;
+  //  self.view4.layer.backgroundColor = [UIColor purpleColor].CGColor;
     self.view4.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:.1f].CGColor;
     
     
