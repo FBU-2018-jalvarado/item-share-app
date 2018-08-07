@@ -143,7 +143,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-SQ-LAl">
-                                <rect key="frame" x="127" y="513" width="128" height="41"/>
+                                <rect key="frame" x="123" y="569" width="128" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Register"/>
@@ -165,12 +165,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMK-t4-FJV">
+                                <rect key="frame" x="25" y="502" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HRZ-Yr-mSo">
+                                <rect key="frame" x="109" y="497" width="243" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didTapAddress:" destination="bfb-xi-0l7" eventType="touchUpInside" id="6si-4F-UeB"/>
+                                    <action selector="didTapAddress:" destination="bfb-xi-0l7" eventType="editingDidBegin" id="9ex-oD-RUU"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="U1G-hp-mha"/>
                     </view>
                     <navigationItem key="navigationItem" id="G5f-sC-2xJ"/>
                     <connections>
+                        <outlet property="addressTextField" destination="HRZ-Yr-mSo" id="9MZ-B5-cKM"/>
                         <outlet property="emailLabel" destination="RdX-me-ic5" id="JDb-6d-0hm"/>
                         <outlet property="emailTextField" destination="wJy-Kt-3tU" id="MEu-xX-aAW"/>
                         <outlet property="firstLabel" destination="ed7-yP-IkQ" id="75H-zB-WJC"/>
@@ -189,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CCT-bA-dwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2385" y="143"/>
+            <point key="canvasLocation" x="2384.8000000000002" y="142.57871064467767"/>
         </scene>
         <!--CategoriesStoryboard-->
         <scene sceneID="0eq-qd-4xm">
@@ -219,6 +238,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HPJ-ox-w0F"/>
+        <segue reference="ZzO-sf-Qal"/>
     </inferredMetricsTieBreakers>
 </document>
