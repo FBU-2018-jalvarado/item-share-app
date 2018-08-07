@@ -46,14 +46,16 @@
 @property BOOL thisIsFirstPic;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property int numberOfPages;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityStateZipLabel;
 @property (strong, nonatomic) HoshiTextField *itemTextField;
 @property (strong, nonatomic) HoshiTextField *priceTextField;
-
-
-
+@property (weak, nonatomic) IBOutlet UIView *locationView;
+@property (strong, nonatomic) NSString *formattedAddress;
 @end
 
 @implementation SellItemViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -109,6 +111,8 @@
     // The color of the text, default value is R89 G95 B110
     self.itemTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
     
+    self.itemTextField.font = [UIFont fontWithName:@"Optima" size:16];
+    
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
     self.itemTextField.didBeginEditingHandler = ^{
@@ -147,6 +151,8 @@
     // The color of the text, default value is R89 G95 B110
     self.priceTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
     
+    self.priceTextField.font = [UIFont fontWithName:@"Optima" size:16];
+    
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
     self.priceTextField.didBeginEditingHandler = ^{
@@ -160,6 +166,45 @@
     };
     
     [self.scrollView addSubview:self.priceTextField];
+}
+
+// Present the autocomplete view controller when the locationView is pressed.
+- (IBAction)didTapLocation:(id)sender {
+    GMSAutocompleteViewController *acController = [[GMSAutocompleteViewController alloc] init];
+    acController.delegate = self;
+    [self presentViewController:acController animated:YES completion:nil];
+}
+
+// Handle the user's selection.
+- (void)viewController:(GMSAutocompleteViewController *)viewController
+didAutocompleteWithPlace:(GMSPlace *)place {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    // Do something with the selected place.
+    self.formattedAddress = place.formattedAddress;
+    NSArray *formattedAddressarr = [place.formattedAddress componentsSeparatedByString:@", "];
+    self.addressLabel.text = formattedAddressarr[0];
+    self.cityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@",  formattedAddressarr[1], formattedAddressarr[2]];
+}
+
+- (void)viewController:(GMSAutocompleteViewController *)viewController
+didFailAutocompleteWithError:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    // TODO: handle the error.
+    NSLog(@"Error: %@", [error description]);
+}
+
+// User canceled the operation.
+- (void)wasCancelled:(GMSAutocompleteViewController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+// Turn the network activity indicator on and off again.
+- (void)didRequestAutocompletePredictions:(GMSAutocompleteViewController *)viewController {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (void)didUpdateAutocompletePredictions:(GMSAutocompleteViewController *)viewController {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -182,13 +227,16 @@
 //    }
 //}
 
+
+
+
 - (IBAction)sellOnTap:(id)sender {
     //create and set item and user objects
     Item *itemToBeSold = [Item new];
     User *owner = (User*)[PFUser currentUser];
 
 
-    [Item postItem:self.itemTextField.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:self.descripLabel.text withImage:self.imageArray withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceTextField.text withCompletion:^(Item *item, NSError *error) {
+    [Item postItem:self.itemTextField.text withOwner:owner withLocation:nil withAddress:self.formattedAddress withCategories:self.categoryArray withDescription:self.descripLabel.text withImage:self.imageArray withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceTextField.text withCompletion:^(Item *item, NSError *error) {
         if(error)
         {
             NSLog(@"Unable to post the item for sale");

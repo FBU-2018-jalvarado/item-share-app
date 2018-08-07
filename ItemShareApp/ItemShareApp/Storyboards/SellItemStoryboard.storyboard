@@ -42,7 +42,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbo-yn-V9t">
-                                        <rect key="frame" x="26" y="683" width="79" height="24"/>
+                                        <rect key="frame" x="26" y="685" width="79" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="19"/>
                                         <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location-gray" translatesAutoresizingMaskIntoConstraints="NO" id="XG9-6O-Rri">
-                                        <rect key="frame" x="116" y="684" width="22" height="22"/>
+                                        <rect key="frame" x="116" y="686" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeZ-5j-xm5">
@@ -138,13 +138,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Item's Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYk-Sg-eW1">
-                                        <rect key="frame" x="152" y="683" width="188" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-gy-D4c">
                                         <rect key="frame" x="17" y="17" width="60" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -200,6 +193,33 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="grayarrowside" translatesAutoresizingMaskIntoConstraints="NO" id="NUB-Uc-PMu">
+                                        <rect key="frame" x="335" y="687" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GR-p4-7Gy">
+                                        <rect key="frame" x="150" y="680" width="174" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjo-8J-SE2">
+                                        <rect key="frame" x="150" y="700" width="174" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view alpha="0.10000000000000001" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBG-KS-u96">
+                                        <rect key="frame" x="17" y="666" width="350" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="G3m-WP-WC6" appends="YES" id="hAW-ee-tN7"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -209,12 +229,14 @@
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="addressLabel" destination="8GR-p4-7Gy" id="baI-vf-XLc"/>
                         <outlet property="backButton" destination="ApP-gy-D4c" id="Rf2-Yi-Z3Y"/>
                         <outlet property="categoryView" destination="JKb-gs-y7E" id="Wty-x1-Q38"/>
+                        <outlet property="cityStateZipLabel" destination="Fjo-8J-SE2" id="W4i-GX-kD5"/>
                         <outlet property="descripLabel" destination="kI2-01-8LJ" id="ch5-UI-W0V"/>
                         <outlet property="imagePageControl" destination="W2W-56-1u7" id="Q5l-7d-yjR"/>
-                        <outlet property="itemAddress" destination="bYk-Sg-eW1" id="qEM-bH-7ER"/>
                         <outlet property="itemTitle" destination="Sgg-PR-3dp" id="9ep-8e-UTC"/>
+                        <outlet property="locationView" destination="LBG-KS-u96" id="cDM-LM-CyH"/>
                         <outlet property="priceLabel" destination="wp8-ef-GXG" id="mp9-bL-dLg"/>
                         <outlet property="scrollView" destination="5TP-E0-G0X" id="Iav-qP-cSn"/>
                         <outlet property="uploadButton" destination="OiW-ji-tX5" id="U1q-F9-xjT"/>
@@ -224,6 +246,11 @@
                 <tapGestureRecognizer id="7o9-HB-aAi">
                     <connections>
                         <action selector="tapImage:" destination="knq-YP-lhO" id="yvh-aR-yi9"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="G3m-WP-WC6">
+                    <connections>
+                        <action selector="didTapLocation:" destination="knq-YP-lhO" id="tMK-BM-172"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -449,6 +476,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="grayarrowside" width="338" height="338"/>
         <image name="location-gray" width="512" height="512"/>
         <image name="placeholderImageBlack" width="1900" height="1200"/>
     </resources>
