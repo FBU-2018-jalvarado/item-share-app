@@ -14,7 +14,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.icon.layer.cornerRadius = 17;
+    self.icon.layer.cornerRadius = 0;
     self.icon.clipsToBounds = YES;
 }
 
