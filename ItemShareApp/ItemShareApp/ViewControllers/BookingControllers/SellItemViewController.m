@@ -15,6 +15,10 @@
 //#import "NYTPhotosViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <ParseUI/ParseUI.h>
+#import <GooglePlaces/GooglePlaces.h>
+#import <CCTextFieldEffects/CCTextFieldEffects.h>
+#import <CCTextFieldEffects/CCTextField.h>
+
 
 @interface SellItemViewController () <UITextViewDelegate>
 
@@ -42,6 +46,9 @@
 @property BOOL thisIsFirstPic;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property int numberOfPages;
+@property (strong, nonatomic) HoshiTextField *itemTextField;
+@property (strong, nonatomic) HoshiTextField *priceTextField;
+
 
 
 @end
@@ -62,6 +69,8 @@
     CGFloat contentWidth = self.scrollView.bounds.size.width;
     CGFloat contentHeight = self.scrollView.bounds.size.height * 3;
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
+    [self setUpItemTextField];
+    [self setUpPriceTextField];
     
     // setting up initial info
     self.categoryArray = [[NSMutableArray alloc] init];
@@ -77,6 +86,81 @@
     // TODO: make name field optional after login
 }
 
+-(void) setUpItemTextField {
+    // Recommended frame height is around 70.
+    self.itemTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(150, 517, 200, 70)];
+    self.itemTextField.placeholder = @"";
+    
+    // The size of the placeholder label relative to the font size of the text field, default value is 0.65
+    self.itemTextField.placeholderFontScale = 0.65;
+    
+    // The color of the inactive border, default value is R185 G193 B202
+    self.itemTextField.borderInactiveColor = [UIColor colorWithRed:(185 / 255) green:(193 / 255) blue:(202 / 255) alpha:1];
+    
+    // The color of the active border, default value is R106 G121 B137
+    self.itemTextField.borderActiveColor = [UIColor colorWithRed:(106/255) green:(121/255) blue:(137/255) alpha:1];
+    
+    // The color of the placeholder, default value is R185 G193 B202
+    self.itemTextField.placeholderColor = [UIColor colorWithRed:(185/255) green:(193/255) blue:(202/255) alpha:1];
+    
+    // The color of the cursor, default value is R89 G95 B110
+    self.itemTextField.cursorColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
+    
+    // The color of the text, default value is R89 G95 B110
+    self.itemTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
+    
+    // The block excuted when the animation for obtaining focus has completed.
+    // Do not use textFieldDidBeginEditing:
+    self.itemTextField.didBeginEditingHandler = ^{
+        // ...
+    };
+    
+    // The block excuted when the animation for losing focus has completed.
+    // Do not use textFieldDidEndEditing:
+    self.itemTextField.didEndEditingHandler = ^{
+        // ...
+    };
+    
+    [self.scrollView addSubview:self.itemTextField];
+}
+
+-(void) setUpPriceTextField {
+    // Recommended frame height is around 70.
+    self.priceTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(150, 587, 200, 70)];
+    self.priceTextField.placeholder = @"";
+    
+    // The size of the placeholder label relative to the font size of the text field, default value is 0.65
+    self.priceTextField.placeholderFontScale = 0.65;
+    
+    // The color of the inactive border, default value is R185 G193 B202
+    self.priceTextField.borderInactiveColor = [UIColor colorWithRed:(185 / 255) green:(193 / 255) blue:(202 / 255) alpha:1];
+    
+    // The color of the active border, default value is R106 G121 B137
+    self.priceTextField.borderActiveColor = [UIColor colorWithRed:(106/255) green:(121/255) blue:(137/255) alpha:1];
+    
+    // The color of the placeholder, default value is R185 G193 B202
+    self.priceTextField.placeholderColor = [UIColor colorWithRed:(185/255) green:(193/255) blue:(202/255) alpha:1];
+    
+    // The color of the cursor, default value is R89 G95 B110
+    self.priceTextField.cursorColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
+    
+    // The color of the text, default value is R89 G95 B110
+    self.priceTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
+    
+    // The block excuted when the animation for obtaining focus has completed.
+    // Do not use textFieldDidBeginEditing:
+    self.priceTextField.didBeginEditingHandler = ^{
+        // ...
+    };
+    
+    // The block excuted when the animation for losing focus has completed.
+    // Do not use textFieldDidEndEditing:
+    self.priceTextField.didEndEditingHandler = ^{
+        // ...
+    };
+    
+    [self.scrollView addSubview:self.priceTextField];
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.view endEditing:YES];
@@ -104,7 +188,7 @@
     User *owner = (User*)[PFUser currentUser];
 
 
-    [Item postItem:self.itemTitle.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:self.descripLabel.text withImage:self.imageArray withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceLabel.text withCompletion:^(Item *item, NSError *error) {
+    [Item postItem:self.itemTextField.text withOwner:owner withLocation:nil withAddress:self.itemAddress.text withCategories:self.categoryArray withDescription:self.descripLabel.text withImage:self.imageArray withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceTextField.text withCompletion:^(Item *item, NSError *error) {
         if(error)
         {
             NSLog(@"Unable to post the item for sale");
