@@ -122,7 +122,7 @@
     self.gifView.alpha = 0;
 }
 
--(void) setUpGifView {
+- (void) setUpGifView {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
     
