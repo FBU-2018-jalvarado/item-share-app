@@ -201,6 +201,8 @@ didFailAutocompleteWithError:(NSError *)error {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+
 // Turn the network activity indicator on and off again.
 - (void)didRequestAutocompletePredictions:(GMSAutocompleteViewController *)viewController {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
