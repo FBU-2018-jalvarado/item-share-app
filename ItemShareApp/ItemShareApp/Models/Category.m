@@ -170,9 +170,9 @@
     
     /*
      placeholders:
-     first:  @"instruments"
-     second: @"clothing"
-     third:  @"vehicles"
+     first level:  @"instruments"
+     second level: @"clothing"
+     third level:  @"vehicles"
      */
     
     self.iconDict =     @{@"Clothing"                     : @"instruments",

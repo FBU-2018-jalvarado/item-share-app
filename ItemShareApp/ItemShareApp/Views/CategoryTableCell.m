@@ -7,12 +7,14 @@
 //
 
 #import "CategoryTableCell.h"
+#import "Category.h"
 
 @implementation CategoryTableCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -23,5 +25,12 @@
 
 - (void) setCategory:(NSString *)categoryName {
     self.nameLabel.text = categoryName;
+    
+    Category *cat = [[Category alloc] init];
+    cat.setCats;
+    NSDictionary *iconDict = [[NSDictionary alloc] init];
+    iconDict = [cat.iconDict copy];
+    NSString *catvalstring = iconDict[[NSString stringWithFormat:@"%@", categoryName]];
+    self.icon.image = [UIImage imageNamed:catvalstring];
 }
 @end
