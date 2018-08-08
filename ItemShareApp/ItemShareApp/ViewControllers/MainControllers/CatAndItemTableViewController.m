@@ -136,7 +136,7 @@
     }
         else {
             ItemTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemSearchCell"];
-            [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count][@"title"] withAddress:self.itemRows[indexPath.row-self.categoryRows.count][@"address"]];
+            [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count]];
             UIView *selectionColor = [[UIView alloc] init];
             selectionColor.backgroundColor = [UIColor orangeColor];
             cell.selectedBackgroundView = selectionColor;

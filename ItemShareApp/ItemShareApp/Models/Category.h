@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSArray *catArray;
 @property (nonatomic, strong) NSDictionary *catDict;
+@property (nonatomic, strong) NSDictionary *iconDict;
 
 - (void) setCats;
 

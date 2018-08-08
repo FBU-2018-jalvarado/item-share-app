@@ -13,9 +13,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.cat = [[Category alloc] init];
+    [self.cat setCats];
     
     self.icon.layer.cornerRadius = 0;
     self.icon.clipsToBounds = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -24,8 +27,16 @@
     // Configure the view for the selected state
 }
 
-- (void) setItem:(NSString *)itemName  withAddress:(NSString *)address{
-    self.nameLabel.text = itemName;
+- (void) setItem:(Item *)item{
+    _item = item;
+    self.nameLabel.text = item.title;
     self.distanceLabel.text = @"0.2 miles";
+    [self setIconWithItem:item];
 }
+- (void) setIconWithItem: (Item *)item {
+    NSString *catString = item.categories[2];
+    NSString *iconNameString = self.cat.iconDict[[NSString stringWithFormat:@"%@", catString]];
+    self.icon.image = [UIImage imageNamed:iconNameString];
+}
+
 @end
