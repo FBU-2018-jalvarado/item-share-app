@@ -85,7 +85,8 @@
     self.descripLabel.delegate = self;
     self.numberOfPages = 0;
     self.imagePageControl.numberOfPages = self.numberOfPages;
-    
+    User *user = [PFUser currentUser];
+    self.addressLabel.text = user.address;
     // Do any additional setup after loading the view.
     // TODO: make name field optional after login
 }

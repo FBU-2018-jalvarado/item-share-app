@@ -5,6 +5,7 @@
 //  Created by Nicolas Machado on 7/26/18.
 //  Copyright © 2018 FBU-2018. All rights reserved.
 //
+// 
 
 #import "RegisterViewController.h"
 #import "User.h"
@@ -24,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
-
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UILabel *firstLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lastLabel;
@@ -102,6 +102,7 @@
     newUser.phoneNumber = self.phoneTextField.text;
     newUser.firstName = self.firstNameTextField.text;
     newUser.lastName = self.lastNameTextField.text;
+    newUser.address = self.addressTextField.text;
     
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -109,7 +110,7 @@
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
             NSLog(@"User registered successfully");
-            [User postUser:newUser.firstName withLastName:newUser.lastName withPhoneNumber:newUser.phoneNumber withEmail:newUser.email withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            [User postUser:newUser.firstName withLastName:newUser.lastName withPhoneNumber:newUser.phoneNumber withEmail:newUser.email withAddress:newUser.address withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                 if(error){
                     NSLog(@"%@", error);
                 }

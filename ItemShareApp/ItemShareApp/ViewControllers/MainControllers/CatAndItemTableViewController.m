@@ -126,14 +126,14 @@
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-        if (indexPath.row < self.categoryRows.count) {
-            CategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategorySearchCell"];
-            [cell setCategory:self.categoryRows[indexPath.row]];
-            UIView *selectionColor = [[UIView alloc] init];
-            selectionColor.backgroundColor = [UIColor orangeColor];
-            cell.selectedBackgroundView = selectionColor;
-            return cell;
-        }
+    if(indexPath.row < self.categoryRows.count){
+        CategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategorySearchCell"];
+        [cell setCategory:self.categoryRows[indexPath.row]];
+        UIView *selectionColor = [[UIView alloc] init];
+        selectionColor.backgroundColor = [UIColor orangeColor];
+        cell.selectedBackgroundView = selectionColor;
+        return cell;
+    }
         else {
             ItemTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemSearchCell"];
             [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count][@"title"] withAddress:self.itemRows[indexPath.row-self.categoryRows.count][@"address"]];
