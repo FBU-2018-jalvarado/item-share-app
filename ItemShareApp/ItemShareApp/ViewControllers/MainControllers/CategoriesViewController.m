@@ -22,6 +22,7 @@
 @property (strong, nonatomic) CategoryViewCell *viewCell;
 @property (strong, nonatomic) ColorScheme *colors;
 @property (strong, nonatomic) NSMutableArray *arrayOfKeys;
+@property (strong, nonatomic) NSMutableArray *itemarray;
 
 @end
 
@@ -40,6 +41,7 @@
     if([self.title isEqualToString:@"Categories"])
     {
         [self.delegate fetchItems];
+//        [self.delegate filterInMap];
     }
     else {
         [self.delegate callChoseCat:self.title];
@@ -48,6 +50,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.itemarray = [[NSMutableArray alloc] init];
     self.categoryCollView.delegate = self;
     self.categoryCollView.dataSource = self;
     // Do any additional setup after loading the view.

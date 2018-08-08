@@ -14,6 +14,7 @@
 - (void)callChoseCat:(NSString *)categoryName;
 - (void)showHUD;
 - (void)fetchItems;
+- (void)filterInMap;
 
 @end
 
