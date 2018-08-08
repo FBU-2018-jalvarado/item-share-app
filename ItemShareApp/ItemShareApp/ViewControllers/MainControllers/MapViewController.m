@@ -48,6 +48,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 
 @property (strong, nonatomic) NSURL *mapStyleURL;
 @property (strong, nonatomic) NSMutableArray *markersArray;
+@property (strong, nonatomic) NSMutableArray *markersItemsArray;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *QRButton;
@@ -74,6 +75,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     self.searchBar.delegate = self;
     self.googleMapView.delegate = self;
     self.markersArray = [NSMutableArray new];
+    self.markersItemsArray = [NSMutableArray new];
     
     [self.mapDelegate showHUD];
     [self fetchItems];
@@ -138,6 +140,15 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
         if (items) {
             self.itemsArray = [items mutableCopy];
             self.filteredItemsArray = [items mutableCopy];
+            NSMutableArray *arr = [NSMutableArray new];
+            //check if any new items to add
+//            for(Item *item in self.filteredItemsArray){
+//                if(![self.markersItemsArray containsObject:item]){
+//                    [arr addObject:item];
+//                }
+//            }
+//            [self addMarkers:arr];
+            
             [self removeAllMarkersButUserLocation];
             [self addMarkers:self.filteredItemsArray];
             [self.mapDelegate dismissHUD];
@@ -185,11 +196,8 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 //cannot make too many calls to geocoder
 - (void)addMarkers: (NSMutableArray *)filteredItemsArray{ //(MKMapView*)mapView
     for(Item *item in filteredItemsArray){
-        [self addMarker:item withSizeOfArray:[filteredItemsArray count]];
-        if([filteredItemsArray count] == 1){
-            //zoom in to it
-//            self.googleMapView.camera = [GMSCameraPosition cameraWithTarget:item.coordinate zoom:10 bearing:0 viewingAngle:0];
-        }
+        [self addMyMarker:item withArraySize:[filteredItemsArray count]];
+        //[self addMarker:item withSizeOfArray:[filteredItemsArray count]];
     }
 }
 
@@ -224,9 +232,11 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             marker.position = placemark.location.coordinate;
             marker.snippet = @"Test";
             [self.markersArray addObject:marker];
+            [self.markersItemsArray addObject:item];
             marker.title = item.title;
             marker.icon = [UIImage imageNamed:@"dogPin2"];
             marker.item = item;
+            marker.address = item.address;
             marker.map = self.googleMapView;
             if(size == 1){
                 [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:placemark.location.coordinate zoom:14]];
@@ -234,6 +244,24 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             }
         }
     }];
+}
+
+- (void)addMyMarker: (Item *)item withArraySize: (NSInteger *)size {
+    myMarker *marker = [[myMarker alloc] init];
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(item.point.latitude, item.point.longitude);
+    marker.position = coordinate;
+    marker.snippet = @"Test";
+    [self.markersArray addObject:marker];
+    [self.markersItemsArray addObject:item];
+    marker.title = item.title;
+    marker.icon = [UIImage imageNamed:@"dogPin2"];
+    marker.item = item;
+    marker.address = item.address;
+    marker.map = self.googleMapView;
+    if(size == 1){
+        [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:coordinate zoom:14]];
+        // self.googleMapView.camera = [GMSCameraPosition cameraWithTarget:placemark.location.coordinate zoom:14 bearing:0 viewingAngle:0];
+    }
 }
 
 - (void)convertAddressToPlacemark: (NSString *)address withCompletion:(void(^)(CLPlacemark *placemark, NSError *error))completion
@@ -273,6 +301,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
         marker.map = nil;
     }
     [self.markersArray removeAllObjects];
+    [self.markersItemsArray removeAllObjects];
 }
 
 - (IBAction)recenterButtonPressed:(id)sender {

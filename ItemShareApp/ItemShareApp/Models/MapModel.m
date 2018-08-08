@@ -21,6 +21,7 @@
     [itemQuery includeKey:@"title"];
     [itemQuery includeKey:@"owner"];
     [itemQuery includeKey:@"address"];
+    [itemQuery includeKey:@"point"];
     itemQuery.limit = 20;
     // fetch data asynchronously
     
