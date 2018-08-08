@@ -14,6 +14,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.cat = [[Category alloc] init];
+    [self.cat setCats];
     
 }
 
@@ -25,12 +27,7 @@
 
 - (void) setCategory:(NSString *)categoryName {
     self.nameLabel.text = categoryName;
-    
-    Category *cat = [[Category alloc] init];
-    cat.setCats;
-    NSDictionary *iconDict = [[NSDictionary alloc] init];
-    iconDict = [cat.iconDict copy];
-    NSString *catvalstring = iconDict[[NSString stringWithFormat:@"%@", categoryName]];
+    NSString *catvalstring = self.cat.iconDict[[NSString stringWithFormat:@"%@", categoryName]];
     self.icon.image = [UIImage imageNamed:catvalstring];
 }
 @end
