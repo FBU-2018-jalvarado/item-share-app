@@ -237,8 +237,8 @@
 
 // delegate function to only display filtered items in map
 - (void)filterInMap:(NSMutableArray *)listOfItems {
-    [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
     [self.placeholderDelegateMap removeAnnotationsInMap];
+    [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
 }
 
 - (void)showHUD {
