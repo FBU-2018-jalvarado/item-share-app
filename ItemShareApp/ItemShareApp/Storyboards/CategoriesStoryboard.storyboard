@@ -430,7 +430,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zq-HW-x85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3281" y="1011"/>
+            <point key="canvasLocation" x="3169" y="1409"/>
         </scene>
         <!--Item History Detail View Controller-->
         <scene sceneID="FSC-GW-llp">
@@ -676,7 +676,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapItemHistoryButton:" destination="1PN-sF-iY8" eventType="touchUpInside" id="FR8-Oi-oPi"/>
+                                    <action selector="didTapItemsSelling:" destination="1PN-sF-iY8" eventType="touchUpInside" id="DUI-34-COd"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0jW-w8-72P">
@@ -804,7 +804,7 @@
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logout" translatesAutoresizingMaskIntoConstraints="NO" id="7U6-YD-KFa">
-                                <rect key="frame" x="18" y="558" width="25" height="24"/>
+                                <rect key="frame" x="14" y="558" width="25" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jx-4O-k3s">
@@ -822,6 +822,9 @@
                                 <state key="normal" title="Items Booked">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapItemsBooked:" destination="1PN-sF-iY8" eventType="touchUpInside" id="4gF-tG-rdx"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="promotion-1" translatesAutoresizingMaskIntoConstraints="NO" id="h42-Fa-1ao">
                                 <rect key="frame" x="17" y="428" width="25" height="24"/>
@@ -843,10 +846,12 @@
                     </view>
                     <connections>
                         <outlet property="firstNameLabel" destination="9Bg-fq-udd" id="JMV-Ou-TIZ"/>
+                        <outlet property="itemsBooked" destination="vJV-HV-dWv" id="qnh-V1-g8Y"/>
+                        <outlet property="itemsSelling" destination="AtR-gU-96l" id="kpD-CY-5gt"/>
                         <outlet property="lastNameLabel" destination="8Yf-KK-4P0" id="O89-Bb-oo2"/>
                         <outlet property="profilePicture" destination="P9L-c6-KUG" id="gK2-Yz-nlr"/>
-                        <segue destination="3YR-XC-pBe" kind="show" identifier="ItemHistory" id="4xk-hq-1Pl"/>
                         <segue destination="ioO-xe-hrv" kind="show" identifier="ProfileDetail" id="kUE-xp-60f"/>
+                        <segue destination="iNe-4M-iqR" kind="show" identifier="ItemHistory" id="VHx-ED-q6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hI-DL-15t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1244,4 +1249,7 @@
         <image name="settings" width="1600" height="1600"/>
         <image name="wallpaper-fall" width="880" height="586"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VHx-ED-q6A"/>
+    </inferredMetricsTieBreakers>
 </document>

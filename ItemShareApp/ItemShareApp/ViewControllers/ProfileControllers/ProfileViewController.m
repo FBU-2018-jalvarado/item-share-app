@@ -10,6 +10,7 @@
 #import "ProfileDetailViewController.h"
 #import "ItemHistoryViewController.h"
 #import "QRPopUpController.h"
+#import "ItemHistoryDetailViewController.h"
 
 @interface ProfileViewController () 
 
@@ -17,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (strong, nonatomic) QRPopUpController * QRPopUpVC;
+@property (weak, nonatomic) IBOutlet UIButton *itemsSelling;
+@property (weak, nonatomic) IBOutlet UIButton *itemsBooked;
+
 
 @property (strong, nonatomic) NSArray *profileCellArray;
 @end
@@ -45,8 +49,11 @@
 - (IBAction)didTapProfileButto:(id)sender {
     [self performSegueWithIdentifier:@"ProfileDetail" sender:nil];
 }
-- (IBAction)didTapItemHistoryButton:(id)sender {
-    [self performSegueWithIdentifier:@"ItemHistory" sender:nil];
+- (IBAction)didTapItemsSelling:(id)sender {
+    [self performSegueWithIdentifier:@"ItemHistory" sender:self.itemsSelling];
+}
+- (IBAction)didTapItemsBooked:(id)sender {
+    [self performSegueWithIdentifier:@"ItemHistory" sender:self.itemsBooked];
 }
 
 - (IBAction)confirmSellButtonPressed:(id)sender {
@@ -72,12 +79,22 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"ProfileDetail"]){
+    if (sender){
+        ItemHistoryDetailViewController *next = [segue destinationViewController];
+        UIButton *button = sender;
+        NSString *buttonTitle = button.titleLabel.text;
+        next.buttonTitle = buttonTitle;
+        if ([buttonTitle isEqualToString:@"Items Selling"]){
+            next.historyType = @"itemsSelling";
+        }
+        else if ([buttonTitle isEqualToString:@"Items Booked"]){
+            next.historyType = @"itemsFutureRent";
+        }
+    }
+    
+    else if ([segue.identifier isEqualToString:@"ProfileDetail"]){
         ProfileDetailViewController *next = [segue destinationViewController];
         next.user = (User *)[PFUser currentUser];
-    }
-    else if ([segue.identifier isEqualToString:@"ItemHistory"]){
-        ItemHistoryViewController *next = [segue destinationViewController];
     }
 }
 
