@@ -12,8 +12,8 @@
 
 //to implement: init the model property and call setColors
 - (void)setColors{
-    //light blue
-    UIColor *mainColor = [UIColor colorWithRed:116.0f/255.0f green:186.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
+    //main COLOR
+    UIColor *mainColor = [UIColor colorWithRed:99.0f/255.0f green:99.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
     //cyan color
     UIColor *secondColor = [UIColor colorWithRed:202.0f/255.0f green:255.0f/255.0f blue:244.0f/255.0f alpha:1.0f];
     //darkblue
