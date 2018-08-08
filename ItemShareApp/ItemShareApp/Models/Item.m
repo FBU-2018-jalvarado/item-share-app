@@ -71,6 +71,7 @@
     
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    NSLog(@"About to call geocoder in item model");
     [geocoder geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if(error){
             NSLog(@"%@", error);

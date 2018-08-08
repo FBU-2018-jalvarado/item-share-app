@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Category.h"
+#import "Item.h"
 
 @interface ItemTableCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
-- (void) setItem:(NSString *)itemName withAddress:(NSString *)address;
+@property (strong, nonatomic) Category *cat;
+@property (strong, nonatomic) Item *item;
+
+- (void) setItem:(Item *)item;
 
 @end

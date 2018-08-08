@@ -222,6 +222,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 
 - (void)addMarker: (Item *)item withSizeOfArray:(NSInteger *)size {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    NSLog(@"About to call geocoder in map VC");
     [geocoder geocodeAddressString:item.address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if(error){
             NSLog(@"%@", error);
