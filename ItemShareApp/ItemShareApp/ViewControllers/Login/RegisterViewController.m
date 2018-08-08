@@ -5,8 +5,7 @@
 //  Created by Nicolas Machado on 7/26/18.
 //  Copyright © 2018 FBU-2018. All rights reserved.
 //
-// xcode was messing up so ill just commit again now that its working
-//
+// 
 
 #import "RegisterViewController.h"
 #import "User.h"
