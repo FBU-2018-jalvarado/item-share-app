@@ -27,7 +27,12 @@
 
 - (void) setCategory:(NSString *)categoryName {
     self.nameLabel.text = categoryName;
-    NSString *catvalstring = self.cat.iconDict[[NSString stringWithFormat:@"%@", categoryName]];
-    self.icon.image = [UIImage imageNamed:catvalstring];
+    [self setIconWithCategoryName:categoryName];
 }
+
+-(void) setIconWithCategoryName: (NSString *)categoryName {
+    NSString *iconNameString = self.cat.iconDict[[NSString stringWithFormat:@"%@", categoryName]];
+    self.icon.image = [UIImage imageNamed:iconNameString];
+}
+
 @end
