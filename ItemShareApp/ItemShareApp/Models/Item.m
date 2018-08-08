@@ -13,7 +13,6 @@
 
 @dynamic title;
 @dynamic owner;
-@dynamic location;
 @dynamic address;
 @dynamic itemID;
 @dynamic bookingsArray;
@@ -23,6 +22,8 @@
 @dynamic pickedUp;
 @dynamic distanceToUser;
 @dynamic price;
+@dynamic location;
+@dynamic point;
 
 + (nonnull NSString *)parseClassName {
     return @"Item";
@@ -67,17 +68,33 @@
     newItem.images = [Item imagesToFiles:images];
     newItem.pickedUp = pickedUp;
     newItem.price = price;
-    [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if(error != nil)
-        {
-            NSLog(@"ERROR GETTING THE ITEMS!");
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(nil, error);
-            });
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(newItem, nil);
-            });
+    
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if(error){
+            NSLog(@"%@", error);
+        }
+        else{
+            CLPlacemark *placemark = [placemarks lastObject]; //always guaranteed to be at least one object
+          //  newItem.location = placemark.location;
+            PFGeoPoint *point = [PFGeoPoint geoPointWithLocation:(CLLocation *)placemark.location];
+            newItem.point = point;
+            
+            [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if(error != nil)
+                {
+                    NSLog(@"ERROR GETTING THE ITEMS!");
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completion(nil, error);
+                    });
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completion(newItem, nil);
+                    });
+                }
+            }];
+            
         }
     }];
     //[newItem saveInBackgroundWithBlock: completion];

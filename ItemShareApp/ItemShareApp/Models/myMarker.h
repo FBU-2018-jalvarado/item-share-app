@@ -15,6 +15,7 @@
 @property (readonly, nonatomic) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;
 @property (strong, nonatomic) Item *item;
+@property (strong, nonatomic) NSString *address;
 
 - (id)initWithLocation: (CLLocationCoordinate2D)location;
 - (MKAnnotationView*)markerView;
