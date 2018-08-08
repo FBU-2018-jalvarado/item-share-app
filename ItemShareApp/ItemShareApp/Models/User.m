@@ -18,13 +18,15 @@
 @dynamic itemsPreviousRent;
 @dynamic itemsCurrentRent; 
 @dynamic itemsFutureRent;
+@dynamic address;
 
-+ (void) postUser: ( NSString * _Nullable )firstName withLastName:( NSString * _Nullable )lastName withPhoneNumber:( NSString * _Nullable )phoneNumber withEmail:( NSString * _Nullable )email withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postUser: ( NSString * _Nullable )firstName withLastName:( NSString * _Nullable )lastName withPhoneNumber:( NSString * _Nullable )phoneNumber withEmail:( NSString * _Nullable )email withAddress:( NSString * _Nullable )address withCompletion: (PFBooleanResultBlock  _Nullable)completion {
 
     User *newUser = (User*)[PFUser currentUser];
     newUser.firstName = firstName;
     newUser.lastName = lastName;
     newUser.phoneNumber = phoneNumber;
+    newUser.address = address;
     newUser.email = email;
     newUser.itemsSelling = [NSMutableArray new];
     newUser.itemsPreviousRent = [NSMutableArray new];
