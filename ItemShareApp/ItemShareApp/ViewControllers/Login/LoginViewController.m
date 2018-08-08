@@ -19,12 +19,15 @@
 #define SCALE 0.4
 
 @interface LoginViewController () <UITextFieldDelegate>
+
 @property (strong, nonatomic) HoshiTextField *usernameTextField;
 @property (strong, nonatomic) HoshiTextField *passwordTextField;
 @property (strong, nonatomic) ColorScheme *colors;
 
 @property (weak, nonatomic) IBOutlet FLAnimatedImageView *gifView;
 @property (strong, nonnull) FLAnimatedImage *gifImage;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
 
 @end
@@ -47,12 +50,25 @@
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     [self.colors setColors];
-//    [self setUpUI];
+    [self setUpUI];
 //    [self setUpGradient];
     [self setUpUsernameField];
     [self setupPasswordField];
     [self setUpGifView];
 }
+
+//textdelegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    return YES;
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [self.view endEditing:YES];
+}
+
 
 - (void) setUpGifView {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
@@ -98,7 +114,6 @@
     // The block excuted when the animation for losing focus has completed.
     // Do not use textFieldDidEndEditing:
     self.usernameTextField.didEndEditingHandler = ^{
-        // ...
     };
     
     [self.view addSubview:self.usernameTextField];
@@ -155,11 +170,6 @@
     [self.view addSubview:self.passwordTextField];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.view endEditing:YES];
-    return YES;
-}
-
 
 - (IBAction)didTapLogin:(id)sender {
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
@@ -171,9 +181,12 @@
 //}
 
 - (void)setUpUI{
-//    self.usernameTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
-    self.passwordTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
-//    self.emailTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
+    self.loginButton.layer.borderColor = [UIColor orangeColor].CGColor;
+//    self.signUpButton.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.loginButton.layer.borderWidth = 1;
+//    self.signUpButton.layer.borderWidth = 1;
+    self.loginButton.layer.cornerRadius = 5;
+//    self.signUpButton.layer.cornerRadius = 5;
 }
 - (void)setUpGradient{
     // Create the colors
