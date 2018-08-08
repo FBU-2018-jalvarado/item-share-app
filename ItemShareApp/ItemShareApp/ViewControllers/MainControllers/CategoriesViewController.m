@@ -22,6 +22,9 @@
 @property (strong, nonatomic) CategoryViewCell *viewCell;
 @property (strong, nonatomic) ColorScheme *colors;
 @property (strong, nonatomic) NSMutableArray *arrayOfKeys;
+@property (strong, nonatomic) NSMutableArray *itemarray;
+@property (weak, nonatomic) IBOutlet UIView *searchResultsView;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 @end
 
@@ -40,6 +43,7 @@
     if([self.title isEqualToString:@"Categories"])
     {
         [self.delegate fetchItems];
+//        [self.delegate filterInMap];
     }
     else {
         [self.delegate callChoseCat:self.title];
@@ -48,8 +52,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.itemarray = [[NSMutableArray alloc] init];
     self.categoryCollView.delegate = self;
     self.categoryCollView.dataSource = self;
+    self.categoryCollView.backgroundColor = [UIColor orangeColor];
+    self.view.backgroundColor = [UIColor orangeColor];
+    self.searchResultsView.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.8];
+    self.searchResultsView.layer.cornerRadius = 8;
+    self.topView.backgroundColor = [UIColor orangeColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     // Do any additional setup after loading the view.
     
     [self init];

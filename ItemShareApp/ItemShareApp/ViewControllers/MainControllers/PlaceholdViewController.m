@@ -212,7 +212,7 @@
                 self.catAndItemTableViewController.itemRows = self.itemsArray;
                 NSLog(@"SUCCESSFULLY RETREIVED ITEMS!");
                 [self.catAndItemTableViewController.catAndItemTableView reloadData];
-                
+                [self filterInMap:self.filteredItemsArray];
                 // stop displaying HUD
                 [self.placeholderDelegate dismissHUD];
             }
@@ -239,6 +239,13 @@
 - (void)filterInMap:(NSMutableArray *)listOfItems {
     [self.placeholderDelegateMap removeAnnotationsInMap];
     [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
+}
+
+// delegate to reload table view
+- (void) reloadTable:(NSMutableArray *)items {
+    self.catAndItemTableViewController.itemRows = [[NSMutableArray alloc] init];
+    self.catAndItemTableViewController.itemRows = items;
+    [self.catAndItemTableViewController.catAndItemTableView reloadData];
 }
 
 - (void)showHUD {
