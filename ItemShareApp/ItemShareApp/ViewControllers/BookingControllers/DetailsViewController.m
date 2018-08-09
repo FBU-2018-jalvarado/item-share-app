@@ -63,7 +63,6 @@
 }
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self.colors setColors];

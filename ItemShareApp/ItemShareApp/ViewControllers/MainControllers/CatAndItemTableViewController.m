@@ -10,16 +10,25 @@
 #import "ItemTableCell.h"
 #import "Item.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "ColorScheme.h"
 //#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 
 
 @interface CatAndItemTableViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
 @implementation CatAndItemTableViewController
+
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,7 +60,7 @@
     return 180;
 }
 
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
     return [UIImage imageNamed:@"orange_f"];
 }
 
@@ -78,10 +87,10 @@
 }
 
 //either this or image for button
-//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
-//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
-//    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
-//}
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+}
 
 //- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
 //    return [UIImage imageNamed:@"orange_f"];
@@ -130,7 +139,7 @@
         CategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategorySearchCell"];
         [cell setCategory:self.categoryRows[indexPath.row]];
         UIView *selectionColor = [[UIView alloc] init];
-        selectionColor.backgroundColor = [UIColor orangeColor];
+        selectionColor.backgroundColor = self.colors.mainColor;
         cell.selectedBackgroundView = selectionColor;
         return cell;
     }
@@ -138,7 +147,7 @@
             ItemTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemSearchCell"];
             [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count]];
             UIView *selectionColor = [[UIView alloc] init];
-            selectionColor.backgroundColor = [UIColor orangeColor];
+            selectionColor.backgroundColor = self.colors.mainColor;
             cell.selectedBackgroundView = selectionColor;
             return cell;
         }

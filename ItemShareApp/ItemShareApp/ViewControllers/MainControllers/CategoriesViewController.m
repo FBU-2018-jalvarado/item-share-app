@@ -26,17 +26,15 @@
 @property (weak, nonatomic) IBOutlet UIView *searchResultsView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 
+
 @end
 
 @implementation CategoriesViewController
 
-- (instancetype)init
+- (void)awakeFromNib
 {
-    self = [super init];
-    if (self) {
-        self.colors = [ColorScheme new];
-    }
-    return self;
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -55,16 +53,15 @@
     self.itemarray = [[NSMutableArray alloc] init];
     self.categoryCollView.delegate = self;
     self.categoryCollView.dataSource = self;
-    self.categoryCollView.backgroundColor = [UIColor orangeColor];
-    self.view.backgroundColor = [UIColor orangeColor];
-    self.searchResultsView.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.8];
+    self.categoryCollView.backgroundColor = self.colors.mainColor;
+    self.view.backgroundColor = self.colors.mainColor;
+    self.searchResultsView.backgroundColor = [self.colors.mainColor colorWithAlphaComponent:0.8];
     self.searchResultsView.layer.cornerRadius = 8;
-    self.topView.backgroundColor = [UIColor orangeColor];
+    self.topView.backgroundColor = self.colors.mainColor;
     self.view.backgroundColor = [UIColor whiteColor];
     
     // Do any additional setup after loading the view.
     
-    [self init];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.colors setColors];
     
@@ -122,7 +119,7 @@
 //    }
     [cell setCategory:self.arrayOfKeys[indexPath.item]];
     UIView *selectionColor = [[UIView alloc] init];
-    selectionColor.backgroundColor = [UIColor orangeColor];
+    selectionColor.backgroundColor = self.colors.mainColor;
     cell.selectedBackgroundView = selectionColor;
     return cell;
 }

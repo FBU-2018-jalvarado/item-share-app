@@ -36,15 +36,20 @@
 
 @implementation CalendarViewController
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.timeModel = [[timeModel alloc] init];
-        self.colors = [ColorScheme new];
-        
-    }
-    return self;
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        self.timeModel = [[timeModel alloc] init];
+//        self.colors = [ColorScheme new];
+//
+//    }
+//    return self;
+//}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.colors = [ColorScheme new];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -54,7 +59,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self init];
+    //[self init];
     [self.colors setColors];
     [self setUpUI];
    // [self finishSetup];
@@ -130,7 +135,7 @@
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:15];
     view.textLabel.textAlignment = NSTextAlignmentCenter;
     view.textLabel.textColor = [UIColor blackColor];
-    view.backgroundColor = [UIColor whiteColor];
+    view.backgroundColor = self.colors.mainColor;
     view.circleRatio = .8;
     //view.dotRatio = 1. / .9;
     self.calendarContentView.backgroundColor = [UIColor whiteColor];
@@ -183,7 +188,7 @@
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView{
     dayView.hidden = NO;
     
-    UIColor *color = [UIColor colorWithRed:255.0f/255.0f green:139.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    UIColor *color = self.colors.mainColor;
     
     //today
     if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
@@ -219,7 +224,7 @@
         else{
             //make it normal
             dayView.circleView.hidden = YES;
-            dayView.dotView.backgroundColor = [UIColor blueColor];
+            dayView.dotView.backgroundColor = [UIColor whiteColor];
             dayView.textLabel.textColor = [UIColor darkGrayColor];
         }
 
