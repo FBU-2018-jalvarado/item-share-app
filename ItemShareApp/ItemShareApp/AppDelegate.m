@@ -12,6 +12,7 @@
 #import "User.h"
 @import GoogleMaps;
 @import GooglePlaces;
+#import "ColorScheme.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,7 @@
 //secret key: sk_test_MjyFzJARb2W8Hv64H0S6xkDw
 //"/v1/charges/ch_1CpUe7COBvIU783dD9UyWCWB/refunds"
 //https://api.stripe.com
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -61,10 +63,10 @@
     
     //STRIPE
 //    [Stripe setDefaultPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
-    
+     UIColor *mainColor = [UIColor colorWithRed:255.0f/255.0f green:98.0f/255.0f blue:68.0f/255.0f alpha:1.0f];
     //[[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
     // do any other necessary launch configuration
-    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+    [[UINavigationBar appearance] setBarTintColor:mainColor];
    // [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],

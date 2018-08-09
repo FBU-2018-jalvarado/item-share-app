@@ -10,6 +10,7 @@
 #import "ProfileDetailViewController.h"
 #import "ItemHistoryViewController.h"
 #import "QRPopUpController.h"
+#import "ColorScheme.h"
 
 @interface ProfileViewController () 
 
@@ -19,9 +20,16 @@
 @property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 
 @property (strong, nonatomic) NSArray *profileCellArray;
+@property (strong, nonatomic) ColorScheme *colors;
 @end
 
 @implementation ProfileViewController
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

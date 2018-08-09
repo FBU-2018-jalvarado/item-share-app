@@ -8,12 +8,21 @@
 
 #import "ItemHistoryViewController.h"
 #import "ItemHistoryDetailViewController.h"
+#import "ColorScheme.h"
 
 @interface ItemHistoryViewController ()
+
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
 @implementation ItemHistoryViewController
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

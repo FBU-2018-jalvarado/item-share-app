@@ -37,13 +37,10 @@
 
 @implementation LoginViewController
 
-- (instancetype)init
+- (void)awakeFromNib
 {
-    self = [super init];
-    if (self) {
-        self.colors = [ColorScheme new];
-    }
-    return self;
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
 }
 
 - (void)viewDidLoad {
@@ -101,13 +98,13 @@
     self.usernameTextField.borderInactiveColor = [UIColor blackColor];
     
     // The color of the active border, default value is R106 G121 B137
-    self.usernameTextField.borderActiveColor = [UIColor orangeColor];
+    self.usernameTextField.borderActiveColor = self.colors.mainColor;
     
     // The color of the placeholder, default value is R185 G193 B202
-    self.usernameTextField.placeholderColor = [UIColor orangeColor];
+    self.usernameTextField.placeholderColor = self.colors.mainColor;
     
     // The color of the cursor, default value is R89 G95 B110
-    self.usernameTextField.cursorColor = [UIColor orangeColor];
+    self.usernameTextField.cursorColor = self.colors.mainColor;
     
     // The color of the text, default value is R89 G95 B110
     self.usernameTextField.textColor = [UIColor blackColor];
@@ -161,13 +158,13 @@
     self.passwordTextField.borderInactiveColor = [UIColor blackColor];
     
     // The color of the active border, default value is R106 G121 B137
-    self.passwordTextField.borderActiveColor = [UIColor orangeColor];
+    self.passwordTextField.borderActiveColor = self.colors.mainColor;
     
     // The color of the placeholder, default value is R185 G193 B202
-    self.passwordTextField.placeholderColor = [UIColor orangeColor];
+    self.passwordTextField.placeholderColor = self.colors.mainColor;
     
     // The color of the cursor, default value is R89 G95 B110
-    self.passwordTextField.cursorColor = [UIColor orangeColor];
+    self.passwordTextField.cursorColor = self.colors.mainColor;
     
     // The color of the text, default value is R89 G95 B110
     self.passwordTextField.textColor = [UIColor blackColor];
@@ -238,7 +235,7 @@
 //}
 
 - (void)setUpUI{
-    self.loginButton.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.loginButton.layer.borderColor = self.colors.mainColor.CGColor;
 //    self.signUpButton.layer.borderColor = [UIColor orangeColor].CGColor;
     self.loginButton.layer.borderWidth = 1;
 //    self.signUpButton.layer.borderWidth = 1;

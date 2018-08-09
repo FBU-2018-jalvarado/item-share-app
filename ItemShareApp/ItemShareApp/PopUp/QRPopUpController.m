@@ -8,15 +8,22 @@
 
 #import "QRPopUpController.h"
 #import <CoreImage/CoreImage.h>
+#import "ColorScheme.h"
 
 @interface QRPopUpController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *qrImageView;
 @property (weak, nonatomic) IBOutlet UIView *QRPopUpView;
+@property (strong, nonatomic) ColorScheme *colorModel;
 
 @end
 
 @implementation QRPopUpController
+
+
+- (void)awakeFromNib {
+        self.colorModel = [ColorScheme new];
+}
 
 - (void)viewDidLoad {
     self.view.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:.6];
@@ -26,7 +33,7 @@
     self.QRPopUpView.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
     
     self.QRPopUpView.layer.borderWidth = 7;
-    self.QRPopUpView.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.QRPopUpView.layer.borderColor = self.colorModel.mainColor.CGColor;
     [super viewDidLoad];
     
     // NSString *info = @"http://codeafterhours.wordpress.com";

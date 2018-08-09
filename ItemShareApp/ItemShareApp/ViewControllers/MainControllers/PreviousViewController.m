@@ -13,6 +13,7 @@
 #import "PlaceholdViewController.h"
 #import "MapViewController.h"
 #import "ProfileViewController.h"
+#import "ColorScheme.h"
 
 #define GIF_WIDTH 450
 #define GIF_HEIGHT 276
@@ -32,11 +33,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *grayBar;
 @property (weak, nonatomic) IBOutlet UIImageView *downArrow;
 @property (weak, nonatomic) IBOutlet UIImageView *upArrow;
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
 //map rename
 @implementation PreviousViewController
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 // adjust arrow view and search view origin.y
 - (void)arrowAndSearchViewMove:(int)move {
