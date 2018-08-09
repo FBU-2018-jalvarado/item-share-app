@@ -162,6 +162,7 @@
     if(indexPath.row < self.categoryRows.count)
     {
         // empty the category array and populate the items with ones w that have  category
+        
         [self choseCat:self.categoryRows[indexPath.row]];
         [self.delegate goToMap];
     }
