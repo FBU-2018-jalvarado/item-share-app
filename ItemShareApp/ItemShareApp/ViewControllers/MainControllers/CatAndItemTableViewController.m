@@ -57,7 +57,7 @@
 //empty table view implementation
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
-    return 180;
+    return 150;
 }
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
