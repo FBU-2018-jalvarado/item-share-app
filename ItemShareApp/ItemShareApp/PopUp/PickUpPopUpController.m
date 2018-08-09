@@ -7,16 +7,21 @@
 //
 
 #import "PickUpPopUpController.h"
+#import "ColorScheme.h"
 
 @interface PickUpPopUpController ()
 
 @property (weak, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet UILabel *itemLabel;
+@property (strong, nonatomic) ColorScheme *colorModel;
 
 @end
 
 @implementation PickUpPopUpController
 
+- (void)awakeFromNib {
+    self.colorModel = [ColorScheme new];
+}
 
 - (void)viewDidLoad {
     self.view.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:.6];
@@ -35,7 +40,7 @@
     self.okButton.layer.cornerRadius = 5;
     self.okButton.clipsToBounds = YES;
     self.popUpView.layer.borderWidth = 7;
-    self.popUpView.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.popUpView.layer.borderColor = self.colorModel.mainColor.CGColor;
 }
 
 

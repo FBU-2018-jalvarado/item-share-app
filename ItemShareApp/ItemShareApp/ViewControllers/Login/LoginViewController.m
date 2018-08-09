@@ -28,25 +28,26 @@
 @property (strong, nonnull) FLAnimatedImage *gifImage;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+@property (weak, nonatomic) IBOutlet UIView *coverUp;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *boardDissTap;
+@property (weak, nonatomic) IBOutlet UILabel *fetchLabel;
 
 
 @end
 
 @implementation LoginViewController
 
-- (instancetype)init
+- (void)awakeFromNib
 {
-    self = [super init];
-    if (self) {
-        self.colors = [ColorScheme new];
-    }
-    return self;
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self init];
+    self.fetchLabel.frame = CGRectMake(self.fetchLabel.frame.origin.x, self.fetchLabel.frame.origin.y - 100, self.fetchLabel.frame.size.width, self.fetchLabel.frame.size.height);
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     [self.colors setColors];
@@ -55,6 +56,9 @@
     [self setUpUsernameField];
     [self setupPasswordField];
     [self setUpGifView];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.fetchLabel.frame = CGRectMake(self.fetchLabel.frame.origin.x, self.fetchLabel.frame.origin.y + 100, self.fetchLabel.frame.size.width, self.fetchLabel.frame.size.height);
+    }];
 }
 
 //textdelegates
@@ -94,13 +98,13 @@
     self.usernameTextField.borderInactiveColor = [UIColor blackColor];
     
     // The color of the active border, default value is R106 G121 B137
-    self.usernameTextField.borderActiveColor = [UIColor orangeColor];
+    self.usernameTextField.borderActiveColor = self.colors.mainColor;
     
     // The color of the placeholder, default value is R185 G193 B202
-    self.usernameTextField.placeholderColor = [UIColor orangeColor];
+    self.usernameTextField.placeholderColor = self.colors.mainColor;
     
     // The color of the cursor, default value is R89 G95 B110
-    self.usernameTextField.cursorColor = [UIColor orangeColor];
+    self.usernameTextField.cursorColor = self.colors.mainColor;
     
     // The color of the text, default value is R89 G95 B110
     self.usernameTextField.textColor = [UIColor blackColor];
@@ -108,12 +112,27 @@
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
     self.usernameTextField.didBeginEditingHandler = ^{
-        // ...
+        if(self.coverUp.alpha == 0)
+        {
+            [UIView animateWithDuration:0.1 animations:^{
+                self.coverUp.alpha = 1;
+                if(self.usernameTextField.frame.origin.y == 400)
+                {
+                    self.usernameTextField.frame = CGRectMake(30, 220, 315, 70);
+                }
+                if(self.passwordTextField.frame.origin.y == 480)
+                {
+                    self.passwordTextField.frame = CGRectMake(30, 300, 315, 70);
+                }
+//                self.usernameTextField.frame = CGRectMake(30, 220, 315, 70);
+            }];
+        }
     };
     
     // The block excuted when the animation for losing focus has completed.
     // Do not use textFieldDidEndEditing:
     self.usernameTextField.didEndEditingHandler = ^{
+        
     };
     
     [self.view addSubview:self.usernameTextField];
@@ -139,13 +158,13 @@
     self.passwordTextField.borderInactiveColor = [UIColor blackColor];
     
     // The color of the active border, default value is R106 G121 B137
-    self.passwordTextField.borderActiveColor = [UIColor orangeColor];
+    self.passwordTextField.borderActiveColor = self.colors.mainColor;
     
     // The color of the placeholder, default value is R185 G193 B202
-    self.passwordTextField.placeholderColor = [UIColor orangeColor];
+    self.passwordTextField.placeholderColor = self.colors.mainColor;
     
     // The color of the cursor, default value is R89 G95 B110
-    self.passwordTextField.cursorColor = [UIColor orangeColor];
+    self.passwordTextField.cursorColor = self.colors.mainColor;
     
     // The color of the text, default value is R89 G95 B110
     self.passwordTextField.textColor = [UIColor blackColor];
@@ -156,13 +175,26 @@
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
     self.passwordTextField.didBeginEditingHandler = ^{
-        // ...
+        if(self.coverUp.alpha == 0)
+        {
+            [UIView animateWithDuration:0.1 animations:^{
+                self.coverUp.alpha = 1;
+                if(self.usernameTextField.frame.origin.y == 400)
+                {
+                    self.usernameTextField.frame = CGRectMake(30, 220, 315, 70);
+                }
+                if(self.passwordTextField.frame.origin.y == 480)
+                {
+                    self.passwordTextField.frame = CGRectMake(30, 300, 315, 70);
+                }
+            }];
+        }
     };
     
     // The block excuted when the animation for losing focus has completed.
     // Do not use textFieldDidEndEditing:
     self.passwordTextField.didEndEditingHandler = ^{
-        // ...
+        
     };
     
 //    [self.passwordTextField isSecureTextEntry:TRUE];
@@ -170,6 +202,28 @@
     [self.view addSubview:self.passwordTextField];
 }
 
+- (IBAction)tapOut:(id)sender {
+    if(self.coverUp.alpha == 1)
+    {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.coverUp.alpha = 0;
+            if(self.usernameTextField.frame.origin.y == 220)
+            {
+                self.usernameTextField.frame = CGRectMake(30, 400, 315, 70);
+            }
+            if(self.passwordTextField.frame.origin.y == 300)
+            {
+                self.passwordTextField.frame = CGRectMake(30, 480, 315, 70);
+            }
+        }];
+        [self.usernameTextField resignFirstResponder];
+        [self.passwordTextField resignFirstResponder];
+    }
+    else {
+        [self.usernameTextField resignFirstResponder];
+        [self.passwordTextField resignFirstResponder];
+    }
+}
 
 - (IBAction)didTapLogin:(id)sender {
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
@@ -181,9 +235,12 @@
 //}
 
 - (void)setUpUI{
-    self.loginButton.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.loginButton.layer.borderColor = self.colors.mainColor.CGColor;
 //    self.signUpButton.layer.borderColor = [UIColor orangeColor].CGColor;
     self.loginButton.layer.borderWidth = 1;
+    [self.loginButton.titleLabel setTextColor:self.colors.mainColor];
+    //self.loginButton.titleLabel.textColor = self.colors.mainColor;
+    [self.signUpButton.titleLabel setTextColor:self.colors.mainColor];
 //    self.signUpButton.layer.borderWidth = 1;
     self.loginButton.layer.cornerRadius = 5;
 //    self.signUpButton.layer.cornerRadius = 5;

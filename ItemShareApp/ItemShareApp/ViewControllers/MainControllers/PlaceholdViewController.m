@@ -15,6 +15,7 @@
 #import "Parse.h"
 #import "MapViewController.h"
 #import "Category.h"
+#import "ColorScheme.h"
 
 @interface PlaceholdViewController () <UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UIView *categoryCollV;
@@ -26,16 +27,24 @@
 @property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
 @property (strong, nonatomic) NSMutableArray *categoryArray;
 @property(nonatomic, strong) UIBarButtonItem *backBarButtonItem;
+@property (strong, nonatomic) ColorScheme *colors;
+
 @end
 
 @implementation PlaceholdViewController
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.fetchView.backgroundColor = [UIColor orangeColor];
-    self.searchBar.barTintColor = [UIColor orangeColor];
+    self.fetchView.backgroundColor = self.colors.mainColor;
+    self.searchBar.barTintColor = self.colors.mainColor;
     self.searchBar.layer.borderWidth = 1;
-    self.searchBar.layer.borderColor = [[UIColor orangeColor] CGColor];
+    self.searchBar.layer.borderColor = self.colors.mainColor.CGColor;
     // from SearchBar
     self.searchBar.delegate = self;
     self.categoryArray = [[NSMutableArray alloc] init];

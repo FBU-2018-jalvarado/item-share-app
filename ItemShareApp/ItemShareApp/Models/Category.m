@@ -10,6 +10,7 @@
 
 @implementation Category
 
+
 // sets array and dict to constant data
 - (void) setCats {
     // setting dict
@@ -167,6 +168,10 @@
                                  @"Exercise/Fitness", @"Hunting/Fishing", @"Team Sports", @"Water Sports", @"Winter Sports", @"Other Sports", @"Outdoors", @"Camping/Hiking", \
                                  @"Bikes", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Vehicles", @"Water Vehicles", @"Boats", @"Other Water Vehicles", \
                                  @"Land Vehicles", @"Cars", @"Motorcycles", @"Trucks", @"Other Land Vehicles", @"Air Vehicles", @"Planes", @"Other Air Vehicles"];
+    
+    
+    // the lowest level categories array
+    self.lastLevel =            @[@"Halloween/Party/Event", @"Performance/Stage", @"Girls", @"Boys", @"Women", @"Men", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Acoustic", @"Digital/Electric", @"Orchestral", @"Other Strings", @"Acoustic", @"Digital/Electric", @"Drums", @"Percussion", @"DJ", @"Amps/Effects", @"Mics/Recording", @"Brass", @"Winds/Woodwinds", @"Instrument Accessories", @"Other Instruments/Equipment", @"Chairs", @"Desks", @"Tables", @"Other Furniture", @"Cookware", @"Bakeware", @"Kitchen Appliances", @"Scrapbooking Tools", @"Sewing Tools and Machines", @"Printmaking Tools", @"Beading/Jewelry Making Tools", @"Other Arts/Crafts Tools", @"Brushes", @"Dusting", @"Mopping", @"Sweeping", @"Cleaning Appliances", @"Other Cleaning Tools", @"Grills and Similar", @"Yard Work", @"Pool/Hot Tub", @"Farming", @"Other Garden/Outdoor", @"Toys", @"Games", @"Power", @"Hand", @"TV", @"Video", @"Theater", @"Speakers", @"Headphones", @"Other Audio", @"Photography", @"Videography", @"PlayStation", @"Xbox", @"Nintendo DS/Switch", @"Wii", @"Other Consoles", @"Exercise/Fitness", @"Hunting/Fishing", @"Team Sports", @"Water Sports", @"Winter Sports", @"Other Sports", @"Camping/Hiking", @"Bikes", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Boats", @"Other Water Vehicles", @"Cars", @"Motocycles", @"Trucks", @"Other Land Vehicles", @"Planes", @"Other Air Vehicles"];
     
     /*
      placeholders:

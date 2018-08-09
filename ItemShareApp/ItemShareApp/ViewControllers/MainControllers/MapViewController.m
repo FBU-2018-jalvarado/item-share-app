@@ -21,6 +21,7 @@
 #import <GooglePlaces/GooglePlaces.h>
 #import "QRPopUpController.h"
 #import "SellItemViewController.h"
+#import "ColorScheme.h"
 
 NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotation";
 NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
@@ -54,17 +55,16 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 @property (weak, nonatomic) IBOutlet UIButton *QRButton;
 @property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 
+@property (strong, nonatomic) ColorScheme *colors;
+
 @end
 
 @implementation MapViewController
 
-- (instancetype)init
+- (void)awakeFromNib
 {
-    self = [super init];
-    if (self) {
-        self.model = [[MapModel alloc] init];
-    }
-    return self;
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
 }
 
 - (void)viewDidLoad {
@@ -80,7 +80,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [self.mapDelegate showHUD];
     [self fetchItems];
     [self setUpUIGoogle];
-    [self setUpStyle];
+   // [self setUpStyle];
     [self locationSetup];
    // [self fetchItems];
 }
@@ -89,20 +89,20 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 //    return UIStatusBarStyleLightContent;
 //}
 
-- (void)setUpStyle {
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSURL *styleUrl = [mainBundle URLForResource:@"styleWhite" withExtension:@"json"];
-    NSError *error;
-    
-    // Set the map style by passing the URL for style.json.
-    GMSMapStyle *style = [GMSMapStyle styleWithContentsOfFileURL:styleUrl error:&error];
-    
-    if (!style) {
-        NSLog(@"The style definition could not be loaded: %@", error);
-    }
-    
-    self.googleMapView.mapStyle = style;
-}
+//- (void)setUpStyle {
+//    NSBundle *mainBundle = [NSBundle mainBundle];
+//    NSURL *styleUrl = [mainBundle URLForResource:@"styleWhite" withExtension:@"json"];
+//    NSError *error;
+//
+//    // Set the map style by passing the URL for style.json.
+//    GMSMapStyle *style = [GMSMapStyle styleWithContentsOfFileURL:styleUrl error:&error];
+//
+//    if (!style) {
+//        NSLog(@"The style definition could not be loaded: %@", error);
+//    }
+//
+//    self.googleMapView.mapStyle = style;
+//}
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     [self performSegueWithIdentifier:@"detailsViewSegue" sender:marker];
@@ -110,7 +110,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 }
 
 - (void)setUpUIGoogle {
-    UIColor *color = [UIColor colorWithRed:255.0f/255.0f green:139.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    UIColor *color = self.colors.mainColor;
     
     self.profileButton.backgroundColor = color;
     self.homeButtonBackgroundView.backgroundColor = color;
