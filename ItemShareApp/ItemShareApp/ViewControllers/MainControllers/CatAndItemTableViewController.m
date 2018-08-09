@@ -57,7 +57,7 @@
 //empty table view implementation
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
-    return 180;
+    return 150;
 }
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
@@ -89,7 +89,7 @@
 //either this or image for button
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
-    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:@"Back to Search" attributes:attributes];
 }
 
 //- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
@@ -162,6 +162,7 @@
     if(indexPath.row < self.categoryRows.count)
     {
         // empty the category array and populate the items with ones w that have  category
+        
         [self choseCat:self.categoryRows[indexPath.row]];
         [self.delegate goToMap];
     }
