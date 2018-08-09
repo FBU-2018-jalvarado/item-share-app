@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "ColorScheme.h"
+#import "Category.h"
 //#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 
@@ -18,7 +19,7 @@
 @interface CatAndItemTableViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @property (strong, nonatomic) ColorScheme *colors;
-
+@property (strong, nonatomic) NSArray *lastCats;
 @end
 
 @implementation CatAndItemTableViewController
@@ -32,6 +33,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //
+    Category *cat = [[Category alloc] init];
+    [cat setCats];
+    self.lastCats = cat.lastLevel;
     self.catAndItemTableView.delegate = self;
     self.catAndItemTableView.dataSource = self;
     self.catAndItemTableView.emptyDataSetSource = self;
@@ -162,7 +168,6 @@
     if(indexPath.row < self.categoryRows.count)
     {
         // empty the category array and populate the items with ones w that have  category
-        
         [self choseCat:self.categoryRows[indexPath.row]];
         [self.delegate goToMap];
     }

@@ -10,6 +10,8 @@
 #import "ItemHistoryDetailViewController.h"
 #import "ColorScheme.h"
 
+// D E P R E C A T E D
+
 @interface ItemHistoryViewController ()
 
 @property (strong, nonatomic) ColorScheme *colors;

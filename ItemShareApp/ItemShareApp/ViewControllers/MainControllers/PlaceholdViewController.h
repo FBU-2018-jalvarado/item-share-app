@@ -12,7 +12,7 @@
 
 @protocol PlaceholderViewControllerDelegate
 
-- (void)dismissToMap;
+- (void)dismissToMap: (BOOL)zoom;
 - (void)showSearchView;
 - (void)dismissKeyboard;
 - (void)showHUD;

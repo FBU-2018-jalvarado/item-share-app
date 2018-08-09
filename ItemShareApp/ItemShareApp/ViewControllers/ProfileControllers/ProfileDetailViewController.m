@@ -21,14 +21,15 @@
 @property (weak, nonatomic) IBOutlet UIView *tab1;
 @property (weak, nonatomic) IBOutlet UIView *tab2;
 @property (weak, nonatomic) IBOutlet UIView *tab3;
-
+@property (weak, nonatomic) IBOutlet UIView *realView;
 @property (strong,nonatomic) UIImage *cameraPicture;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 @property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
+@property (weak, nonatomic) IBOutlet UILabel *paymentLabel;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (strong, nonatomic) SaeTextField *saeAddressTextField;
 @property (strong, nonatomic) ColorScheme *colors;
 
 @end
@@ -57,23 +58,66 @@
 //    self.memberTextField.text = @"Yes";
     
     [self setUpUI];
+    [self connectInfo];
+    [self setUpAddressTextField];
 }
 
+- (void) setUpAddressTextField {
+    // Recommended frame height is around 70.
+    // Frame width should be shorter than other tpyes of text field.
+    self.saeAddressTextField = [[SaeTextField alloc] initWithFrame:CGRectMake(104, 372, 225, 70)];
+    self.saeAddressTextField.placeholder = @"ht";
+    
+    // The size of the placeholder label relative to the font size of the text field, default value is 0.8
+    self.saeAddressTextField.placeholderFontScale = 0.8;
+    
+    // The color of the lower border, default value is R255 G255 B255
+    self.saeAddressTextField.borderColor = [UIColor colorWithRed:(0/255) green:(0/255) blue:(0/255) alpha:1];
+    
+    // The color of the placeholder, default value is R0 G0 B0 Alpha0.4
+    self.saeAddressTextField.placeholderColor = [UIColor colorWithRed:(0/255) green:(0/255) blue:(0/255) alpha:1];
+    
+    // The color of the cursor, default value is R255 G255 B255
+    self.saeAddressTextField.cursorColor = [UIColor colorWithRed:(0/255) green:(0/255) blue:(0/255) alpha:1];
+    
+    // The color of the text, default value is R255 G255 B255
+    self.saeAddressTextField.textColor = [UIColor colorWithRed:(0/255) green:(0/255) blue:(0/255) alpha:1];
+    
+    // The image in the right-down corner, default value is a pencil icon. The color of the image is determined by borderColor.
+//    self.saeAddressTextField.image = <#UIImage#>;
+    
+    // The block excuted when the animation for obtaining focus has completed.
+    // Do not use textFieldDidBeginEditing:
+    self.saeAddressTextField.didBeginEditingHandler = ^{
+        // ...
+    };
+    
+    // The block excuted when the animation for losing focus has completed.
+    // Do not use textFieldDidEndEditing:
+    self.saeAddressTextField.didEndEditingHandler = ^{
+        // ...
+    };
+    
+    [self.realView addSubview:self.saeAddressTextField];
+}
 
 - (void)viewDidAppear:(BOOL)animated{
-    [self setUpUI];
-    [self connectInfo];
+//    [self setUpUI];
+    
 }
 
 - (void)connectInfo {
-    self.firstNameLabel.text = self.user.firstName;
-    self.lastNameLabel.text = self.user.lastName;
-    self.addressLabel.text = @"1 Hacker Way, Menlo Park, CA";
-    self.emailLabel.text = self.user.email;
-    self.phoneLabel.text = self.user.phoneNumber;
+    self.firstNameLabel.text = [NSString stringWithFormat:@"%@ %@",  self.user.firstName, self.user.lastName];
+    self.addressTextField.text = @"1 Hacker Way, Menlo Park, CA";
+    self.emailTextField.text = self.user.email;
+    self.phoneTextField.text = self.user.phoneNumber;
+    self.paymentLabel.text = @"VISA **** **** **** 3432";
 }
 
 - (void)setUpUI {
+    // profile pic
+    self.profilePicture.layer.cornerRadius = 55;
+    self.profilePicture.layer.masksToBounds = YES;
     
     //tiles
     self.tile1.backgroundColor = self.colors.mainColor;
@@ -93,8 +137,9 @@
     self.tab2.backgroundColor = [UIColor whiteColor];
     self.tab3.backgroundColor = [UIColor whiteColor];
     
-    self.backButton.layer.borderWidth = 1;
-    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    // butons
+    self.backButton.layer.borderWidth = 1.5;
+    self.backButton.layer.borderColor = [UIColor blackColor].CGColor;
     self.backButton.titleLabel.textColor = [UIColor whiteColor];
     self.backButton.layer.cornerRadius = 5;
     

@@ -91,7 +91,7 @@
 
 - (IBAction)swipeDown:(id)sender {
     if (self.blackView.alpha == 0){
-        [self dismissToMap];
+        [self dismissToMap:NO];
     }
 }
 - (IBAction)arrowUp:(id)sender {
@@ -99,7 +99,7 @@
 }
 
 - (IBAction)arrowDown:(id)sender {
-    [self dismissToMap];
+    [self dismissToMap:NO];
 }
 
 - (IBAction)tapArrow:(id)sender {
@@ -111,7 +111,7 @@
     {
         if(self.searchView.frame.origin.y == 50)
         {
-            [self dismissToMap];
+            [self dismissToMap:NO];
         }
     }
 }
@@ -213,7 +213,7 @@
     }
 }
 
-- (void)dismissToMap {
+- (void)dismissToMap: (BOOL)zoom; {
     if(self.searchView.frame.origin.y == 50)
     {
         [UIView animateWithDuration:0.5 animations:^{
@@ -230,6 +230,9 @@
             }
         }];
         [self.placeholdViewController hideSearch];
+    }
+    if(zoom){
+        [self.previousDelegate zoomOutMap];
     }
     [self.view endEditing:YES];
 }
@@ -293,6 +296,7 @@
     }
     else if([segue.identifier isEqualToString:@"mapSegue"]){
         self.mapController = [segue destinationViewController];
+        self.previousDelegate = self.mapController;
         self.mapController.mapDelegate = self;
     }
 }

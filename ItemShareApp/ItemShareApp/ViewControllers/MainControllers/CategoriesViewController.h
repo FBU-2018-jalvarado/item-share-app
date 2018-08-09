@@ -10,7 +10,7 @@
 
 @protocol CategoriesViewControllerDelegate
 
-- (void)goToMap;
+- (void)goToMap: (BOOL)zoom;
 - (void)callChoseCat:(NSString *)categoryName;
 - (void)showHUD;
 - (void)fetchItems;
