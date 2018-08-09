@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 @property (weak, nonatomic) IBOutlet UIView *coverUp;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *boardDissTap;
+@property (weak, nonatomic) IBOutlet UILabel *fetchLabel;
 
 
 @end
@@ -49,6 +50,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self init];
+    self.fetchLabel.frame = CGRectMake(self.fetchLabel.frame.origin.x, self.fetchLabel.frame.origin.y - 100, self.fetchLabel.frame.size.width, self.fetchLabel.frame.size.height);
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     [self.colors setColors];
@@ -57,6 +59,9 @@
     [self setUpUsernameField];
     [self setupPasswordField];
     [self setUpGifView];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.fetchLabel.frame = CGRectMake(self.fetchLabel.frame.origin.x, self.fetchLabel.frame.origin.y + 100, self.fetchLabel.frame.size.width, self.fetchLabel.frame.size.height);
+    }];
 }
 
 //textdelegates
