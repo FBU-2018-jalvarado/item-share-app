@@ -18,6 +18,7 @@
 #import <GooglePlaces/GooglePlaces.h>
 #import <CCTextFieldEffects/CCTextFieldEffects.h>
 #import <CCTextFieldEffects/CCTextField.h>
+#import "ColorScheme.h"
 
 
 @interface SellItemViewController () <UITextViewDelegate>
@@ -52,10 +53,17 @@
 @property (strong, nonatomic) HoshiTextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UIView *locationView;
 @property (strong, nonatomic) NSString *formattedAddress;
+
+@property (strong, nonatomic) ColorScheme *colors;
 @end
 
 @implementation SellItemViewController
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "User.h"
 #import "QRPopUpController.h"
+#import "ColorScheme.h"
 
 @interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
 
@@ -18,10 +19,18 @@
 @property (strong, nonatomic) NSMutableArray *itemsArray;
 @property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 @property (strong, nonatomic) NSMutableArray *itemsIdArray;
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
 @implementation ItemHistoryDetailViewController
+
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

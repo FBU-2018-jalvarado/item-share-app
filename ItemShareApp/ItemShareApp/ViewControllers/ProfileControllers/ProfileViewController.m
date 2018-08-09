@@ -11,6 +11,7 @@
 #import "ItemHistoryViewController.h"
 #import "QRPopUpController.h"
 #import "ItemHistoryDetailViewController.h"
+#import "ColorScheme.h"
 
 @interface ProfileViewController () 
 
@@ -22,9 +23,16 @@
 
 
 @property (strong, nonatomic) NSArray *profileCellArray;
+@property (strong, nonatomic) ColorScheme *colors;
 @end
 
 @implementation ProfileViewController
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

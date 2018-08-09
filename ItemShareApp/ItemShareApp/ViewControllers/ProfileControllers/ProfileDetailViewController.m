@@ -9,6 +9,7 @@
 #import "ProfileDetailViewController.h"
 #import <CCTextFieldEffects/CCTextFieldEffects.h>
 #import <CCTextFieldEffects/CCTextField.h>
+#import "ColorScheme.h"
 
 @interface ProfileDetailViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *line6;
@@ -29,12 +30,19 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) SaeTextField *saeAddressTextField;
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
 #define BOTTOM_VIEW_HEIGHT 240
 
 @implementation ProfileDetailViewController
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -112,16 +120,16 @@
     self.profilePicture.layer.masksToBounds = YES;
     
     //tiles
-    self.tile1.backgroundColor = [UIColor orangeColor];
+    self.tile1.backgroundColor = self.colors.mainColor;
     self.tile1.layer.cornerRadius = 2;
     
-    self.tile2.backgroundColor = [UIColor orangeColor];
+    self.tile2.backgroundColor = self.colors.mainColor;
     self.tile2.layer.cornerRadius = 2;
     
-    self.tile3.backgroundColor = [UIColor orangeColor];
+    self.tile3.backgroundColor = self.colors.mainColor;
     self.tile3.layer.cornerRadius = 2;
     
-    self.tile4.backgroundColor = [UIColor orangeColor];
+    self.tile4.backgroundColor = self.colors.mainColor;
     self.tile4.layer.cornerRadius = 2;
     
     //tabs
@@ -136,8 +144,8 @@
     self.backButton.layer.cornerRadius = 5;
     
     self.editProfileButton.layer.borderWidth = 1;
-    self.editProfileButton.layer.borderColor = [UIColor orangeColor].CGColor;
-    self.editProfileButton.titleLabel.textColor = [UIColor orangeColor];
+    self.editProfileButton.layer.borderColor = self.colors.mainColor.CGColor;
+    self.editProfileButton.titleLabel.textColor = self.colors.mainColor;
     
     if(self.user[@"profile_image"] != nil){
         self.profilePicture.file = self.user[@"profile_image"];

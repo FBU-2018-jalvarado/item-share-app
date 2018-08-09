@@ -54,7 +54,7 @@
     [super viewDidLoad];
     //self.car.layer.cornerRadius = 15;
     //configure carousel
-    _carousel.type = iCarouselTypeRotary;
+    _carousel.type = iCarouselTypeLinear;
     _carousel.delegate = self;
     _carousel.dataSource = self;
     _carousel.pagingEnabled = YES;
@@ -80,13 +80,13 @@
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    if([_images count] <= 2)
-    {
-        _carousel.type = iCarouselTypeLinear;
-    }
-    else {
-        _carousel.type = iCarouselTypeRotary;
-    }
+//    if([_images count] <= 2)
+//    {
+//        _carousel.type = iCarouselTypeLinear;
+//    }
+//    else {
+//        _carousel.type = iCarouselTypeRotary;
+//    }
     //return the total number of items in the carousel
     return [_images count];
 }
