@@ -59,6 +59,8 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.fetchLabel.frame = CGRectMake(self.fetchLabel.frame.origin.x, self.fetchLabel.frame.origin.y + 100, self.fetchLabel.frame.size.width, self.fetchLabel.frame.size.height);
     }];
+    self.loginButton.tintColor = self.colors.mainColor;
+    self.signUpButton.tintColor = self.colors.mainColor;
 }
 
 //textdelegates

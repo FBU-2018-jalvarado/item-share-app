@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+// D E P R E C A T E D
+
 @interface ItemHistoryViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *itemToFetch;
 @property (weak, nonatomic) IBOutlet UIButton *itemCurrentFetch;
