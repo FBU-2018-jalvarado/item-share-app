@@ -89,7 +89,7 @@
 //either this or image for button
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
-    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:@"Back to Search" attributes:attributes];
 }
 
 //- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
