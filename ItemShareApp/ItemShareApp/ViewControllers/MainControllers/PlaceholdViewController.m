@@ -76,16 +76,16 @@
 }
 
 - (IBAction)onTapMap:(id)sender {
-    [self.placeholderDelegate dismissToMap];
+    [self.placeholderDelegate dismissToMap:NO];
 }
 
-- (void)goToMap {
-    [self.placeholderDelegate dismissToMap];
+- (void)goToMap: (BOOL)zoom {
+    [self.placeholderDelegate dismissToMap:zoom];
 }
  // from SearchBar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view endEditing:YES];
-    [self.placeholderDelegate dismissToMap];
+    [self.placeholderDelegate dismissToMap:NO];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {

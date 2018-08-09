@@ -21,12 +21,13 @@
 #import <GooglePlaces/GooglePlaces.h>
 #import "QRPopUpController.h"
 #import "SellItemViewController.h"
+#import "PreviousViewController.h"
 #import "ColorScheme.h"
 
 NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotation";
 NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
 
-@interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, DetailsViewControllerDelegate, UISearchBarDelegate>
+@interface MapViewController () <PreviousControllerDelegate, GMSMapViewDelegate, CLLocationManagerDelegate, DetailsViewControllerDelegate, UISearchBarDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UILabel *fetchLabel;
@@ -342,12 +343,9 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     }];
 }
 
-- (IBAction)pickUpButtonPressed:(id)sender {
-    //[self postQRCode];
+- (void)zoomOutMap {
+    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:self.googleMapView.myLocation.coordinate zoom:9]];
 }
 
-- (IBAction)QRButtonPressed:(id)sender {
-    //open scanner VC
-}
 
 @end

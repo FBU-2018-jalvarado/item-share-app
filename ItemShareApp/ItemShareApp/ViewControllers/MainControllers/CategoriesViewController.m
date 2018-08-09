@@ -12,6 +12,7 @@
 #import "Category.h"
 #import "ColorScheme.h"
 #import "CategoriesFlowLayout.h"
+#import "Category.h"
 
 @interface CategoriesViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *categoryCollView;
@@ -25,6 +26,8 @@
 @property (strong, nonatomic) NSMutableArray *itemarray;
 @property (weak, nonatomic) IBOutlet UIView *searchResultsView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+
+@property (strong, nonatomic) NSArray *lastCats;
 
 
 @end
@@ -50,6 +53,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    Category *cat = [Category new];
+    [cat setCats];
+    self.lastCats = cat.lastLevel;
+    
     self.itemarray = [[NSMutableArray alloc] init];
     self.categoryCollView.delegate = self;
     self.categoryCollView.dataSource = self;
@@ -139,6 +146,11 @@
     
     NSArray *arrayOfKeys = [self.categories allKeys];
     NSString *clickedKey = arrayOfKeys[indexPath.item];
+    if([self.lastCats containsObject:clickedKey]) {
+        [self.delegate callChoseCat:clickedKey];
+        [self.delegate goToMap:YES];
+    }
+    
     if([self.categories[clickedKey] isKindOfClass:[NSString class]])
     {
         if(self.sellDelegate)
