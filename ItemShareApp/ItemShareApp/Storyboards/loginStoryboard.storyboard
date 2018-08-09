@@ -56,11 +56,22 @@
                                     <action selector="didTapLogin:" destination="4vp-r7-9TU" eventType="touchUpInside" id="2Gs-fT-JC0"/>
                                 </connections>
                             </button>
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huM-1U-KzS">
+                                <rect key="frame" x="19" y="159" width="340" height="278"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Uf3-tM-YBi"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="3n0-wC-8X4" appends="YES" id="uCh-vd-J5R"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="boardDissTap" destination="3n0-wC-8X4" id="mMt-iw-ZBK"/>
+                        <outlet property="coverUp" destination="huM-1U-KzS" id="owd-U5-TIg"/>
                         <outlet property="gifImage" destination="Agl-ix-gBe" id="QwF-DA-H6T"/>
                         <outlet property="gifView" destination="Agl-ix-gBe" id="WhI-Xh-1Dv"/>
                         <outlet property="loginButton" destination="ve0-pX-8hY" id="6xG-44-ubz"/>
@@ -69,6 +80,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVh-IF-oEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3n0-wC-8X4" userLabel="boardDismiss">
+                    <connections>
+                        <action selector="tapOut:" destination="4vp-r7-9TU" id="Qyy-MB-nJ1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="140" y="142.57871064467767"/>
         </scene>
