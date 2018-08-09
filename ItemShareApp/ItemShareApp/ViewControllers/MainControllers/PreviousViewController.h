@@ -8,5 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol PreviousControllerDelegate
+
+- (void)zoomOutMap;
+
+@end
+
 @interface PreviousViewController : UIViewController
+
+@property (nonatomic, weak) id <PreviousControllerDelegate> previousDelegate;
 @end
