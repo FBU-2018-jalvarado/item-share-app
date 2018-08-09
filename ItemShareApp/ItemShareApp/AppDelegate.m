@@ -63,11 +63,11 @@
     
     //STRIPE
 //    [Stripe setDefaultPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
-     UIColor *mainColor = [UIColor colorWithRed:255.0f/255.0f green:98.0f/255.0f blue:68.0f/255.0f alpha:1.0f];
+     UIColor *mainColor = [UIColor colorWithRed:255.0f/255.0f green:180.0f/255.0f blue:20.0f/255.0f alpha:1.0f];
     //[[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
     // do any other necessary launch configuration
     [[UINavigationBar appearance] setBarTintColor:mainColor];
-   // [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor whiteColor],
        NSFontAttributeName:[UIFont fontWithName:@"Optima-Bold" size:21]}];
