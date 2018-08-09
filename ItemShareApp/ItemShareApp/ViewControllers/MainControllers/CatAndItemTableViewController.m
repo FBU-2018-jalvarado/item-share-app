@@ -60,7 +60,7 @@
     return 180;
 }
 
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
     return [UIImage imageNamed:@"orange_f"];
 }
 
@@ -87,10 +87,10 @@
 }
 
 //either this or image for button
-//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
-//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
-//    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
-//}
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
+}
 
 //- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
 //    return [UIImage imageNamed:@"orange_f"];
