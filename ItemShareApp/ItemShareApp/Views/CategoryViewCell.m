@@ -15,7 +15,7 @@
     
     self.layer.borderWidth = 1;
     self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.layer.cornerRadius = 10;
+    self.layer.cornerRadius = 5;
 //    self.blackTint.layer.borderColor = [[UIColor blackColor] CGColor];
     self.categoryLabel.text = keyString;
     [self setIcon:keyString];
