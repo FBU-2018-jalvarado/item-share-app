@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *itemsSelling;
 @property (weak, nonatomic) IBOutlet UIButton *itemsBooked;
 @property (weak, nonatomic) IBOutlet UIView *viewProfile;
+@property (weak, nonatomic) IBOutlet UIView *nameView;
+@property (weak, nonatomic) IBOutlet UIImageView *starImage;
 
 
 @property (strong, nonatomic) NSArray *profileCellArray;

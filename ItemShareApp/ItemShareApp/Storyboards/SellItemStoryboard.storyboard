@@ -378,7 +378,6 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="g1S-vg-KT1">
                                 <rect key="frame" x="16" y="17" width="343" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Yz9-FI-LPS">
                                     <size key="itemSize" width="107" height="63"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
