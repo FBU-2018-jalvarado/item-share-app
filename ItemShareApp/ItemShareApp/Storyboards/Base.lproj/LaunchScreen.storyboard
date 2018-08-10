@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wolfshop" translatesAutoresizingMaskIntoConstraints="NO" id="hXQ-wH-G2k">
-                                <rect key="frame" x="-74" y="34" width="523" height="633"/>
+                                <rect key="frame" x="19" y="146" width="336" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
