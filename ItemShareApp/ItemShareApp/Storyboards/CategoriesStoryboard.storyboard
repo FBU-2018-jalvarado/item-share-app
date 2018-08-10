@@ -256,7 +256,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cat name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXj-EN-WVz">
-                                                    <rect key="frame" x="101" y="15" width="83.5" height="21"/>
+                                                    <rect key="frame" x="101" y="12" width="83.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="l1V-58-A7W"/>
                                                     </constraints>
@@ -294,14 +294,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothing" translatesAutoresizingMaskIntoConstraints="NO" id="rxi-hu-r6w">
-                                                    <rect key="frame" x="20" y="11" width="34" height="34"/>
+                                                    <rect key="frame" x="13" y="8" width="34" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="FK7-CA-2r4"/>
                                                         <constraint firstAttribute="width" constant="34" id="iuK-Cy-xP2"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="item name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMb-CO-4p0">
-                                                    <rect key="frame" x="74" y="11" width="89" height="21"/>
+                                                    <rect key="frame" x="67" y="8" width="89" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ggH-1D-b1r"/>
                                                     </constraints>
@@ -310,7 +310,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luU-El-12b">
-                                                    <rect key="frame" x="74" y="35" width="91.5" height="18"/>
+                                                    <rect key="frame" x="67" y="32" width="91.5" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="LRG-IC-yVr"/>
                                                     </constraints>
@@ -710,8 +710,8 @@
                                         <color key="textColor" red="0.29803921570000003" green="0.83529411760000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gray_star" translatesAutoresizingMaskIntoConstraints="NO" id="ai4-FR-1ku">
-                                        <rect key="frame" x="139.5" y="136" width="19" height="19"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="greenstar" translatesAutoresizingMaskIntoConstraints="NO" id="ai4-FR-1ku">
+                                        <rect key="frame" x="143" y="139" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="IwH-Ll-cwT"/>
                                             <constraint firstAttribute="width" constant="19" id="mSZ-pQ-l19"/>
@@ -1148,10 +1148,10 @@
         <image name="booked" width="427" height="547"/>
         <image name="clothing" width="260" height="194"/>
         <image name="electronics" width="4000" height="2670"/>
-        <image name="gray_star" width="2000" height="1918"/>
         <image name="grayarrow" width="338" height="338"/>
         <image name="grayarrowdown" width="338" height="338"/>
         <image name="graybar" width="626" height="626"/>
+        <image name="greenstar" width="1220" height="1161"/>
         <image name="help" width="225" height="225"/>
         <image name="imageView:jQZ-pU-CBf:image" width="447" height="445">
             <mutableData key="keyedArchiveRepresentation">

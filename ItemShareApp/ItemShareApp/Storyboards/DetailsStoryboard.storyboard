@@ -30,15 +30,13 @@
                                             <segue destination="efd-2b-SBf" kind="embed" identifier="CarouselSegue" id="TRR-z3-Xaz"/>
                                         </connections>
                                     </containerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvS-lF-FJp">
-                                        <rect key="frame" x="10" y="11" width="59" height="32"/>
-                                        <color key="backgroundColor" red="0.97933279419999997" green="0.97807776489999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvS-lF-FJp">
+                                        <rect key="frame" x="10" y="11" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="ade-TU-aSU"/>
                                             <constraint firstAttribute="width" constant="59" id="uBe-IN-bJB"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <state key="normal" title="Back">
+                                        <state key="normal" title="Back" image="closeButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -157,7 +155,7 @@
                                     <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Etz-Kr-sds">
                                         <rect key="frame" x="167" y="383" width="39" height="37.5"/>
                                         <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="currentPageIndicatorTintColor" red="0.29803921570000003" green="0.83529411760000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </pageControl>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hf0-Qf-VUo">
                                         <rect key="frame" x="18" y="713" width="338" height="274"/>
@@ -495,7 +493,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NpG-ks-bkY" customClass="iCarousel">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -509,11 +507,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gti-dh-Ayt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-842.39999999999998" y="324.7376311844078"/>
+            <point key="canvasLocation" x="-842.39999999999998" y="324.28785607196403"/>
         </scene>
     </scenes>
     <resources>
         <image name="ApplePaySwagButton" width="194" height="64"/>
+        <image name="closeButton" width="512" height="512"/>
         <image name="location-gray" width="512" height="512"/>
     </resources>
 </document>
