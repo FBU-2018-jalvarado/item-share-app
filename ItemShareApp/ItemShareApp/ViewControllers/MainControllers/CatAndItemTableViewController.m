@@ -135,7 +135,7 @@
         UINavigationController *navVC = [segue destinationViewController];
         CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
         categoriesViewController.firstPage = YES;
-        categoriesViewController.title = @"Categories";
+        categoriesViewController.title = @"What are you looking for?";
         categoriesViewController.delegate = self.delegate;
     }
 }
