@@ -27,7 +27,7 @@
 NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotation";
 NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
 
-@interface MapViewController () <PreviousControllerDelegate, GMSMapViewDelegate, CLLocationManagerDelegate, DetailsViewControllerDelegate, UISearchBarDelegate>
+@interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, DetailsViewControllerDelegate, UISearchBarDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UILabel *fetchLabel;
@@ -236,7 +236,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             [self.markersArray addObject:marker];
             [self.markersItemsArray addObject:item];
             marker.title = item.title;
-            marker.icon = [UIImage imageNamed:@"dogPin2"];
+            marker.icon = [UIImage imageNamed:@"pickHole2"];
             marker.item = item;
             marker.address = item.address;
             marker.map = self.googleMapView;
@@ -256,7 +256,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [self.markersArray addObject:marker];
     [self.markersItemsArray addObject:item];
     marker.title = item.title;
-    marker.icon = [UIImage imageNamed:@"dogPin2"];
+    marker.icon = [UIImage imageNamed:@"pickHole2"];
     marker.item = item;
     marker.address = item.address;
     marker.map = self.googleMapView;

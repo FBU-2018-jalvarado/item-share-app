@@ -143,7 +143,8 @@
 //    {
 //        [self dismissViewControllerAnimated:YES completion:nil];
 //    }
-//    
+//
+    [self.view endEditing:YES];
     [self.delegate showHUD];
     
     NSArray *arrayOfKeys = [self.categories allKeys];

@@ -169,7 +169,7 @@
     {
         // empty the category array and populate the items with ones w that have  category
         [self choseCat:self.categoryRows[indexPath.row]];
-        [self.delegate goToMap];
+        [self.delegate goToMap:YES];
     }
     // if its an item cell
     else {
@@ -181,7 +181,7 @@
         [self.delegate filterInMap:theOneItemArray];
         [self.catAndItemTableView deselectRowAtIndexPath:indexPath animated:YES];
         // dismiss the search view
-        [self.delegate goToMap];
+        [self.delegate goToMap:NO];
     }
 }
 
