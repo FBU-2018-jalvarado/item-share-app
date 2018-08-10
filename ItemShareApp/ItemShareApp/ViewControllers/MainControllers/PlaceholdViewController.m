@@ -177,7 +177,7 @@
         CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
 //        [categoriesViewController.navigationItem.backBarButtonItem] = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         categoriesViewController.firstPage = YES;
-        categoriesViewController.title = @"Categories";
+        categoriesViewController.title = @"What are you looking for?";
         categoriesViewController.delegate = self;
     }
     if([segue.identifier isEqualToString:@"catAndItemTableSegue"])

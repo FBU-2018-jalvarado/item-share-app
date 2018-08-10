@@ -35,6 +35,9 @@
     //your item views move off-screen
 
 }
+- (void)tapImage {
+    [self.delegate choosePic:NO];
+}
 
 //- (void)dealloc
 //{
@@ -102,6 +105,11 @@
         //this `if (view == nil) {...}` statement because the view will be
         //recycled and used with other index values later
         view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0f, 375.0f)];
+        view.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage)];
+        tap.numberOfTapsRequired = 1;
+        [view addGestureRecognizer:tap];
+        
         if([self.parentVC isEqualToString:@"detail"])
         {
             view.file = self.images[index];

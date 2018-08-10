@@ -49,39 +49,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-Ho-VrY">
-                                <rect key="frame" x="321" y="37" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="edit-orange-color"/>
-                                <connections>
-                                    <segue destination="ba1-cd-WDL" kind="presentation" identifier="sellSegue" id="Y0b-Gp-snI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-j1-H4w">
-                                <rect key="frame" x="321" y="220" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="qr-orange"/>
-                                <connections>
-                                    <segue destination="7E8-3m-uoB" kind="show" id="BXF-Af-MZ7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
-                                <rect key="frame" x="321" y="160" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="compass-orange"/>
-                                <connections>
-                                    <action selector="recenterButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="t7g-nM-Wcx"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fetch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywe-gT-ZUR">
-                                <rect key="frame" x="25" y="30" width="65" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Optima-BoldItalic" family="Optima" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-21-mBm">
-                                <rect key="frame" x="321" y="97" width="48" height="48"/>
+                                <rect key="frame" x="15" y="37" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
@@ -96,13 +65,36 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.84225359659999999" green="1" blue="0.65957246790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-Ho-VrY">
+                                <rect key="frame" x="321" y="37" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="edit-orange-color"/>
+                                <connections>
+                                    <segue destination="ba1-cd-WDL" kind="presentation" identifier="sellSegue" id="Y0b-Gp-snI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-j1-H4w">
+                                <rect key="frame" x="321" y="153" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="qr-orange"/>
+                                <connections>
+                                    <segue destination="7E8-3m-uoB" kind="show" id="BXF-Af-MZ7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
+                                <rect key="frame" x="321" y="97" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="compass-orange"/>
+                                <connections>
+                                    <action selector="recenterButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="t7g-nM-Wcx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="N7T-PW-YyS"/>
                     </view>
                     <connections>
                         <outlet property="QRButton" destination="h4l-j1-H4w" id="qi1-sE-rWJ"/>
-                        <outlet property="fetchLabel" destination="Ywe-gT-ZUR" id="B1U-gp-TJV"/>
                         <outlet property="googleMapView" destination="aWK-ul-y0W" id="3nl-Q6-k4U"/>
                         <outlet property="homeButtonBackgroundView" destination="mBE-21-mBm" id="Csd-55-5Nm"/>
                         <outlet property="postButton" destination="kvI-Ho-VrY" id="pgO-SB-8kW"/>

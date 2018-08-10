@@ -12,7 +12,8 @@
 #import <Parse/Parse.h>
 #import "User.h"
 #import "CategoriesViewController.h"
-//#import "NYTPhotosViewController.h"
+
+
 #import <QuartzCore/QuartzCore.h>
 #import <ParseUI/ParseUI.h>
 #import <GooglePlaces/GooglePlaces.h>
@@ -21,7 +22,7 @@
 #import "ColorScheme.h"
 
 
-@interface SellItemViewController () <UITextViewDelegate>
+@interface SellItemViewController () <UITextViewDelegate, iCarouselViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *itemTitle;
 @property (weak, nonatomic) IBOutlet UITextField *itemAddress;
@@ -53,6 +54,8 @@
 @property (strong, nonatomic) HoshiTextField *priceTextField;
 @property (weak, nonatomic) IBOutlet UIView *locationView;
 @property (strong, nonatomic) NSString *formattedAddress;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
+
 
 @property (strong, nonatomic) ColorScheme *colors;
 @end
@@ -68,17 +71,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // setup UI
-    self.backButton.backgroundColor = [UIColor clearColor];
+    self.backButton.backgroundColor = self.colors.mainColor;
     self.backButton.layer.cornerRadius = 5;
-    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.backButton.layer.borderWidth = 1;
+    self.postButton.layer.cornerRadius = 5;
+//    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//    self.backButton.layer.borderWidth = 1;
     self.itemImage.layer.borderColor = [[UIColor blackColor] CGColor];
     self.itemImage.layer.borderWidth = 2;
     self.descripLabel.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.descripLabel.layer.borderWidth = 1;
+    self.descripLabel.layer.cornerRadius = 5;
     CGFloat contentWidth = self.scrollView.bounds.size.width;
     CGFloat contentHeight = self.scrollView.bounds.size.height * 3;
     self.scrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
+    //self.categoryView.backgroundColor = self.colors.mainColor;
     [self setUpItemTextField];
     [self setUpPriceTextField];
     
@@ -389,7 +395,7 @@ didFailAutocompleteWithError:(NSError *)error {
          UINavigationController *navVC = [segue destinationViewController];
          CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
          categoriesViewController.firstPage = YES;
-         categoriesViewController.title = @"Categories";
+         categoriesViewController.title = @"What are you looking for?";
          categoriesViewController.sellDelegate = self;
      }
      if([segue.identifier isEqualToString:@"imageCarouselSegue"])
