@@ -17,7 +17,7 @@
 #import "Category.h"
 #import "ColorScheme.h"
 
-@interface PlaceholdViewController () <UISearchBarDelegate>
+@interface PlaceholdViewController () <UISearchBarDelegate, CategoriesViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *categoryCollV;
 @property (weak, nonatomic) IBOutlet UIView *catAndItemTableV;
 @property CategoriesViewController *categoryCollectionView;
@@ -59,6 +59,8 @@
 - (IBAction)fetchSearch:(id)sender {
     [self showSearch];
 }
+
+
 
 - (void)showSearch {
     [UIView animateWithDuration:0.5 animations:^{
@@ -189,6 +191,10 @@
     [self.placeholderDelegate dismissHUD];
 }
 
+- (void)showHUD {
+    [self.placeholderDelegate showHUD];
+}
+
 - (void)fetchItems {
     
     PFQuery *itemQuery = [Item query];
@@ -257,7 +263,4 @@
     [self.catAndItemTableViewController.catAndItemTableView reloadData];
 }
 
-- (void)showHUD {
-    [self.placeholderDelegate showHUD];
-}
 @end

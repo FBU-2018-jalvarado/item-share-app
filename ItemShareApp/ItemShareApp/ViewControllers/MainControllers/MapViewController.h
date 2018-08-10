@@ -38,6 +38,7 @@
 
 - (void)removeAllMarkersButUserLocation;
 - (void)addMarkers: (NSMutableArray *)filteredItemsArray;
+- (void)zoomOutMap;
 
 
 @end

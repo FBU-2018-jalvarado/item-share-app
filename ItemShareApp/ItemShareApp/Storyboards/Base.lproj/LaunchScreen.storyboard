@@ -18,7 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notranswolf" translatesAutoresizingMaskIntoConstraints="NO" id="hXQ-wH-G2k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="hiq-FD-Ixs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wolfshop" translatesAutoresizingMaskIntoConstraints="NO" id="hXQ-wH-G2k">
                                 <rect key="frame" x="131" y="247" width="112" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -40,6 +44,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="notranswolf" width="909" height="909"/>
+        <image name="backgroundGradient" width="944" height="1490"/>
+        <image name="wolfshop" width="911" height="1024"/>
     </resources>
 </document>

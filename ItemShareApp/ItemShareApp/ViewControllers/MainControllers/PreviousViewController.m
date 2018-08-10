@@ -232,7 +232,7 @@
         [self.placeholdViewController hideSearch];
     }
     if(zoom){
-        [self.previousDelegate zoomOutMap];
+        [self.mapController zoomOutMap];
     }
     [self.view endEditing:YES];
 }
@@ -296,7 +296,6 @@
     }
     else if([segue.identifier isEqualToString:@"mapSegue"]){
         self.mapController = [segue destinationViewController];
-        self.previousDelegate = self.mapController;
         self.mapController.mapDelegate = self;
     }
 }
