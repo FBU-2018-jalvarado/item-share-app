@@ -24,7 +24,7 @@
 
 - (void)addAnnotationsInMap:(NSMutableArray*)filteredItemArray;
 - (void)removeAnnotationsInMap;
-
+- (void)zoomOut;
 
 @end
 
