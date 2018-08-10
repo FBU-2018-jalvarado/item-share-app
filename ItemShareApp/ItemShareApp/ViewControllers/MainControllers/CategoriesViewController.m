@@ -42,7 +42,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if([self.title isEqualToString:@"Categories"])
+    if([self.title isEqualToString:@"What are you looking for?"])
     {
         [self.delegate fetchItems];
 //        [self.delegate filterInMap];
@@ -128,7 +128,7 @@
 //    }
     [cell setCategory:self.arrayOfKeys[indexPath.item]];
     UIView *selectionColor = [[UIView alloc] init];
-    selectionColor.backgroundColor = [UIColor lightGrayColor];
+    selectionColor.backgroundColor = self.colors.mainColor;
     cell.selectedBackgroundView = selectionColor;
     return cell;
 }
