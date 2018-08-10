@@ -12,6 +12,7 @@
 @protocol iCarouselViewControllerDelegate
 
 - (void)updatePage:(NSInteger)index;
+- (void)choosePic:(BOOL) oldPic;
 
 @end
 

@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *itemarray;
 @property (weak, nonatomic) IBOutlet UIView *searchResultsView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+@property (strong, nonatomic) IBOutlet UIView *catView;
 
 @property (strong, nonatomic) NSArray *lastCats;
 
@@ -56,15 +57,16 @@
     Category *cat = [Category new];
     [cat setCats];
     self.lastCats = cat.lastLevel;
+    //self.catView.backgroundColor = self.colors.mainColor;
     
     self.itemarray = [[NSMutableArray alloc] init];
     self.categoryCollView.delegate = self;
     self.categoryCollView.dataSource = self;
-    self.categoryCollView.backgroundColor = self.colors.mainColor;
-    self.view.backgroundColor = self.colors.mainColor;
-    self.searchResultsView.backgroundColor = [self.colors.mainColor colorWithAlphaComponent:0.8];
+    //self.categoryCollView.backgroundColor = self.colors.mainColor;
+    //self.view.backgroundColor = self.colors.mainColor;
+    //self.searchResultsView.backgroundColor = [self.colors.mainColor colorWithAlphaComponent:0.8];
     self.searchResultsView.layer.cornerRadius = 8;
-    self.topView.backgroundColor = self.colors.mainColor;
+    //self.topView.backgroundColor = self.colors.mainColor;
     self.view.backgroundColor = [UIColor whiteColor];
     
     // Do any additional setup after loading the view.
@@ -126,7 +128,7 @@
 //    }
     [cell setCategory:self.arrayOfKeys[indexPath.item]];
     UIView *selectionColor = [[UIView alloc] init];
-    selectionColor.backgroundColor = self.colors.mainColor;
+    selectionColor.backgroundColor = [UIColor lightGrayColor];
     cell.selectedBackgroundView = selectionColor;
     return cell;
 }

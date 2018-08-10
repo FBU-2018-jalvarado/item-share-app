@@ -79,7 +79,7 @@
 
 - (void)setUpUI {
     
-    self.backButton.backgroundColor = [UIColor clearColor];
+    self.backButton.backgroundColor = self.colors.mainColor;
     self.backButton.layer.cornerRadius = 5;
     self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
     self.backButton.layer.borderWidth = 1;

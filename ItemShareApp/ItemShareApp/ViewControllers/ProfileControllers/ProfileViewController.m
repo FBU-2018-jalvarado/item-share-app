@@ -20,6 +20,7 @@
 @property (strong, nonatomic) QRPopUpController * QRPopUpVC;
 @property (weak, nonatomic) IBOutlet UIButton *itemsSelling;
 @property (weak, nonatomic) IBOutlet UIButton *itemsBooked;
+@property (weak, nonatomic) IBOutlet UIView *viewProfile;
 
 
 @property (strong, nonatomic) NSArray *profileCellArray;
@@ -38,6 +39,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.profileCellArray = @[@"Profile", @"Item History"];
+    self.viewProfile.backgroundColor = self.colors.mainColor;
     User *user = (User *)[PFUser currentUser];
     if(user[@"profile_image"] != nil){
         self.profilePicture.file = user[@"profile_image"];
