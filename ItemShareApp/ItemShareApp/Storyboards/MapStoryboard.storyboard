@@ -62,7 +62,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="qr-orange"/>
                                 <connections>
-                                    <action selector="QRButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="CzY-Ke-9JY"/>
                                     <segue destination="7E8-3m-uoB" kind="show" id="BXF-Af-MZ7"/>
                                 </connections>
                             </button>
