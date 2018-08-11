@@ -71,7 +71,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // setup UI
-    self.backButton.backgroundColor = self.colors.mainColor;
+//    self.backButton.backgroundColor = self.colors.mainColor;
     self.backButton.layer.cornerRadius = 5;
     self.postButton.layer.cornerRadius = 5;
 //    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -395,7 +395,7 @@ didFailAutocompleteWithError:(NSError *)error {
          UINavigationController *navVC = [segue destinationViewController];
          CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
          categoriesViewController.firstPage = YES;
-         categoriesViewController.title = @"What are you looking for?";
+         categoriesViewController.title = @"Classify the item";
          categoriesViewController.sellDelegate = self;
      }
      if([segue.identifier isEqualToString:@"imageCarouselSegue"])

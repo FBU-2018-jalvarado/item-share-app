@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="SellItemStoryboard" id="ba1-cd-WDL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3g-lZ-9bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-718" y="-335"/>
+            <point key="canvasLocation" x="-496" y="-255"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="NXX-bu-HVk">
@@ -49,12 +49,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-21-mBm">
-                                <rect key="frame" x="15" y="37" width="48" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enL-DB-SEG">
+                                <rect key="frame" x="309" y="22" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="menu"/>
+                                <connections>
+                                    <action selector="menuButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="Cm0-J9-WXn"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-21-mBm">
+                                <rect key="frame" x="321" y="37" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
-                                        <rect key="frame" x="8" y="8" width="33" height="33"/>
+                                        <rect key="frame" x="8" y="5" width="33" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.45621816479999999" green="0.72745919660000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" backgroundImage="house-icon-color"/>
@@ -65,28 +73,52 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.84225359659999999" green="1" blue="0.65957246790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-Ho-VrY">
-                                <rect key="frame" x="321" y="37" width="48" height="48"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-Ho-VrY">
+                                <rect key="frame" x="321" y="97" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="edit-orange-color"/>
                                 <connections>
-                                    <segue destination="ba1-cd-WDL" kind="presentation" identifier="sellSegue" id="Y0b-Gp-snI"/>
+                                    <segue destination="ba1-cd-WDL" kind="presentation" identifier="sellSegue1" id="Y0b-Gp-snI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-j1-H4w">
-                                <rect key="frame" x="321" y="153" width="48" height="48"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4l-j1-H4w">
+                                <rect key="frame" x="321" y="208" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="qr-orange"/>
                                 <connections>
                                     <segue destination="7E8-3m-uoB" kind="show" id="BXF-Af-MZ7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
-                                <rect key="frame" x="321" y="97" width="48" height="48"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
+                                <rect key="frame" x="321" y="153" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="compass-orange"/>
                                 <connections>
                                     <action selector="recenterButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="t7g-nM-Wcx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rq-8F-6xN">
+                                <rect key="frame" x="308" y="209" width="71" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="qr"/>
+                                <connections>
+                                    <segue destination="7E8-3m-uoB" kind="show" id="Em0-8L-DlB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMq-OS-1oj">
+                                <rect key="frame" x="312" y="84" width="62" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="post"/>
+                                <connections>
+                                    <segue destination="ba1-cd-WDL" kind="show" identifier="sellSegue" id="j0x-GE-ZU1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-H2-ogE">
+                                <rect key="frame" x="328" y="160" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="nav"/>
+                                <connections>
+                                    <action selector="recenterButtonTap:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="93l-Dn-ynt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,6 +128,7 @@
                     <connections>
                         <outlet property="QRButton" destination="h4l-j1-H4w" id="qi1-sE-rWJ"/>
                         <outlet property="googleMapView" destination="aWK-ul-y0W" id="3nl-Q6-k4U"/>
+                        <outlet property="homeButton" destination="enL-DB-SEG" id="9C9-cM-KJX"/>
                         <outlet property="homeButtonBackgroundView" destination="mBE-21-mBm" id="Csd-55-5Nm"/>
                         <outlet property="postButton" destination="kvI-Ho-VrY" id="pgO-SB-8kW"/>
                         <outlet property="profileButton" destination="QCP-vZ-UHZ" id="is2-9V-7Ah"/>
@@ -131,6 +164,14 @@
         <image name="compass-orange" width="512" height="512"/>
         <image name="edit-orange-color" width="512" height="512"/>
         <image name="house-icon-color" width="1024" height="1024"/>
+        <image name="menu" width="180" height="167"/>
+        <image name="nav" width="92" height="94"/>
+        <image name="post" width="173" height="174"/>
+        <image name="qr" width="175" height="184"/>
         <image name="qr-orange" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BXF-Af-MZ7"/>
+        <segue reference="j0x-GE-ZU1"/>
+    </inferredMetricsTieBreakers>
 </document>

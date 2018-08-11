@@ -42,11 +42,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fetchView.backgroundColor = self.colors.mainColor;
+//    self.fetchView.backgroundColor = [UIColor blueColor];
+//    self.fetchView.clipsToBounds = YES;
+//    self.fetchView.layer.cornerRadius = 5;
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.fetchView.bounds byRoundingCorners:UIRectCornerTopLeft| UIRectCornerTopRight cornerRadii:CGSizeMake(10.0, 10.0)];
+    // Create the shape layer and set its path
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.fetchView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    // Set the newly created shape layer as the mask for the image view's layer
+    self.fetchView.layer.mask = maskLayer;
+    UIBezierPath *maskPath1 = [UIBezierPath bezierPathWithRoundedRect:self.searchBar.bounds byRoundingCorners:UIRectCornerTopLeft| UIRectCornerTopRight cornerRadii:CGSizeMake(15.0, 15.0)];
+    // Create the shape layer and set its path
+    CAShapeLayer *maskLayer1 = [CAShapeLayer layer];
+    maskLayer1.frame = self.searchBar.bounds;
+    maskLayer1.path = maskPath1.CGPath;
+    // Set the newly created shape layer as the mask for the image view's layer
+    self.searchBar.layer.mask = maskLayer1;
+//    self.fetchView.layer.maskedCorners = [self.fetchView.minx.layerMinXMinYCorner,.layerMaxXMinYCorner];
     self.searchBar.barTintColor = self.colors.mainColor;
     self.searchBar.layer.borderWidth = 1;
     self.searchBar.layer.borderColor = self.colors.mainColor.CGColor;
     // from SearchBar
     self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"Try \"yacht\"";
     self.categoryArray = [[NSMutableArray alloc] init];
     Category *category = [[Category alloc] init];
     [category setCats];
@@ -57,16 +76,26 @@
 }
 
 - (IBAction)fetchSearch:(id)sender {
-    [self showSearch];
+    [self showSearch:YES];
 }
 
 
 
-- (void)showSearch {
+- (void)showSearch:(BOOL)shouldGoUp {
     [UIView animateWithDuration:0.5 animations:^{
         self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x-375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
         self.fetchView.alpha = 0;
-        [self.placeholderDelegate showSearchView];
+        if(shouldGoUp)
+        {
+            [self.placeholderDelegate showSearchView];
+        }
+    }];
+}
+
+- (void)showSearchSlow {
+    [UIView animateWithDuration:1.0 animations:^{
+        self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x-375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
+        self.fetchView.alpha = 0;
     }];
 }
 
@@ -91,8 +120,12 @@
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    if(searchBar.text.length == 0)
+    {
+        //get rid of the "no items avail because its covering the category coll view since its alpha is 1 but not showing yet on the view"
+    }
     self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
-    [self.placeholderDelegate showSearchView];
+    //[self.placeholderDelegate showSearchView];
     [self filterInMap:self.catAndItemTableViewController.itemRows];
 }
 
@@ -123,7 +156,7 @@
     else {
         //UI
         [self emptyTextBarFormat];
-        
+        // also disable the item not avail
         // along w all items and categories in the table view
         
         self.filteredItemsArray = self.itemsArray;

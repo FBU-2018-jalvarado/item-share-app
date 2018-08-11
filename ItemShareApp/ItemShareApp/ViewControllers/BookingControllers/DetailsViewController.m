@@ -79,10 +79,10 @@
 
 - (void)setUpUI {
     
-    self.backButton.backgroundColor = self.colors.mainColor;
+//    self.backButton.backgroundColor = self.colors.mainColor;
     self.backButton.layer.cornerRadius = 5;
-    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.backButton.layer.borderWidth = 1;
+//    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//    self.backButton.layer.borderWidth = 1;
     //image setup
     self.itemImageView.file = [self.item.images firstObject];
     [self.itemImageView loadInBackground];
