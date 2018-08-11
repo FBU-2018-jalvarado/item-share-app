@@ -76,16 +76,26 @@
 }
 
 - (IBAction)fetchSearch:(id)sender {
-    [self showSearch];
+    [self showSearch:YES];
 }
 
 
 
-- (void)showSearch {
+- (void)showSearch:(BOOL)shouldGoUp {
     [UIView animateWithDuration:0.5 animations:^{
         self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x-375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
         self.fetchView.alpha = 0;
-        [self.placeholderDelegate showSearchView];
+        if(shouldGoUp)
+        {
+            [self.placeholderDelegate showSearchView];
+        }
+    }];
+}
+
+- (void)showSearchSlow {
+    [UIView animateWithDuration:1.0 animations:^{
+        self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x-375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
+        self.fetchView.alpha = 0;
     }];
 }
 
@@ -110,8 +120,12 @@
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    if(searchBar.text.length == 0)
+    {
+        //get rid of the "no items avail because its covering the category coll view since its alpha is 1 but not showing yet on the view"
+    }
     self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
-    [self.placeholderDelegate showSearchView];
+    //[self.placeholderDelegate showSearchView];
     [self filterInMap:self.catAndItemTableViewController.itemRows];
 }
 
@@ -142,7 +156,7 @@
     else {
         //UI
         [self emptyTextBarFormat];
-        
+        // also disable the item not avail
         // along w all items and categories in the table view
         
         self.filteredItemsArray = self.itemsArray;
