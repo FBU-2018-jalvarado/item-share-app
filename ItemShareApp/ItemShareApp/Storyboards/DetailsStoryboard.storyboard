@@ -172,7 +172,7 @@
                                             <constraint firstAttribute="height" constant="51" id="2ma-oZ-nIs"/>
                                             <constraint firstAttribute="width" constant="150" id="IRf-2e-gZC"/>
                                         </constraints>
-                                        <state key="normal" image="ApplePaySwagButton">
+                                        <state key="normal" image="buyApplePayGreen">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -511,7 +511,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ApplePaySwagButton" width="194" height="64"/>
+        <image name="buyApplePayGreen" width="393" height="130"/>
         <image name="closeButton" width="512" height="512"/>
         <image name="location-gray" width="512" height="512"/>
     </resources>

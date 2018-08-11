@@ -107,7 +107,10 @@
         //don't do anything specific to the index within
         //this `if (view == nil) {...}` statement because the view will be
         //recycled and used with other index values later
-        view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0f, 375.0f)];
+//        view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0f, 375.0f)];
+        view = [[PFImageView alloc] initWithFrame:CGRectMake(15, 15, 345.0f, 345.0f)];
+        view.clipsToBounds = YES;
+        view.layer.cornerRadius = 5;
         view.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage)];
         tap.numberOfTapsRequired = 1;
@@ -159,7 +162,7 @@
 {
     if (option == iCarouselOptionSpacing)
     {
-        return value * 1;
+        return value * 1.1;
     }
     if (option == iCarouselOptionWrap)
     {
