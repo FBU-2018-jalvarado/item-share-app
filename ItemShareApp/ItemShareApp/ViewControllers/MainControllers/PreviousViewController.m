@@ -62,8 +62,10 @@
     [super viewDidLoad];
     
     // move searchView to bottom to raise to top when pressed
-    [self arrowAndSearchViewMove:462];
-    [self moveArrows:-468];
+//    [self arrowAndSearchViewMove:462];
+//    [self moveArrows:-468];
+    [self arrowAndSearchViewMove:262];
+    [self moveArrows:-270];
     // move profileView out of screen to bring in later
     self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
     // adjust table view size
@@ -107,12 +109,11 @@
     {
         [self showSearchView];
     }
-    else
+    else if(self.searchView.frame.origin.y == 50)
     {
-        if(self.searchView.frame.origin.y == 50)
-        {
-            [self dismissToMap:NO];
-        }
+        [self dismissToMap:NO];
+    }
+    else {
     }
 }
 
@@ -189,6 +190,18 @@
             [self createBlur];
             [self.placeholdViewController showSearch];
         }
+        if(self.searchView.frame.origin.y == 411)
+        {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self arrowAndSearchViewMove:-361];
+                self.upArrow.alpha = 0;
+                self.downArrow.alpha = 1;
+                [self moveArrows:361];
+                [self.placeholdViewController.searchBar becomeFirstResponder];
+            }];
+            [self createBlur];
+            [self.placeholdViewController showSearch];
+        }
     }
 }
 
@@ -202,6 +215,21 @@
                 self.upArrow.alpha = 0;
                 self.downArrow.alpha = 1;
                 [self moveArrows:561];
+                [self.placeholdViewController.searchBar becomeFirstResponder];
+            }];
+            if(self.placeholdViewController.fetchView.frame.origin.x == 0)
+            {
+                [self.placeholdViewController showSearch];
+            }
+            [self createBlur];
+        }
+        if(self.searchView.frame.origin.y == 411)
+        {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self arrowAndSearchViewMove:-361];
+                self.upArrow.alpha = 0;
+                self.downArrow.alpha = 1;
+                [self moveArrows:361];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
             if(self.placeholdViewController.fetchView.frame.origin.x == 0)
@@ -230,9 +258,31 @@
             }
         }];
         [self.placeholdViewController hideSearch];
+        if(zoom){
+            [self.mapController zoomOutMap];
+        }
     }
-    if(zoom){
-        [self.mapController zoomOutMap];
+    
+    [self.view endEditing:YES];
+    if(self.searchView.frame.origin.y == 411)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self arrowAndSearchViewMove:200];
+            self.downArrow.alpha = 0;
+            self.upArrow.alpha = 1;
+            self.blurredView.alpha = 0;
+            [self moveArrows:-200];
+        }
+                         completion:^(BOOL finished){
+                             if (finished) {
+                                 // Do your method here after your animation.
+                                 //[self.blurredView removeFromSuperview];
+                             }
+                         }];
+        [self.placeholdViewController hideSearch];
+        if(zoom){
+            [self.mapController zoomOutMap];
+        }
     }
     [self.view endEditing:YES];
 }

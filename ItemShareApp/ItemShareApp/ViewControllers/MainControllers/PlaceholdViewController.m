@@ -52,7 +52,7 @@
     maskLayer.path = maskPath.CGPath;
     // Set the newly created shape layer as the mask for the image view's layer
     self.fetchView.layer.mask = maskLayer;
-    UIBezierPath *maskPath1 = [UIBezierPath bezierPathWithRoundedRect:self.searchBar.bounds byRoundingCorners:UIRectCornerTopLeft| UIRectCornerTopRight cornerRadii:CGSizeMake(10.0, 10.0)];
+    UIBezierPath *maskPath1 = [UIBezierPath bezierPathWithRoundedRect:self.searchBar.bounds byRoundingCorners:UIRectCornerTopLeft| UIRectCornerTopRight cornerRadii:CGSizeMake(15.0, 15.0)];
     // Create the shape layer and set its path
     CAShapeLayer *maskLayer1 = [CAShapeLayer layer];
     maskLayer1.frame = self.searchBar.bounds;
