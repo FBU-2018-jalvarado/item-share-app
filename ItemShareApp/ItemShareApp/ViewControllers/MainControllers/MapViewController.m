@@ -47,6 +47,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 @property (weak, nonatomic) IBOutlet UIButton *profileButton;
 @property (weak, nonatomic) IBOutlet UIButton *recenterButton;
 @property (weak, nonatomic) IBOutlet UIView *homeButtonBackgroundView;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
 
 @property (strong, nonatomic) NSURL *mapStyleURL;
 @property (strong, nonatomic) NSMutableArray *markersArray;
@@ -311,7 +312,15 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     //self.previousUserLocation = mapView.userLocation;
 }
 
+- (IBAction)recenterButtonTap:(id)sender {
+    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:self.googleMapView.myLocation.coordinate zoom:12]];
+}
+
+
 - (IBAction)profileButtonPressed:(id)sender {
+    [self.mapDelegate openSideProfile];
+}
+- (IBAction)menuButtonPressed:(id)sender {
     [self.mapDelegate openSideProfile];
 }
 

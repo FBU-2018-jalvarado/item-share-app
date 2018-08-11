@@ -42,7 +42,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    if([self.title isEqualToString:@"What are you looking for?"])
+    if([self.title isEqualToString:@"What are you looking for?"] || [self.title isEqualToString:@"Classify the item"])
     {
         [self.delegate fetchItems];
 //        [self.delegate filterInMap];
@@ -70,7 +70,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     // Do any additional setup after loading the view.
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.colors setColors];
     

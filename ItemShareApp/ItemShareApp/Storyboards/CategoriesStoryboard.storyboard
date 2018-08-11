@@ -202,7 +202,6 @@
                                 <color key="backgroundColor" red="0.48080581190589633" green="1" blue="0.78261875933252911" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="zNR-Mf-TdC"/>
                     </view>
@@ -601,6 +600,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                             </subviews>
                                         </view>
@@ -710,8 +710,8 @@
                                         <color key="textColor" red="0.29803921570000003" green="0.83529411760000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gray_star" translatesAutoresizingMaskIntoConstraints="NO" id="ai4-FR-1ku">
-                                        <rect key="frame" x="139.5" y="136" width="19" height="19"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="greenstar" translatesAutoresizingMaskIntoConstraints="NO" id="ai4-FR-1ku">
+                                        <rect key="frame" x="143" y="139" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="IwH-Ll-cwT"/>
                                             <constraint firstAttribute="width" constant="19" id="mSZ-pQ-l19"/>
@@ -1148,10 +1148,10 @@
         <image name="booked" width="427" height="547"/>
         <image name="clothing" width="260" height="194"/>
         <image name="electronics" width="4000" height="2670"/>
-        <image name="gray_star" width="2000" height="1918"/>
         <image name="grayarrow" width="338" height="338"/>
         <image name="grayarrowdown" width="338" height="338"/>
         <image name="graybar" width="626" height="626"/>
+        <image name="greenstar" width="1220" height="1161"/>
         <image name="help" width="225" height="225"/>
         <image name="imageView:jQZ-pU-CBf:image" width="447" height="445">
             <mutableData key="keyedArchiveRepresentation">
