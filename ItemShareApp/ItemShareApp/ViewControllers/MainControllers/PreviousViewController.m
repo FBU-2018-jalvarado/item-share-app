@@ -62,10 +62,23 @@
     [super viewDidLoad];
     
     // move searchView to bottom to raise to top when pressed
-//    [self arrowAndSearchViewMove:462];
-//    [self moveArrows:-468];
-    [self arrowAndSearchViewMove:262];
-    [self moveArrows:-270];
+    [self arrowAndSearchViewMove:462];
+    [self moveArrows:-468];
+    //show how it comes up
+    [UIView animateWithDuration:1.5 animations:^{
+        [self arrowAndSearchViewMove:-200];
+        self.upArrow.alpha = 0;
+        //                self.downArrow.alpha = 1;
+        self.grayBar.alpha = 1;
+        [self moveArrows:200];
+        [self.placeholdViewController.searchBar becomeFirstResponder];
+    }];
+    if(self.placeholdViewController.fetchView.frame.origin.x == 0)
+    {
+        [self.placeholdViewController showSearchSlow];
+    }
+//    [self arrowAndSearchViewMove:262];
+//    [self moveArrows:-270];
     // move profileView out of screen to bring in later
     self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
     // adjust table view size
@@ -190,8 +203,8 @@
                 [self moveArrows:200];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
-            [self createBlur];
-            [self.placeholdViewController showSearch];
+//            [self createBlur];
+            [self.placeholdViewController showSearch:NO];
         }
         else if(self.searchView.frame.origin.y == 411)
         {
@@ -204,7 +217,7 @@
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
             [self createBlur];
-            [self.placeholdViewController showSearch];
+            //[self.placeholdViewController showSearch];
         }
     }
 }
@@ -224,9 +237,9 @@
             }];
             if(self.placeholdViewController.fetchView.frame.origin.x == 0)
             {
-                [self.placeholdViewController showSearch];
+                [self.placeholdViewController showSearch:NO];
             }
-            [self createBlur];
+            //[self createBlur];
         }
         else if(self.searchView.frame.origin.y == 411)
         {
@@ -238,10 +251,10 @@
                 [self moveArrows:361];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
-            if(self.placeholdViewController.fetchView.frame.origin.x == 0)
-            {
-                [self.placeholdViewController showSearch];
-            }
+//            if(self.placeholdViewController.fetchView.frame.origin.x == 0)
+//            {
+//                [self.placeholdViewController showSearch];
+//            }
             [self createBlur];
         }
     }
@@ -264,7 +277,7 @@
                 //[self.blurredView removeFromSuperview];
             }
         }];
-        [self.placeholdViewController hideSearch];
+        //[self.placeholdViewController hideSearch];
         if(zoom){
             [self.mapController zoomOutMap];
         }
