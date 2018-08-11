@@ -66,7 +66,8 @@
      UIColor *mainColor =  [UIColor colorWithRed:76.0f/255.0f green:213.0f/255.0f blue:175.0f/255.0f alpha:1.0f];
     //[[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
     // do any other necessary launch configuration
-    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:mainColor];
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 //    [[UINavigationBar appearance] setTitleTextAttributes:
 //     @{NSForegroundColorAttributeName:[UIColor whiteColor],

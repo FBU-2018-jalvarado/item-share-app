@@ -30,11 +30,11 @@
                                             <segue destination="efd-2b-SBf" kind="embed" identifier="CarouselSegue" id="TRR-z3-Xaz"/>
                                         </connections>
                                     </containerView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvS-lF-FJp">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvS-lF-FJp">
                                         <rect key="frame" x="10" y="11" width="50" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="ade-TU-aSU"/>
-                                            <constraint firstAttribute="width" constant="59" id="uBe-IN-bJB"/>
+                                            <constraint firstAttribute="width" constant="50" id="3kS-Wp-rHO"/>
+                                            <constraint firstAttribute="height" constant="50" id="R2f-zk-VXR"/>
                                         </constraints>
                                         <state key="normal" title="Back" image="closeButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

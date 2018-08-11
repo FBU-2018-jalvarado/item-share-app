@@ -36,7 +36,10 @@
 
 }
 - (void)tapImage {
-    [self.delegate choosePic:NO];
+    if([self.parentVC isEqualToString:@"sell"])
+    {
+        [self.delegate choosePic:NO];
+    }
 }
 
 //- (void)dealloc
