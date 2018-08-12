@@ -79,7 +79,6 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     self.markersArray = [NSMutableArray new];
     self.markersItemsArray = [NSMutableArray new];
     
-    [self.mapDelegate showHUD];
     [self fetchItems];
     [self setUpUIGoogle];
    // [self setUpStyle];
@@ -135,9 +134,11 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 
 //retrieve items array
 - (void)fetchItems {
+    [self.mapDelegate showHUD];
     [self.model fetchItemsWithCompletion:^(NSArray<Item *> *items, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
+            [self.mapDelegate dismissHUD];
         }
         if (items) {
             self.itemsArray = [items mutableCopy];

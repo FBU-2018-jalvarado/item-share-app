@@ -17,7 +17,7 @@
 -(void)clearSearchBar;
 -(void)filterInMap:(NSMutableArray *)listOfItems;
 -(void)dismissHUD;
-- (void)showHud;
+-(void)showHUD;
 
 @end
 

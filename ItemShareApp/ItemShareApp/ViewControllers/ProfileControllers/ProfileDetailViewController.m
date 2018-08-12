@@ -159,6 +159,17 @@
     self.line6.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:.1f].CGColor;
 }
 
+- (void)setUpPicture {
+    
+    if(self.user[@"profile_image"] != nil){
+        self.profilePicture.file = self.user[@"profile_image"];
+        [self.profilePicture loadInBackground];
+    }
+    
+    self.profilePicture.layer.cornerRadius = 55;
+    self.profilePicture.clipsToBounds = YES;
+}
+
 //update user profile information
 - (IBAction)doneButtonPressed:(id)sender {
     PFUser *user = [PFUser currentUser];
@@ -187,7 +198,7 @@
         }
         else{
             NSLog(@"success");
-            [self setUpUI];
+            [self setUpPicture];
         }
     }];
 }
