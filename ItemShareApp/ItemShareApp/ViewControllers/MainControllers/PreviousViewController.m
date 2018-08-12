@@ -60,13 +60,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.upArrow.alpha = 0;
+    self.downArrow.alpha = 0;
     // move searchView to bottom to raise to top when pressed
     [self arrowAndSearchViewMove:462];
     [self moveArrows:-468];
+//    [self tableViewMove:462];
     //show how it comes up
     [UIView animateWithDuration:1.2 animations:^{
         [self arrowAndSearchViewMove:-200];
+        [self tableViewMove:-262];
         self.upArrow.alpha = 0;
         //                self.downArrow.alpha = 1;
         self.grayBar.alpha = 1;
@@ -83,7 +86,7 @@
     // move profileView out of screen to bring in later
     self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
     // adjust table view size
-    [self tableViewMove:99];
+//    [self tableViewMove:99];
 //    self.grayBar.alpha = 0;
 //    self.upArrow.alpha = 1;
     self.grayBar.alpha = 1;
@@ -217,6 +220,7 @@
                 self.downArrow.alpha = 1;
                 [self moveArrows:361];
                 [self.mapController moveNav:-361];
+                [self tableViewMove:361];
                 [UIView animateWithDuration:0.3 animations:^{
                     self.mapController.navButton.alpha = 0;
                 }];
@@ -257,6 +261,7 @@
                 self.downArrow.alpha = 1;
                 [self moveArrows:361];
                 [self.mapController moveNav:-361];
+                [self tableViewMove:361];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
             [UIView animateWithDuration:0.3 animations:^{
@@ -276,6 +281,7 @@
     {
         [UIView animateWithDuration:0.5 animations:^{
             [self arrowAndSearchViewMove:361];
+            [self tableViewMove:-361];
             self.downArrow.alpha = 0;
 //            self.upArrow.alpha = 1;
             self.grayBar.alpha = 1;
