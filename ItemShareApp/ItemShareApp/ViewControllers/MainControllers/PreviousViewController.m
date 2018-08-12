@@ -65,12 +65,13 @@
     [self arrowAndSearchViewMove:462];
     [self moveArrows:-468];
     //show how it comes up
-    [UIView animateWithDuration:1.5 animations:^{
+    [UIView animateWithDuration:1.2 animations:^{
         [self arrowAndSearchViewMove:-200];
         self.upArrow.alpha = 0;
         //                self.downArrow.alpha = 1;
         self.grayBar.alpha = 1;
         [self moveArrows:200];
+        [self.mapController moveNav:-200];
         [self.placeholdViewController.searchBar becomeFirstResponder];
     }];
     if(self.placeholdViewController.fetchView.frame.origin.x == 0)
@@ -201,6 +202,7 @@
 //                self.downArrow.alpha = 1;
                 self.grayBar.alpha = 1;
                 [self moveArrows:200];
+                [self.mapController moveNav:-200];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
 //            [self createBlur];
@@ -214,6 +216,10 @@
                 self.grayBar.alpha = 0;
                 self.downArrow.alpha = 1;
                 [self moveArrows:361];
+                [self.mapController moveNav:-361];
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.mapController.navButton.alpha = 0;
+                }];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
             [self createBlur];
@@ -233,6 +239,7 @@
 //                self.downArrow.alpha = 1;
                 self.grayBar.alpha = 1;
                 [self moveArrows:200];
+                [self.mapController moveNav:-200];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
             }];
             if(self.placeholdViewController.fetchView.frame.origin.x == 0)
@@ -249,7 +256,11 @@
                 self.grayBar.alpha = 0;
                 self.downArrow.alpha = 1;
                 [self moveArrows:361];
+                [self.mapController moveNav:-361];
                 [self.placeholdViewController.searchBar becomeFirstResponder];
+            }];
+            [UIView animateWithDuration:0.3 animations:^{
+                self.mapController.navButton.alpha = 0;
             }];
 //            if(self.placeholdViewController.fetchView.frame.origin.x == 0)
 //            {
@@ -270,6 +281,8 @@
             self.grayBar.alpha = 1;
             self.blurredView.alpha = 0;
             [self moveArrows:-361];
+            [self.mapController moveNav:361];
+            self.mapController.navButton.alpha = 1;
         }
         completion:^(BOOL finished){
             if (finished) {
@@ -293,6 +306,7 @@
             self.upArrow.alpha = 1;
             self.blurredView.alpha = 0;
             [self moveArrows:-200];
+            [self.mapController moveNav:200];
         }
                          completion:^(BOOL finished){
                              if (finished) {
