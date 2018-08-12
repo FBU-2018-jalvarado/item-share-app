@@ -430,15 +430,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ex-bl-pAX" customClass="JTCalendarMenuView">
                                 <rect key="frame" x="0.0" y="0.0" width="338" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pbd-To-NNO">
-                                        <rect key="frame" x="83" y="0.0" width="172" height="43"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6MN-t7-uac" customClass="JTHorizontalCalendarView">
                                 <rect key="frame" x="0.0" y="43" width="338" height="225"/>
@@ -452,7 +443,6 @@
                     <connections>
                         <outlet property="calendarContentView" destination="6MN-t7-uac" id="IBn-yR-NnO"/>
                         <outlet property="calendarMenuView" destination="6ex-bl-pAX" id="TQs-V6-35i"/>
-                        <outlet property="monthLabel" destination="Pbd-To-NNO" id="GAR-K3-a8N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxA-1C-4aW" userLabel="First Responder" sceneMemberID="firstResponder"/>

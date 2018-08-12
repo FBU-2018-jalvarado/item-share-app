@@ -320,18 +320,18 @@
     return [firstDate compare:secondDate] == NSOrderedDescending;
 }
 //implementing this with nothing present nothing in contentview of calendar
-- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
-    static NSDateFormatter *dateFormatter;
-    if(!dateFormatter){
-        dateFormatter = [NSDateFormatter new];
-        dateFormatter.dateFormat = @"MMMM";
-        
-        dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
-        dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
-    }
-    
-    self.monthLabel.text = [dateFormatter stringFromDate:date];
-}
+//- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
+//    static NSDateFormatter *dateFormatter;
+//    if(!dateFormatter){
+//        dateFormatter = [NSDateFormatter new];
+//        dateFormatter.dateFormat = @"MMMM";
+//        
+//        dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
+//        dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
+//    }
+//    
+//    self.monthLabel.text = [dateFormatter stringFromDate:date];
+//}
 
 //tips for pod
 
