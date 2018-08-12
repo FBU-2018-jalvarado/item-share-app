@@ -83,9 +83,9 @@
             else if (object){
                 [self.itemsArray addObject:object];
                 // items don't delete from arrays in user automatically, so if not manually deleted from json, the tableview will never reload
-                if (self.itemsArray.count == self.itemsIdArray.count){
+//                if (self.itemsArray.count == self.itemsIdArray.count){
                     [self.tableview reloadData];
-                }
+//                }
             }
         }];
     }
