@@ -336,7 +336,7 @@ didFailAutocompleteWithError:(NSError *)error {
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    editedImage = [self resizeImage:editedImage withSize:CGSizeMake(250, 250)];
+    //editedImage = [self resizeImage:editedImage withSize:CGSizeMake(250, 250)];
     self.itemImage.image = editedImage;
     self.imagePageControl.numberOfPages = self.imagePageControl.numberOfPages + 1;
     if(self.thisIsFirstPic)
