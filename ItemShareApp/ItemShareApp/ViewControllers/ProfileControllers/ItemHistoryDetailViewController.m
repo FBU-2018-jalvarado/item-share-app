@@ -11,7 +11,7 @@
 #import "Item.h"
 #import "User.h"
 #import "QRPopUpController.h"
-#import "ColorScheme.h"
+#import "ColorScheme.h"s
 
 @interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
 
