@@ -71,6 +71,8 @@
     [category setCats];
     self.categoryArray = [category.catArray mutableCopy];
     
+    [self.searchBar resignFirstResponder];
+    
     [self fetchItems];
     // Do any additional setup after loading the view.
 }
@@ -88,6 +90,7 @@
         if(shouldGoUp)
         {
             [self.placeholderDelegate showSearchView];
+            [self.searchBar resignFirstResponder];
         }
     }];
 }
@@ -229,7 +232,7 @@
 }
 
 - (void)fetchItems {
-    
+    [self.placeholderDelegate showHUD];
     PFQuery *itemQuery = [Item query];
     //PFQuery *itemQuery = [PFQuery queryWithClassName:@"Item"];
     [itemQuery orderByDescending:@"createdAt"];
@@ -263,6 +266,7 @@
                 [self filterInMap:self.filteredItemsArray];
                 // stop displaying HUD
                 [self.placeholderDelegate dismissHUD];
+                [self.searchBar resignFirstResponder];
             }
         }
     }];

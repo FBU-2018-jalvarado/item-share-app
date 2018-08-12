@@ -229,6 +229,8 @@
 
 - (IBAction)didTapLogin:(id)sender {
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
     [self loginUser];
 }
 //- (IBAction)didTapRegister:(id)sender {
@@ -240,9 +242,9 @@
     self.loginButton.layer.borderColor = self.colors.mainColor.CGColor;
 //    self.signUpButton.layer.borderColor = [UIColor orangeColor].CGColor;
     self.loginButton.layer.borderWidth = 1;
-    [self.loginButton.titleLabel setTextColor:self.colors.mainColor];
+    [self.loginButton setTitleColor:self.colors.mainColor forState:UIControlStateNormal];
+    [self.signUpButton setTitleColor:self.colors.mainColor forState:UIControlStateNormal];
     //self.loginButton.titleLabel.textColor = self.colors.mainColor;
-    [self.signUpButton.titleLabel setTextColor:self.colors.mainColor];
 //    self.signUpButton.layer.borderWidth = 1;
     self.loginButton.layer.cornerRadius = 5;
 //    self.signUpButton.layer.cornerRadius = 5;

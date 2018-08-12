@@ -30,7 +30,7 @@
 - (void) setItem:(Item *)item{
     _item = item;
     self.nameLabel.text = item.title;
-    self.distanceLabel.text = @"0.2 miles";
+    self.addressLabel.text = item.address;
     [self setIconWithItem:item];
 }
 - (void) setIconWithItem: (Item *)item {

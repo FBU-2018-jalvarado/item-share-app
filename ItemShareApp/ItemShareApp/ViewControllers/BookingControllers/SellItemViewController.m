@@ -172,7 +172,7 @@
     self.priceTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
     
     self.priceTextField.font = [UIFont fontWithName:@"Optima" size:16];
-    self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
@@ -339,7 +339,7 @@ didFailAutocompleteWithError:(NSError *)error {
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    editedImage = [self resizeImage:editedImage withSize:CGSizeMake(250, 250)];
+    //editedImage = [self resizeImage:editedImage withSize:CGSizeMake(250, 250)];
     self.itemImage.image = editedImage;
     self.imagePageControl.numberOfPages = self.imagePageControl.numberOfPages + 1;
     if(self.thisIsFirstPic)
