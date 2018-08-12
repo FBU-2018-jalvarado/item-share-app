@@ -90,7 +90,7 @@
     self.downArrow.alpha = 0;
     
     // HUD
-    [self showHUD];
+    //[self showHUD];
     
     // BlurView
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];

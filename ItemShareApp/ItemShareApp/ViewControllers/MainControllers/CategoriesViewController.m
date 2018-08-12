@@ -44,11 +44,12 @@
 - (void)viewDidAppear:(BOOL)animated {
     if([self.title isEqualToString:@"What are you looking for?"] || [self.title isEqualToString:@"Classify the item"])
     {
+        //[self.delegate showHUD];
         [self.delegate fetchItems];
 //        [self.delegate filterInMap];
     }
     else {
-        [self.delegate callChoseCat:self.title];
+        //[self.delegate callChoseCat:self.title];
     }
 }
 
@@ -145,7 +146,7 @@
 //    }
 //
     [self.view endEditing:YES];
-    [self.delegate showHUD];
+    //[self.delegate showHUD];
     
     NSArray *arrayOfKeys = [self.categories allKeys];
     NSString *clickedKey = arrayOfKeys[indexPath.item];

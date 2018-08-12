@@ -229,7 +229,7 @@
 }
 
 - (void)fetchItems {
-    
+    [self.placeholderDelegate showHUD];
     PFQuery *itemQuery = [Item query];
     //PFQuery *itemQuery = [PFQuery queryWithClassName:@"Item"];
     [itemQuery orderByDescending:@"createdAt"];

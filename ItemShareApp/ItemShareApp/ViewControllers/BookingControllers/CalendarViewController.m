@@ -9,7 +9,6 @@
 
 #import "CalendarViewController.h"
 #import <JTCalendar/JTCalendar.h>
-#import <JTCalendar/JTCalendar.h>
 #import "DetailsViewController.h"
 #import "timeModel.h"
 #import "Booking.h"
@@ -62,7 +61,7 @@
     //[self init];
     [self.colors setColors];
     [self setUpUI];
-   // [self finishSetup];
+    [self finishSetup];
     [self fetchBookings];
 }
 
@@ -135,7 +134,7 @@
     view.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:15];
     view.textLabel.textAlignment = NSTextAlignmentCenter;
     view.textLabel.textColor = [UIColor blackColor];
-    view.backgroundColor = self.colors.mainColor;
+    view.backgroundColor = [UIColor whiteColor];
     view.circleRatio = .8;
     //view.dotRatio = 1. / .9;
     self.calendarContentView.backgroundColor = [UIColor whiteColor];

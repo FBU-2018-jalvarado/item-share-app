@@ -169,7 +169,7 @@
     self.priceTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
     
     self.priceTextField.font = [UIFont fontWithName:@"Optima" size:16];
-    self.priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.priceTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:

@@ -63,11 +63,11 @@
 //empty table view implementation
 
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
-    return 150;
+    return -160;
 }
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    return [UIImage imageNamed:@"orange_f"];
+    return [UIImage imageNamed:@"wolfshop2small"];
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
@@ -79,7 +79,7 @@
 }
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *text = @"Please return to your search to find other items categories. Thanks!";
+    NSString *text = @"Please search for another item";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
@@ -93,10 +93,10 @@
 }
 
 //either this or image for button
-- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
-    return [[NSAttributedString alloc] initWithString:@"Back to Search" attributes:attributes];
-}
+//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+//    return [[NSAttributedString alloc] initWithString:@"Back to Search" attributes:attributes];
+//}
 
 //- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
 //    return [UIImage imageNamed:@"orange_f"];
@@ -213,7 +213,7 @@
 }
 
 - (void)fetchItemsWithCat:(NSString *)categoryName {
-    
+    [self.delegate showHUD];
     PFQuery *itemQuery = [Item query];
     //PFQuery *itemQuery = [PFQuery queryWithClassName:@"Item"];
     [itemQuery orderByDescending:@"createdAt"];
