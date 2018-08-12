@@ -47,7 +47,7 @@
         self.profilePicture.file = user[@"profile_image"];
         [self.profilePicture loadInBackground];
     }
-    self.profilePicture.layer.cornerRadius = 56;
+    self.profilePicture.layer.cornerRadius = 35;
     self.profilePicture.clipsToBounds = YES;
     self.firstNameLabel.text = [NSString stringWithFormat:@"%@ %@",  user.firstName, user.lastName];
 }
