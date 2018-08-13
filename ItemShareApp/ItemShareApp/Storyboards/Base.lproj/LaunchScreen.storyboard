@@ -25,7 +25,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wolfshop-1" translatesAutoresizingMaskIntoConstraints="NO" id="hXQ-wH-G2k">
                                 <rect key="frame" x="131" y="271" width="112" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fetch_wb" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-TN-fS0">
                                 <rect key="frame" x="2" y="91" width="370" height="107"/>

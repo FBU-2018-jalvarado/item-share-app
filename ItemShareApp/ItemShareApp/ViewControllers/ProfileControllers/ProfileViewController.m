@@ -92,7 +92,7 @@
         UIButton *button = sender;
         NSString *buttonTitle = button.titleLabel.text;
         next.buttonTitle = buttonTitle;
-        if ([buttonTitle isEqualToString:@"Items Selling"]){
+        if ([buttonTitle isEqualToString:@"Items Posted"]){
             next.historyType = @"itemsSelling";
         }
         else if ([buttonTitle isEqualToString:@"Items Booked"]){
