@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel3;
-
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -71,6 +71,18 @@
     [self.icarVC reload];
     //check if payments are authorized. If not, the pay button will be hidden
     // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
+    [self setUpGradient];
+}
+
+- (void)setUpGradient{
+    CAGradientLayer *topGradient = [CAGradientLayer layer];
+    topGradient.frame = self.topView.bounds;
+    topGradient.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor colorWithWhite:1 alpha:0].CGColor, nil];
+    // used for testing
+    //    topGradient.colors = [NSArray arrayWithObjects:(id)[UIColor blueColor].CGColor, (id) [UIColor blackColor], nil];
+    //    topGradient.locations = @[@0.0, @1.0];
+    //Add gradient to view
+    [self.topView.layer addSublayer:topGradient];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
