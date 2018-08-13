@@ -13,37 +13,20 @@
 
 - (void) setCategory:(NSString *)keyString {
     
-    self.layer.borderWidth = 1;
-    self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.layer.cornerRadius = 5;
-//    self.blackTint.layer.borderColor = [[UIColor blackColor] CGColor];
+    
+    
+   self.layer.borderWidth = 1;
+    self.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:.3].CGColor;
+//    self.layer.cornerRadius = 5;
     self.categoryLabel.text = keyString;
     [self setIcon:keyString];
-    
-//    if([keyString isEqualToString:@"Clothing"])
-//    {
-//        self.backImage.image = [UIImage imageNamed: @"notification"];
-//    }
-//    if([keyString isEqualToString:@"Instruments"])
-//    {
-//        self.backImage.image = [UIImage imageNamed: @"history"];
-//    }
-//    if([keyString isEqualToString:@"Home"])
-//    {
-//        self.backImage.image = [UIImage imageNamed: @"history"];
-//    }
-//    if([keyString isEqualToString:@"Electronics"])
-//    {
-//        self.backImage.image = [UIImage imageNamed: @"notification"];
-//    }
-//    if([keyString isEqualToString:@"Sports and Outdoors"])
-//    {
-//        self.backImage.image = [UIImage imageNamed: @"notification"];
-//    }
-//    if([keyString isEqualToString:@"Vehicles"])
-//    {
-//        self.backImage.image = [UIImage imageNamed: @"history"];
-//    }
+    self.layer.cornerRadius = 10.0;
+    self.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    self.layer.shadowRadius = 2.0f;
+    self.layer.shadowOpacity = 0.5f;
+    self.layer.masksToBounds = NO;
+    self.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:10].CGPath;
 }
 
 - (void) setIcon:(NSString *)categoryTitle{

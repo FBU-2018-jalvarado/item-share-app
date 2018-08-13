@@ -106,6 +106,11 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 //    self.googleMapView.mapStyle = style;
 //}
 
+- (void)setUpShadows {
+    
+
+}
+
 - (void)moveNav:(int)number {
     self.navButton.frame =  CGRectMake(self.navButton.frame.origin.x, self.navButton.frame.origin.y+number, self.navButton.frame.size.width, self.navButton.frame.size.height);
 }

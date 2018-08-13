@@ -80,6 +80,10 @@
     }];
 }
 
+- (void)methodTest {
+    NSLog(@"HI");
+}
+
 
 //- (void)method: (NSDate *)date{
 //    for(Booking *booking in self.bookingsArray){
