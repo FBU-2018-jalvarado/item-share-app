@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cat2;
 @property (weak, nonatomic) IBOutlet UILabel *cat3;
 @property (weak, nonatomic) IBOutlet UIView *categoryView;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UILabel *label3;
@@ -106,6 +107,19 @@
     self.cityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@",  formattedAddressarr[1], formattedAddressarr[2]];
     // Do any additional setup after loading the view.
     // TODO: make name field optional after login
+    
+    [self setUpGradient];
+}
+
+- (void)setUpGradient{
+    CAGradientLayer *topGradient = [CAGradientLayer layer];
+    topGradient.frame = self.topView.bounds;
+    topGradient.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor colorWithWhite:1 alpha:0].CGColor, nil];
+    // used for testing
+//    topGradient.colors = [NSArray arrayWithObjects:(id)[UIColor blueColor].CGColor, (id) [UIColor blackColor], nil];
+//    topGradient.locations = @[@0.0, @1.0];
+    //Add gradient to view
+    [self.topView.layer addSublayer:topGradient];
 }
 
 -(void) setUpItemTextField {
