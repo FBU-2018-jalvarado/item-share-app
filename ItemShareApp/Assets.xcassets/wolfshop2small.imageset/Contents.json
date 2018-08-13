@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "wolfshop2small.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "wolfshop2small.png",
       "scale" : "2x"
     },
     {
