@@ -145,7 +145,7 @@
     // The color of the text, default value is R89 G95 B110
     self.itemTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
     
-    self.itemTextField.font = [UIFont fontWithName:@"Optima" size:16];
+    self.itemTextField.font = [UIFont fontWithName:@"System" size:14];
     
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
@@ -185,7 +185,7 @@
     // The color of the text, default value is R89 G95 B110
     self.priceTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
     
-    self.priceTextField.font = [UIFont fontWithName:@"Optima" size:16];
+    self.priceTextField.font = [UIFont fontWithName:@"System" size:14];
     self.priceTextField.keyboardType = UIKeyboardTypeDecimalPad;
     
     // The block excuted when the animation for obtaining focus has completed.
