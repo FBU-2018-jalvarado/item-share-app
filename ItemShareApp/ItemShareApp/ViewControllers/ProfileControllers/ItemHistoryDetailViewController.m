@@ -11,7 +11,7 @@
 #import "Item.h"
 #import "User.h"
 #import "QRPopUpController.h"
-#import "ColorScheme.h"s
+#import "ColorScheme.h"
 
 @interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
 
@@ -92,34 +92,34 @@
 }
 
 // only fetches items selling
-- (void)fetchUserItemsWithCompletion:(User *)user withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
-    if (user){
-        PFQuery *itemQuery = [Item query];
-        [itemQuery orderByDescending:@"createdAt"];
-        [itemQuery includeKey:@"title"];
-        [itemQuery includeKey:@"location"];
-        [itemQuery includeKey:@"owner"];
-        [itemQuery includeKey:@"address"];
-        [itemQuery includeKey:@"images"];
-        itemQuery.limit = 20;
-
-        [itemQuery whereKey:@"owner" equalTo:user];
-
-        [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<User *> * _Nullable items, NSError * _Nullable error) {
-            if(error != nil)
-            {
-                NSLog(@"Error finding objects: %@", error);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(nil, error);
-                });
-            } else {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(items, nil);
-                });
-            }
-        }];
-    }
-}
+//- (void)fetchUserItemsWithCompletion:(User *)user withCompletion:(void(^)(NSArray<User *> *items, NSError *error))completion {
+//    if (user){
+//        PFQuery *itemQuery = [Item query];
+//        [itemQuery orderByDescending:@"createdAt"];
+//        [itemQuery includeKey:@"title"];
+//        [itemQuery includeKey:@"location"];
+//        [itemQuery includeKey:@"owner"];
+//        [itemQuery includeKey:@"address"];
+//        [itemQuery includeKey:@"images"];
+//        itemQuery.limit = 20;
+//
+//        [itemQuery whereKey:@"owner" equalTo:user];
+//
+//        [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<User *> * _Nullable items, NSError * _Nullable error) {
+//            if(error != nil)
+//            {
+//                NSLog(@"Error finding objects: %@", error);
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    completion(nil, error);
+//                });
+//            } else {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+//                    completion(items, nil);
+//                });
+//            }
+//        }];
+//    }
+//}
 
 - (IBAction)backButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

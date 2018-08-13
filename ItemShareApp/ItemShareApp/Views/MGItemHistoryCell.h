@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *iconView;
+@property (weak, nonatomic) IBOutlet UILabel *cityStateZipLabel;
 
 @property (strong, nonatomic) Item *item;
 @end

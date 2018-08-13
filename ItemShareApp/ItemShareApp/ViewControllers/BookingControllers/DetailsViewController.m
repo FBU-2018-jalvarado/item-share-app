@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceWeekLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityStateZipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceMonthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *applePayButton;
@@ -72,7 +73,10 @@
     //check if payments are authorized. If not, the pay button will be hidden
     // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
     [self setUpGradient];
+    
 }
+
+
 
 - (void)setUpGradient{
     CAGradientLayer *topGradient = [CAGradientLayer layer];
@@ -101,7 +105,7 @@
     
     //text setup
     self.titleLabel.text = self.item.title;
-    self.addressLabel.text = self.item.address;
+    [self setUpAddress];
 //    NSString *strng = [[[[self.item.categories[0] stringByAppendingString:@", "] stringByAppendingString:self.item.categories[1]] stringByAppendingString:@", "] stringByAppendingString:self.item.categories[2]];
 //
 //    self.categoryLabel.text = strng;
@@ -124,6 +128,13 @@
     
 }
 
+- (void) setUpAddress {
+//    self.addressLabel.text = self.item.address;
+    NSArray *formattedAddressarr = [self.item.address componentsSeparatedByString:@", "];
+    self.addressLabel.text = formattedAddressarr[0];
+    self.cityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@", formattedAddressarr[1], formattedAddressarr[2]];
+}
+
 - (void)updateDateUI {
     //date setup
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -143,19 +154,21 @@
         NSInteger days = [self daysBetween:self.selectedStartDate and:self.selectedEndDate];
         if(days < 7){
             double price = days * [self.item.price integerValue];
-            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
-            NSString *formattedPrice = [numfort stringFromNumber:decnum];
-            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            // formatting to make it look like a decimal
+//            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
+//            NSString *formattedPrice = [numfort stringFromNumber:decnum];
+//            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int) price];
         }
         else if(days < 30){
             //NSInteger weeks = [@(days/7) integerValue];
-            
             double weeks = (double)days/7;
             double price = weeks * 6 * [self.item.price integerValue];
-            
-            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
-            NSString *formattedPrice = [numfort stringFromNumber:decnum];
-            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            // formatting to make it look like a decimal
+//            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
+//            NSString *formattedPrice = [numfort stringFromNumber:decnum];
+//            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int) price];
         }
     }
 }

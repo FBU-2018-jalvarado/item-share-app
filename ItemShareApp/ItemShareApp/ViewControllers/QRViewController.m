@@ -164,9 +164,10 @@
 
 - (void)setUpUI {
     self.backButton.layer.cornerRadius = 5;
-    self.backButton.layer.borderWidth = 1;
+//    self.backButton.layer.borderWidth = 1;
     self.backButton.backgroundColor = [UIColor clearColor];
     self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    
     self.statusLabel.layer.cornerRadius = 5;
     self.statusLabel.layer.borderWidth = 1;
     self.statusLabel.backgroundColor = [UIColor clearColor];

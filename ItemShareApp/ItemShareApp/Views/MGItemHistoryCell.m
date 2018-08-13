@@ -19,7 +19,8 @@
     _item = item;
     self.itemTitle.text = self.item.title;
     self.priceLabel.text = [NSString stringWithFormat:@"$%@", self.item.price];
-    self.addressLabel.text = self.item.address;
+//    self.addressLabel.text = self.item.address;
+    [self setUpAddressLabel];
     self.descriptionLabel.text = self.item.descrip;
     if(item[@"images"] != nil){
         self.iconView.file = [item.images firstObject];
@@ -33,6 +34,15 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void) setUpAddressLabel {
+    NSArray *formattedAddressarr = [self.item.address componentsSeparatedByString:@", "];
+    self.addressLabel.text = formattedAddressarr[0];
+    self.cityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@",  formattedAddressarr[1], formattedAddressarr[2]];
+    if ([self.itemTitle.text isEqualToString: @"Me"]) {
+        NSLog(@"%@", formattedAddressarr);
+    }
 }
 
 @end
