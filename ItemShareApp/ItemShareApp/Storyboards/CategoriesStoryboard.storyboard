@@ -442,11 +442,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="159" id="MJy-0B-4BF" customClass="MGItemHistoryCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="159"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="181" id="MJy-0B-4BF" customClass="MGItemHistoryCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="181"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MJy-0B-4BF" id="RMs-9W-rsD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="158.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="monkey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSX-R1-xE8">
@@ -461,14 +461,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="love me some monkey. now you can love monkey too for low price " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJ5-jw-Vd8">
-                                                    <rect key="frame" x="159" y="95" width="201" height="50"/>
-                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juc-jD-I13">
+                                                    <rect key="frame" x="159" y="69" width="216" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="216" id="aln-LU-OlL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Optima-Italic" family="Optima" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juc-jD-I13">
-                                                    <rect key="frame" x="159" y="69" width="201" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cityStateZip" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnk-Fi-3A3">
+                                                    <rect key="frame" x="159" y="93" width="216" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="216" id="clb-5G-crL"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Optima-Italic" family="Optima" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -480,27 +486,40 @@
                                                         <constraint firstAttribute="height" constant="120" id="yDW-4I-epN"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="love me some monkey. now you can love monkey too for low price " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJ5-jw-Vd8">
+                                                    <rect key="frame" x="159" y="121" width="201" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="201" id="NwH-TS-Kwf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XSX-R1-xE8" firstAttribute="leading" secondItem="0hL-zw-zej" secondAttribute="trailing" constant="20" id="0nJ-GR-6JP"/>
-                                                <constraint firstItem="Juc-jD-I13" firstAttribute="leading" secondItem="0hL-zw-zej" secondAttribute="trailing" constant="20" id="1VH-Kj-53U"/>
-                                                <constraint firstItem="KJ5-jw-Vd8" firstAttribute="leading" secondItem="0hL-zw-zej" secondAttribute="trailing" constant="20" id="3W9-9I-mWo"/>
+                                                <constraint firstAttribute="trailing" secondItem="Juc-jD-I13" secondAttribute="trailing" id="Am9-s9-gxV"/>
+                                                <constraint firstItem="Juc-jD-I13" firstAttribute="top" secondItem="D8J-ir-Puw" secondAttribute="bottom" constant="4" id="H5S-CY-Wa9"/>
                                                 <constraint firstItem="XSX-R1-xE8" firstAttribute="top" secondItem="RMs-9W-rsD" secondAttribute="top" constant="11" id="H5w-o9-Ilt"/>
+                                                <constraint firstItem="Juc-jD-I13" firstAttribute="leading" secondItem="0hL-zw-zej" secondAttribute="trailing" constant="20" id="HfT-fO-CnP"/>
+                                                <constraint firstItem="Tnk-Fi-3A3" firstAttribute="top" secondItem="Juc-jD-I13" secondAttribute="bottom" constant="3.5" id="Hs0-OW-gcy"/>
                                                 <constraint firstItem="0hL-zw-zej" firstAttribute="leading" secondItem="RMs-9W-rsD" secondAttribute="leading" constant="19" id="OQS-Bd-A4w"/>
-                                                <constraint firstAttribute="trailing" secondItem="KJ5-jw-Vd8" secondAttribute="trailing" constant="15" id="Opk-mi-8fY"/>
                                                 <constraint firstItem="D8J-ir-Puw" firstAttribute="top" secondItem="XSX-R1-xE8" secondAttribute="bottom" constant="3" id="PQI-C1-nKt"/>
-                                                <constraint firstItem="KJ5-jw-Vd8" firstAttribute="top" secondItem="Juc-jD-I13" secondAttribute="bottom" constant="5.5" id="YUJ-eV-t2a"/>
-                                                <constraint firstAttribute="bottom" secondItem="KJ5-jw-Vd8" secondAttribute="bottom" constant="13.5" id="aRa-sB-vdW"/>
+                                                <constraint firstItem="KJ5-jw-Vd8" firstAttribute="leading" secondItem="0hL-zw-zej" secondAttribute="trailing" constant="20" id="UcY-iW-BAy"/>
+                                                <constraint firstItem="KJ5-jw-Vd8" firstAttribute="trailing" secondItem="RMs-9W-rsD" secondAttribute="trailingMargin" id="ZaC-UM-Xsd"/>
+                                                <constraint firstAttribute="bottom" secondItem="KJ5-jw-Vd8" secondAttribute="bottom" constant="9.5" id="bqX-cE-Mx3"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0hL-zw-zej" secondAttribute="bottom" constant="19.5" id="fTV-a8-xYs"/>
                                                 <constraint firstItem="0hL-zw-zej" firstAttribute="top" secondItem="RMs-9W-rsD" secondAttribute="top" constant="19" id="gOA-M5-mty"/>
+                                                <constraint firstItem="KJ5-jw-Vd8" firstAttribute="top" secondItem="Tnk-Fi-3A3" secondAttribute="bottom" constant="7.5" id="gng-GS-SaD"/>
                                                 <constraint firstAttribute="trailing" secondItem="XSX-R1-xE8" secondAttribute="trailing" constant="15" id="i9h-4o-F6G"/>
-                                                <constraint firstItem="Juc-jD-I13" firstAttribute="top" secondItem="D8J-ir-Puw" secondAttribute="bottom" constant="4" id="vwo-GJ-qUS"/>
-                                                <constraint firstAttribute="trailing" secondItem="Juc-jD-I13" secondAttribute="trailing" constant="15" id="wFh-1n-ggc"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tnk-Fi-3A3" secondAttribute="trailing" id="pRQ-sC-Wj2"/>
+                                                <constraint firstItem="Tnk-Fi-3A3" firstAttribute="leading" secondItem="0hL-zw-zej" secondAttribute="trailing" constant="20" id="qnt-sS-xi7"/>
                                                 <constraint firstItem="D8J-ir-Puw" firstAttribute="leading" secondItem="0hL-zw-zej" secondAttribute="trailing" constant="20" id="wWK-YM-2IH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addressLabel" destination="Juc-jD-I13" id="TiS-db-Puh"/>
+                                            <outlet property="cityStateZipLabel" destination="Tnk-Fi-3A3" id="jzN-O9-p2t"/>
                                             <outlet property="descriptionLabel" destination="KJ5-jw-Vd8" id="3Cw-RD-hpq"/>
                                             <outlet property="iconView" destination="0hL-zw-zej" id="4aK-oG-cJA"/>
                                             <outlet property="itemTitle" destination="XSX-R1-xE8" id="1tn-Yg-mLT"/>
