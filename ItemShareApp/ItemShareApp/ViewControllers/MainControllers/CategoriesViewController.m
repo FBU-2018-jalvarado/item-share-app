@@ -53,6 +53,7 @@
     }
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     Category *cat = [Category new];
@@ -108,6 +109,7 @@
     {
         [self.arrayOfKeys addObject:name];
     }
+    self.arrayOfKeys = [self sortCats:self.arrayOfKeys];
     [self.categoryCollView reloadData];
 }
 
@@ -128,6 +130,9 @@
 //        [self.arrayOfKeys insertObject:@"Back" atIndex:0];
 //    }
     [cell setCategory:self.arrayOfKeys[indexPath.item]];
+//    NSMutableArray *sortedKeys = [[NSMutableArray alloc] init];
+//    sortedKeys = [self sortCats:self.arrayOfKeys];
+//    [cell setCategory:sortedKeys[indexPath.item]];
     UIView *selectionColor = [[UIView alloc] init];
     selectionColor.backgroundColor = self.colors.mainColor;
     cell.selectedBackgroundView = selectionColor;
@@ -177,6 +182,38 @@
     [self.delegate callChoseCat:clickedKey];
 }
 
+- (NSMutableArray *)sortCats:(NSMutableArray *)catNames {
+    BOOL otherIsACategory = NO;
+    NSString *other;
+    NSString *test;
+    NSMutableArray *sorted = [[NSMutableArray alloc] init];
+    for(NSString *str in catNames)
+    {
+        if(str.length >= 5)
+        {
+            test = [str substringWithRange:NSMakeRange(0,5)];
+        }
+        else {
+            test = @"nope";
+        }
+        if([test isEqualToString:@"Other"])
+        {
+            other = str;
+            otherIsACategory = YES;
+        }
+        else {
+            if(str)
+            {
+                [sorted addObject:str];
+            }
+        }
+    }
+    if(other)
+    {
+        [sorted addObject:other];
+    }
+    return sorted;
+}
 
 #pragma mark - Navigation
 

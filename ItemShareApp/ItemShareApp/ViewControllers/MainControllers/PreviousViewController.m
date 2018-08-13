@@ -75,7 +75,7 @@
         self.grayBar.alpha = 1;
         [self moveArrows:200];
         [self.mapController moveNav:-200];
-        [self.placeholdViewController.searchBar becomeFirstResponder];
+        //[self.placeholdViewController.searchBar becomeFirstResponder];
     }];
     if(self.placeholdViewController.fetchView.frame.origin.x == 0)
     {
@@ -206,7 +206,7 @@
                 self.grayBar.alpha = 1;
                 [self moveArrows:200];
                 [self.mapController moveNav:-200];
-                [self.placeholdViewController.searchBar becomeFirstResponder];
+                //[self.placeholdViewController.searchBar becomeFirstResponder];
             }];
 //            [self createBlur];
             [self.placeholdViewController showSearch:NO];
@@ -244,7 +244,7 @@
                 self.grayBar.alpha = 1;
                 [self moveArrows:200];
                 [self.mapController moveNav:-200];
-                [self.placeholdViewController.searchBar becomeFirstResponder];
+                //[self.placeholdViewController.searchBar becomeFirstResponder];
             }];
             if(self.placeholdViewController.fetchView.frame.origin.x == 0)
             {

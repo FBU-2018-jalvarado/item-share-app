@@ -127,6 +127,7 @@
     {
         //get rid of the "no items avail because its covering the category coll view since its alpha is 1 but not showing yet on the view"
     }
+    [self.placeholderDelegate showSearchView];
     self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
     //[self.placeholderDelegate showSearchView];
     [self filterInMap:self.catAndItemTableViewController.itemRows];
@@ -137,10 +138,10 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    //[self.placeholderDelegate showSearchView];
     if (searchText.length != 0) {
         //UI
         [self startTypingFormat];
-
         // filter the items array
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
             return [self inInsensitive:evaluatedObject.title withSearchText:searchText];
