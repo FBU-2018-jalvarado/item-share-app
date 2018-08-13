@@ -143,19 +143,21 @@
         NSInteger days = [self daysBetween:self.selectedStartDate and:self.selectedEndDate];
         if(days < 7){
             double price = days * [self.item.price integerValue];
-            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
-            NSString *formattedPrice = [numfort stringFromNumber:decnum];
-            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            // formatting to make it look like a decimal
+//            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
+//            NSString *formattedPrice = [numfort stringFromNumber:decnum];
+//            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int) price];
         }
         else if(days < 30){
             //NSInteger weeks = [@(days/7) integerValue];
-            
             double weeks = (double)days/7;
             double price = weeks * 6 * [self.item.price integerValue];
-            
-            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
-            NSString *formattedPrice = [numfort stringFromNumber:decnum];
-            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            // formatting to make it look like a decimal
+//            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
+//            NSString *formattedPrice = [numfort stringFromNumber:decnum];
+//            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int) price];
         }
     }
 }
