@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *popUpView;
 @property (weak, nonatomic) IBOutlet UILabel *itemLabel;
 @property (strong, nonatomic) ColorScheme *colorModel;
+@property (weak, nonatomic) IBOutlet UIImageView *checkImage;
 
 @end
 
@@ -41,6 +42,20 @@
     self.okButton.clipsToBounds = YES;
     self.popUpView.layer.borderWidth = 7;
     self.popUpView.layer.borderColor = self.colorModel.mainColor.CGColor;
+    self.checkImage.layer.cornerRadius = 30;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        self.checkImage.frame = CGRectMake(self.checkImage.frame.origin.x-10, self.checkImage.frame.origin.y-10, self.checkImage.frame.size.width+20, self.checkImage.frame.size.height+20);
+        self.checkImage.layer.cornerRadius = self.checkImage.layer.cornerRadius+10;
+    } completion:^(BOOL finished) {
+        if(finished)
+        {
+            [UIView animateWithDuration:1.0 animations:^{
+                self.checkImage.frame = CGRectMake(self.checkImage.frame.origin.x+10, self.checkImage.frame.origin.y+10, self.checkImage.frame.size.width-20, self.checkImage.frame.size.height-20);
+                self.checkImage.layer.cornerRadius = self.checkImage.layer.cornerRadius-10;
+            }];
+        }
+    }];
 }
 
 
