@@ -27,7 +27,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fetch_white" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-TN-fS0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fetch_wb" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-TN-fS0">
                                 <rect key="frame" x="2" y="91" width="370" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -42,7 +42,7 @@
     </scenes>
     <resources>
         <image name="backgroundGradient" width="944" height="1490"/>
-        <image name="fetch_white" width="375" height="200"/>
+        <image name="fetch_wb" width="375" height="200"/>
         <image name="wolfshop-1" width="455" height="512"/>
     </resources>
 </document>
