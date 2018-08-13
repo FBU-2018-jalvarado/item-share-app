@@ -55,7 +55,7 @@
                                 <rect key="frame" x="16" y="115" width="340" height="340"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fetch_bw" translatesAutoresizingMaskIntoConstraints="NO" id="egh-1c-kgA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fetch_teal" translatesAutoresizingMaskIntoConstraints="NO" id="egh-1c-kgA">
                                 <rect key="frame" x="16" y="96" width="340" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -260,7 +260,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fetch_bw" width="375" height="200"/>
+        <image name="fetch_teal" width="375" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HPJ-ox-w0F"/>
