@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="5TP-E0-G0X">
-                                <rect key="frame" x="0.0" y="37" width="375" height="1463"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1463"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-bt-VeE">
@@ -204,18 +204,23 @@
                                             <outletCollection property="gestureRecognizers" destination="G3m-WP-WC6" appends="YES" id="hAW-ee-tN7"/>
                                         </connections>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-gy-D4c">
-                                        <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                </subviews>
+                            </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGf-e1-uQ2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBF-Zd-b3n">
+                                        <rect key="frame" x="5" y="15" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="closeButton">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="normal" title="Button" image="bwx"/>
                                         <connections>
-                                            <action selector="backButtonPressed:" destination="knq-YP-lhO" eventType="touchUpInside" id="zPo-cD-Miy"/>
+                                            <action selector="backButtonPressed:" destination="knq-YP-lhO" eventType="touchUpInside" id="C87-0B-Ktq"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                            </scrollView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -224,7 +229,7 @@
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="addressLabel" destination="8GR-p4-7Gy" id="baI-vf-XLc"/>
-                        <outlet property="backButton" destination="ApP-gy-D4c" id="Rf2-Yi-Z3Y"/>
+                        <outlet property="backButton" destination="sBF-Zd-b3n" id="h6J-s6-ScU"/>
                         <outlet property="categoryView" destination="JKb-gs-y7E" id="UVL-8l-DKU"/>
                         <outlet property="cityStateZipLabel" destination="Fjo-8J-SE2" id="W4i-GX-kD5"/>
                         <outlet property="descripLabel" destination="kI2-01-8LJ" id="ch5-UI-W0V"/>
@@ -234,6 +239,7 @@
                         <outlet property="postButton" destination="GZA-TZ-b6K" id="teu-1F-0Dj"/>
                         <outlet property="priceLabel" destination="wp8-ef-GXG" id="mp9-bL-dLg"/>
                         <outlet property="scrollView" destination="5TP-E0-G0X" id="Iav-qP-cSn"/>
+                        <outlet property="topView" destination="BGf-e1-uQ2" id="rf9-0h-jIt"/>
                         <outlet property="uploadButton" destination="OiW-ji-tX5" id="U1q-F9-xjT"/>
                     </connections>
                 </viewController>
@@ -469,7 +475,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="closeButton" width="512" height="512"/>
+        <image name="bwx" width="120" height="120"/>
         <image name="grayarrowside" width="338" height="338"/>
         <image name="location-gray" width="512" height="512"/>
         <image name="placeholderImageBlack" width="1900" height="1200"/>
