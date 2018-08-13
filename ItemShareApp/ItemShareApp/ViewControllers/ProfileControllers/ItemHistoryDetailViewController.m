@@ -11,7 +11,7 @@
 #import "Item.h"
 #import "User.h"
 #import "QRPopUpController.h"
-#import "ColorScheme.h"
+#import "ColorScheme.h"s
 
 @interface ItemHistoryDetailViewController () <UITableViewDelegate, UITableViewDataSource, MGSwipeTableCellDelegate>
 
@@ -83,9 +83,9 @@
             else if (object){
                 [self.itemsArray addObject:object];
                 // items don't delete from arrays in user automatically, so if not manually deleted from json, the tableview will never reload
-                if (self.itemsArray.count == self.itemsIdArray.count){
+//                if (self.itemsArray.count == self.itemsIdArray.count){
                     [self.tableview reloadData];
-                }
+//                }
             }
         }];
     }
@@ -146,7 +146,7 @@
     // basic swipe config
     cell.rightButtons = @[[MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"bin"] backgroundColor:[UIColor redColor]],
                           [MGSwipeButton buttonWithTitle:@"" icon:[UIImage imageNamed:@"qrcoderealrealrealreal"] backgroundColor:[UIColor colorWithRed:(211/255) green:(211/255) blue:(211/255) alpha:.2]]];
-    cell.rightSwipeSettings.transition = MGSwipeTransition3D;
+    cell.rightSwipeSettings.transition = MGSwipeTransitionBorder;
     
     // expansion config
     cell.rightExpansion.buttonIndex = 0;

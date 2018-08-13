@@ -49,7 +49,7 @@
     }
     self.profilePicture.layer.cornerRadius = 35;
     self.profilePicture.clipsToBounds = YES;
-    self.firstNameLabel.text = [NSString stringWithFormat:@"%@ %@",  user.firstName, user.lastName];
+    self.firstNameLabel.text = [NSString stringWithFormat: @"%@", user.firstName];
 }
 
 - (void)didReceiveMemoryWarning {
