@@ -19,9 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarContentView;
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
-@property (weak, nonatomic) IBOutlet UIButton *startTimeButton;
-@property (weak, nonatomic) IBOutlet UIButton *endTimeButton;
-@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
@@ -54,27 +51,18 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-//    [self fetchBookings];
+    
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self init];
-    [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        }
-        if (bookings) {
-            self.bookingsArray = [bookings mutableCopy];
-            [self.calendarDelegate sendBookings:self.bookingsArray];
-            [self.colors setColors];
-            [self setUpUI];
-            [self finishSetup];
-            
-        } else {
-            // HANDLE NO ITEMS
-        }
-    }];
+    [self.colors setColors];
+    [self setUpUI];
+    [self fetchBookings];
+    
+    
+    
+    
 //    [self.colors setColors];
 //    [self setUpUI];
 //    [self finishSetup];
@@ -109,17 +97,11 @@
 }
 
 - (void)setUpUI {
-    
-    self.startTimeButton.backgroundColor = [UIColor whiteColor];
-    self.endTimeButton.backgroundColor = [UIColor whiteColor];
-    [self.startTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.endTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
-    self.startTimeButton.layer.cornerRadius = 5;
-    self.endTimeButton.layer.cornerRadius = 5;
+
 }
 
 //edits contentView (month view)
-- (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar{
+//- (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar{
 //    UILabel *label = [UILabel new];
 //    label.backgroundColor = [UIColor redColor];
 //    label.textAlignment = NSTextAlignmentCenter;
@@ -127,13 +109,13 @@
 //    [label setTextColor:[UIColor blackColor]];
 //    //label.textColor = [UIColor blackColor];
 //    return label;
-    UILabel *label = [UILabel new];
-    
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
-    
-    return label;
-}
+////    UILabel *label = [UILabel new];
+////
+////    label.textAlignment = NSTextAlignmentCenter;
+////    label.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+////
+////    return label;
+//}
 
 - (UIView<JTCalendarWeekDay> *)calendarBuildWeekDayView:(JTCalendarManager *)calendar{
     JTCalendarWeekDayView *view = [JTCalendarWeekDayView new];
