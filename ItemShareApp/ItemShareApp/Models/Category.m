@@ -20,10 +20,10 @@
                                                 @"Performance/Stage"     : @"Performance/Stage"
                                                 },
                                         @"Formal Wear" :@{
-                                                @"Girl's Clothes" : @"Girl's Clothes",
-                                                @"Boy's Clothes"  : @"Boy's Clothes",
-                                                @"Women's Clothes" : @"Women's Clothes",
-                                                @"Men's Clothes"   : @"Men's Clothes"
+                                                @"Girls' Clothing"  : @"Girls' Clothing",
+                                                @"Boys' Clothing"   : @"Boys' Clothing",
+                                                @"Women's Clothing" : @"Women's Clothing",
+                                                @"Men's Clothing"   : @"Men's Clothing"
                                                 }
                                         },
                                 @"Instruments" : @{
@@ -103,16 +103,16 @@
                                                 @"Video"   : @"Video",
                                                 @"Theater" : @"Theater"
                                                 },
-                                        @"Audio/Speakers/Headphones" : @{
+                                        @"Audio" : @{
                                                 @"Speakers"    : @"Speakers",
                                                 @"Headphones"  : @"Headphones",
                                                 @"Other Audio" : @"Other Audio"
                                                 },
-                                        @"Photography/Videography" : @{
+                                        @"Photo/Video" : @{
                                                 @"Photography" : @"Photography",
                                                 @"Videography" : @"Videography"
                                                 },
-                                        @"Video Game Consoles"        : @{
+                                        @"Game Consoles"        : @{
                                                 @"PlayStation"        : @"PlayStation",
                                                 @"Xbox"               : @"Xbox",
                                                 @"Nintendo DS/Switch" : @"Nintendo DS/Switch",
@@ -120,7 +120,7 @@
                                                 @"Other Consoles"     : @"Other Consoles"
                                                 }
                                         },
-                                @"Sports and Outdoors" : @{
+                                @"Sport and Outdoor" : @{
                                         @"Sports" : @{
                                                 @"Exercise/Fitness" : @"Exercise/Fitness",
                                                 @"Hunting/Fishing"  : @"Hunting/Fishing",
@@ -155,7 +155,7 @@
                                         }
                                 };
     // setting array
-    self.catArray =            @[@"Clothing", @"Costumes", @"Halloween/Party/Event", @"Performance/Stage", @"Formal Wear", @"Girl's Clothes", @"Boy's Clothes", @"Women's Clothes", @"Men's Clothes", \
+    self.catArray =            @[@"Clothing", @"Costumes", @"Halloween/Party/Event", @"Performance/Stage", @"Formal Wear", @"Girls' Clothing", @"Boys' Clothing", @"Women's Clothing", @"Men's Clothing", \
                                  @"Instruments", @"Strings", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Pianos/Keys", @"Acoustic", @"Digital/Electric", \
                                  @"Drums/Percussion", @"Drums", @"Percussion", @"Tech and Equipment", @"DJ", @"Amps/Effects", @"Mics/Recording", @"Brass and Wind", @"Brass", \
                                  @"Winds/Woodwinds", @"Other Instrumental", @"Instrument Accessories", @"Other Instruments/Equipment", @"Home", @"Furniture", @"Chairs", @"Desks", \
@@ -163,15 +163,15 @@
                                  @"Sewing Tools and Machines", @"Printmaking Tools", @"Beading/Jewelry Making Tools", @"Other Arts/Crafts Tools", @"Cleaning Tools", @"Brushes", \
                                  @"Dusting", @"Mopping", @"Sweeping", @"Cleaning Appliances", @"Other Cleaning Tools", @"Garden/Outdoor", @"Grills and Similar", @"Yard Work", \
                                  @"Pool/Hot Tub", @"Farming", @"Other Garden/Outdoor", @"Toys/Games", @"Toys", @"Games", @"Tools",  @"Power", @"Hand", @"Electronics", @"TV/Video/Theater", @"TV", @"Video", \
-                                 @"Theater", @"Audio/Speakers/Headphones", @"Speakers", @"Headphones", @"Other Audio", @"Photography/Videography", @"Photography", @"Videography", \
-                                 @"Video Game Consoles", @"PlayStation", @"Xbox", @"Nintendo DS/Switch", @"Wii", @"Other Consoles", @"Sports and Outdoors", @"Sports", \
+                                 @"Theater", @"Audio", @"Speakers", @"Headphones", @"Other Audio", @"Photo/Video", @"Photography", @"Videography", \
+                                 @"Game Consoles", @"PlayStation", @"Xbox", @"Nintendo DS/Switch", @"Wii", @"Other Consoles", @"Sport and Outdoor", @"Sports", \
                                  @"Exercise/Fitness", @"Hunting/Fishing", @"Team Sports", @"Water Sports", @"Winter Sports", @"Other Sports", @"Outdoors", @"Camping/Hiking", \
                                  @"Bikes", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Vehicles", @"Water Vehicles", @"Boats", @"Other Water Vehicles", \
                                  @"Land Vehicles", @"Cars", @"Motorcycles", @"Trucks", @"Other Land Vehicles", @"Air Vehicles", @"Planes", @"Other Air Vehicles"];
     
     
     // the lowest level categories array
-    self.lastLevel =            @[@"Halloween/Party/Event", @"Performance/Stage", @"Girl's Clothes", @"Boy's Clothes", @"Women's Clothes", @"Men's Clothes", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Acoustic", @"Digital/Electric", @"Orchestral", @"Other Strings", @"Acoustic", @"Digital/Electric", @"Drums", @"Percussion", @"DJ", @"Amps/Effects", @"Mics/Recording", @"Brass", @"Winds/Woodwinds", @"Instrument Accessories", @"Other Instruments/Equipment", @"Chairs", @"Desks", @"Tables", @"Other Furniture", @"Cookware", @"Bakeware", @"Kitchen Appliances", @"Scrapbooking Tools", @"Sewing Tools and Machines", @"Printmaking Tools", @"Beading/Jewelry Making Tools", @"Other Arts/Crafts Tools", @"Brushes", @"Dusting", @"Mopping", @"Sweeping", @"Cleaning Appliances", @"Other Cleaning Tools", @"Grills and Similar", @"Yard Work", @"Pool/Hot Tub", @"Farming", @"Other Garden/Outdoor", @"Toys", @"Games", @"Power", @"Hand", @"TV", @"Video", @"Theater", @"Speakers", @"Headphones", @"Other Audio", @"Photography", @"Videography", @"PlayStation", @"Xbox", @"Nintendo DS/Switch", @"Wii", @"Other Consoles", @"Exercise/Fitness", @"Hunting/Fishing", @"Team Sports", @"Water Sports", @"Winter Sports", @"Other Sports", @"Camping/Hiking", @"Bikes", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Boats", @"Other Water Vehicles", @"Cars", @"Motocycles", @"Trucks", @"Other Land Vehicles", @"Planes", @"Other Air Vehicles"];
+    self.lastLevel =            @[@"Halloween/Party/Event", @"Performance/Stage", @"Girls' Clothing", @"Boys' Clothing", @"Women's Clothing", @"Men's Clothing", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Acoustic", @"Digital/Electric", @"Orchestral", @"Other Strings", @"Acoustic", @"Digital/Electric", @"Drums", @"Percussion", @"DJ", @"Amps/Effects", @"Mics/Recording", @"Brass", @"Winds/Woodwinds", @"Instrument Accessories", @"Other Instruments/Equipment", @"Chairs", @"Desks", @"Tables", @"Other Furniture", @"Cookware", @"Bakeware", @"Kitchen Appliances", @"Scrapbooking Tools", @"Sewing Tools and Machines", @"Printmaking Tools", @"Beading/Jewelry Making Tools", @"Other Arts/Crafts Tools", @"Brushes", @"Dusting", @"Mopping", @"Sweeping", @"Cleaning Appliances", @"Other Cleaning Tools", @"Grills and Similar", @"Yard Work", @"Pool/Hot Tub", @"Farming", @"Other Garden/Outdoor", @"Toys", @"Games", @"Power", @"Hand", @"TV", @"Video", @"Theater", @"Speakers", @"Headphones", @"Other Audio", @"Photography", @"Videography", @"PlayStation", @"Xbox", @"Nintendo DS/Switch", @"Wii", @"Other Consoles", @"Exercise/Fitness", @"Hunting/Fishing", @"Team Sports", @"Water Sports", @"Winter Sports", @"Other Sports", @"Camping/Hiking", @"Bikes", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Boats", @"Other Water Vehicles", @"Cars", @"Motocycles", @"Trucks", @"Other Land Vehicles", @"Planes", @"Other Air Vehicles"];
     
     /*
      placeholders:
@@ -185,10 +185,10 @@
                           @"Halloween/Party/Event"        : @"batmanmask",
                           @"Performance/Stage"            : @"happysad",
                           @"Formal Wear"                  : @"suit",
-                          @"Girl's Clothes"               : @"girl",
-                          @"Boy's Clothes"                : @"boy",
-                          @"Women's Clothes"              : @"woman",
-                          @"Men's Clothes"                : @"man",
+                          @"Girls' Clothing"              : @"girl",
+                          @"Boys' Clothing"               : @"boy",
+                          @"Women's Clothing"             : @"woman",
+                          @"Men's Clothing"               : @"man",
                           @"Instruments"                  : @"instruments",
                           @"Strings"                      : @"violin",
                           @"Guitar and Similar"           : @"guitarAndSimilar",
@@ -250,20 +250,20 @@
                           @"TV"                           : @"tv",
                           @"Video"                        : @"video",
                           @"Theater"                      : @"homeTheater",
-                          @"Audio/Speakers/Headphones"    : @"audio",
+                          @"Audio"                        : @"audio",
                           @"Speakers"                     : @"speaker",
                           @"Headphones"                   : @"headphone",
                           @"Other Audio"                  : @"cassette2",
-                          @"Photography/Videography"      : @"film",
+                          @"Photo/Video"                  : @"film",
                           @"Photography"                  : @"photography",
                           @"Videography"                  : @"video_camera",
-                          @"Video Game Consoles"          : @"video_game",
+                          @"Game Consoles"                : @"video_game",
                           @"PlayStation"                  : @"ps2",
                           @"Xbox"                         : @"xbox",
                           @"Nintendo DS/Switch"           : @"nintendo",
                           @"Wii"                          : @"wii_remote",
                           @"Other Consoles"               : @"sega",
-                          @"Sports and Outdoors"          : @"sportAndOutdoor",
+                          @"Sport and Outdoor"            : @"sportAndOutdoor",
                           @"Sports"                       : @"soccer",
                           @"Exercise/Fitness"             : @"exercise",
                           @"Hunting/Fishing"              : @"fishgin",
