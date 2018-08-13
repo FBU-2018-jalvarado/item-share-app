@@ -192,7 +192,7 @@
     //today
     if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = self.colors.mainColor;
+        dayView.circleView.backgroundColor = self.colors.secondColor;
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }

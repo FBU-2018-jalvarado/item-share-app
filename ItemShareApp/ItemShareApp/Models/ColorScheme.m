@@ -16,7 +16,7 @@
 //    UIColor *mainColor = [UIColor colorWithRed:116.0f/255.0f green:186.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
     UIColor *mainColor = [UIColor colorWithRed:76.0f/255.0f green:213.0f/255.0f blue:175.0f/255.0f alpha:1.0f];
     //cyan color
-    UIColor *secondColor = [UIColor colorWithRed:202.0f/255.0f green:255.0f/255.0f blue:244.0f/255.0f alpha:1.0f];
+    UIColor *secondColor = [UIColor colorWithRed:74.0f/255.0f green:74.0f/255.0f blue:74.0f/255.0f alpha:1.0f];
     //darkblue
     UIColor *thirdColor = [UIColor colorWithRed:90.0f/255.0f green:111.0f/255.0f blue:140.0f/255.0f alpha:1.0f];
     [self setMainColor:mainColor];
