@@ -97,8 +97,16 @@
                                     <action selector="recenterButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="t7g-nM-Wcx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-H2-ogE">
+                                <rect key="frame" x="333" y="548" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="nav"/>
+                                <connections>
+                                    <action selector="recenterButtonTap:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="93l-Dn-ynt"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rq-8F-6xN">
-                                <rect key="frame" x="308" y="209" width="71" height="71"/>
+                                <rect key="frame" x="308" y="140" width="71" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="qr"/>
                                 <connections>
@@ -113,14 +121,6 @@
                                     <segue destination="ba1-cd-WDL" kind="show" identifier="sellSegue" id="j0x-GE-ZU1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-H2-ogE">
-                                <rect key="frame" x="328" y="160" width="34" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="nav"/>
-                                <connections>
-                                    <action selector="recenterButtonTap:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="93l-Dn-ynt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="N7T-PW-YyS"/>
@@ -130,6 +130,7 @@
                         <outlet property="googleMapView" destination="aWK-ul-y0W" id="3nl-Q6-k4U"/>
                         <outlet property="homeButton" destination="enL-DB-SEG" id="9C9-cM-KJX"/>
                         <outlet property="homeButtonBackgroundView" destination="mBE-21-mBm" id="Csd-55-5Nm"/>
+                        <outlet property="navButton" destination="hqA-H2-ogE" id="PaG-ug-fQI"/>
                         <outlet property="postButton" destination="kvI-Ho-VrY" id="pgO-SB-8kW"/>
                         <outlet property="profileButton" destination="QCP-vZ-UHZ" id="is2-9V-7Ah"/>
                         <outlet property="recenterButton" destination="qqp-BQ-lWW" id="E6y-YZ-RHz"/>

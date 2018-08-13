@@ -73,6 +73,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     [super viewDidLoad];
     [self init];
     
+//    self.navButton.frame =  CGRectMake(self.navButton.frame.origin.x, self.navButton.frame.origin.y+180, self.navButton.frame.size.width, self.navButton.frame.size.height);
     self.locationManager.delegate = self;
     self.searchBar.delegate = self;
     self.googleMapView.delegate = self;
@@ -104,6 +105,10 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 //
 //    self.googleMapView.mapStyle = style;
 //}
+
+- (void)moveNav:(int)number {
+    self.navButton.frame =  CGRectMake(self.navButton.frame.origin.x, self.navButton.frame.origin.y+number, self.navButton.frame.size.width, self.navButton.frame.size.height);
+}
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     [self performSegueWithIdentifier:@"detailsViewSegue" sender:marker];

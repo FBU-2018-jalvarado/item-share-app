@@ -100,7 +100,10 @@
     self.numberOfPages = 0;
     self.imagePageControl.numberOfPages = self.numberOfPages;
     User *user = [PFUser currentUser];
-    self.addressLabel.text = user.address;
+    //self.addressLabel.text = user.address;
+    NSArray *formattedAddressarr = [user.address componentsSeparatedByString:@", "];
+    self.addressLabel.text = formattedAddressarr[0];
+    self.cityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@",  formattedAddressarr[1], formattedAddressarr[2]];
     // Do any additional setup after loading the view.
     // TODO: make name field optional after login
 }
