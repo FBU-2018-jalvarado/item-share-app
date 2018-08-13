@@ -49,6 +49,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.colors = [ColorScheme new];
+    self.timeModel = [timeModel new];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -59,10 +60,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //[self init];
-    [self.colors setColors];
-    [self setUpUI];
-    [self finishSetup];
-    [self fetchBookings];
+    [self.timeModel fetchItemBookingsWithCompletion:self.item withCompletion:^(NSArray<Item *> *bookings, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        if (bookings) {
+            self.bookingsArray = [bookings mutableCopy];
+            [self.calendarDelegate sendBookings:self.bookingsArray];
+            [self.colors setColors];
+            [self setUpUI];
+            [self finishSetup];
+            
+        } else {
+            // HANDLE NO ITEMS
+        }
+    }];
+//    [self.colors setColors];
+//    [self setUpUI];
+//    [self finishSetup];
+//    [self fetchBookings];
 }
 
 - (void)finishSetup {
@@ -218,7 +234,7 @@
             dayView.circleView.hidden = NO;
             dayView.circleView.backgroundColor = [UIColor whiteColor];
            // dayView.dotView.backgroundColor = [UIColor redColor];
-            dayView.textLabel.textColor = [UIColor darkGrayColor];
+            dayView.textLabel.textColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.5f];
         }
         else{
             //make it normal

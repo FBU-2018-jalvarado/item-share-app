@@ -83,13 +83,12 @@
 
     layout.minimumInteritemSpacing = 10;
     layout.minimumLineSpacing = 10;
+    layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
 
     CGFloat postersPerLine = 3;
-    CGFloat itemWidth = (self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1)) / postersPerLine;
-    CGFloat itemHeight = (self.categoryCollView.frame.size.height - layout.minimumInteritemSpacing) / 2;
+    CGFloat itemWidth = ((self.categoryCollView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine-1) - 10) / postersPerLine);
+    CGFloat itemHeight = ((self.categoryCollView.frame.size.height - layout.minimumInteritemSpacing - 10) / 2);
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
-    NSLog(@"%f", itemWidth);
-    NSLog(@"%f", itemHeight);
     // try
 //    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.categoryCollView.collectionViewLayout;
 //
