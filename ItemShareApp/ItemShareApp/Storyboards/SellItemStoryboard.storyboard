@@ -204,18 +204,18 @@
                                             <outletCollection property="gestureRecognizers" destination="G3m-WP-WC6" appends="YES" id="hAW-ee-tN7"/>
                                         </connections>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-gy-D4c">
-                                        <rect key="frame" x="8" y="8" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="closeButton">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="backButtonPressed:" destination="knq-YP-lhO" eventType="touchUpInside" id="zPo-cD-Miy"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-gy-D4c">
+                                <rect key="frame" x="5" y="25" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="bwx">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="knq-YP-lhO" eventType="touchUpInside" id="zPo-cD-Miy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -469,7 +469,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="closeButton" width="512" height="512"/>
+        <image name="bwx" width="120" height="120"/>
         <image name="grayarrowside" width="338" height="338"/>
         <image name="location-gray" width="512" height="512"/>
         <image name="placeholderImageBlack" width="1900" height="1200"/>
