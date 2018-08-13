@@ -49,7 +49,7 @@
 //        [self.delegate filterInMap];
     }
     else {
-        //[self.delegate callChoseCat:self.title];
+        [self.delegate callChoseCat:self.title];
     }
 }
 
@@ -179,7 +179,7 @@
         [self.navigationController pushViewController:categoriesViewController animated:YES];
         [self.categoryCollView deselectItemAtIndexPath:indexPath animated:YES];
     }
-    [self.delegate callChoseCat:clickedKey];
+    //[self.delegate callChoseCat:clickedKey];
 }
 
 - (NSMutableArray *)sortCats:(NSMutableArray *)catNames {
