@@ -113,6 +113,7 @@
     
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
+    self.usernameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.usernameTextField.didBeginEditingHandler = ^{
         if(self.coverUp.alpha == 0)
         {
