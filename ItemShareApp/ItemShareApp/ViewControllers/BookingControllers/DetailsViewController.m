@@ -71,6 +71,7 @@
     [self.icarVC reload];
     //check if payments are authorized. If not, the pay button will be hidden
     // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
+    [self.scrollView.superview addSubview:_backButton];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
