@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickUpPopUpController">
             <connections>
+                <outlet property="checkImage" destination="Zgj-ed-HiF" id="dU5-DT-yci"/>
                 <outlet property="itemLabel" destination="vYc-hB-Ff8" id="oQb-bm-LF1"/>
                 <outlet property="okButton" destination="UG4-By-4ts" id="mPc-ya-OpF"/>
                 <outlet property="popUpView" destination="nB9-Np-ksV" id="Nlx-e4-dkF"/>
@@ -23,30 +24,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nB9-Np-ksV">
-                    <rect key="frame" x="43" y="216" width="288" height="235"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nB9-Np-ksV">
+                    <rect key="frame" x="55" y="216" width="264.5" height="235"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Up confirmed! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAQ-S6-mkY">
-                            <rect key="frame" x="29" y="96" width="230" height="31"/>
-                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="26"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pick Up Confirmed! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAQ-S6-mkY">
+                            <rect key="frame" x="29" y="96" width="230" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYc-hB-Ff8">
-                            <rect key="frame" x="88" y="135" width="113" height="28"/>
-                            <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="23"/>
+                            <rect key="frame" x="88" y="119" width="112" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green-check" translatesAutoresizingMaskIntoConstraints="NO" id="Zgj-ed-HiF">
-                            <rect key="frame" x="107" y="14" width="74" height="74"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="74" id="CcX-Qz-YQT"/>
-                                <constraint firstAttribute="height" constant="74" id="bLG-k2-H6W"/>
-                            </constraints>
-                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UG4-By-4ts">
-                            <rect key="frame" x="118" y="182" width="52" height="30"/>
+                            <rect key="frame" x="118" y="167" width="52" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="52" id="TP0-wj-mdZ"/>
                                 <constraint firstAttribute="height" constant="30" id="ycL-Jw-qsb"/>
@@ -57,19 +51,26 @@
                                 <action selector="closePopup:" destination="-1" eventType="touchUpInside" id="0pJ-SM-sOW"/>
                             </connections>
                         </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="greenCheck" translatesAutoresizingMaskIntoConstraints="NO" id="Zgj-ed-HiF">
+                            <rect key="frame" x="114" y="0.0" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="74" id="CcX-Qz-YQT"/>
+                                <constraint firstAttribute="height" constant="74" id="bLG-k2-H6W"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Zgj-ed-HiF" secondAttribute="trailing" constant="107" id="70c-J7-2Un"/>
                         <constraint firstItem="UG4-By-4ts" firstAttribute="leading" secondItem="nB9-Np-ksV" secondAttribute="leading" constant="118" id="Ad5-x8-qhL"/>
+                        <constraint firstItem="Zgj-ed-HiF" firstAttribute="leading" secondItem="nB9-Np-ksV" secondAttribute="leading" constant="114" id="EYM-fc-jxf"/>
+                        <constraint firstItem="Zgj-ed-HiF" firstAttribute="top" secondItem="nB9-Np-ksV" secondAttribute="top" id="P6h-8g-evK"/>
+                        <constraint firstAttribute="trailing" secondItem="Zgj-ed-HiF" secondAttribute="trailing" constant="90.5" id="QpC-cf-40V"/>
                         <constraint firstItem="vYc-hB-Ff8" firstAttribute="top" secondItem="YAQ-S6-mkY" secondAttribute="bottom" constant="8" id="XI9-cd-fO5"/>
                         <constraint firstItem="vYc-hB-Ff8" firstAttribute="leading" secondItem="nB9-Np-ksV" secondAttribute="leading" constant="88" id="aTp-cb-6gX"/>
                         <constraint firstItem="UG4-By-4ts" firstAttribute="top" secondItem="vYc-hB-Ff8" secondAttribute="bottom" constant="19" id="enG-aV-6Wl"/>
+                        <constraint firstItem="YAQ-S6-mkY" firstAttribute="top" secondItem="Zgj-ed-HiF" secondAttribute="bottom" constant="8" id="gA0-fa-y1K"/>
                         <constraint firstItem="YAQ-S6-mkY" firstAttribute="leading" secondItem="nB9-Np-ksV" secondAttribute="leading" constant="29" id="pqp-qm-lxF"/>
-                        <constraint firstItem="Zgj-ed-HiF" firstAttribute="leading" secondItem="nB9-Np-ksV" secondAttribute="leading" constant="107" id="s0D-fo-yPr"/>
-                        <constraint firstItem="Zgj-ed-HiF" firstAttribute="top" secondItem="nB9-Np-ksV" secondAttribute="top" constant="14" id="u7P-Lm-ZWI"/>
                         <constraint firstAttribute="trailing" secondItem="YAQ-S6-mkY" secondAttribute="trailing" constant="29" id="wrS-UL-RXZ"/>
-                        <constraint firstItem="YAQ-S6-mkY" firstAttribute="top" secondItem="Zgj-ed-HiF" secondAttribute="bottom" constant="8" id="zez-cP-0yc"/>
                     </constraints>
                 </view>
             </subviews>
@@ -84,6 +85,6 @@
         </view>
     </objects>
     <resources>
-        <image name="green-check" width="1000" height="896"/>
+        <image name="greenCheck" width="256" height="256"/>
     </resources>
 </document>
