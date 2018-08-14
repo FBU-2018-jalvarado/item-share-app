@@ -102,6 +102,7 @@
     //image setup
     self.itemImageView.file = [self.item.images firstObject];
     [self.itemImageView loadInBackground];
+    self.itemImageView.contentMode = UIViewContentModeScaleToFill;
     
     //text setup
     self.titleLabel.text = self.item.title;

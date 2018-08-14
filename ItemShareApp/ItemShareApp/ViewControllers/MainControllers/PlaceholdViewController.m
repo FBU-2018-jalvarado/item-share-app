@@ -65,7 +65,7 @@
     self.searchBar.layer.borderColor = self.colors.mainColor.CGColor;
     // from SearchBar
     self.searchBar.delegate = self;
-    self.searchBar.placeholder = @"Try \"yacht\"";
+    self.searchBar.placeholder = @"Try \"guitar\"";
     self.categoryArray = [[NSMutableArray alloc] init];
     Category *category = [[Category alloc] init];
     [category setCats];
@@ -247,6 +247,7 @@
     [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<Item *> * _Nullable items, NSError * _Nullable error) {
         if(error != nil)
         {
+            NSLog(@"%@", error);
             NSLog(@"ERROR GETTING THE ITEMS!");
             [self.placeholderDelegate dismissHUD];
         }
