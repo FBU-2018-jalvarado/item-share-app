@@ -22,6 +22,7 @@
 
 - (void)awakeFromNib {
     self.colorModel = [ColorScheme new];
+    [self.colorModel setColors];
 }
 
 - (void)viewDidLoad {
@@ -40,6 +41,8 @@
     self.okButton.layer.borderWidth = 3;
     self.okButton.layer.cornerRadius = 5;
     self.okButton.clipsToBounds = YES;
+    self.okButton.backgroundColor = self.colorModel.mainColor;
+    [self.okButton setTitleColor:self.colorModel.secondColor forState:(UIControlStateNormal)];
     self.popUpView.layer.borderWidth = 7;
     self.popUpView.layer.borderColor = self.colorModel.mainColor.CGColor;
     self.checkImage.layer.cornerRadius = 30;
