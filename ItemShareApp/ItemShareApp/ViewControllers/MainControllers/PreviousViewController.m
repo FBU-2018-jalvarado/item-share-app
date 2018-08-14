@@ -141,7 +141,8 @@
     }
     else {
         [self setUpGifView];
-        [self.view addSubview:self.gifView];
+        [self.view insertSubview:self.gifView belowSubview:_profileView];
+//        [self.view addSubview:self.gifView];
     }
 }
 

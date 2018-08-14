@@ -143,7 +143,7 @@
                                                 },
                                         @"Land Vehicles" : @{
                                                 @"Cars"                : @"Cars",
-                                                @"Motorcycles"         : @"Motocycles",
+                                                @"Motorcycles"         : @"Motorcycles",
                                                 @"Trucks"              : @"Trucks",
                                                 @"Bikes"               : @"Bikes",
                                                 @"Other Land Vehicles" : @"Other Land Vehicles"
@@ -266,7 +266,6 @@
                           @"Other Sports"                 : @"gymnastic",
                           @"Outdoors"                     : @"outdoor",
                           @"Camping/Hiking"               : @"hiker",
-                          @"Bikes"                        : @"bike",
                           @"Climbing"                     : @"climbing",
                           @"Extreme Sports"               : @"skydiving",
                           @"Other Outdoor"                : @"adventure",
@@ -276,6 +275,7 @@
                           @"Other Water Vehicles"         : @"submarine",
                           @"Land Vehicles"                : @"jeep",
                           @"Cars"                         : @"car",
+                          @"Bikes"                        : @"bike",
                           @"Motorcycles"                  : @"motorcycle",
                           @"Trucks"                       : @"truck",
                           @"Other Land Vehicles"          : @"tank",
