@@ -26,7 +26,7 @@
                                                 @"Men's Clothing"   : @"Men's Clothing"
                                                 }
                                         },
-                                @"Instruments" : @{
+                                @"Music" : @{
                                         @"Strings" : @{
                                                 @"Guitar and Similar": @"Guitar and Similar",
                                                 @"Orchestral"        : @"Orchestral",
@@ -131,7 +131,6 @@
                                                 },
                                         @"Outdoors" : @{
                                                 @"Camping/Hiking"         : @"Camping/Hiking",
-                                                @"Bikes"                  : @"Bikes",
                                                 @"Climbing"               : @"Climbing",
                                                 @"Extreme Sports"         : @"Extreme Sports",
                                                 @"Other Outdoor"          : @"Other Outdoor"
@@ -146,6 +145,7 @@
                                                 @"Cars"                : @"Cars",
                                                 @"Motorcycles"         : @"Motocycles",
                                                 @"Trucks"              : @"Trucks",
+                                                @"Bikes"               : @"Bikes",
                                                 @"Other Land Vehicles" : @"Other Land Vehicles"
                                                 },
                                         @"Air Vehicles" : @{
@@ -156,7 +156,7 @@
                                 };
     // setting array
     self.catArray =            @[@"Clothing", @"Costumes", @"Halloween/Party/Event", @"Performance/Stage", @"Formal Wear", @"Girls' Clothing", @"Boys' Clothing", @"Women's Clothing", @"Men's Clothing", \
-                                 @"Instruments", @"Strings", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Pianos/Keys", @"Acoustic", @"Digital/Electric", \
+                                 @"Music", @"Strings", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Pianos/Keys", @"Acoustic", @"Digital/Electric", \
                                  @"Drums/Percussion", @"Drums", @"Percussion", @"Tech and Equipment", @"DJ", @"Amps/Effects", @"Mics/Recording", @"Brass and Wind", @"Brass", \
                                  @"Winds/Woodwinds", @"Other Instrumental", @"Instrument Accessories", @"Other Instruments/Equipment", @"Home", @"Furniture", @"Chairs", @"Desks", \
                                  @"Tables", @"Other Furniture", @"Kitchen/Dining", @"Cookware", @"Bakeware", @"Kitchen Appliances", @"Arts/Crafts Tools", @"Scrapbooking Tools", \
@@ -173,13 +173,6 @@
     // the lowest level categories array
     self.lastLevel =            @[@"Halloween/Party/Event", @"Performance/Stage", @"Girls' Clothing", @"Boys' Clothing", @"Women's Clothing", @"Men's Clothing", @"Guitar and Similar", @"Orchestral", @"Other Strings", @"Acoustic", @"Digital/Electric", @"Orchestral", @"Other Strings", @"Acoustic", @"Digital/Electric", @"Drums", @"Percussion", @"DJ", @"Amps/Effects", @"Mics/Recording", @"Brass", @"Winds/Woodwinds", @"Instrument Accessories", @"Other Instruments/Equipment", @"Chairs", @"Desks", @"Tables", @"Other Furniture", @"Cookware", @"Bakeware", @"Kitchen Appliances", @"Scrapbooking Tools", @"Sewing Tools and Machines", @"Printmaking Tools", @"Beading/Jewelry Making Tools", @"Other Arts/Crafts Tools", @"Brushes", @"Dusting", @"Mopping", @"Sweeping", @"Cleaning Appliances", @"Other Cleaning Tools", @"Grills and Similar", @"Yard Work", @"Pool/Hot Tub", @"Farming", @"Other Garden/Outdoor", @"Toys", @"Games", @"Power", @"Hand", @"TV", @"Video", @"Theater", @"Speakers", @"Headphones", @"Other Audio", @"Photography", @"Videography", @"PlayStation", @"Xbox", @"Nintendo DS/Switch", @"Wii", @"Other Consoles", @"Exercise/Fitness", @"Hunting/Fishing", @"Team Sports", @"Water Sports", @"Winter Sports", @"Other Sports", @"Camping/Hiking", @"Bikes", @"Climbing", @"Extreme Sports", @"Other Outdoor", @"Boats", @"Other Water Vehicles", @"Cars", @"Motocycles", @"Trucks", @"Other Land Vehicles", @"Planes", @"Other Air Vehicles"];
     
-    /*
-     placeholders:
-     first level:  @"instruments"
-     second level: @"clothing"
-     third level:  @"vehicles"
-     */
-    
     self.iconDict =     @{@"Clothing"                     : @"hanger",
                           @"Costumes"                     : @"mask",
                           @"Halloween/Party/Event"        : @"batmanmask",
@@ -189,7 +182,7 @@
                           @"Boys' Clothing"               : @"boy",
                           @"Women's Clothing"             : @"woman",
                           @"Men's Clothing"               : @"man",
-                          @"Instruments"                  : @"instruments",
+                          @"Music"                        : @"music",
                           @"Strings"                      : @"violin",
                           @"Guitar and Similar"           : @"guitarAndSimilar",
                           @"Orchestral"                   : @"conductor",
@@ -245,7 +238,7 @@
                           @"Tools"                        : @"measuring",
                           @"Power"                        : @"drill",
                           @"Hand"                         : @"hand_tool",
-                          @"Electronics"                  : @"electronic",
+                          @"Electronics"                  : @"plug",
                           @"TV/Video/Theater"             : @"entertainment",
                           @"TV"                           : @"tv",
                           @"Video"                        : @"video",
