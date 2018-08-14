@@ -124,7 +124,7 @@
 
 -(void) setUpItemTextField {
     // Recommended frame height is around 70.
-    self.itemTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(150, 517, 200, 70)];
+    self.itemTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(150, 444, 200, 70)];
     self.itemTextField.placeholder = @"";
     
     // The size of the placeholder label relative to the font size of the text field, default value is 0.65
@@ -164,7 +164,7 @@
 
 -(void) setUpPriceTextField {
     // Recommended frame height is around 70.
-    self.priceTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(150, 587, 200, 70)];
+    self.priceTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(150, 507, 200, 70)];
     self.priceTextField.placeholder = @"";
     
     // The size of the placeholder label relative to the font size of the text field, default value is 0.65
