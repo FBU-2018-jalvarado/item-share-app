@@ -158,6 +158,8 @@
     FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
     imageView.animatedImage = self.gifImage;
     imageView.frame = CGRectMake((width / 2) - ((GIF_WIDTH * SCALE) / 2), (height / 2) - ((GIF_HEIGHT * SCALE) / 2), (GIF_WIDTH * SCALE), (GIF_HEIGHT * SCALE));
+    imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    imageView.layer.borderWidth = 1;
     
     self.gifView = imageView;
 }
