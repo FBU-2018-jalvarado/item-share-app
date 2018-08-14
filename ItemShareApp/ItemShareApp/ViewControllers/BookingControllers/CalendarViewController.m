@@ -75,7 +75,7 @@
     self.calendarManager = [JTCalendarManager new];
     self.calendarManager.delegate = self;
     
-    [self.calendarManager setMenuView:_calendarMenuView];
+  //  [self.calendarManager setMenuView:_calendarMenuView];
     [self.calendarManager setContentView:_calendarContentView];
     [self.calendarManager setDate:[NSDate date]];
 }
@@ -173,11 +173,11 @@
     if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
         if([self.calendarContentView.date compare:dayView.date] == NSOrderedAscending){
             [self.calendarContentView loadNextPageWithAnimation];
-            [self.calendarManager setMenuView:_calendarMenuView];
+           // [self.calendarManager setMenuView:_calendarMenuView];
         }
         else{
             [self.calendarContentView loadPreviousPageWithAnimation];
-            [self.calendarManager setMenuView:_calendarMenuView];
+            //[self.calendarManager setMenuView:_calendarMenuView];
         }
     }
 }
