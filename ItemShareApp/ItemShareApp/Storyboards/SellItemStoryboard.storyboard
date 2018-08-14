@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="5TP-E0-G0X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1463"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gl8-bt-VeE">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="-173" width="375" height="375"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
@@ -84,7 +84,7 @@
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JKb-gs-y7E">
-                                        <rect key="frame" x="0.0" y="674" width="375" height="206"/>
+                                        <rect key="frame" x="0.0" y="501" width="375" height="206"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <segue destination="vZX-yr-bj1" kind="embed" identifier="sellCategorySegue" id="pth-XX-maw"/>
@@ -308,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pq-Qm-7Lz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="2660"/>
+            <point key="canvasLocation" x="2156" y="2737"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t5p-qD-Ha5">
@@ -326,7 +326,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bz-3b-zcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="2660"/>
+            <point key="canvasLocation" x="1415" y="2737"/>
         </scene>
         <!--Carousel View Controller-->
         <scene sceneID="ODJ-Ka-mvZ">
@@ -454,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YuJ-Be-MNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1156" y="2056"/>
+            <point key="canvasLocation" x="1550" y="2057"/>
         </scene>
     </scenes>
     <resources>
