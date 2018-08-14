@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRPopUpController">
             <connections>
                 <outlet property="QRPopUpView" destination="bQe-9y-Wfj" id="1uW-0b-iHa"/>
+                <outlet property="backButton" destination="4hS-gt-HWd" id="hwQ-qI-pIQ"/>
                 <outlet property="qrImageView" destination="YjO-86-1If" id="Bg4-sZ-ZJW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,14 +28,17 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YjO-86-1If">
-                            <rect key="frame" x="13" y="13" width="240" height="240"/>
+                            <rect key="frame" x="20" y="8" width="226" height="226"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hS-gt-HWd">
-                            <rect key="frame" x="93" y="261" width="80" height="33"/>
+                            <rect key="frame" x="93" y="242" width="80" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.29803921570000003" green="0.83529411760000005" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                            <state key="normal" title="Back"/>
+                            <state key="normal" title="Back">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
                             <connections>
                                 <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="ovw-hI-BOS"/>
                             </connections>

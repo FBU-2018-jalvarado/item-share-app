@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *qrImageView;
 @property (weak, nonatomic) IBOutlet UIView *QRPopUpView;
 @property (strong, nonatomic) ColorScheme *colorModel;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
@@ -27,6 +28,9 @@
 
 - (void)viewDidLoad {
     self.view.backgroundColor=[[UIColor blackColor] colorWithAlphaComponent:.6];
+   
+    self.backButton.layer.cornerRadius = 5;
+    self.backButton.clipsToBounds = YES;
     self.QRPopUpView.backgroundColor = [UIColor whiteColor];
     self.QRPopUpView.layer.cornerRadius = 5;
     self.QRPopUpView.layer.shadowOpacity = 0.8;
