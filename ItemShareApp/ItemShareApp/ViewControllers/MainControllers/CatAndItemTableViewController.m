@@ -227,6 +227,7 @@
     [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<Item *> * _Nullable items, NSError * _Nullable error) {
         if(error != nil)
         {
+            NSLog(@"%@", error);
             NSLog(@"ERROR GETTING FULL LIST OF ITEMS!");
             [self.delegate dismissHUD];
         }

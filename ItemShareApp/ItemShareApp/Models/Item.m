@@ -85,6 +85,7 @@
             [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if(error != nil)
                 {
+                    NSLog(@"%@", error);
                     NSLog(@"ERROR GETTING THE ITEMS!");
                     dispatch_async(dispatch_get_main_queue(), ^{
                         completion(nil, error);
