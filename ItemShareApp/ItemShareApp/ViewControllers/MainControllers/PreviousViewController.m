@@ -57,8 +57,14 @@
     self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+move);
 }
 
-
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.upArrow.alpha = 0;
+    self.downArrow.alpha = 0;
+    // move searchView to bottom to raise to top when pressed
+    [self arrowAndSearchViewMove:462];
+    [self moveArrows:-468];
+//    [self tableViewMove:462];
     //show how it comes up
     [UIView animateWithDuration:1.2 animations:^{
         [self arrowAndSearchViewMove:-200];
@@ -74,17 +80,6 @@
     {
         [self.placeholdViewController showSearchSlow];
     }
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.upArrow.alpha = 0;
-    self.downArrow.alpha = 0;
-    // move searchView to bottom to raise to top when pressed
-    [self arrowAndSearchViewMove:462];
-    [self moveArrows:-468];
-//    [self tableViewMove:462];
-    
 //    [self arrowAndSearchViewMove:262];
 //    [self moveArrows:-270];
     // move profileView out of screen to bring in later
