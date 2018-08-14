@@ -241,8 +241,10 @@
                 NSMutableArray *itemsInCategory = [[NSMutableArray alloc] init];
                 for(Item *thisItem in self.itemRows)
                 {
+                    NSLog(@"%@", thisItem.categories);
                     if([self hasCat:thisItem catName:categoryName])
                     {
+                        NSLog(@"was good!!!!!!!!");
                         [itemsInCategory addObject:thisItem];
                     }
                 }
