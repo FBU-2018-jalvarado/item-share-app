@@ -323,8 +323,8 @@ didFailAutocompleteWithError:(NSError *)error {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] && !oldPic) {
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] && !oldPic) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     else {
         NSLog(@"Camera 🚫 available so we will use photo library instead -- or you chose upload");
