@@ -59,7 +59,7 @@
     [super awakeFromNib];
     self.timeModel = [timeModel new];
     self.colors = [ColorScheme defaultScheme];
-    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
+    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex, PKPaymentNetworkDiscover];
     self.fetchMerchantID = @"merchant.com.nicolas.Fetch";
 }
 
