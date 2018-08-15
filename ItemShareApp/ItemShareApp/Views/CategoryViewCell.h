@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Category.h"
 
 @interface CategoryViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backImage;
 @property (weak, nonatomic) IBOutlet UIImageView *blackTint;
+@property (strong, nonatomic) Category *cat;
 
 - (void) setCategory:(NSString *)keyString;
 @end

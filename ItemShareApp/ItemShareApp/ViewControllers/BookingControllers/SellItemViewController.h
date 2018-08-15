@@ -9,6 +9,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SellItemViewControllerDelegate
+
+- (void)fetchItems;
+
+@end
+
 @interface SellItemViewController : UIViewController
+
+@property (nonatomic, weak) id <SellItemViewControllerDelegate> sellItemDelegate;
 
 @end

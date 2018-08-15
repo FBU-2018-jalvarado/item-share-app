@@ -25,6 +25,8 @@
 @protocol MapViewControllerDelegate
 
 - (void)openSideProfile;
+- (void)dismissHUD;
+- (void)showHUD;
 
 @end
 
@@ -33,9 +35,12 @@
 
 @property (strong, nonatomic) NSMutableArray *filteredItemsArray;
 @property (nonatomic, weak) id <MapViewControllerDelegate> mapDelegate;
+@property (weak, nonatomic) IBOutlet UIButton *navButton;
 
 - (void)removeAllMarkersButUserLocation;
 - (void)addMarkers: (NSMutableArray *)filteredItemsArray;
+- (void)zoomOutMap;
+- (void)moveNav:(int)number;
 
 
 @end

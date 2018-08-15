@@ -10,19 +10,34 @@
 #import "ItemTableCell.h"
 #import "Item.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "ColorScheme.h"
+#import "Category.h"
 //#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 
 
 @interface CatAndItemTableViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
-
+@property (strong, nonatomic) ColorScheme *colors;
+@property (strong, nonatomic) NSArray *lastCats;
 @end
 
 @implementation CatAndItemTableViewController
 
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //
+    Category *cat = [[Category alloc] init];
+    [cat setCats];
+    self.lastCats = cat.lastLevel;
     self.catAndItemTableView.delegate = self;
     self.catAndItemTableView.dataSource = self;
     self.catAndItemTableView.emptyDataSetSource = self;
@@ -47,8 +62,12 @@
 
 //empty table view implementation
 
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView{
-    return [UIImage imageNamed:@"orange_f"];
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
+    return 30;
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"wolfshop2small"];
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
@@ -60,7 +79,7 @@
 }
 
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *text = @"Please return to your search to find other items categories. Thanks!";
+    NSString *text = @"Please search for another item";
     
     NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
     paragraph.lineBreakMode = NSLineBreakByWordWrapping;
@@ -74,10 +93,10 @@
 }
 
 //either this or image for button
-- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
-    return [[NSAttributedString alloc] initWithString:@"Continue" attributes:attributes];
-}
+//- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
+//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f]};
+//    return [[NSAttributedString alloc] initWithString:@"Back to Search" attributes:attributes];
+//}
 
 //- (UIImage *)buttonImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state{
 //    return [UIImage imageNamed:@"orange_f"];
@@ -86,6 +105,11 @@
 - (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView{
     return [UIColor whiteColor];
 }
+
+- (BOOL)emptyDataSetShouldFadeIn:(UIScrollView *)scrollView {
+    return YES;
+}
+
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView{
     return YES;
@@ -111,20 +135,26 @@
         UINavigationController *navVC = [segue destinationViewController];
         CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
         categoriesViewController.firstPage = YES;
-        categoriesViewController.title = @"Categories";
+        categoriesViewController.title = @"What are you looking for?";
         categoriesViewController.delegate = self.delegate;
     }
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-        if (indexPath.row < self.categoryRows.count) {
-            CategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategorySearchCell"];
-            [cell setCategory:self.categoryRows[indexPath.row]];
-            return cell;
-        }
+    if(indexPath.row < self.categoryRows.count){
+        CategoryTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CategorySearchCell"];
+        [cell setCategory:self.categoryRows[indexPath.row]];
+        UIView *selectionColor = [[UIView alloc] init];
+        selectionColor.backgroundColor = self.colors.mainColor;
+        cell.selectedBackgroundView = selectionColor;
+        return cell;
+    }
         else {
             ItemTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItemSearchCell"];
-            [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count][@"title"] withAddress:self.itemRows[indexPath.row-self.categoryRows.count][@"address"]];
+            [cell setItem:self.itemRows[indexPath.row-self.categoryRows.count]];
+            UIView *selectionColor = [[UIView alloc] init];
+            selectionColor.backgroundColor = self.colors.mainColor;
+            cell.selectedBackgroundView = selectionColor;
             return cell;
         }
 }
@@ -139,6 +169,7 @@
     {
         // empty the category array and populate the items with ones w that have  category
         [self choseCat:self.categoryRows[indexPath.row]];
+        [self.delegate goToMap:YES];
     }
     // if its an item cell
     else {
@@ -148,8 +179,9 @@
         NSMutableArray *theOneItemArray = [[NSMutableArray alloc] init];
         [theOneItemArray addObject:selectedItem];
         [self.delegate filterInMap:theOneItemArray];
+        [self.catAndItemTableView deselectRowAtIndexPath:indexPath animated:YES];
         // dismiss the search view
-        [self.delegate goToMap];
+        [self.delegate goToMap:NO];
     }
 }
 
@@ -181,7 +213,7 @@
 }
 
 - (void)fetchItemsWithCat:(NSString *)categoryName {
-    
+    [self.delegate showHUD];
     PFQuery *itemQuery = [Item query];
     //PFQuery *itemQuery = [PFQuery queryWithClassName:@"Item"];
     [itemQuery orderByDescending:@"createdAt"];
@@ -195,6 +227,7 @@
     [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<Item *> * _Nullable items, NSError * _Nullable error) {
         if(error != nil)
         {
+            NSLog(@"%@", error);
             NSLog(@"ERROR GETTING FULL LIST OF ITEMS!");
             [self.delegate dismissHUD];
         }
@@ -209,8 +242,10 @@
                 NSMutableArray *itemsInCategory = [[NSMutableArray alloc] init];
                 for(Item *thisItem in self.itemRows)
                 {
+                    NSLog(@"%@", thisItem.categories);
                     if([self hasCat:thisItem catName:categoryName])
                     {
+                        NSLog(@"was good!!!!!!!!");
                         [itemsInCategory addObject:thisItem];
                     }
                 }

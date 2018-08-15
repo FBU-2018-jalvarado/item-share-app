@@ -12,71 +12,130 @@
 #import "User.h"
 #import <CCTextFieldEffects/CCTextFieldEffects.h>
 #import <CCTextFieldEffects/CCTextField.h>
+#import <FLAnimatedImage/FLAnimatedImage.h>
+
+#define GIF_WIDTH 400
+#define GIF_HEIGHT 400
+#define SCALE 0.4
 
 @interface LoginViewController () <UITextFieldDelegate>
+
 @property (strong, nonatomic) HoshiTextField *usernameTextField;
 @property (strong, nonatomic) HoshiTextField *passwordTextField;
 @property (strong, nonatomic) ColorScheme *colors;
+
+@property (weak, nonatomic) IBOutlet FLAnimatedImageView *gifView;
+@property (strong, nonnull) FLAnimatedImage *gifImage;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+@property (weak, nonatomic) IBOutlet UIView *coverUp;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *boardDissTap;
+@property (weak, nonatomic) IBOutlet UILabel *fetchLabel;
+
 
 @end
 
 @implementation LoginViewController
 
-- (instancetype)init
+- (void)awakeFromNib
 {
-    self = [super init];
-    if (self) {
-        self.colors = [ColorScheme new];
-    }
-    return self;
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self init];
+    self.fetchLabel.frame = CGRectMake(self.fetchLabel.frame.origin.x, self.fetchLabel.frame.origin.y - 100, self.fetchLabel.frame.size.width, self.fetchLabel.frame.size.height);
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     [self.colors setColors];
-//    [self setUpUI];
+    [self setUpUI];
 //    [self setUpGradient];
     [self setUpUsernameField];
     [self setupPasswordField];
+    [self setUpGifView];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.fetchLabel.frame = CGRectMake(self.fetchLabel.frame.origin.x, self.fetchLabel.frame.origin.y + 100, self.fetchLabel.frame.size.width, self.fetchLabel.frame.size.height);
+    }];
+    self.loginButton.tintColor = self.colors.mainColor;
+    self.signUpButton.tintColor = self.colors.mainColor;
+}
+
+//textdelegates
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.view endEditing:YES];
+    return YES;
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [self.view endEditing:YES];
+}
+
+
+- (void) setUpGifView {
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    
+    self.gifImage = [FLAnimatedImage animatedImageWithGIFData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://i.gifer.com/9Ou7.gif"]]];
+    //FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
+    self.gifView.animatedImage = self.gifImage;
+    //imageView.frame = CGRectMake((width / 2) - ((GIF_WIDTH * SCALE) / 2), (height / 2) - ((GIF_HEIGHT * SCALE) / 2), (GIF_WIDTH * SCALE), (GIF_HEIGHT * SCALE));
+    
+    //self.gifView = imageView;
 }
 
 -(void) setUpUsernameField {
     // Recommended frame height is around 70.
-    self.usernameTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(30, 124, 315, 70)];
+    self.usernameTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(30, 400, 315, 70)];
     self.usernameTextField.placeholder = @"username";
     
     // The size of the placeholder label relative to the font size of the text field, default value is 0.65
-    self.usernameTextField.placeholderFontScale = 0.65;
+    self.usernameTextField.placeholderFontScale = 1.2;
     
     // The color of the inactive border, default value is R185 G193 B202
-    self.usernameTextField.borderInactiveColor = [UIColor colorWithRed:(185 / 255) green:(193 / 255) blue:(202 / 255) alpha:1];
+    self.usernameTextField.borderInactiveColor = [UIColor blackColor];
     
     // The color of the active border, default value is R106 G121 B137
-    self.usernameTextField.borderActiveColor = [UIColor colorWithRed:(106/255) green:(121/255) blue:(137/255) alpha:1];
+    self.usernameTextField.borderActiveColor = self.colors.mainColor;
     
     // The color of the placeholder, default value is R185 G193 B202
-    self.usernameTextField.placeholderColor = [UIColor colorWithRed:(185/255) green:(193/255) blue:(202/255) alpha:1];
+    self.usernameTextField.placeholderColor = self.colors.mainColor;
     
     // The color of the cursor, default value is R89 G95 B110
-    self.usernameTextField.cursorColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
+    self.usernameTextField.cursorColor = self.colors.mainColor;
     
     // The color of the text, default value is R89 G95 B110
-    self.usernameTextField.textColor = [UIColor colorWithRed:(89/255) green:(95/255) blue:(110/255) alpha:1];
+    self.usernameTextField.textColor = [UIColor blackColor];
     
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
+    self.usernameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.usernameTextField.didBeginEditingHandler = ^{
-        // ...
+        if(self.coverUp.alpha == 0)
+        {
+            [UIView animateWithDuration:0.1 animations:^{
+                self.coverUp.alpha = 1;
+                if(self.usernameTextField.frame.origin.y == 400)
+                {
+                    self.usernameTextField.frame = CGRectMake(30, 220, 315, 70);
+                }
+                if(self.passwordTextField.frame.origin.y == 480)
+                {
+                    self.passwordTextField.frame = CGRectMake(30, 300, 315, 70);
+                }
+//                self.usernameTextField.frame = CGRectMake(30, 220, 315, 70);
+            }];
+        }
     };
     
     // The block excuted when the animation for losing focus has completed.
     // Do not use textFieldDidEndEditing:
     self.usernameTextField.didEndEditingHandler = ^{
-        // ...
+        
     };
     
     [self.view addSubview:self.usernameTextField];
@@ -92,26 +151,26 @@
      */
     
     // Recommended frame height is around 70.
-    self.passwordTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(30, 210, 315, 70)];
+    self.passwordTextField = [[HoshiTextField alloc] initWithFrame:CGRectMake(30, 480, 315, 70)];
     self.passwordTextField.placeholder = @"password";
     
     // The size of the placeholder label relative to the font size of the text field, default value is 0.65
-    self.passwordTextField.placeholderFontScale = 0.65;
+    self.passwordTextField.placeholderFontScale = 1.2;
     
     // The color of the inactive border, default value is R185 G193 B202
-    self.passwordTextField.borderInactiveColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    self.passwordTextField.borderInactiveColor = [UIColor blackColor];
     
     // The color of the active border, default value is R106 G121 B137
-    self.passwordTextField.borderActiveColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:1];
+    self.passwordTextField.borderActiveColor = self.colors.mainColor;
     
     // The color of the placeholder, default value is R185 G193 B202
-    self.passwordTextField.placeholderColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:1];
+    self.passwordTextField.placeholderColor = self.colors.mainColor;
     
     // The color of the cursor, default value is R89 G95 B110
-    self.passwordTextField.cursorColor = [UIColor colorWithRed:1 green:0 blue:1 alpha:1];
+    self.passwordTextField.cursorColor = self.colors.mainColor;
     
     // The color of the text, default value is R89 G95 B110
-    self.passwordTextField.textColor = [UIColor colorWithRed:1 green:1 blue:0 alpha:1];
+    self.passwordTextField.textColor = [UIColor blackColor];
     
     // make it a secure entry text field
     [self.passwordTextField setSecureTextEntry:true];
@@ -119,13 +178,26 @@
     // The block excuted when the animation for obtaining focus has completed.
     // Do not use textFieldDidBeginEditing:
     self.passwordTextField.didBeginEditingHandler = ^{
-        // ...
+        if(self.coverUp.alpha == 0)
+        {
+            [UIView animateWithDuration:0.1 animations:^{
+                self.coverUp.alpha = 1;
+                if(self.usernameTextField.frame.origin.y == 400)
+                {
+                    self.usernameTextField.frame = CGRectMake(30, 220, 315, 70);
+                }
+                if(self.passwordTextField.frame.origin.y == 480)
+                {
+                    self.passwordTextField.frame = CGRectMake(30, 300, 315, 70);
+                }
+            }];
+        }
     };
     
     // The block excuted when the animation for losing focus has completed.
     // Do not use textFieldDidEndEditing:
     self.passwordTextField.didEndEditingHandler = ^{
-        // ...
+        
     };
     
 //    [self.passwordTextField isSecureTextEntry:TRUE];
@@ -133,17 +205,33 @@
     [self.view addSubview:self.passwordTextField];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.view endEditing:YES];
-    return YES;
+- (IBAction)tapOut:(id)sender {
+    if(self.coverUp.alpha == 1)
+    {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.coverUp.alpha = 0;
+            if(self.usernameTextField.frame.origin.y == 220)
+            {
+                self.usernameTextField.frame = CGRectMake(30, 400, 315, 70);
+            }
+            if(self.passwordTextField.frame.origin.y == 300)
+            {
+                self.passwordTextField.frame = CGRectMake(30, 480, 315, 70);
+            }
+        }];
+        [self.usernameTextField resignFirstResponder];
+        [self.passwordTextField resignFirstResponder];
+    }
+    else {
+        [self.usernameTextField resignFirstResponder];
+        [self.passwordTextField resignFirstResponder];
+    }
 }
 
-
 - (IBAction)didTapLogin:(id)sender {
-    
-    NSLog(@"%@", self.usernameTextField.text);
-    
     // TODO OPTIONAL: alert if fields (username/pw) not filled in
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
     [self loginUser];
 }
 //- (IBAction)didTapRegister:(id)sender {
@@ -152,9 +240,15 @@
 //}
 
 - (void)setUpUI{
-//    self.usernameTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
-    self.passwordTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
-//    self.emailTextField.layer.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.2f].CGColor;
+    self.loginButton.layer.borderColor = self.colors.mainColor.CGColor;
+//    self.signUpButton.layer.borderColor = [UIColor orangeColor].CGColor;
+    self.loginButton.layer.borderWidth = 1;
+    [self.loginButton setTitleColor:self.colors.mainColor forState:UIControlStateNormal];
+    [self.signUpButton setTitleColor:self.colors.mainColor forState:UIControlStateNormal];
+    //self.loginButton.titleLabel.textColor = self.colors.mainColor;
+//    self.signUpButton.layer.borderWidth = 1;
+    self.loginButton.layer.cornerRadius = 5;
+//    self.signUpButton.layer.cornerRadius = 5;
 }
 - (void)setUpGradient{
     // Create the colors

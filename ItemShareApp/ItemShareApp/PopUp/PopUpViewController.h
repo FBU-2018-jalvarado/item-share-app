@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonLabel;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *lastNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @property (strong, nonatomic) NSString *name;

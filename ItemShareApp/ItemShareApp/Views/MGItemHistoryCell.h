@@ -8,12 +8,15 @@
 
 #import "MGSwipeTableCell.h"
 #import "Item.h"
+#import <ParseUI/ParseUI.h>
 
 @interface MGItemHistoryCell : MGSwipeTableCell
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet PFImageView *iconView;
+@property (weak, nonatomic) IBOutlet UILabel *cityStateZipLabel;
+
 @property (strong, nonatomic) Item *item;
 @end

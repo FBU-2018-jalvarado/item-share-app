@@ -14,6 +14,7 @@
 - (BOOL)isTimeAvailable:(NSDate *)date withBookings:(Booking *)booking;
 - (void)fetchItemBookingsWithCompletion:(Item *)item withCompletion:(void(^)(NSArray<Item *> *bookings, NSError *error))completion;
 - (void)fetchAllBookingsWithCompletion:(void(^)(NSArray<Item *> *bookings, NSError *error))completion;
+- (void)methodTest;
 
 @property (nonatomic) BOOL availableTime;
 @property (strong, nonatomic) NSMutableArray *bookingsArray;

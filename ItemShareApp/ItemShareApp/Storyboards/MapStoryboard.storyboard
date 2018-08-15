@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="SellItemStoryboard" id="ba1-cd-WDL" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3g-lZ-9bt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-718" y="-335"/>
+            <point key="canvasLocation" x="-496" y="-255"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="NXX-bu-HVk">
@@ -45,60 +45,50 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-ul-y0W" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-Ho-VrY">
-                                <rect key="frame" x="321" y="37" width="48" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="enL-DB-SEG">
+                                <rect key="frame" x="312" y="22" width="62" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="edit-orange-color"/>
+                                <state key="normal" image="menu"/>
                                 <connections>
-                                    <segue destination="ba1-cd-WDL" kind="presentation" identifier="sellSegue" id="Y0b-Gp-snI"/>
+                                    <action selector="menuButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="Cm0-J9-WXn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-BQ-lWW">
-                                <rect key="frame" x="321" y="158" width="48" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rq-8F-6xN">
+                                <rect key="frame" x="312" y="146" width="62" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="compass-orange"/>
+                                <state key="normal" image="qr"/>
                                 <connections>
-                                    <action selector="recenterButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="t7g-nM-Wcx"/>
+                                    <segue destination="7E8-3m-uoB" kind="show" id="Em0-8L-DlB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fetch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywe-gT-ZUR">
-                                <rect key="frame" x="25" y="30" width="65" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-H2-ogE">
+                                <rect key="frame" x="333" y="548" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Optima-BoldItalic" family="Optima" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBE-21-mBm">
-                                <rect key="frame" x="321" y="97" width="48" height="48"/>
+                                <state key="normal" image="nav"/>
+                                <connections>
+                                    <action selector="recenterButtonTap:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="93l-Dn-ynt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMq-OS-1oj">
+                                <rect key="frame" x="312" y="84" width="62" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-vZ-UHZ">
-                                        <rect key="frame" x="8" y="8" width="33" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.45621816479999999" green="0.72745919660000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" backgroundImage="house-icon-color"/>
-                                        <connections>
-                                            <action selector="profileButtonPressed:" destination="Bxc-hp-1cx" eventType="touchUpInside" id="jNU-9H-Ed1"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.84225359659999999" green="1" blue="0.65957246790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
+                                <state key="normal" image="post"/>
+                                <connections>
+                                    <segue destination="ba1-cd-WDL" kind="show" identifier="sellSegue" id="j0x-GE-ZU1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="N7T-PW-YyS"/>
                     </view>
                     <connections>
-                        <outlet property="fetchLabel" destination="Ywe-gT-ZUR" id="B1U-gp-TJV"/>
                         <outlet property="googleMapView" destination="aWK-ul-y0W" id="3nl-Q6-k4U"/>
-                        <outlet property="homeButtonBackgroundView" destination="mBE-21-mBm" id="Csd-55-5Nm"/>
-                        <outlet property="postButton" destination="kvI-Ho-VrY" id="pgO-SB-8kW"/>
-                        <outlet property="profileButton" destination="QCP-vZ-UHZ" id="is2-9V-7Ah"/>
-                        <outlet property="recenterButton" destination="qqp-BQ-lWW" id="E6y-YZ-RHz"/>
+                        <outlet property="homeButton" destination="enL-DB-SEG" id="9C9-cM-KJX"/>
+                        <outlet property="navButton" destination="hqA-H2-ogE" id="PaG-ug-fQI"/>
                         <outlet property="searchBar" destination="omP-vV-ahs" id="pBy-b4-Jo5"/>
                         <outlet property="titleLabel" destination="OQK-4a-4bp" id="0Ez-Fm-Kzz"/>
                         <outlet property="titleView" destination="9pL-cr-h2O" id="0Jg-s5-Fxn"/>
@@ -117,10 +107,19 @@
             </objects>
             <point key="canvasLocation" x="-650" y="58"/>
         </scene>
+        <!--QRCodeStoryboard-->
+        <scene sceneID="Qkp-Yc-0Lp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QRCodeStoryboard" id="7E8-3m-uoB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0m-40-qqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-658" y="263"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="compass-orange" width="512" height="512"/>
-        <image name="edit-orange-color" width="512" height="512"/>
-        <image name="house-icon-color" width="1024" height="1024"/>
+        <image name="menu" width="180" height="167"/>
+        <image name="nav" width="92" height="94"/>
+        <image name="post" width="173" height="174"/>
+        <image name="qr" width="175" height="184"/>
     </resources>
 </document>

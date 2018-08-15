@@ -21,12 +21,14 @@
     [itemQuery includeKey:@"title"];
     [itemQuery includeKey:@"owner"];
     [itemQuery includeKey:@"address"];
+    [itemQuery includeKey:@"point"];
     itemQuery.limit = 20;
     // fetch data asynchronously
     
     [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<Item *> * _Nullable items, NSError * _Nullable error) {
         if(error != nil)
         {
+            NSLog(@"%@", error);
             NSLog(@"ERROR GETTING THE ITEMS!");
             dispatch_async(dispatch_get_main_queue(), ^{
                 completion(nil, error);

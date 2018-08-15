@@ -11,10 +11,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import <ParseUI/ParseUI.h>
 
-@interface iCarouselViewController ()
+@interface iCarouselViewController () <UIPageViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet iCarousel *car;
-
+//@property (nonatomic, strong, readonly) NSArray *indexesForVisibleItems;
+//@property (nonatomic, assign) NSInteger currentItemIndex;
 @end
 
 @implementation iCarouselViewController
@@ -34,6 +35,12 @@
     //your item views move off-screen
 
 }
+- (void)tapImage {
+    if([self.parentVC isEqualToString:@"sell"])
+    {
+        [self.delegate choosePic:NO];
+    }
+}
 
 //- (void)dealloc
 //{
@@ -51,11 +58,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.car.layer.cornerRadius = 15;
+    //self.car.layer.cornerRadius = 15;
     //configure carousel
-    _carousel.type = iCarouselTypeRotary;
+    _carousel.type = iCarouselTypeLinear;
     _carousel.delegate = self;
     _carousel.dataSource = self;
+    _carousel.pagingEnabled = YES;
     //self.images = [[NSMutableArray alloc] init];
     [_carousel reloadData];
 }
@@ -78,13 +86,13 @@
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
-    if([_images count] <= 2)
-    {
-        _carousel.type = iCarouselTypeLinear;
-    }
-    else {
-        _carousel.type = iCarouselTypeRotary;
-    }
+//    if([_images count] <= 2)
+//    {
+//        _carousel.type = iCarouselTypeLinear;
+//    }
+//    else {
+//        _carousel.type = iCarouselTypeRotary;
+//    }
     //return the total number of items in the carousel
     return [_images count];
 }
@@ -99,7 +107,15 @@
         //don't do anything specific to the index within
         //this `if (view == nil) {...}` statement because the view will be
         //recycled and used with other index values later
-        view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0f, 375.0f)];
+//        view = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 375.0f, 375.0f)];
+        view = [[PFImageView alloc] initWithFrame:CGRectMake(15, 15, 345.0f, 345.0f)];
+        view.clipsToBounds = YES;
+        view.layer.cornerRadius = 5;
+        view.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage)];
+        tap.numberOfTapsRequired = 1;
+        [view addGestureRecognizer:tap];
+        
         if([self.parentVC isEqualToString:@"detail"])
         {
             view.file = self.images[index];
@@ -109,8 +125,8 @@
             view.image = self.images[index];
         }
         [view loadInBackground];
-        view.contentMode = UIViewContentModeCenter;
-        
+//        view.contentMode = UIViewContentModeCenter;
+        view.contentMode = UIViewContentModeScaleAspectFill;
         label = [[UILabel alloc] initWithFrame:view.bounds];
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
@@ -121,6 +137,7 @@
     else
     {
         view.frame = CGRectMake(0, 0, 375.0f, 375.0f);
+        view.contentMode = UIViewContentModeScaleAspectFill;
         //get a reference to the label in the recycled view
         label = (UILabel *)[view viewWithTag:1];
     }
@@ -135,11 +152,17 @@
     return view;
 }
 
+- (void)carouselWillBeginScrollingAnimation:(iCarousel *)carousel
+{
+    [self.delegate updatePage:[_carousel currentItemIndex]];
+}
+
+
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
 {
     if (option == iCarouselOptionSpacing)
     {
-        return value * 1.8;
+        return value * 1.1;
     }
     if (option == iCarouselOptionWrap)
     {

@@ -9,7 +9,6 @@
 
 #import "CalendarViewController.h"
 #import <JTCalendar/JTCalendar.h>
-#import <JTCalendar/JTCalendar.h>
 #import "DetailsViewController.h"
 #import "timeModel.h"
 #import "Booking.h"
@@ -20,9 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet JTHorizontalCalendarView *calendarContentView;
 @property (weak, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
-@property (weak, nonatomic) IBOutlet UIButton *startTimeButton;
-@property (weak, nonatomic) IBOutlet UIButton *endTimeButton;
-@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *endDate;
@@ -36,29 +32,41 @@
 
 @implementation CalendarViewController
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.timeModel = [[timeModel alloc] init];
-        self.colors = [ColorScheme new];
-        
-    }
-    return self;
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        self.timeModel = [[timeModel alloc] init];
+//        self.colors = [ColorScheme new];
+//
+//    }
+//    return self;
+//}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.colors = [ColorScheme new];
+    self.timeModel = [timeModel new];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-//    [self fetchBookings];
+    
     
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self init];
     [self.colors setColors];
     [self setUpUI];
-   // [self finishSetup];
     [self fetchBookings];
+    
+    
+    
+    
+//    [self.colors setColors];
+//    [self setUpUI];
+//    [self finishSetup];
+//    [self fetchBookings];
 }
 
 - (void)finishSetup {
@@ -67,7 +75,7 @@
     self.calendarManager = [JTCalendarManager new];
     self.calendarManager.delegate = self;
     
-    [self.calendarManager setMenuView:_calendarMenuView];
+  //  [self.calendarManager setMenuView:_calendarMenuView];
     [self.calendarManager setContentView:_calendarContentView];
     [self.calendarManager setDate:[NSDate date]];
 }
@@ -89,17 +97,11 @@
 }
 
 - (void)setUpUI {
-    
-    self.startTimeButton.backgroundColor = [UIColor whiteColor];
-    self.endTimeButton.backgroundColor = [UIColor whiteColor];
-    [self.startTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
-    [self.endTimeButton.titleLabel setTextColor:[UIColor whiteColor]];
-    self.startTimeButton.layer.cornerRadius = 5;
-    self.endTimeButton.layer.cornerRadius = 5;
+
 }
 
 //edits contentView (month view)
-- (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar{
+//- (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar{
 //    UILabel *label = [UILabel new];
 //    label.backgroundColor = [UIColor redColor];
 //    label.textAlignment = NSTextAlignmentCenter;
@@ -107,13 +109,13 @@
 //    [label setTextColor:[UIColor blackColor]];
 //    //label.textColor = [UIColor blackColor];
 //    return label;
-    UILabel *label = [UILabel new];
-    
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
-    
-    return label;
-}
+////    UILabel *label = [UILabel new];
+////
+////    label.textAlignment = NSTextAlignmentCenter;
+////    label.font = [UIFont fontWithName:@"Avenir-Medium" size:16];
+////
+////    return label;
+//}
 
 - (UIView<JTCalendarWeekDay> *)calendarBuildWeekDayView:(JTCalendarManager *)calendar{
     JTCalendarWeekDayView *view = [JTCalendarWeekDayView new];
@@ -171,11 +173,11 @@
     if(![self.calendarManager.dateHelper date:self.calendarContentView.date isTheSameMonthThan:dayView.date]){
         if([self.calendarContentView.date compare:dayView.date] == NSOrderedAscending){
             [self.calendarContentView loadNextPageWithAnimation];
-            [self.calendarManager setMenuView:_calendarMenuView];
+           // [self.calendarManager setMenuView:_calendarMenuView];
         }
         else{
             [self.calendarContentView loadPreviousPageWithAnimation];
-            [self.calendarManager setMenuView:_calendarMenuView];
+            //[self.calendarManager setMenuView:_calendarMenuView];
         }
     }
 }
@@ -183,12 +185,12 @@
 - (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView{
     dayView.hidden = NO;
     
-    UIColor *color = [UIColor colorWithRed:255.0f/255.0f green:139.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    UIColor *color = self.colors.mainColor;
     
     //today
     if([self.calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
         dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = self.colors.mainColor;
+        dayView.circleView.backgroundColor = self.colors.secondColor;
         dayView.dotView.backgroundColor = [UIColor whiteColor];
         dayView.textLabel.textColor = [UIColor whiteColor];
     }
@@ -214,12 +216,12 @@
             dayView.circleView.hidden = NO;
             dayView.circleView.backgroundColor = [UIColor whiteColor];
            // dayView.dotView.backgroundColor = [UIColor redColor];
-            dayView.textLabel.textColor = [UIColor darkGrayColor];
+            dayView.textLabel.textColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.5f];
         }
         else{
             //make it normal
             dayView.circleView.hidden = YES;
-            dayView.dotView.backgroundColor = [UIColor blueColor];
+            dayView.dotView.backgroundColor = [UIColor whiteColor];
             dayView.textLabel.textColor = [UIColor darkGrayColor];
         }
 
@@ -316,18 +318,18 @@
     return [firstDate compare:secondDate] == NSOrderedDescending;
 }
 //implementing this with nothing present nothing in contentview of calendar
-- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
-    static NSDateFormatter *dateFormatter;
-    if(!dateFormatter){
-        dateFormatter = [NSDateFormatter new];
-        dateFormatter.dateFormat = @"MMMM";
-        
-        dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
-        dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
-    }
-    
-    self.monthLabel.text = [dateFormatter stringFromDate:date];
-}
+//- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UIView *)menuItemView date:(NSDate *)date{
+//    static NSDateFormatter *dateFormatter;
+//    if(!dateFormatter){
+//        dateFormatter = [NSDateFormatter new];
+//        dateFormatter.dateFormat = @"MMMM";
+//        
+//        dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
+//        dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
+//    }
+//    
+//    self.monthLabel.text = [dateFormatter stringFromDate:date];
+//}
 
 //tips for pod
 

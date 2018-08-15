@@ -17,7 +17,7 @@
     // Initialization code
 }
 
-- (void)setItem:(Item *) item{
+- (void)setItem:(Item *)item{
     _item = item;
     self.nameLabel.text = item.title;
 }

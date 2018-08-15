@@ -13,10 +13,11 @@
 
 -(void)callPrevVCtoDismissKeyboard;
 -(void)fetchItems;
--(void)goToMap;
+- (void)goToMap: (BOOL)zoom;
 -(void)clearSearchBar;
 -(void)filterInMap:(NSMutableArray *)listOfItems;
 -(void)dismissHUD;
+-(void)showHUD;
 
 @end
 

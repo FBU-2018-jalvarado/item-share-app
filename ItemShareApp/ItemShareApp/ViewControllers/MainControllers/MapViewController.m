@@ -19,10 +19,16 @@
 #import <QuartzCore/QuartzCore.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import <GooglePlaces/GooglePlaces.h>
+#import "QRPopUpController.h"
+#import "SellItemViewController.h"
+#import "PreviousViewController.h"
+#import "ColorScheme.h"
+
 NSString * const CKMapViewDefaultAnnotationViewReuseIdentifier = @"customAnnotation";
 NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluster";
 
 @interface MapViewController () <GMSMapViewDelegate, CLLocationManagerDelegate, DetailsViewControllerDelegate, UISearchBarDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UILabel *fetchLabel;
 @property (weak, nonatomic) IBOutlet GMSMapView *googleMapView;
@@ -41,55 +47,72 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 @property (weak, nonatomic) IBOutlet UIButton *profileButton;
 @property (weak, nonatomic) IBOutlet UIButton *recenterButton;
 @property (weak, nonatomic) IBOutlet UIView *homeButtonBackgroundView;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
 
 @property (strong, nonatomic) NSURL *mapStyleURL;
 @property (strong, nonatomic) NSMutableArray *markersArray;
+@property (strong, nonatomic) NSMutableArray *markersItemsArray;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *QRButton;
+@property (strong, nonatomic) QRPopUpController * QRPopUpVC;
+
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
 @implementation MapViewController
 
-- (instancetype)init
+- (void)awakeFromNib
 {
-    self = [super init];
-    if (self) {
-        self.model = [[MapModel alloc] init];
-    }
-    return self;
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self init];
     
+//    self.navButton.frame =  CGRectMake(self.navButton.frame.origin.x, self.navButton.frame.origin.y+180, self.navButton.frame.size.width, self.navButton.frame.size.height);
     self.locationManager.delegate = self;
     self.searchBar.delegate = self;
     self.googleMapView.delegate = self;
     self.markersArray = [NSMutableArray new];
+    self.markersItemsArray = [NSMutableArray new];
     
-    [self setUpUIGoogle];
-    [self setUpStyle];
-    [self locationSetup];
     [self fetchItems];
+    [self setUpUIGoogle];
+   // [self setUpStyle];
+    [self locationSetup];
+   // [self fetchItems];
 }
 
 //- (UIStatusBarStyle)preferredStatusBarStyle{
 //    return UIStatusBarStyleLightContent;
 //}
 
-- (void)setUpStyle {
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSURL *styleUrl = [mainBundle URLForResource:@"styleWhite" withExtension:@"json"];
-    NSError *error;
+//- (void)setUpStyle {
+//    NSBundle *mainBundle = [NSBundle mainBundle];
+//    NSURL *styleUrl = [mainBundle URLForResource:@"styleWhite" withExtension:@"json"];
+//    NSError *error;
+//
+//    // Set the map style by passing the URL for style.json.
+//    GMSMapStyle *style = [GMSMapStyle styleWithContentsOfFileURL:styleUrl error:&error];
+//
+//    if (!style) {
+//        NSLog(@"The style definition could not be loaded: %@", error);
+//    }
+//
+//    self.googleMapView.mapStyle = style;
+//}
+
+- (void)setUpShadows {
     
-    // Set the map style by passing the URL for style.json.
-    GMSMapStyle *style = [GMSMapStyle styleWithContentsOfFileURL:styleUrl error:&error];
-    
-    if (!style) {
-        NSLog(@"The style definition could not be loaded: %@", error);
-    }
-    
-    self.googleMapView.mapStyle = style;
+
+}
+
+- (void)moveNav:(int)number {
+    self.navButton.frame =  CGRectMake(self.navButton.frame.origin.x, self.navButton.frame.origin.y+number, self.navButton.frame.size.width, self.navButton.frame.size.height);
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
@@ -98,7 +121,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 }
 
 - (void)setUpUIGoogle {
-    UIColor *color = [UIColor colorWithRed:255.0f/255.0f green:139.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+    UIColor *color = self.colors.mainColor;
     
     self.profileButton.backgroundColor = color;
     self.homeButtonBackgroundView.backgroundColor = color;
@@ -114,22 +137,34 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
     //if (abs(howRecent) < 15.0) {
     self.previousUserLocation = location;
     self.googleMapView.myLocationEnabled = YES;
-    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:location.coordinate zoom:10]];
+    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:location.coordinate zoom:12]];
 
     //}
 }
 
 //retrieve items array
 - (void)fetchItems {
+    [self.mapDelegate showHUD];
     [self.model fetchItemsWithCompletion:^(NSArray<Item *> *items, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
+            [self.mapDelegate dismissHUD];
         }
         if (items) {
             self.itemsArray = [items mutableCopy];
             self.filteredItemsArray = [items mutableCopy];
+            NSMutableArray *arr = [NSMutableArray new];
+            //check if any new items to add
+//            for(Item *item in self.filteredItemsArray){
+//                if(![self.markersItemsArray containsObject:item]){
+//                    [arr addObject:item];
+//                }
+//            }
+//            [self addMarkers:arr];
+            
             [self removeAllMarkersButUserLocation];
             [self addMarkers:self.filteredItemsArray];
+            [self.mapDelegate dismissHUD];
         } else {
             // HANDLE NO ITEMS
         }
@@ -163,17 +198,19 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
         myMarker *marker = (myMarker *)sender;
         detailsViewController.item = marker.item;
     }
+    if([segue.identifier isEqualToString:@"sellSegue"]){
+        SellItemViewController *sellController = [segue destinationViewController];
+        sellController.sellItemDelegate = self;
+    }
+
 }
 
 //Error Domain=kCLErrorDomain Code=2 "(null)"
 //cannot make too many calls to geocoder
 - (void)addMarkers: (NSMutableArray *)filteredItemsArray{ //(MKMapView*)mapView
     for(Item *item in filteredItemsArray){
-        [self addMarker:item withSizeOfArray:[filteredItemsArray count]];
-        if([filteredItemsArray count] == 1){
-            //zoom in to it
-//            self.googleMapView.camera = [GMSCameraPosition cameraWithTarget:item.coordinate zoom:10 bearing:0 viewingAngle:0];
-        }
+        [self addMyMarker:item withArraySize:[filteredItemsArray count]];
+        //[self addMarker:item withSizeOfArray:[filteredItemsArray count]];
     }
 }
 
@@ -198,6 +235,7 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
 
 - (void)addMarker: (Item *)item withSizeOfArray:(NSInteger *)size {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    NSLog(@"About to call geocoder in map VC");
     [geocoder geocodeAddressString:item.address completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if(error){
             NSLog(@"%@", error);
@@ -208,9 +246,11 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             marker.position = placemark.location.coordinate;
             marker.snippet = @"Test";
             [self.markersArray addObject:marker];
+            [self.markersItemsArray addObject:item];
             marker.title = item.title;
-            marker.icon = [UIImage imageNamed:@"dogPin2"];
+            marker.icon = [UIImage imageNamed:@"pickHole2"];
             marker.item = item;
+            marker.address = item.address;
             marker.map = self.googleMapView;
             if(size == 1){
                 [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:placemark.location.coordinate zoom:14]];
@@ -218,6 +258,24 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
             }
         }
     }];
+}
+
+- (void)addMyMarker: (Item *)item withArraySize: (NSInteger *)size {
+    myMarker *marker = [[myMarker alloc] init];
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(item.point.latitude, item.point.longitude);
+    marker.position = coordinate;
+    marker.snippet = @"Test";
+    [self.markersArray addObject:marker];
+    [self.markersItemsArray addObject:item];
+    marker.title = item.title;
+    marker.icon = [UIImage imageNamed:@"pickHole2"];
+    marker.item = item;
+    marker.address = item.address;
+    marker.map = self.googleMapView;
+    if(size == 1){
+        [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:coordinate zoom:14]];
+        // self.googleMapView.camera = [GMSCameraPosition cameraWithTarget:placemark.location.coordinate zoom:14 bearing:0 viewingAngle:0];
+    }
 }
 
 - (void)convertAddressToPlacemark: (NSString *)address withCompletion:(void(^)(CLPlacemark *placemark, NSError *error))completion
@@ -257,14 +315,23 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
         marker.map = nil;
     }
     [self.markersArray removeAllObjects];
+    [self.markersItemsArray removeAllObjects];
 }
 
 - (IBAction)recenterButtonPressed:(id)sender {
-    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:self.googleMapView.myLocation.coordinate zoom:10]];
+    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:self.googleMapView.myLocation.coordinate zoom:12]];
     //self.previousUserLocation = mapView.userLocation;
 }
 
+- (IBAction)recenterButtonTap:(id)sender {
+    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:self.googleMapView.myLocation.coordinate zoom:12]];
+}
+
+
 - (IBAction)profileButtonPressed:(id)sender {
+    [self.mapDelegate openSideProfile];
+}
+- (IBAction)menuButtonPressed:(id)sender {
     [self.mapDelegate openSideProfile];
 }
 
@@ -295,5 +362,10 @@ NSString * const CKMapViewDefaultClusterAnnotationViewReuseIdentifier = @"cluste
         }
     }];
 }
+
+- (void)zoomOutMap {
+    [self.googleMapView animateToCameraPosition:[GMSCameraPosition cameraWithTarget:self.googleMapView.myLocation.coordinate zoom:9]];
+}
+
 
 @end

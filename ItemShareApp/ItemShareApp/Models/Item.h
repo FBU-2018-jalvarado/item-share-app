@@ -20,7 +20,6 @@
 
 @property (strong, nonatomic) NSString *_Nonnull title;
 @property (strong, nonatomic) User *_Nonnull owner;
-@property (strong, nonatomic) CLLocation *_Nullable location;
 @property (strong, nonatomic) NSString *_Nullable address;
 @property (nonatomic, strong) NSMutableArray * _Nullable bookingsArray;
 @property (strong, nonatomic) NSString  * _Nonnull itemID;
@@ -30,6 +29,8 @@
 @property (strong, nonatomic) NSString *_Nullable pickedUp;
 @property (strong, nonatomic) NSNumber *_Nullable distanceToUser;
 @property (strong, nonatomic) NSString *_Nullable price;
+@property (nonatomic) CLLocation* _Nullable location;
+@property (strong, nonatomic) PFGeoPoint *point;
 
 + (void) postItem: ( NSString * _Nonnull )title withOwner:( User * _Nonnull )owner withLocation: ( CLLocation * _Nullable )location withAddress:( NSString * _Nullable )address withCategories:(NSMutableArray *_Nullable)categories withDescription:(NSString *_Nullable)descrip withImage:(NSMutableArray *_Nullable)images withPickedUpBool:(NSString *_Nullable)pickedUp withDistance: (NSNumber *_Nullable)distanceToUser withPrice:(NSString *)price withCompletion:(void(^)(Item * item, NSError *error))completion;
 

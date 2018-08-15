@@ -11,7 +11,6 @@ target 'item-share-app' do
   pod 'Parse'
   pod 'ParseUI'
   pod 'DZNEmptyDataSet'
-  pod 'Stripe'
   pod 'AFNetworking'
   pod 'JTCalendar', '~> 2.0'
   pod 'ClusterKit/MapKit'
@@ -22,5 +21,6 @@ target 'item-share-app' do
   pod 'CCTextFieldEffects'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  
 
 end

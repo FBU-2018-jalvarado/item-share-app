@@ -24,17 +24,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceWeekLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityStateZipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceMonthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *applePayButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel3;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
-
+@property NSInteger numberOfPages;
+@property (weak, nonatomic) IBOutlet UIPageControl *imagePageControl;
 @property iCarouselViewController *icarVC;
 
 @property (strong, nonatomic) ColorScheme *colors;
@@ -60,14 +64,29 @@
 }
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self.colors setColors];
     [self setUpUI];
+    self.imagePageControl.numberOfPages = self.item.images.count;
     [self.icarVC reload];
     //check if payments are authorized. If not, the pay button will be hidden
     // self.applePayButton.hidden = ![PKPaymentAuthorizationViewController canMakePaymentsUsingNetworks:self.supportedPaymentNetworks];
+    [self setUpGradient];
+    
+}
+
+
+
+- (void)setUpGradient{
+    CAGradientLayer *topGradient = [CAGradientLayer layer];
+    topGradient.frame = self.topView.bounds;
+    topGradient.colors = [NSArray arrayWithObjects:(id)[UIColor whiteColor].CGColor, (id)[UIColor colorWithWhite:1 alpha:0].CGColor, nil];
+    // used for testing
+    //    topGradient.colors = [NSArray arrayWithObjects:(id)[UIColor blueColor].CGColor, (id) [UIColor blackColor], nil];
+    //    topGradient.locations = @[@0.0, @1.0];
+    //Add gradient to view
+    [self.topView.layer addSublayer:topGradient];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -76,23 +95,27 @@
 
 - (void)setUpUI {
     
-    self.backButton.backgroundColor = [UIColor clearColor];
+//    self.backButton.backgroundColor = self.colors.mainColor;
     self.backButton.layer.cornerRadius = 5;
-    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.backButton.layer.borderWidth = 1;
+//    self.backButton.layer.borderColor = [UIColor whiteColor].CGColor;
+//    self.backButton.layer.borderWidth = 1;
     //image setup
     self.itemImageView.file = [self.item.images firstObject];
     [self.itemImageView loadInBackground];
+    self.itemImageView.contentMode = UIViewContentModeScaleToFill;
     
     //text setup
     self.titleLabel.text = self.item.title;
-    self.addressLabel.text = self.item.address;
-    NSString *strng = [[[[self.item.categories[0] stringByAppendingString:@", "] stringByAppendingString:self.item.categories[1]] stringByAppendingString:@", "] stringByAppendingString:self.item.categories[2]];
-
-    self.categoryLabel.text = strng;
+    [self setUpAddress];
+//    NSString *strng = [[[[self.item.categories[0] stringByAppendingString:@", "] stringByAppendingString:self.item.categories[1]] stringByAppendingString:@", "] stringByAppendingString:self.item.categories[2]];
+//
+//    self.categoryLabel.text = strng;
+    self.categoryLabel.text = self.item.categories[0];
+    self.categoryLabel2.text = self.item.categories[1];
+    self.categoryLabel3.text = self.item.categories[2];
     self.priceLabel.text = self.item.price;
-    self.priceWeekLabel.text = [@([self.item.price doubleValue] * 6.5) stringValue];
-    self.priceMonthLabel.text = [@([self.item.price integerValue] * 24) stringValue];
+    self.priceWeekLabel.text = [@([self.item.price doubleValue] * 6) stringValue];
+    self.priceMonthLabel.text = [@([self.item.price integerValue] * 22) stringValue];
 
     [self.descriptionLabel sizeToFit];
     self.descriptionLabel.text = self.item.descrip;
@@ -106,6 +129,13 @@
     
 }
 
+- (void) setUpAddress {
+//    self.addressLabel.text = self.item.address;
+    NSArray *formattedAddressarr = [self.item.address componentsSeparatedByString:@", "];
+    self.addressLabel.text = formattedAddressarr[0];
+    self.cityStateZipLabel.text = [NSString stringWithFormat:@"%@, %@", formattedAddressarr[1], formattedAddressarr[2]];
+}
+
 - (void)updateDateUI {
     //date setup
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -116,17 +146,30 @@
     if(self.selectedEndDate){
        // self.endTimeLabel.text = [formatter stringFromDate:self.selectedEndDate];
     }
+    
+    NSNumberFormatter *numfort = [[NSNumberFormatter alloc] init];
+    [numfort setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numfort setCurrencySymbol:@""];
+
     if(self.selectedStartDate && self.selectedEndDate){
         NSInteger days = [self daysBetween:self.selectedStartDate and:self.selectedEndDate];
         if(days < 7){
-            self.totalPriceLabel.text = [@(days * [self.item.price integerValue]) stringValue];
+            double price = days * [self.item.price integerValue];
+            // formatting to make it look like a decimal
+//            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
+//            NSString *formattedPrice = [numfort stringFromNumber:decnum];
+//            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int) price];
         }
         else if(days < 30){
-            
             //NSInteger weeks = [@(days/7) integerValue];
             double weeks = (double)days/7;
-            double price = weeks * 6.5;
-            self.totalPriceLabel.text = [NSString stringWithFormat:@"%.02f", price];
+            double price = weeks * 6 * [self.item.price integerValue];
+            // formatting to make it look like a decimal
+//            NSDecimalNumber *decnum = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%f", price]];
+//            NSString *formattedPrice = [numfort stringFromNumber:decnum];
+//            self.totalPriceLabel.text = [NSString stringWithFormat:@"%@", formattedPrice];
+            self.totalPriceLabel.text = [NSString stringWithFormat:@"%d", (int) price];
         }
     }
 }
@@ -253,6 +296,7 @@
         iCarouselViewController *icarVC = [segue destinationViewController];
         //self.imageArray = [[NSMutableArray alloc] init];
         //[self.imageArray addObject:[UIImage imageNamed:@"placeholderImageSmall"]];
+        icarVC.delegate = self;
         icarVC.images = [[NSMutableArray alloc] init];
         icarVC.images = self.item.images;
         icarVC.parentVC = @"detail";
@@ -306,8 +350,8 @@
 
 //how to see entire method in autofill
 - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller didAuthorizePayment:(PKPayment *)payment handler:(void (^)(PKPaymentAuthorizationResult * _Nonnull))completion{
-        completion(PKPaymentAuthorizationStatusSuccess);
-    [self performSelector:@selector(bookingFinished) withObject:nil afterDelay:2.0 ];
+    completion(PKPaymentAuthorizationStatusSuccess);
+    [self performSelector:@selector(bookingFinished) withObject:nil afterDelay:2.0];
 
 }
 
@@ -325,6 +369,10 @@
 
 - (void)dismiss {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)updatePage:(NSInteger)index {
+    self.imagePageControl.currentPage = index;
 }
 
 @end

@@ -8,10 +8,11 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import <Stripe/Stripe.h>
+//#import <Stripe/Stripe.h>
 #import "User.h"
 @import GoogleMaps;
 @import GooglePlaces;
+#import "ColorScheme.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,7 @@
 //secret key: sk_test_MjyFzJARb2W8Hv64H0S6xkDw
 //"/v1/charges/ch_1CpUe7COBvIU783dD9UyWCWB/refunds"
 //https://api.stripe.com
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -61,13 +63,15 @@
     
     //STRIPE
 //    [Stripe setDefaultPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
-    
-    [[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
+     UIColor *mainColor =  [UIColor colorWithRed:76.0f/255.0f green:213.0f/255.0f blue:175.0f/255.0f alpha:1.0f];
+    //[[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_rb7fRQNGpRY8vrrc2EkQEfif"];
     // do any other necessary launch configuration
-    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:
-     @{NSForegroundColorAttributeName:[UIColor whiteColor],
-       NSFontAttributeName:[UIFont fontWithName:@"Optima-Bold" size:21]}];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:mainColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+//    [[UINavigationBar appearance] setTitleTextAttributes:
+//     @{NSForegroundColorAttributeName:[UIColor whiteColor],
+//       NSFontAttributeName:[UIFont fontWithName:@"System-Bold" size:21]}];
     return YES;
 
 }

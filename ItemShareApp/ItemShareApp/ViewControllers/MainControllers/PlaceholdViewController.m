@@ -15,8 +15,9 @@
 #import "Parse.h"
 #import "MapViewController.h"
 #import "Category.h"
+#import "ColorScheme.h"
 
-@interface PlaceholdViewController () <UISearchBarDelegate>
+@interface PlaceholdViewController () <UISearchBarDelegate, CategoriesViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *categoryCollV;
 @property (weak, nonatomic) IBOutlet UIView *catAndItemTableV;
 @property CategoriesViewController *categoryCollectionView;
@@ -26,36 +27,78 @@
 @property (strong, nonatomic) NSMutableArray *filteredCategoryArray;
 @property (strong, nonatomic) NSMutableArray *categoryArray;
 @property(nonatomic, strong) UIBarButtonItem *backBarButtonItem;
+@property (strong, nonatomic) ColorScheme *colors;
+
 @end
 
 @implementation PlaceholdViewController
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.fetchView.backgroundColor = [UIColor orangeColor];
-    self.searchBar.barTintColor = [UIColor orangeColor];
+    self.fetchView.backgroundColor = self.colors.mainColor;
+//    self.fetchView.backgroundColor = [UIColor blueColor];
+//    self.fetchView.clipsToBounds = YES;
+//    self.fetchView.layer.cornerRadius = 5;
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.fetchView.bounds byRoundingCorners:UIRectCornerTopLeft| UIRectCornerTopRight cornerRadii:CGSizeMake(10.0, 10.0)];
+    // Create the shape layer and set its path
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = self.fetchView.bounds;
+    maskLayer.path = maskPath.CGPath;
+    // Set the newly created shape layer as the mask for the image view's layer
+    self.fetchView.layer.mask = maskLayer;
+    UIBezierPath *maskPath1 = [UIBezierPath bezierPathWithRoundedRect:self.searchBar.bounds byRoundingCorners:UIRectCornerTopLeft| UIRectCornerTopRight cornerRadii:CGSizeMake(15.0, 15.0)];
+    // Create the shape layer and set its path
+    CAShapeLayer *maskLayer1 = [CAShapeLayer layer];
+    maskLayer1.frame = self.searchBar.bounds;
+    maskLayer1.path = maskPath1.CGPath;
+    // Set the newly created shape layer as the mask for the image view's layer
+    self.searchBar.layer.mask = maskLayer1;
+//    self.fetchView.layer.maskedCorners = [self.fetchView.minx.layerMinXMinYCorner,.layerMaxXMinYCorner];
+    self.searchBar.barTintColor = self.colors.mainColor;
     self.searchBar.layer.borderWidth = 1;
-    self.searchBar.layer.borderColor = [[UIColor orangeColor] CGColor];
+    self.searchBar.layer.borderColor = self.colors.mainColor.CGColor;
     // from SearchBar
     self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"Try \"guitar\"";
     self.categoryArray = [[NSMutableArray alloc] init];
     Category *category = [[Category alloc] init];
     [category setCats];
-    self.categoryArray = category.catArray;
+    self.categoryArray = [category.catArray mutableCopy];
+    
+    [self.searchBar resignFirstResponder];
     
     [self fetchItems];
     // Do any additional setup after loading the view.
 }
 
 - (IBAction)fetchSearch:(id)sender {
-    [self showSearch];
+    [self showSearch:YES];
 }
 
-- (void)showSearch {
+
+
+- (void)showSearch:(BOOL)shouldGoUp {
     [UIView animateWithDuration:0.5 animations:^{
         self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x-375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
         self.fetchView.alpha = 0;
-        [self.placeholderDelegate showSearchView];
+        if(shouldGoUp)
+        {
+            [self.placeholderDelegate showSearchView];
+            [self.searchBar resignFirstResponder];
+        }
+    }];
+}
+
+- (void)showSearchSlow {
+    [UIView animateWithDuration:1.0 animations:^{
+        self.fetchView.frame = CGRectMake(self.fetchView.frame.origin.x-375, self.fetchView.frame.origin.y, self.fetchView.frame.size.width, self.fetchView.frame.size.height);
+        self.fetchView.alpha = 0;
     }];
 }
 
@@ -67,21 +110,26 @@
 }
 
 - (IBAction)onTapMap:(id)sender {
-    [self.placeholderDelegate dismissToMap];
+    [self.placeholderDelegate dismissToMap:NO];
 }
 
-- (void)goToMap {
-    [self.placeholderDelegate dismissToMap];
+- (void)goToMap: (BOOL)zoom {
+    [self.placeholderDelegate dismissToMap:zoom];
 }
  // from SearchBar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.view endEditing:YES];
-    [self.placeholderDelegate dismissToMap];
+    [self.placeholderDelegate dismissToMap:NO];
 }
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
-    self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
+    if(searchBar.text.length == 0)
+    {
+        //get rid of the "no items avail because its covering the category coll view since its alpha is 1 but not showing yet on the view"
+    }
     [self.placeholderDelegate showSearchView];
+    self.catAndItemTableViewController.catAndItemTableView.alpha = 1;
+    //[self.placeholderDelegate showSearchView];
     [self filterInMap:self.catAndItemTableViewController.itemRows];
 }
 
@@ -90,10 +138,10 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    //[self.placeholderDelegate showSearchView];
     if (searchText.length != 0) {
         //UI
         [self startTypingFormat];
-
         // filter the items array
         NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Item *evaluatedObject, NSDictionary *bindings) {
             return [self inInsensitive:evaluatedObject.title withSearchText:searchText];
@@ -112,7 +160,7 @@
     else {
         //UI
         [self emptyTextBarFormat];
-        
+        // also disable the item not avail
         // along w all items and categories in the table view
         
         self.filteredItemsArray = self.itemsArray;
@@ -166,7 +214,7 @@
         CategoriesViewController *categoriesViewController = [navVC.viewControllers firstObject];
 //        [categoriesViewController.navigationItem.backBarButtonItem] = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         categoriesViewController.firstPage = YES;
-        categoriesViewController.title = @"Categories";
+        categoriesViewController.title = @"What are you looking for?";
         categoriesViewController.delegate = self;
     }
     if([segue.identifier isEqualToString:@"catAndItemTableSegue"])
@@ -180,8 +228,12 @@
     [self.placeholderDelegate dismissHUD];
 }
 
+- (void)showHUD {
+    [self.placeholderDelegate showHUD];
+}
+
 - (void)fetchItems {
-    
+    [self.placeholderDelegate showHUD];
     PFQuery *itemQuery = [Item query];
     //PFQuery *itemQuery = [PFQuery queryWithClassName:@"Item"];
     [itemQuery orderByDescending:@"createdAt"];
@@ -195,6 +247,7 @@
     [itemQuery findObjectsInBackgroundWithBlock:^(NSArray<Item *> * _Nullable items, NSError * _Nullable error) {
         if(error != nil)
         {
+            NSLog(@"%@", error);
             NSLog(@"ERROR GETTING THE ITEMS!");
             [self.placeholderDelegate dismissHUD];
         }
@@ -212,9 +265,10 @@
                 self.catAndItemTableViewController.itemRows = self.itemsArray;
                 NSLog(@"SUCCESSFULLY RETREIVED ITEMS!");
                 [self.catAndItemTableViewController.catAndItemTableView reloadData];
-                
+                [self filterInMap:self.filteredItemsArray];
                 // stop displaying HUD
                 [self.placeholderDelegate dismissHUD];
+                [self.searchBar resignFirstResponder];
             }
         }
     }];
@@ -237,11 +291,15 @@
 
 // delegate function to only display filtered items in map
 - (void)filterInMap:(NSMutableArray *)listOfItems {
-    [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
     [self.placeholderDelegateMap removeAnnotationsInMap];
+    [self.placeholderDelegateMap addAnnotationsInMap:listOfItems];
 }
 
-- (void)showHUD {
-    [self.placeholderDelegate showHUD];
+// delegate to reload table view
+- (void) reloadTable:(NSMutableArray *)items {
+    self.catAndItemTableViewController.itemRows = [[NSMutableArray alloc] init];
+    self.catAndItemTableViewController.itemRows = items;
+    [self.catAndItemTableViewController.catAndItemTableView reloadData];
 }
+
 @end

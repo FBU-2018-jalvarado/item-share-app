@@ -100,7 +100,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/CCTextFieldEffects/CCTextFieldEffects/pencil.png"
@@ -111,7 +110,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj"
   install_resource "${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj"
-  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/Stripe/Stripe.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

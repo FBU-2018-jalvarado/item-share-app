@@ -12,7 +12,7 @@
 
 @protocol PlaceholderViewControllerDelegate
 
-- (void)dismissToMap;
+- (void)dismissToMap: (BOOL)zoom;
 - (void)showSearchView;
 - (void)dismissKeyboard;
 - (void)showHUD;
@@ -24,7 +24,7 @@
 
 - (void)addAnnotationsInMap:(NSMutableArray*)filteredItemArray;
 - (void)removeAnnotationsInMap;
-
+- (void)zoomOut;
 
 @end
 
@@ -37,7 +37,8 @@
 @property CatAndItemTableViewController *catAndItemTableViewController;
 //@property (weak, nonatomic) IBOutlet UIImageView *grayBar;
 @property (weak, nonatomic) IBOutlet UIView *fetchView;
-- (void)showSearch;
+- (void)showSearch:(BOOL)shouldGoUp;
+- (void)showSearchSlow;
 - (void)hideSearch;
 
 @end

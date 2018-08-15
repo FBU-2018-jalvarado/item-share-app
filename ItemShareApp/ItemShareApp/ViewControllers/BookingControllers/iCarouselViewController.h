@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
 
+@protocol iCarouselViewControllerDelegate
+
+- (void)updatePage:(NSInteger)index;
+- (void)choosePic:(BOOL) oldPic;
+
+@end
+
 @interface iCarouselViewController : UIViewController <iCarouselDataSource, iCarouselDelegate>
 @property (nonatomic, strong) IBOutlet iCarousel *carousel;
 @property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) NSString *parentVC;
 - (void)reload;
+@property (nonatomic, weak) id <iCarouselViewControllerDelegate> delegate;
 @end
 

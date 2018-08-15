@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickUpPopUpController">
+            <connections>
+                <outlet property="checkImage" destination="Zgj-ed-HiF" id="dU5-DT-yci"/>
+                <outlet property="itemLabel" destination="vYc-hB-Ff8" id="oQb-bm-LF1"/>
+                <outlet property="okButton" destination="UG4-By-4ts" id="mPc-ya-OpF"/>
+                <outlet property="popUpView" destination="nB9-Np-ksV" id="Nlx-e4-dkF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nB9-Np-ksV">
+                    <rect key="frame" x="56" y="146" width="265" height="278"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYc-hB-Ff8">
+                            <rect key="frame" x="8" y="156" width="249" height="23"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Up Confirmed! " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAQ-S6-mkY">
+                            <rect key="frame" x="18" y="127" width="229.5" height="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UG4-By-4ts">
+                            <rect key="frame" x="105" y="195" width="52" height="30"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="OK"/>
+                            <connections>
+                                <action selector="closePopup:" destination="-1" eventType="touchUpInside" id="0pJ-SM-sOW"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greenCheck" translatesAutoresizingMaskIntoConstraints="NO" id="Zgj-ed-HiF">
+                            <rect key="frame" x="101" y="41" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="YAQ-S6-mkY" firstAttribute="leading" secondItem="nB9-Np-ksV" secondAttribute="leading" constant="18" id="GZR-hh-m3u"/>
+                        <constraint firstItem="vYc-hB-Ff8" firstAttribute="leading" secondItem="nB9-Np-ksV" secondAttribute="leading" constant="8" id="NLK-ft-PTG"/>
+                        <constraint firstItem="UG4-By-4ts" firstAttribute="leading" secondItem="nB9-Np-ksV" secondAttribute="leading" constant="105" id="OL6-fl-7t0"/>
+                        <constraint firstAttribute="trailing" secondItem="YAQ-S6-mkY" secondAttribute="trailing" constant="17.5" id="Wmw-00-SiZ"/>
+                        <constraint firstItem="vYc-hB-Ff8" firstAttribute="top" secondItem="YAQ-S6-mkY" secondAttribute="bottom" constant="6" id="fxZ-KT-I8L"/>
+                        <constraint firstItem="UG4-By-4ts" firstAttribute="top" secondItem="vYc-hB-Ff8" secondAttribute="bottom" constant="16" id="ixQ-j2-Aeb"/>
+                        <constraint firstAttribute="trailing" secondItem="vYc-hB-Ff8" secondAttribute="trailing" constant="8" id="pw5-9i-bwP"/>
+                        <constraint firstAttribute="trailing" secondItem="UG4-By-4ts" secondAttribute="trailing" constant="108" id="rbt-oO-zti"/>
+                        <constraint firstItem="YAQ-S6-mkY" firstAttribute="top" secondItem="nB9-Np-ksV" secondAttribute="top" constant="127" id="ybH-tk-awS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="nB9-Np-ksV" secondAttribute="trailing" constant="54" id="Lf9-vw-Cof"/>
+                <constraint firstItem="nB9-Np-ksV" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="126" id="RZs-Uc-goh"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="nB9-Np-ksV" secondAttribute="bottom" constant="243" id="lmc-SF-nGa"/>
+                <constraint firstItem="nB9-Np-ksV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="56" id="nXj-j0-XjL"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="62.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="greenCheck" width="256" height="256"/>
+    </resources>
+</document>

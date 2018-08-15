@@ -13,12 +13,13 @@
 #import "PlaceholdViewController.h"
 #import "MapViewController.h"
 #import "ProfileViewController.h"
+#import "ColorScheme.h"
 
 #define GIF_WIDTH 450
 #define GIF_HEIGHT 276
 #define SCALE 0.4
 
-@interface PreviousViewController () <MapViewControllerDelegate>
+@interface PreviousViewController () <MapViewControllerDelegate, PlaceholderViewControllerDelegate, CatAndItemTableViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *searchView;
 @property (strong, nonatomic ) MapViewController *mapController;
 @property (weak, nonatomic) IBOutlet UIView *profileView;
@@ -32,11 +33,18 @@
 @property (weak, nonatomic) IBOutlet UIImageView *grayBar;
 @property (weak, nonatomic) IBOutlet UIImageView *downArrow;
 @property (weak, nonatomic) IBOutlet UIImageView *upArrow;
+@property (strong, nonatomic) ColorScheme *colors;
 
 @end
 
 //map rename
 @implementation PreviousViewController
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.colors = [ColorScheme defaultScheme];
+}
 
 // adjust arrow view and search view origin.y
 - (void)arrowAndSearchViewMove:(int)move {
@@ -49,25 +57,43 @@
     self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame = CGRectMake(self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.x, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.origin.y, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.width, self.placeholdViewController.catAndItemTableViewController.catAndItemTableView.frame.size.height+move);
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.upArrow.alpha = 0;
+    self.downArrow.alpha = 0;
     // move searchView to bottom to raise to top when pressed
-    [self arrowAndSearchViewMove:201];
-    [self arrowAndSearchViewMove:261];
-    [self moveArrows:-207];
-    [self moveArrows:-261];
+    [self arrowAndSearchViewMove:462];
+    [self moveArrows:-468];
+//    [self tableViewMove:462];
+    //show how it comes up
+    [UIView animateWithDuration:1.2 animations:^{
+        [self arrowAndSearchViewMove:-200];
+        [self tableViewMove:-262];
+        self.upArrow.alpha = 0;
+        //                self.downArrow.alpha = 1;
+        self.grayBar.alpha = 1;
+        [self moveArrows:200];
+        [self.mapController moveNav:-200];
+        //[self.placeholdViewController.searchBar becomeFirstResponder];
+    }];
+    if(self.placeholdViewController.fetchView.frame.origin.x == 0)
+    {
+        [self.placeholdViewController showSearchSlow];
+    }
+//    [self arrowAndSearchViewMove:262];
+//    [self moveArrows:-270];
     // move profileView out of screen to bring in later
     self.profileView.frame = CGRectMake(self.profileView.frame.origin.x -297, self.profileView.frame.origin.y, self.profileView.frame.size.width, self.profileView.frame.size.height);
     // adjust table view size
-    [self tableViewMove:-201];
+//    [self tableViewMove:99];
+//    self.grayBar.alpha = 0;
+//    self.upArrow.alpha = 1;
     self.grayBar.alpha = 1;
     self.upArrow.alpha = 0;
     self.downArrow.alpha = 0;
     
     // HUD
-    [self showHUD];
+    //[self showHUD];
     
     // BlurView
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
@@ -85,7 +111,7 @@
 
 - (IBAction)swipeDown:(id)sender {
     if (self.blackView.alpha == 0){
-        [self dismissToMap];
+        [self dismissToMap:NO];
     }
 }
 - (IBAction)arrowUp:(id)sender {
@@ -93,7 +119,20 @@
 }
 
 - (IBAction)arrowDown:(id)sender {
-    [self dismissToMap];
+    [self dismissToMap:NO];
+}
+
+- (IBAction)tapArrow:(id)sender {
+    if(self.searchView.frame.origin.y == 611)
+    {
+        [self showSearchView];
+    }
+    else if(self.searchView.frame.origin.y == 50)
+    {
+        [self dismissToMap:NO];
+    }
+    else {
+    }
 }
 
 -(void) showHUD {
@@ -102,7 +141,8 @@
     }
     else {
         [self setUpGifView];
-        [self.view addSubview:self.gifView];
+        [self.view insertSubview:self.gifView belowSubview:_profileView];
+//        [self.view addSubview:self.gifView];
     }
 }
 
@@ -110,7 +150,7 @@
     self.gifView.alpha = 0;
 }
 
--(void) setUpGifView {
+- (void) setUpGifView {
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
     
@@ -118,6 +158,8 @@
     FLAnimatedImageView *imageView = [[FLAnimatedImageView alloc] init];
     imageView.animatedImage = self.gifImage;
     imageView.frame = CGRectMake((width / 2) - ((GIF_WIDTH * SCALE) / 2), (height / 2) - ((GIF_HEIGHT * SCALE) / 2), (GIF_WIDTH * SCALE), (GIF_HEIGHT * SCALE));
+    imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    imageView.layer.borderWidth = 1;
     
     self.gifView = imageView;
 }
@@ -155,88 +197,100 @@
 }
 
 - (IBAction)swipeUp:(id)sender {
-    // middle to top
-    if(self.searchView.frame.origin.y == 350 && self.blackView.alpha == 0)
-    {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-201];
-            [self tableViewMove:201];
-            self.grayBar.alpha = 0;
-            self.downArrow.alpha = 1;
-            [self moveArrows:201];
-        }];
-        [self createBlur];
-    }
-    // bottom to middle
-    if(self.searchView.frame.origin.y == 611)
-    {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-261];
-            [self tableViewMove:261];
-            self.grayBar.alpha = 1;
-            self.upArrow.alpha = 0;
-            [self moveArrows:261];
-        }];
-        [self.placeholdViewController showSearch];
-    }
-}
-
-- (void)showSearchView {
-    // middle to top
-    if(self.searchView.frame.origin.y == 350)
-    {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:-201];
-            [self tableViewMove:201];
-            self.grayBar.alpha = 0;
-            self.downArrow.alpha = 1;
-            [self moveArrows:201];
-        }];
-        [self.placeholdViewController.searchBar becomeFirstResponder];
-        [self createBlur];
-    }
-    else // bottom to middle
+    if(self.blackView.alpha == 0)
     {
         if(self.searchView.frame.origin.y == 611)
         {
             [UIView animateWithDuration:0.5 animations:^{
-                [self arrowAndSearchViewMove:-261];
-                self.grayBar.alpha = 1;
+                [self arrowAndSearchViewMove:-200];
                 self.upArrow.alpha = 0;
-                [self moveArrows:261];
+//                self.downArrow.alpha = 1;
+                self.grayBar.alpha = 1;
+                [self moveArrows:200];
+                [self.mapController moveNav:-200];
+                //[self.placeholdViewController.searchBar becomeFirstResponder];
             }];
-            if(self.placeholdViewController.fetchView.frame.origin.x == 0)
-            {
-                [self.placeholdViewController showSearch];
-            }
-            //[self tableViewMove:297];
+//            [self createBlur];
+            [self.placeholdViewController showSearch:NO];
+        }
+        else if(self.searchView.frame.origin.y == 411)
+        {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self arrowAndSearchViewMove:-361];
+//                self.upArrow.alpha = 0;
+                self.grayBar.alpha = 0;
+                self.downArrow.alpha = 1;
+                [self moveArrows:361];
+                [self.mapController moveNav:-361];
+                [self tableViewMove:361];
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.mapController.navButton.alpha = 0;
+                }];
+                [self.placeholdViewController.searchBar becomeFirstResponder];
+            }];
+            [self createBlur];
+            //[self.placeholdViewController showSearch];
         }
     }
 }
 
-- (void)dismissToMap {
-    // middle to bottom
-    if(self.searchView.frame.origin.y == 350)
+- (void)showSearchView {
+    if(self.blackView.alpha == 0)
     {
-        [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:261];
-            self.grayBar.alpha = 0;
-            self.upArrow.alpha = 1;
-            [self moveArrows:-261];
-        }];
-        [self.placeholdViewController hideSearch];
-        //[self tableViewMove:-297];
+        if(self.searchView.frame.origin.y == 611)
+        {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self arrowAndSearchViewMove:-200];
+                self.upArrow.alpha = 0;
+//                self.downArrow.alpha = 1;
+                self.grayBar.alpha = 1;
+                [self moveArrows:200];
+                [self.mapController moveNav:-200];
+                //[self.placeholdViewController.searchBar becomeFirstResponder];
+            }];
+            if(self.placeholdViewController.fetchView.frame.origin.x == 0)
+            {
+                [self.placeholdViewController showSearch:NO];
+            }
+            //[self createBlur];
+        }
+        else if(self.searchView.frame.origin.y == 411)
+        {
+            [UIView animateWithDuration:0.5 animations:^{
+                [self arrowAndSearchViewMove:-361];
+//                self.upArrow.alpha = 0;
+                self.grayBar.alpha = 0;
+                self.downArrow.alpha = 1;
+                [self moveArrows:361];
+                [self.mapController moveNav:-361];
+                [self tableViewMove:361];
+                [self.placeholdViewController.searchBar becomeFirstResponder];
+            }];
+            [UIView animateWithDuration:0.3 animations:^{
+                self.mapController.navButton.alpha = 0;
+            }];
+//            if(self.placeholdViewController.fetchView.frame.origin.x == 0)
+//            {
+//                [self.placeholdViewController showSearch];
+//            }
+            [self createBlur];
+        }
     }
-    // top to middle
-    if(self.searchView.frame.origin.y == 149)
+}
+
+- (void)dismissToMap: (BOOL)zoom; {
+    if(self.searchView.frame.origin.y == 50)
     {
         [UIView animateWithDuration:0.5 animations:^{
-            [self arrowAndSearchViewMove:201];
-            [self tableViewMove:-201];
-            self.grayBar.alpha = 1;
+            [self arrowAndSearchViewMove:361];
+            [self tableViewMove:-361];
             self.downArrow.alpha = 0;
+//            self.upArrow.alpha = 1;
+            self.grayBar.alpha = 1;
             self.blurredView.alpha = 0;
-            [self moveArrows:-201];
+            [self moveArrows:-361];
+            [self.mapController moveNav:361];
+            self.mapController.navButton.alpha = 1;
         }
         completion:^(BOOL finished){
             if (finished) {
@@ -244,8 +298,36 @@
                 //[self.blurredView removeFromSuperview];
             }
         }];
+        //[self.placeholdViewController hideSearch];
+        if(zoom){
+            [self.mapController zoomOutMap];
+        }
+        [self.view endEditing:YES];
     }
-    [self.view endEditing:YES];
+    
+    else if(self.searchView.frame.origin.y == 411)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self arrowAndSearchViewMove:200];
+//            self.downArrow.alpha = 0;
+            self.grayBar.alpha = 0;
+            self.upArrow.alpha = 1;
+            self.blurredView.alpha = 0;
+            [self moveArrows:-200];
+            [self.mapController moveNav:200];
+        }
+                         completion:^(BOOL finished){
+                             if (finished) {
+                                 // Do your method here after your animation.
+                                 //[self.blurredView removeFromSuperview];
+                             }
+                         }];
+        [self.placeholdViewController hideSearch];
+        if(zoom){
+            [self.mapController zoomOutMap];
+        }
+        [self.view endEditing:YES];
+    }
 }
 
 - (void)moveArrows:(int)num {
