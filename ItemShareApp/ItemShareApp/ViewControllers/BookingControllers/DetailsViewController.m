@@ -59,7 +59,7 @@
     [super awakeFromNib];
     self.timeModel = [timeModel new];
     self.colors = [ColorScheme defaultScheme];
-    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
+    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex, PKPaymentNetworkDiscover];
     self.fetchMerchantID = @"merchant.com.nicolas.Fetch";
 }
 
@@ -249,7 +249,7 @@
     request.countryCode = @"US"; //add more if want international transactions
     request.currencyCode = @"USD";
     
-    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex];
+    self.supportedPaymentNetworks = @[PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex, PKPaymentNetworkDiscover];
     NSDecimalNumber *price = [NSDecimalNumber decimalNumberWithString:self.totalPriceLabel.text];
     request.paymentSummaryItems = @[[PKPaymentSummaryItem summaryItemWithLabel:self.titleLabel.text amount:price], [PKPaymentSummaryItem summaryItemWithLabel:@"Fetch&Co" amount:price]];
     

@@ -273,7 +273,7 @@ didFailAutocompleteWithError:(NSError *)error {
     Item *itemToBeSold = [Item new];
     User *owner = (User*)[PFUser currentUser];
 
-
+    [self.postButton setTitle:@"Posting ..." forState:UIControlStateNormal];
     [Item postItem:self.itemTextField.text withOwner:owner withLocation:nil withAddress:self.formattedAddress withCategories:self.categoryArray withDescription:self.descripLabel.text withImage:self.imageArray withPickedUpBool:@"NO" withDistance:nil withPrice:self.priceTextField.text withCompletion:^(Item *item, NSError *error) {
         if(error)
         {

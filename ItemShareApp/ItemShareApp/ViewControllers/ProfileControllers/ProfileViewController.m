@@ -12,6 +12,8 @@
 #import "QRPopUpController.h"
 #import "ItemHistoryDetailViewController.h"
 #import "ColorScheme.h"
+#import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @interface ProfileViewController () 
 
@@ -106,6 +108,12 @@
     }
 }
 
-
+- (IBAction)logoutButtonPressed:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"loginStoryboard" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    appDelegate.window.rootViewController = loginViewController;
+    [PFUser logOutInBackground];
+}
 
 @end
